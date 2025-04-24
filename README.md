@@ -1,4 +1,4 @@
-# FX880PDeTokenizer
+# Casio FX-880P DeTokenizer
 
 ![Image](https://github.com/user-attachments/assets/640a7728-1324-42bf-9c14-ec601b730d42)
 
