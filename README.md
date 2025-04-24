@@ -18,4 +18,6 @@ In Visual Studio you can set the Debug Options in the Project Properties to:
 
 This will untokenize the included sample image and output the result in the resources folder starting at an offset of 0.
 
+Note that this program currently does not yet read the start and end address vectors for program areas P0-P9. It scours the entire file (starting at the optional offset) and outputs all valid BASIC lines it finds.  This means it could output previously deleted lines, deleted programs, partial programs in addition to the current valid programs.
+
 I can be contacted at jbertier@arrl.net
