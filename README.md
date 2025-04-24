@@ -1,5 +1,7 @@
 # FX880PDeTokenizer
 
+![Image](https://github.com/user-attachments/assets/640a7728-1324-42bf-9c14-ec601b730d42)
+
 This program is designed to decompile or "untokenize" BASIC stored within a Casio FX-880P.  The input to the program is a binary image of memory dumped from the FX-880P (using a serial interface such as an FA-6 or homebrew) and the output of the program is ASCII BASIC (the source).  This project is a work in progress and will be updated as I find gaps or bugs.
 
 I searched the interwebs for a program that will do this, as I wanted to look at the BASIC source for the 116 built-in scientific library functions in the ROM of the pocket computer.  I was unable to find anything specific for the Casio FX-880P.  The closest application I found was Marcus von Cube's CASsette IO Utilities (https://www.mvcsys.de/doc/casioutil.html) and LIST850 looked promising.  However, I was unable to output any source and ran into an error.
