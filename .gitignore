@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/FX880PDetokenizer/bin/Debug
+/.vs
+/FX880PDetokenizer/obj
+/packages/CommandLineParser.2.9.1
