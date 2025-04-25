@@ -52,18 +52,20 @@ namespace FX880PDetokenizer
 
             d.DeTokenize();
 
-            File.WriteAllText(_opts.OutputFile, d.GetOutput());
-
-            string filenameBase = Path.GetFileNameWithoutExtension(_opts.OutputFile);
-            string filenameExt = Path.GetExtension(_opts.OutputFile);
-            string filenameBaseDir = Path.GetDirectoryName(_opts.OutputFile);
-
             if( d.HasProgramAreas )
             {
-                foreach( ProgramArea pa in d.programAreas.Where(a=>a.source != string.Empty))
+                string filenameBase = Path.GetFileNameWithoutExtension(_opts.OutputFile);
+                string filenameExt = Path.GetExtension(_opts.OutputFile);
+                string filenameBaseDir = Path.GetDirectoryName(_opts.OutputFile);
+
+                foreach ( ProgramArea pa in d.programAreas.Where(a=>a.source != string.Empty))
                 {
                     File.WriteAllText(Path.Combine(filenameBaseDir, filenameBase + pa.ProgramNumber + filenameExt), pa.source);
                 }
+            }
+            else
+            {
+                File.WriteAllText(_opts.OutputFile, d.GetAllSources());
             }
 
             return 0;
