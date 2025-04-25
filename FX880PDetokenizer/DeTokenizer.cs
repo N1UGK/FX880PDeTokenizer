@@ -72,9 +72,12 @@ namespace FX880PDetokenizer
 
             programAreas = new List<ProgramArea>();
 
-            int offset = 0xFFFF - ProgramArea.SIZE * 10 + 1;
+            //we could have a smaller image than a full 64KB image
+            int endOfImage = source.Length - 1;
 
-            while(offset < 0xFFFF)
+            int offset = endOfImage - ProgramArea.SIZE * 10 + 1;
+
+            while(offset < endOfImage)
             {
                 ProgramArea pa = new ProgramArea(source, offset);
 
