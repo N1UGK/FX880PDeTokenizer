@@ -33,11 +33,11 @@ namespace FX880PDetokenizer
                 return 2;
             }
 
-            uint address = 0;
+            int address = 0;
 
             try
             {
-                address = UInt32.Parse(_opts.Address.Replace("0x", string.Empty).Replace("0X", string.Empty), System.Globalization.NumberStyles.HexNumber);
+                address = Int32.Parse(_opts.Address.Replace("0x", string.Empty).Replace("0X", string.Empty), System.Globalization.NumberStyles.HexNumber);
             }
             catch
             {
@@ -53,6 +53,18 @@ namespace FX880PDetokenizer
             d.DeTokenize();
 
             File.WriteAllText(_opts.OutputFile, d.GetOutput());
+
+            string filenameBase = Path.GetFileNameWithoutExtension(_opts.OutputFile);
+            string filenameExt = Path.GetExtension(_opts.OutputFile);
+            string filenameBaseDir = Path.GetDirectoryName(_opts.OutputFile);
+
+            if( d.HasProgramAreas )
+            {
+                foreach( ProgramArea pa in d.programAreas.Where(a=>a.source != string.Empty))
+                {
+                    File.WriteAllText(Path.Combine(filenameBaseDir, filenameBase + pa.ProgramNumber + filenameExt), pa.source);
+                }
+            }
 
             return 0;
         }
