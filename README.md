@@ -20,6 +20,6 @@ In Visual Studio you can set the Debug Options in the Project Properties to:
 
 This will untokenize the included sample image and output the result in the resources folder starting at an offset of 0.
 
-Note that this program currently does not yet read the start and end address vectors for program areas P0-P9. It scours the entire file (starting at the optional offset) and outputs all valid BASIC lines it finds.  This means it could output previously deleted lines, deleted programs, partial programs in addition to the current valid programs.
+Note that this program by default will try to find the program areas P0-P9 and output each to a file, if a program is present for each one.  In the example above, a file per program area will be output: basic0.txt through basic9.txt (assuming all 10 program areas had source within them).  The program is assuming that the image is the user RAM area.  The sample provided in the project (segment0.bin) is from my unit with a single program loaded into P0.
 
 I can be contacted at jbertier@arrl.net
