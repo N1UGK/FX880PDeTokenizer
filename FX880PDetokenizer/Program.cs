@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FX880PDetokenizer
+namespace FX880PDeTokenizer
 {
     class Program
     {

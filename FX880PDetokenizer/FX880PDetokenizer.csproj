@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{7209D4B0-4289-4F5D-B67D-6A5831533E26}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>FX880PDetokenizer</RootNamespace>
-    <AssemblyName>FX880PDetokenizer</AssemblyName>
+    <RootNamespace>FX880PDeTokenizer</RootNamespace>
+    <AssemblyName>FX880PDeTokenizer</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>

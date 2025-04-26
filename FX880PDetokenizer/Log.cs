@@ -7,7 +7,7 @@ using NLog;
 using NLog.Config;
 using NLog.Targets;
 
-namespace FX880PDetokenizer
+namespace FX880PDeTokenizer
 {
     public class Log
     {

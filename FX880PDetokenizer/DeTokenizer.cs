@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FX880PDetokenizer
+namespace FX880PDeTokenizer
 {
     /*
      * Due to lack of documentation (that I was able to find), all rules below are guesses, and via reverse engineering, there could be errors and omissions!
@@ -289,6 +289,120 @@ namespace FX880PDetokenizer
 
                                     break;
 
+                                case B_PASS:
+
+                                    _sbOutput.Append($"PASS");
+
+                                    break;
+
+                                case B_TRON:
+
+                                    _sbOutput.Append($"TRON");
+
+                                    break;
+
+                                case B_TROFF:
+
+                                    _sbOutput.Append($"TROFF");
+
+                                    break;
+
+                                case B_END:
+
+                                    _sbOutput.Append($"END");
+
+                                    break;
+
+                                case B_STOP:
+
+                                    _sbOutput.Append($"STOP");
+
+                                    break;
+
+                                case B_ON:
+
+                                    _sbOutput.Append($"ON");
+
+                                    break;
+
+                                case B_LET:
+
+                                    _sbOutput.Append($"LET");
+
+                                    break;
+
+                                case B_DATA:
+
+                                    _sbOutput.Append($"DATA");
+
+                                    break;
+
+                                case B_READ:
+
+                                    _sbOutput.Append($"READ");
+
+                                    break;
+
+                                case B_RESTORE:
+
+                                    _sbOutput.Append($"RESTORE");
+
+                                    break;
+
+                                case B_LOCATE:
+
+                                    _sbOutput.Append($"LOCATE");
+
+                                    break;
+
+                                case B_CLS:
+
+                                    _sbOutput.Append($"CLS");
+
+                                    break;
+
+                                case B_SET:
+
+                                    _sbOutput.Append($"SET");
+
+                                    break;
+
+                                case B_BEEP:
+
+                                    _sbOutput.Append($"BEEP");
+
+                                    break;
+
+                                case B_DIM:
+
+                                    _sbOutput.Append($"DIM");
+
+                                    break;
+
+                                case B_ERASE:
+
+                                    _sbOutput.Append($"ERASE");
+
+                                    break;
+
+                                case B_POKE:
+
+                                    _sbOutput.Append($"POKE");
+
+                                    break;
+
+                                case B_ERROR:
+
+                                    _sbOutput.Append($"ERROR");
+
+                                    break;
+
+                                case B_RESUME:
+
+                                    _sbOutput.Append($"RESUME");
+
+                                    break;
+
                                 default:
 
                                     //unknown command
@@ -327,6 +441,30 @@ namespace FX880PDetokenizer
 
                                     break;
 
+                                case B_ELSE:
+
+                                    _sbOutput.Append($"ELSE");
+
+                                    break;
+
+                                case B_TO:
+
+                                    _sbOutput.Append($"TO");
+
+                                    break;
+
+                                case B_STEP:
+
+                                    _sbOutput.Append($"STEP");
+
+                                    break;
+
+                                case B_TAB:
+
+                                    _sbOutput.Append($"TAB");
+
+                                    break;
+
                                 default:
 
                                     break;
@@ -351,6 +489,18 @@ namespace FX880PDetokenizer
 
                                     break;
 
+                                case B_FRE:
+
+                                    _sbOutput.Append($"FRE");
+
+                                    break;
+
+                                case B_ERL:
+
+                                    _sbOutput.Append($"ERL");
+
+                                    break;
+
                                 default:
 
                                     break;
@@ -372,6 +522,18 @@ namespace FX880PDetokenizer
                                 case B_CHR:
 
                                     _sbOutput.Append($"CHR$");
+
+                                    break;
+
+                                case B_INPUT:
+
+                                    _sbOutput.Append($"INPUT");
+
+                                    break;
+
+                                case B_INKEY:
+
+                                    _sbOutput.Append($"INKEY");
 
                                     break;
 
@@ -538,29 +700,56 @@ namespace FX880PDetokenizer
         private const byte B_REM2 = 0x45;
 
         private const byte DB_BASIC_GROUP_4 = 0x04;
-        private const byte B_GOTO = 0x49;
         private const byte B_GOSUB = 0x4A;
         private const byte B_RETURN = 0x4B;
+        private const byte B_RESUME = 0x4C;
+        private const byte B_RESTORE = 0x4D;
+        private const byte B_PASS = 0x53;
         private const byte B_EDIT = 0x57;
+        private const byte B_TRON = 0x5D;
+        private const byte B_TROFF = 0x5F;
+        private const byte B_POKE = 0x63;
         private const byte B_CLEAR = 0x6A;
+        private const byte B_BEEP = 0x70;
+        private const byte B_CLS = 0x71;
         private const byte B_CLOSE = 0x72;
         private const byte B_DEFSEG = 0x78;
+        private const byte B_DIM = 0x7C;
+        private const byte B_DATA = 0x80;
         private const byte B_FOR = 0x81;
         private const byte B_NEXT = 0x82;
+        private const byte B_ERASE = 0x85;
+        private const byte B_ERROR = 0x86;
+        private const byte B_END = 0x87;
         private const byte B_IF = 0x8D;
+        private const byte B_LET = 0x8F;
+        private const byte B_LOCATE = 0x91;
         private const byte B_OPEN = 0x97;
+        private const byte B_ON = 0x9A;
         private const byte B_PRINT = 0xA3;
+        private const byte B_READ = 0xA8;
         private const byte B_REM = 0xA9;
+        private const byte B_SET = 0xAC;
+        private const byte B_STOP = 0xAE;
 
         private const byte DB_BASIC_GROUP_5 = 0x05;
+        private const byte B_ERL = 0x4F;
         private const byte B_PEEK = 0x86;
+        private const byte B_FRE = 0x8D;
 
         private const byte DB_BASIC_GROUP_6 = 0x06;
+        private const byte B_INPUT = 0x9B;
         private const byte B_CHR = 0xA0;
+        private const byte B_INKEY = 0xA8;
 
         private const byte DB_BASIC_GROUP_7 = 0x07;
-        private const byte B_AS = 0xBC;
         private const byte B_THEN = 0x47;
+        private const byte B_ELSE = 0x48;
+        private const byte B_GOTO = 0x49;
+        private const byte B_TAB = 0xB6;
+        private const byte B_AS = 0xBC;
+        private const byte B_STEP = 0xC0;
+        private const byte B_TO = 0xC1;
 
         private const byte DB_BASIC_JP = 0x03;
 
