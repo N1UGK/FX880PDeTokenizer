@@ -4,6 +4,6 @@
     <StartArguments>-i ..\..\resources\alltest.bin -o ..\..\resources\basic.txt</StartArguments>
   </PropertyGroup>
   <PropertyGroup>
-    <ProjectView>ProjectFiles</ProjectView>
+    <ProjectView>ShowAllFiles</ProjectView>
   </PropertyGroup>
 </Project>

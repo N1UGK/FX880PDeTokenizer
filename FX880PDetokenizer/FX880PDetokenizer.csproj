@@ -59,6 +59,8 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="resources\segment4.bin" />
+    <None Include="resources\segment5.bin" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
