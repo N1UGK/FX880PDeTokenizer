@@ -10,7 +10,7 @@ With no documentation I could find on the internal tokenization format for the C
 
 Usage: FX880PDeTokenizer.exe -i segment0.bin [-a offset] -o basic.txt
 
-The optional switch -a offset can be specified as a hexadecimal number without any prefixes. If omitted, a default value 0000 is assumed and the detokenization will start from the beginning of the input image. 
+The optional switch -a offset can be specified as a hexadecimal number. If omitted, a default value 0000 is assumed and the detokenization will start from the beginning of the input image. 
 
 Example: FX880PDeTokenizer.exe -i segment0.bin -a 0x4000 -o basic.txt
 
