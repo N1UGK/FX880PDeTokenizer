@@ -137,7 +137,7 @@ namespace FX880PDeTokenizer
 
             int lineBytesRemaining;
 
-            byte b1, b2, b3 = 0, b4 = 0; //single bytes
+            byte b1, b2, b3, b4; //single bytes
 
             _sbOutput = new StringBuilder();
 
@@ -403,6 +403,12 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_ANGLE:
+
+                                    _sbOutput.Append($"ANGLE");
+
+                                    break;
+
                                 default:
 
                                     //unknown command
@@ -501,6 +507,222 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_ERR:
+
+                                    _sbOutput.Append($"ERR");
+
+                                    break;
+
+                                case B_SIN:
+
+                                    _sbOutput.Append($"SIN");
+
+                                    break;
+
+                                case B_COS:
+
+                                    _sbOutput.Append($"COS");
+
+                                    break;
+
+                                case B_TAN:
+
+                                    _sbOutput.Append($"TAN");
+
+                                    break;
+
+                                case B_ASN:
+
+                                    _sbOutput.Append($"ASN");
+
+                                    break;
+
+                                case B_ACS:
+
+                                    _sbOutput.Append($"ACS");
+
+                                    break;
+
+                                case B_ATN:
+
+                                    _sbOutput.Append($"ATN");
+
+                                    break;
+
+                                case B_HYPSIN:
+
+                                    _sbOutput.Append($"HYPSIN");
+
+                                    break;
+
+                                case B_HYPCOS:
+
+                                    _sbOutput.Append($"HYPCOS");
+
+                                    break;
+
+                                case B_HYPTAN:
+
+                                    _sbOutput.Append($"HYPTAN");
+
+                                    break;
+
+                                case B_HYPASN:
+
+                                    _sbOutput.Append($"HYPASN");
+
+                                    break;
+
+                                case B_HYPACS:
+
+                                    _sbOutput.Append($"HYPACS");
+
+                                    break;
+
+                                case B_HYPATN:
+
+                                    _sbOutput.Append($"HYPATN");
+
+                                    break;
+
+                                case B_EXP:
+
+                                    _sbOutput.Append($"EXP");
+
+                                    break;
+
+                                case B_LOG:
+
+                                    _sbOutput.Append($"LOG");
+
+                                    break;
+
+                                case B_LN:
+
+                                    _sbOutput.Append($"LN");
+
+                                    break;
+
+                                case B_SQR:
+
+                                    _sbOutput.Append($"SQR");
+
+                                    break;
+
+                                case B_CUR:
+
+                                    _sbOutput.Append($"CUR");
+
+                                    break;
+
+                                case B_ABS:
+
+                                    _sbOutput.Append($"ABS");
+
+                                    break;
+
+                                case B_SGN:
+
+                                    _sbOutput.Append($"SGN");
+
+                                    break;
+
+                                case B_INT:
+
+                                    _sbOutput.Append($"INT");
+
+                                    break;
+
+                                case B_FIX:
+
+                                    _sbOutput.Append($"FIX");
+
+                                    break;
+
+                                case B_FRAC:
+
+                                    _sbOutput.Append($"FRAC");
+
+                                    break;
+
+                                case B_ROUND:
+
+                                    _sbOutput.Append($"ROUND");
+
+                                    break;
+
+                                case B_RAN:
+
+                                    _sbOutput.Append($"RAN#");
+
+                                    break;
+
+                                case B_PI:
+
+                                    _sbOutput.Append($"PI");
+
+                                    break;
+
+                                case B_FACT:
+
+                                    _sbOutput.Append($"FACT");
+
+                                    break;
+
+                                case B_NPR:
+
+                                    _sbOutput.Append($"NPR");
+
+                                    break;
+
+                                case B_NCR:
+
+                                    _sbOutput.Append($"NCR");
+
+                                    break;
+
+                                case B_POL:
+
+                                    _sbOutput.Append($"POL");
+
+                                    break;
+
+                                case B_REC:
+
+                                    _sbOutput.Append($"REC");
+
+                                    break;
+
+                                case B_ASC:
+
+                                    _sbOutput.Append($"ASC");
+
+                                    break;
+
+                                case B_VAL:
+
+                                    _sbOutput.Append($"VAL");
+
+                                    break;
+
+                                case B_VALF:
+
+                                    _sbOutput.Append($"VALF");
+
+                                    break;
+
+                                case B_LEN:
+
+                                    _sbOutput.Append($"LEN");
+
+                                    break;
+
+                                case B_DEG:
+
+                                    _sbOutput.Append($"DEG");
+
+                                    break;
+
                                 default:
 
                                     break;
@@ -533,7 +755,37 @@ namespace FX880PDeTokenizer
 
                                 case B_INKEY:
 
-                                    _sbOutput.Append($"INKEY");
+                                    _sbOutput.Append($"INKEY$");
+
+                                    break;
+
+                                case B_STR:
+
+                                    _sbOutput.Append($"STR$");
+
+                                    break;
+
+                                case B_MID:
+
+                                    _sbOutput.Append($"MID$");
+
+                                    break;
+
+                                case B_RIGHT:
+
+                                    _sbOutput.Append($"RIGHT$");
+
+                                    break;
+
+                                case B_LEFT:
+
+                                    _sbOutput.Append($"LEFT$");
+
+                                    break;
+
+                                case B_HEX:
+
+                                    _sbOutput.Append($"HEX$");
 
                                     break;
 
@@ -603,12 +855,13 @@ namespace FX880PDeTokenizer
                                 case C_MULTI_STATEMENT_SEPARATOR:
 
                                     //ELSE pattern seems to use a colon, then ELSE - display just the else in this case.
+                                    //this would match the behavior seen on the editor on the pocket computer (user does not see the colon)
                                     //see if next token after any spaces is an ELSE.
-                                    ReadNext(_source, _position + 2, out b3, out b4, true, C_SPACE);
+                                    ReadNext(_source, _position + 1, out b3, out b4, true, C_SPACE);
 
                                     if (b3 == DB_BASIC_GROUP_7 && b4 == B_ELSE)
                                     {
-
+                                        _log.logger.Debug($"{_position.ToString("X")}: multi-statement marker found before 'ELSE', ignored.");
                                     }
                                     else
                                     {
@@ -744,6 +997,7 @@ namespace FX880PDeTokenizer
         private const byte B_TROFF = 0x5F;
         private const byte B_POKE = 0x63;
         private const byte B_CLEAR = 0x6A;
+        private const byte B_ANGLE = 0x6E;
         private const byte B_BEEP = 0x70;
         private const byte B_CLS = 0x71;
         private const byte B_CLOSE = 0x72;
@@ -768,12 +1022,53 @@ namespace FX880PDeTokenizer
 
         private const byte DB_BASIC_GROUP_5 = 0x05;
         private const byte B_ERL = 0x4F;
+        private const byte B_ERR = 0x50;
+        private const byte B_PI = 0x60;
+        private const byte B_CUR = 0x63;
+        private const byte B_FACT = 0x67;
+        private const byte B_SIN = 0x6B;
+        private const byte B_COS = 0x6C;
+        private const byte B_TAN = 0x6D;
+        private const byte B_ASN = 0x6E;
+        private const byte B_ACS = 0x6F;
+        private const byte B_ATN = 0x70;
+        private const byte B_HYPSIN = 0x71;
+        private const byte B_HYPCOS = 0x72;
+        private const byte B_HYPTAN = 0x73;
+        private const byte B_HYPASN = 0x74;
+        private const byte B_HYPACS = 0x75;
+        private const byte B_HYPATN = 0x76;
+        private const byte B_LN = 0x77;
+        private const byte B_LOG = 0x78;
+        private const byte B_EXP = 0x79;
+        private const byte B_SQR = 0x7A;
+        private const byte B_ABS = 0x7B;
+        private const byte B_SGN = 0x7C;
+        private const byte B_INT = 0x7D;
+        private const byte B_FIX = 0x7E;
+        private const byte B_FRAC = 0x7F;
         private const byte B_PEEK = 0x86;
         private const byte B_FRE = 0x8D;
+        private const byte B_ROUND = 0x90;
+        private const byte B_VALF = 0x92;
+        private const byte B_RAN = 0x93;
+        private const byte B_ASC = 0x94;
+        private const byte B_LEN = 0x95;
+        private const byte B_VAL = 0x96;
+        private const byte B_DEG = 0x9C;
+        private const byte B_REC = 0xA7;
+        private const byte B_POL = 0xA8;
+        private const byte B_NPR = 0xAA;
+        private const byte B_NCR = 0xAB;
 
         private const byte DB_BASIC_GROUP_6 = 0x06;
         private const byte B_INPUT = 0x9B;
+        private const byte B_MID = 0x9C;
+        private const byte B_RIGHT = 0x9D;
+        private const byte B_LEFT = 0x9E;
         private const byte B_CHR = 0xA0;
+        private const byte B_STR = 0xA1;
+        private const byte B_HEX = 0xA3;
         private const byte B_INKEY = 0xA8;
 
         private const byte DB_BASIC_GROUP_7 = 0x07;
