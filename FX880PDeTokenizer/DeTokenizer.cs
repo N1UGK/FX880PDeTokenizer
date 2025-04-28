@@ -97,6 +97,14 @@ namespace FX880PDeTokenizer
             }
         }
 
+        public bool HasProgramAreas
+        {
+            get
+            {
+                return programAreas.Count == 10;
+            }
+        }
+
         public void DeTokenize()
         {
             if (HasProgramAreas)
@@ -117,14 +125,6 @@ namespace FX880PDeTokenizer
             else
             {
                 DeTokenize(_position, _source.Length - 1);
-            }
-        }
-
-        public bool HasProgramAreas
-        {
-            get
-            {
-                return programAreas.Count == 10;
             }
         }
 
@@ -409,9 +409,68 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_LLIST:
+
+                                    _sbOutput.Append($"LLIST");
+
+                                    break;
+
+                                case B_LPRINT:
+
+                                    _sbOutput.Append($"LPRINT");
+
+                                    break;
+
+                                case B_SAVE:
+
+                                    _sbOutput.Append($"SAVE");
+
+                                    break;
+
+                                case B_LOAD:
+
+                                    _sbOutput.Append($"LOAD");
+
+                                    break;
+
+                                case B_VERIFY:
+
+                                    _sbOutput.Append($"VERIFY");
+
+                                    break;
+
+                                case B_NEW:
+
+                                    _sbOutput.Append($"NEW");
+
+                                    break;
+
+                                case B_WRITE:
+
+                                    _sbOutput.Append($"WRITE#");
+
+                                    break;
+
+                                case B_OUTPUT:
+
+                                    _sbOutput.Append($"OUTPUT");
+
+                                    break;
+
+                                case B_DEF:
+
+                                    //undocumented token
+                                    _sbOutput.Append($"DEF");
+
+                                    break;
+
                                 default:
 
-                                    //unknown command
+                                    //unknown token
+
+                                    LogUnknownToken(lineNumber, b1, b2);
+
+                                    OutputUnknownToken(b1, b2);
 
                                     break;
                             }
@@ -419,6 +478,8 @@ namespace FX880PDeTokenizer
                             _position += 2;
 
                             lineBytesRemaining -= 2;
+
+                            AddSpace();
 
                             #endregion 
                         }
@@ -471,7 +532,37 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_NOT:
+
+                                    _sbOutput.Append($"NOT");
+
+                                    break;
+
+                                case B_ALL:
+
+                                    _sbOutput.Append($"ALL");
+
+                                    break;
+
+                                case B_OR:
+
+                                    _sbOutput.Append($"OR");
+
+                                    break;
+
+                                case B_MOD:
+
+                                    _sbOutput.Append($"MOD");
+
+                                    break;
+
                                 default:
+
+                                    //unknown token
+
+                                    LogUnknownToken(lineNumber, b1, b2);
+
+                                    OutputUnknownToken(b1, b2);
 
                                     break;
                             }
@@ -479,6 +570,8 @@ namespace FX880PDeTokenizer
                             _position += 2;
 
                             lineBytesRemaining -= 2;
+
+                            AddSpace();
 
                             #endregion
                         }
@@ -723,7 +816,19 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_EOF:
+
+                                    _sbOutput.Append($"EOF");
+
+                                    break;
+
                                 default:
+
+                                    //unknown token
+
+                                    LogUnknownToken(lineNumber, b1, b2);
+
+                                    OutputUnknownToken(b1, b2);
 
                                     break;
                             }
@@ -731,6 +836,8 @@ namespace FX880PDeTokenizer
                             _position += 2;
 
                             lineBytesRemaining -= 2;
+
+                            AddSpace();
 
                             #endregion
                         }
@@ -789,7 +896,19 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_DMS:
+
+                                    _sbOutput.Append($"DMS$");
+
+                                    break;
+
                                 default:
+
+                                    //unknown token
+
+                                    LogUnknownToken(lineNumber, b1, b2);
+
+                                    OutputUnknownToken(b1, b2);
 
                                     break;
                             }
@@ -797,6 +916,8 @@ namespace FX880PDeTokenizer
                             _position += 2;
 
                             lineBytesRemaining -= 2;
+
+                            AddSpace();
 
                             #endregion
                         }
@@ -814,6 +935,12 @@ namespace FX880PDeTokenizer
                                     break;
 
                                 default:
+
+                                    //unknown token
+
+                                    LogUnknownToken(lineNumber, b1, b2);
+
+                                    OutputUnknownToken(b1, b2);
 
                                     break;
                             }
@@ -842,7 +969,25 @@ namespace FX880PDeTokenizer
                             {
                                 case C_LINE_END:
 
-                                    _sbOutput.Append($"{NEWLINE}");
+                                    //This should not appear within a line, i.e. with lineBytesRemaining - if it does, likely not a valid BASIC line.
+                                    if (lineBytesRemaining > 1)
+                                    {
+                                        _log.logger.Debug($"{_position.ToString("X")} line {lineNumber}: null byte found with bytes remaining in current line.  Invalid BASIC line.");
+
+                                        previousLineNumber = 0;
+
+                                        if (_sbOutput.Length > 0)
+                                        {
+                                            //last program was a partial, discard it
+                                            sourcesDiscarded.Add(_sbOutput.ToString());
+
+                                            _sbOutput.Clear();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        _sbOutput.Append($"{NEWLINE}");
+                                    }
 
                                     break;
 
@@ -861,7 +1006,7 @@ namespace FX880PDeTokenizer
 
                                     if (b3 == DB_BASIC_GROUP_7 && b4 == B_ELSE)
                                     {
-                                        _log.logger.Debug($"{_position.ToString("X")}: multi-statement marker found before 'ELSE', ignored.");
+                                        _log.logger.Debug($"{_position.ToString("X")} line {lineNumber}: multi-statement marker found before 'ELSE', ignored.");
                                     }
                                     else
                                     {
@@ -878,7 +1023,11 @@ namespace FX880PDeTokenizer
                                     }
                                     else
                                     {
+                                        //unknown byte
 
+                                        _log.logger.Debug($"{_position.ToString("X")} line {lineNumber}: unknown byte {b1.ToString("X")}.");
+
+                                        _sbOutput.Append($"UNKNOWN BYTE {b1.ToString("X")}");
                                     }
 
                                     break;
@@ -916,6 +1065,24 @@ namespace FX880PDeTokenizer
                 sourcesDiscarded.Add(_sbOutput.ToString());
 
                 _sbOutput.Clear();
+            }
+        }
+
+        private void LogUnknownToken(int lineNumber, byte b1, byte b2)
+        {
+            _log.logger.Debug($"{_position.ToString("X")} line {lineNumber}: unknown token {b2.ToString("X")} {b1.ToString("X")}.");
+        }
+
+        private void OutputUnknownToken(byte b1, byte b2)
+        {
+            _sbOutput.Append($"UNKNOWN TOKEN {b2.ToString("X")} {b1.ToString("X")}");
+        }
+
+        private void AddSpace()
+        {
+            if( _source[_position] != C_SPACE )
+            {
+                _sbOutput.Append(SPACER);
             }
         }
 
@@ -991,16 +1158,23 @@ namespace FX880PDeTokenizer
         private const byte B_RETURN = 0x4B;
         private const byte B_RESUME = 0x4C;
         private const byte B_RESTORE = 0x4D;
+        private const byte B_WRITE = 0x4E;
         private const byte B_PASS = 0x53;
         private const byte B_EDIT = 0x57;
+        private const byte B_LLIST = 0x58;
+        private const byte B_LOAD = 0x59;
         private const byte B_TRON = 0x5D;
         private const byte B_TROFF = 0x5F;
+        private const byte B_VERIFY = 0x60;
         private const byte B_POKE = 0x63;
         private const byte B_CLEAR = 0x6A;
+        private const byte B_NEW = 0x6B;
+        private const byte B_SAVE = 0x6C;
         private const byte B_ANGLE = 0x6E;
         private const byte B_BEEP = 0x70;
         private const byte B_CLS = 0x71;
         private const byte B_CLOSE = 0x72;
+        private const byte B_DEF = 0x76;
         private const byte B_DEFSEG = 0x78;
         private const byte B_DIM = 0x7C;
         private const byte B_DATA = 0x80;
@@ -1013,8 +1187,10 @@ namespace FX880PDeTokenizer
         private const byte B_LET = 0x8F;
         private const byte B_LOCATE = 0x91;
         private const byte B_OPEN = 0x97;
+        private const byte B_OUTPUT = 0x99;
         private const byte B_ON = 0x9A;
         private const byte B_PRINT = 0xA3;
+        private const byte B_LPRINT = 0xA4;
         private const byte B_READ = 0xA8;
         private const byte B_REM = 0xA9;
         private const byte B_SET = 0xAC;
@@ -1048,6 +1224,7 @@ namespace FX880PDeTokenizer
         private const byte B_FIX = 0x7E;
         private const byte B_FRAC = 0x7F;
         private const byte B_PEEK = 0x86;
+        private const byte B_EOF = 0x8A;
         private const byte B_FRE = 0x8D;
         private const byte B_ROUND = 0x90;
         private const byte B_VALF = 0x92;
@@ -1062,6 +1239,7 @@ namespace FX880PDeTokenizer
         private const byte B_NCR = 0xAB;
 
         private const byte DB_BASIC_GROUP_6 = 0x06;
+        private const byte B_DMS = 0x97;
         private const byte B_INPUT = 0x9B;
         private const byte B_MID = 0x9C;
         private const byte B_RIGHT = 0x9D;
@@ -1076,9 +1254,13 @@ namespace FX880PDeTokenizer
         private const byte B_ELSE = 0x48;
         private const byte B_GOTO = 0x49;
         private const byte B_TAB = 0xB6;
+        private const byte B_ALL = 0xBB;
         private const byte B_AS = 0xBC;
         private const byte B_STEP = 0xC0;
         private const byte B_TO = 0xC1;
+        private const byte B_NOT = 0xC3;
+        private const byte B_OR = 0xC5;
+        private const byte B_MOD = 0xC7;
 
         private const byte DB_BASIC_JP = 0x03;
 
