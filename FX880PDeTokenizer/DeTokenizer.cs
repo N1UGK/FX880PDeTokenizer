@@ -139,6 +139,8 @@ namespace FX880PDeTokenizer
 
             byte b1, b2, b3, b4; //single bytes
 
+            byte previousb1 = 0;
+
             _sbOutput = new StringBuilder();
 
             int programStartPosition;
@@ -188,7 +190,7 @@ namespace FX880PDeTokenizer
 
                     previousLineNumber = lineNumber;
 
-                    _sbOutput.Append($"{lineNumber} ");
+                    _sbOutput.Append($"{lineNumber}{SPACER}");
 
                     _position += 4;
 
@@ -201,6 +203,8 @@ namespace FX880PDeTokenizer
                         if (b1 == DB_BASIC_GROUP_4)
                         {
                             #region Group 4
+
+                            AddSpaceBefore(previousb1, b1);
 
                             //command
                             switch (b2)
@@ -451,9 +455,9 @@ namespace FX880PDeTokenizer
 
                                     break;
 
-                                case B_OUTPUT:
+                                case B_OUT:
 
-                                    _sbOutput.Append($"OUTPUT");
+                                    _sbOutput.Append($"OUT");
 
                                     break;
 
@@ -461,6 +465,20 @@ namespace FX880PDeTokenizer
 
                                     //undocumented token
                                     _sbOutput.Append($"DEF");
+
+                                    break;
+
+                                case B_PUT:
+
+                                    //undocumented token?
+                                    _sbOutput.Append($"PUT");
+
+                                    break;
+
+                                case B_MODE:
+
+                                    //undocumented token?
+                                    _sbOutput.Append($"MODE");
 
                                     break;
 
@@ -479,13 +497,15 @@ namespace FX880PDeTokenizer
 
                             lineBytesRemaining -= 2;
 
-                            AddSpace();
+                            AddSpaceAfter(previousb1, _source[_position]);
 
                             #endregion 
                         }
                         else if (b1 == DB_BASIC_GROUP_7)
                         {
                             #region Group 7
+
+                            AddSpaceBefore(previousb1, b1);
 
                             //command
                             switch (b2)
@@ -556,6 +576,18 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_AND:
+
+                                    _sbOutput.Append($"AND");
+
+                                    break;
+
+                                case B_XOR:
+
+                                    _sbOutput.Append($"XOR");
+
+                                    break;
+
                                 default:
 
                                     //unknown token
@@ -571,13 +603,15 @@ namespace FX880PDeTokenizer
 
                             lineBytesRemaining -= 2;
 
-                            AddSpace();
+                            AddSpaceAfter(previousb1, _source[_position]);
 
                             #endregion
                         }
                         else if (b1 == DB_BASIC_GROUP_5)
                         {
                             #region Group 5
+
+                            AddSpaceBefore(previousb1, b1);
 
                             //command
                             switch (b2)
@@ -837,13 +871,15 @@ namespace FX880PDeTokenizer
 
                             lineBytesRemaining -= 2;
 
-                            AddSpace();
+                            AddSpaceAfter(previousb1, _source[_position]);
 
                             #endregion
                         }
                         else if (b1 == DB_BASIC_GROUP_6)
                         {
                             #region Group 6
+
+                            AddSpaceBefore(previousb1, b1);
 
                             //command
                             switch (b2)
@@ -902,6 +938,12 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_CALC:
+
+                                    _sbOutput.Append($"CALC$");
+
+                                    break;
+
                                 default:
 
                                     //unknown token
@@ -917,13 +959,15 @@ namespace FX880PDeTokenizer
 
                             lineBytesRemaining -= 2;
 
-                            AddSpace();
+                            AddSpaceAfter(previousb1, _source[_position]);
 
                             #endregion
                         }
                         else if (b1 == DB_BASIC_GROUP_2)
                         {
                             #region Group 2
+
+                            AddSpaceBefore(previousb1, b1);
 
                             //command
                             switch (b2)
@@ -1017,7 +1061,7 @@ namespace FX880PDeTokenizer
 
                                 default:
 
-                                    if (b1 > 0x20 && b1 < 0x7E)
+                                    if ( IsLiteralChar(b1) )
                                     {
                                         _sbOutput.Append($"{(char)b1}");
                                     }
@@ -1027,7 +1071,7 @@ namespace FX880PDeTokenizer
 
                                         _log.logger.Debug($"{_position.ToString("X")} line {lineNumber}: unknown byte {b1.ToString("X")}.");
 
-                                        _sbOutput.Append($"UNKNOWN BYTE {b1.ToString("X")}");
+                                        _sbOutput.Append($"{{{b1.ToString("X")}}}");
                                     }
 
                                     break;
@@ -1037,6 +1081,8 @@ namespace FX880PDeTokenizer
 
                             lineBytesRemaining--;
                         }
+
+                        previousb1 = b1;
                     }
                 }
                 else
@@ -1075,14 +1121,84 @@ namespace FX880PDeTokenizer
 
         private void OutputUnknownToken(byte b1, byte b2)
         {
-            _sbOutput.Append($"UNKNOWN TOKEN {b2.ToString("X")} {b1.ToString("X")}");
+            _sbOutput.Append($"{{{b2.ToString("X")} {b1.ToString("X")}}}");
         }
 
-        private void AddSpace()
+        private void AddSpaceAfter(byte previousByte, byte currentByte)
         {
-            if( _source[_position] != C_SPACE )
+            switch (currentByte)
             {
-                _sbOutput.Append(SPACER);
+                case C_SPACE:
+
+                    return;
+
+                case C_EQUALS:
+                case C_MULTI_STATEMENT_SEPARATOR:
+                case C_LINE_END:
+                case C_PAREN_OPEN:
+
+                    if( IsToken(previousByte) == true )
+                    {
+                        _sbOutput.Append(SPACER);
+                    }
+
+                    return;
+
+                default:
+
+                    _sbOutput.Append(SPACER);
+
+                    break;
+            }        
+        }
+
+        private void AddSpaceBefore(byte previousByte, byte currentByte)
+        {
+            switch (previousByte)
+            {
+                case C_LINE_END:
+                case C_SPACE:
+                case C_SEMICOLON:
+
+                    return;
+               
+                default:
+
+                    if (IsToken(previousByte) == false && IsAlphaNumeric(previousByte) == true && IsToken(currentByte) == true)
+                    {
+                        _sbOutput.Append(SPACER);
+                    }
+
+                    break;
+
+            }
+        }
+
+        private bool IsLiteralChar(byte b)
+        {
+            return (b >= 0x20 && b <= 0x7E);
+        }
+
+        private bool IsAlphaNumeric(byte b)
+        {
+            return (b >= 0x30 && b <= 0x39) || (b >= 0x41 && b <= 0x5A) || (b >= 0x61 && b <= 0x7A);
+        }
+
+        private bool IsToken(byte b)
+        {
+            switch(b)
+            {
+                case DB_BASIC_GROUP_2:
+                case DB_BASIC_GROUP_4:
+                case DB_BASIC_GROUP_5:
+                case DB_BASIC_GROUP_6:
+                case DB_BASIC_GROUP_7:
+
+                    return true;
+
+                default:
+
+                    return false;
             }
         }
 
@@ -1174,7 +1290,7 @@ namespace FX880PDeTokenizer
         private const byte B_BEEP = 0x70;
         private const byte B_CLS = 0x71;
         private const byte B_CLOSE = 0x72;
-        private const byte B_DEF = 0x76;
+        private const byte B_DEF = 0x76; //undocumented
         private const byte B_DEFSEG = 0x78;
         private const byte B_DIM = 0x7C;
         private const byte B_DATA = 0x80;
@@ -1187,14 +1303,16 @@ namespace FX880PDeTokenizer
         private const byte B_LET = 0x8F;
         private const byte B_LOCATE = 0x91;
         private const byte B_OPEN = 0x97;
-        private const byte B_OUTPUT = 0x99;
+        private const byte B_OUT = 0x99;
         private const byte B_ON = 0x9A;
         private const byte B_PRINT = 0xA3;
         private const byte B_LPRINT = 0xA4;
+        private const byte B_PUT = 0xA5;
         private const byte B_READ = 0xA8;
         private const byte B_REM = 0xA9;
         private const byte B_SET = 0xAC;
         private const byte B_STOP = 0xAE;
+        private const byte B_MODE = 0xB0;
 
         private const byte DB_BASIC_GROUP_5 = 0x05;
         private const byte B_ERL = 0x4F;
@@ -1248,6 +1366,7 @@ namespace FX880PDeTokenizer
         private const byte B_STR = 0xA1;
         private const byte B_HEX = 0xA3;
         private const byte B_INKEY = 0xA8;
+        private const byte B_CALC = 0xAD;
 
         private const byte DB_BASIC_GROUP_7 = 0x07;
         private const byte B_THEN = 0x47;
@@ -1259,7 +1378,9 @@ namespace FX880PDeTokenizer
         private const byte B_STEP = 0xC0;
         private const byte B_TO = 0xC1;
         private const byte B_NOT = 0xC3;
+        private const byte B_AND = 0xC4;
         private const byte B_OR = 0xC5;
+        private const byte B_XOR = 0xC6;
         private const byte B_MOD = 0xC7;
 
         private const byte DB_BASIC_JP = 0x03;
@@ -1269,6 +1390,9 @@ namespace FX880PDeTokenizer
         private const byte C_LINE_END = 0x00;
         private const byte C_PROGRAM_END = 0x00;
         private const byte C_SPACE = 0x20;
+        private const byte C_SEMICOLON = 0x3B;
+        private const byte C_EQUALS = 0x3D;
+        private const byte C_PAREN_OPEN = 0x28;
         private const byte C_MULTI_STATEMENT_SEPARATOR = 0x01; //displayed as a colon to the user on the pocket computer
     }
   
