@@ -65,7 +65,7 @@ namespace FX880PDeTokenizer
             }
             else
             {
-                File.WriteAllText(_opts.OutputFile, d.GetAllSources());
+                File.WriteAllText(_opts.OutputFile, d.GetAllSources(), Encoding.UTF8);
             }
 
             return 0;

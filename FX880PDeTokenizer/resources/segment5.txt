@@ -1,0 +1,1616 @@
+﻿400 a$(8)="K  Ca Sc Ti V  Cr Mn Fe Co Ni"
+410 a$(9)="Cu Zn Ga Ge As Se Br Kr"
+420 a$(10)="Rb Sr Y  Zr Nb Mo Tc Ru Rh Pd"
+430 a$(11)="Ag Cd In Sn Sb Te I  Xe"
+440 a$(12)="Cs Ba ** Hf Ta W  Re Os Ir Pt"
+450 a$(13)="Au Hg Tl Pb Bi Po At Rn"
+460 a$(14)="Fr Ra **"
+470 a$(15)=""
+471 a$(16)="Lanthanoid: La Ce Pr Nd Pm Sm      Eu Gd Tb Dy Ho Er Tm Yb Lu"
+472 a$(17)="Actinoid:Ac Th Pa U  Np Pu Am         Cm Bk Cf Es Fm Md No Lr"
+490 a=2
+500 CLS:IF a<16 THEN PRINT a$(a MOD 2);TAB(0);MID$(STR$(INT(a/2)),2);":";a$(a); ELSE PRINT RIGHT$(STR$(a),1)":";a$(a);
+510 k=ASC(INPUT $(1,@)):IF k=13 THEN 620
+520 IF k=28 AND a<15 AND FRAC(a/2)=0 THEN a=a+1:GOTO 500
+525 IF k=29 AND a>2 AND FRAC(a/2)<>0 THEN a=a-1:GOTO 500
+530 IF k=30 AND a>3 THEN a=a-SGN(17-a)-1:GOTO 500
+535 IF k=31 AND a<17 THEN a=a+(SGN(14.5-a)+1)/2+1:GOTO 500
+540 GOTO 510
+620 CLS:PRINT "Input the symbol :";TAB(0);"Push (EXE) then return";
+630 LOCATE 19,0:PRINT "   ";:LOCATE 19,0:INPUT @3;d$:IF d$="" THEN 500 ELSE e=LEN(d$):IF e=3 THEN 630
+635 d=ASC(d$):IF d>96 THEN d=d-32
+636 c=ASC(MID$(d$,2)):IF c<91 THEN c=c+32
+640 IF d<65 OR d>90 THEN 630 ELSE d$=CHR$(d)+CHR$(c)
+650 b=100+14*INT(d/67)+15*INT(d/70)+17*INT(d/76)+16*INT(d/79)+17*INT(d/83)+16*INT(d/85)
+660 RESTORE(b)
+665 READ c$:e$=LEFT$(c$,2):IF ASC(e$)>d THEN 630
+670 IF e$<>d$ THEN 665 ELSE LOCATE 0,1:PRINT CHR$(5);c$;
+690 GOTO 630
+
+
+10 DATA F ,9.648456,{F0}104 (C{A5}mol{9E}),{F0}103 (emu{A5}mol{9E}),E4,E3,10,20
+20 DATA G ,6.6720,{F0}10-11 (m3{A5}s-2{A5}kg{9E}),{F0}10-8 (cm3{A5}s-2{A5}g{9E}),E-11,E-8,10,30
+30 DATA Na,6.022045,{F0}1023 (mol{9E}),{F0}1023 (mol{9E}),E23,E23,20,40
+40 DATA R ,8.31441," (J{A5}mol{9E}{A5}K{9E})",{F0}107 (erg{A5}mol{9E}{A5}K{9E}),,E7,30,50
+50 DATA R{FF},1.097373177,{F0}107 (m{9E}),{F0}105 (cm{9E}),E7,E5,40,60
+60 DATA Vm,22.41383,{F0}10-3 (m3{A5}mol{9E}),{F0}103 (cm3{A5}mol{9E}),E-3,E3,50,70
+70 DATA a{FB},5.2917706,{F0}10-11 (m),{F0}10-9 (cm),E-11,E-1,60,80
+80 DATA c ,299792458," (m{A5}s{9E})",{F0}102 (cm{A5}s{9E}),,E2,70,90
+90 DATA e ,1.6021892,{F0}10-19 (C),{F0}10-20 (emu),E-19,E-20,80,100
+100 DATA g ,9.80665," (m{A5}s-2)",{F0}102 (cm{A5}s-2),,E2,90,110
+110 DATA h ,6.626176,{F0}10-34 (J{A5}s),{F0}10-27 (erg{A5}s),E-34,E-27,100,120
+120 DATA k ,1.380662,{F0}10-23 (J{A5}K{9E}),{F0}10-16 (erg{A5}K{9E}),E-23,E-16,110,130
+130 DATA me,9.109534,{F0}10-31 (kg),{F0}10-28 (g),E-31,E-28,120,140
+140 DATA mn,1.6749543,{F0}10-27 (kg),{F0}10-24 (g),E-27,E-24,130,150
+150 DATA mp,1.6726485,{F0}10-27 (kg),{F0}10-24 (g),E-27,E-24,140,160
+160 DATA u ,1.6605655,{F0}10-27 (kg),{F0}10-24 (g),E-27,E-24,150,170
+170 DATA {8B}{FB},8.854187818,{F0}10-12 (F{A5}m{9E}),,E-12,,160,180
+180 DATA {8D}{FB},12.5663706144,{F0}10-7 (H{A5}m{9E}),,E-7,,170,190
+190 DATA {8D}b,9.274078,{F0}10-24 (J{A5}T{9E}),{F0}10-21 (erg{A5}G{9E}),E-24,E-21,180,200
+200 DATA {8D}e,9.284832,{F0}10-24 (J{A5}T{9E}),{F0}10-21 (erg{A5}G{9E}),E-24,E-21,190,210
+210 DATA {8D}p,1.4106171,{F0}10-26 (J{A5}T{9E}),{F0}10-23 (erg{A5}G{9E}),E-26,E-23,200,220
+220 DATA {8E} ,5.67032,{F0}10-8 (W{A5}m-2{A5}K-4),{F0}10-5(erg{A5}s{9E}cm-2K-4),E-8,E-5,210,220
+10010 u=0:MODE 8:DIM:x=10:y=220:d$=CHR$(5):r=x:DEF CHR$(255)="060A040A0D"
+10050 CLS:LOCATE 0,1:PRINT ">constant : key A-Z ?";
+10110 RESTORE(r)
+10120 READ m$,n$,s$,t$,x$,y$,b,c:l$="("+MID$(STR$(r/10),2)+")":IF r<100 THEN l$=" "+l$
+10130 IF u=1 THEN u$=t$ ELSE u$=s$
+10140 d=0:LOCATE 0,0:PRINT d$;m$;" =";n$;u$;:LOCATE 27,1:PRINT l$;
+10150 LOCATE 30,1:z=ASC(INPUT $(1,@))
+10165 IF z>96 THEN z=z-32
+10170 IF z=28 AND u<>1 THEN u=1:GOTO 10130
+10180 IF z=29 AND u<>0 THEN u=0:GOTO 10130
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10220 IF z>64 AND z<91 THEN GOSUB 10310:d=1
+10230 IF(z=28 OR z=29) AND d=1 THEN 10140
+10280 GOTO 10150
+10310 LOCATE 0,0:PRINT "(";CHR$(z);")";
+10320 IF u=1 THEN v$=n$+y$ ELSE v$=n$+x$
+10330 a=VAL(v$)
+10350 ON z-64 GOSUB 10401,10402,10403,10404,10405,10406,10407,10408,10409,10410,10411,10412,10413,10414,10415,10416,10417,10418,10419,10420,10421,10422,10423,10424,10425,10426
+10401 A=a:RETURN
+10402 B=a:RETURN
+10403 C=a:RETURN
+10404 D=a:RETURN
+10405 E=a:RETURN
+10406 F=a:RETURN
+10407 G=a:RETURN
+10408 H=a:RETURN
+10409 I=a:RETURN
+10410 J=a:RETURN
+10411 K=a:RETURN
+10412 L=a:RETURN
+10413 M=a:RETURN
+10414 N=a:RETURN
+10415 O=a:RETURN
+10416 P=a:RETURN
+10417 Q=a:RETURN
+10418 R=a:RETURN
+10419 S=a:RETURN
+10420 T=a:RETURN
+10421 U=a:RETURN
+10422 V=a:RETURN
+10423 W=a:RETURN
+10424 X=a:RETURN
+10425 Y=a:RETURN
+10426 Z=a:RETURN
+
+
+10 DATA HCOOH,HCOO- + H+,10,20,1.77{F0}10-4,a,
+20 DATA CH{FD}COOH,CH{FD}COO- + H+,10,30,1.75{F0}10-5,a,
+30 DATA C{FF}H{FE}COOH,C{FF}H{FE}COO- + H+,20,40,6.31{F0}10-5,a,2
+40 DATA H{FC}CO{FD},H+ + HCO{FD}-,30,50,4.45{F0}10-7,a,
+50 DATA C{FF}H{FE}OH,C{FF}H{FE}O- + H+,40,60,1.00{F0}10-10,a,2
+60 DATA NH{FD} + H{FC}O,NH{FF}+ + OH-,50,70,1.78{F0}10-5,b,1
+70 DATA C{FE}H{FE}N + H{FC}O,C{FE}H{FE}NH+ + OH-,60,80,1.5{F0}10-9,b,
+80 DATA C{FF}H{FE}NH{FC} + H{FC}O,C{FF}H{FE}NH{FD}+ + OH-,70,80,3.8{F0}10-10,b,2
+10010 MODE 8:DIM:x=10:y=80:r=x
+10020 DEF CHR$(252)="2E2A3A0000"
+10030 DEF CHR$(253)="2A2A3E0000"
+10035 DEF CHR$(254)="3A2A2E0000"
+10040 DIM:ERASE a$:DIM a$(2):RESTORE 10080
+10050 FOR i=1 TO 2:READ a$(i):NEXT
+10080 DATA 38083E0000,3E2A2E0000
+10110 RESTORE(r)
+10120 READ m$,n$,b,c,d$,e$,d:CLS
+10125 IF d THEN DEF CHR$(255)=a$(d)
+10130 l$="("+MID$(STR$(r/10),2)+")"
+10140 CLS:PRINT m$;" ←→ ";n$;TAB(0);"K";e$;" = ";d$;" (mol/l)";TAB(28);l$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150
+
+
+10 DATA Uniformly accelerated motion,"v=v{FB}+at , a=Δv/Δt , s=v{FB}t+at2/2",10,20,
+20 DATA Newton's equation of motion,F=ma,10,30,
+30 DATA Circular motion,T=2πr/v=2π/{FE}=1/f,20,40,
+40 DATA Circular motion,"{FE}=2π/T=2πf=v/r , F=mr{FE}2=mv2/r",30,50,
+50 DATA Simple harmonic oscillation,"x=r{A5}sin{FE}t , v=r{FE}{A5}cos{FE}t , a=-{FE}2x",40,60,
+60 DATA Hooke's law,F=-kx,50,70,
+70 DATA Spring,"a=F/m=-k/m{A5}x , T=2π√(m/k)",60,80,
+80 DATA Simple pendulum,"a=F/m=-g/l{A5}x , T=2π√(l/g)",70,90,
+90 DATA Potential energy,Ep=mgh,80,100,
+100 DATA Elastic energy   (spring),Ee=1/2{A5}kx2,90,110,
+110 DATA Kinetic energy,Ek=1/2{A5}mv2,100,120,
+120 DATA Coefficient of friction,F={8D}N,110,130,
+130 DATA Work,W=Fs,120,140,
+140 DATA Kepler's law (3'rd),T2/r3=Constant,130,150,
+150 DATA Universal gravitation,"F=G{A5}Mm/r2 , G=6.7*10{FF}1(N{A5}m2/kg2)",140,160,
+160 DATA Potential energy   (planet),Up=-G{A5}Mm/r ,150,170,
+170 DATA Kinetic energy   (planet),Ek=1/2{A5}mr2{FE}2,160,180,
+180 DATA Moment of inertia,"I=mr2 , E=1/2{A5}I{FE}2",170,190,
+190 DATA Angular momentum,J=I{FE},180,200,
+200 DATA Conservation of momentum,mv{FC}+MV{FC}=mv{FD}+MV{FD},190,200,
+10010 MODE 8:DIM:x=10:y=200:r=x
+10020 DEF CHR$(255)="202048F808"
+10030 DEF CHR$(254)="3E020C223E"
+10040 DEF CHR$(253)="2E2A3A0000"
+10050 DEF CHR$(252)="123E020000"
+10110 RESTORE(r)
+10120 CLS:READ m$,n$,b,c,d
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 PRINT m$;TAB(l);l$;n$;:LOCATE 0,0:LOCATE 1,1
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150
+
+
+10 DATA Wave,"v={FF}/T=f{FF} , y=a{A5}sin2π(t/T-x/{FF})",10,20,
+20 DATA Wave of string,v=√(F/{FE}),10,30,1,3E40484830
+30 DATA Interference,"l{FD}-l{FC}=(2n+1){FF}/2 , l{FD}-l{FC}=n{FF}",20,40,
+40 DATA Stationary wave,"l=n{FF}/2 , l=(2n-1){FF}/4   (n≠0)",30,50,
+50 DATA Refraction,n=sinθ/sin{8F}=v{FC}/v{FD}={FF}{FC}/{FF}{FD},40,60,
+60 DATA Natural frequency (wave),f=(1/2l){A5}√(T/{FE}),50,70,1,3E40484830
+70 DATA Velocity of sound,v=331.5+0.61T,60,80,
+80 DATA Doppler effect,f=f{FB}{A5}(v-v{FC})/(v-v{FD}),70,90,
+90 DATA Beat,f=f{FC}-f{FD}    (f{FC}>f{FD}),80,100,
+100 DATA Reflectivity,R{FB}=((n{FC}-n{FD})/(n{FC}+n{FD}))2,90,110,
+110 DATA Critical angle,sinθ=n{FC}/n{FD},100,120,
+120 DATA de Broglie wave,{FF}=h/mv,110,130,
+130 DATA Quantum condition,2πr=nh/mv=n{FF},120,140,
+140 DATA Photoelectron,1/2{A5}mv2=h{FE}-W,130,150,1,3E02040830
+150 DATA Frequency condition,h{FE}=Em-En    (m>n),140,160,
+160 DATA Light wave,"{FF}=c/{FE} , c=2.998*108 (m/s)",150,160,1,3E02040830
+10010 MODE 8:DIM:x=10:y=160:r=x
+10020 DEF CHR$(255)="424C300806"
+10030 DEF CHR$(253)="2E2A3A0000"
+10050 DEF CHR$(252)="123E020000"
+10110 RESTORE(r)
+10120 CLS:READ m$,n$,b,c,d:IF d=1 THEN READ d$:DEF CHR$(254)=d$
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 PRINT m$;TAB(l);l$;n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150
+
+
+10 DATA Ohm's law,"V=IR   (I=Q/t , R={FE}{A5}l/S)",10,20,1,3E40484830
+20 DATA Resistance,"R=R{FC}+R{FD} , 1/R=1/R{FC}+1/R{FD}",10,30,
+30 DATA DC circuit,V=E-IR,20,40,
+40 DATA DC power & Joule heat,"P=IV=I2R , W=IVt=Pt",30,50,
+50 DATA Conductance,G=1/R=I/V,40,60,
+60 DATA Kirchhoff's law,"Σ{F9}I=0 , Σ{F9}V=0",50,70,
+70 DATA Wheatstone bridge,R{FB}R{FC}=R{FD}R{FE},60,80,1,2A2A3E0000
+80 DATA AC instantaneous value,"V=V{FB}{A5}sin{FF}t , I=I{FB}{A5}sin{FF}t",70,90,
+90 DATA AC effective value,"I=I{FB}/√2 , V=V{FB}/√2",80,100,
+100 DATA AC power,P=VI=V{FB}I{FB}/2,90,110,
+110 DATA Power factor,P=VI{A5}cos{8F},100,120,
+120 DATA Transformer,"I{FC}V{FC}=I{FD}V{FD} , N{FD}/N{FC}=V{FD}/V{FC}",110,130,
+130 DATA Reactance,"X={FF}L=2πfL , X=1/{FF}C=1/2πfC",120,140,
+140 DATA Impedance,"Z=√(R2+({FF}L-1/{FF}C)2) , V{FB}=ZI{FB}",130,150,
+150 DATA Natural frequency (circuit),f{FB}=1/2π√(LC),140,160,
+160 DATA Electric oscillation,1/2{A5}Q2/C+1/2{A5}LI2=Constant,150,160,
+10010 MODE 8:DIM:x=10:y=160:r=x
+10020 DEF CHR$(255)="3E020C223E"
+10040 DEF CHR$(253)="2E2A3A0000"
+10050 DEF CHR$(252)="123E020000"
+10110 RESTORE(r)
+10120 CLS:READ m$,n$,b,c,d:IF d=1 THEN READ d$:DEF CHR$(254)=d$
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 PRINT m$;TAB(l);l$;n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150
+
+
+10 DATA Coulomb's law (electric f.),"F=k{FB}{A5}Q{FC}Q{FD}/r2 , k{FB}=9*109(N{A5}m2/C2)",10,20,
+20 DATA Electric field,"E=V/d , F=QE , W=QV",10,30,
+30 DATA Capacitance,"Q=CV , C={8B}{FB}{A5}S/d",20,40,
+40 DATA Capacitance,"C=C{FC}+C{FD} , 1/C=1/C{FC}+1/C{FD}",30,50,
+50 DATA Dielectric constant,"D={8B}{FB}E , C={8B}C{FB}",40,60,
+60 DATA Electrostatic energy,U=1/2{A5}QV=1/2{A5}CV2,50,70,
+70 DATA Electrons in electric field,"a=QE/m , 1/2{A5}mv2=eV",60,80,
+80 DATA Coulomb's law (magnetic f.),"F=k{FB}{A5}m{FC}m{FD}/r2 , k{FB}=107/(4π)2",70,90,
+90 DATA Magnetic field,"H=I/2πr , H=I/2r , H=nI",80,100,
+100 DATA Magnetic field,F={8D}{FB}IHl=IBl,90,110,
+110 DATA Magnetic flux density,B=m/4πr2={8D}{FB}H,100,120,
+120 DATA Lorentz force,"F=QvB , r=mv/QB",110,130,
+130 DATA Electrons in magnetic field,"1/2{A5}mv2=Q2B2r2/2m , {FE}=v/r=QB/m",120,140,
+140 DATA Faraday's law of induction,V=-n{A5}Δ{8F}/Δt,130,150,
+150 DATA Electromagnetic induction,"V=El=vBl , I=vBl/R",140,160,
+160 DATA Mutual induction,V{FD}=-M{A5}ΔI{FC}/Δt,150,170,
+170 DATA Self-induction,V/=-L{A5}ΔI/Δt,160,170,
+10010 MODE 8:DIM:x=10:y=170:r=x
+10020 DEF CHR$(254)="3E020C223E"
+10040 DEF CHR$(253)="2E2A3A0000"
+10050 DEF CHR$(252)="123E020000"
+10110 RESTORE(r)
+10120 CLS:READ m$,n$,b,c,d
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 PRINT m$;TAB(l);l$;n$;:LOCATE 0,0:LOCATE 1,1
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150
+
+
+10 DATA Absolute temperature,T(K)=t({DF}C)+273.15,10,20,
+20 DATA Heat capacity,Q=CT=mcT,10,30,
+30 DATA Mechanical equivalent of heat,"W=JQ , J=4.19 (J/cal)",20,40,
+40 DATA Boyle's law,PV=Constant  (T=constant),30,50,
+50 DATA Volume & Temperature,V=V{FB}(1+T/273),40,60,
+60 DATA Charle's law,V/V{FB}=T/T{FB},50,70,
+70 DATA Equation of state,"PV=nRT , R=8.31 (J/K)",60,80,
+80 DATA Law of partial pressures,P=P{FC}+P{FD}+P{FE}+{A5}{A5}{A5},70,90,1,2A2A3E0000
+90 DATA Pressure,P=1/3{A5}nm{FE}2,80,100,1,B08C828CB0
+100 DATA Internal energy,U=1/2{A5}m{FE}2N=3/2{A5}nRT,90,110,1,B08C828CB0
+110 DATA Specific heat,"Cv=ΔU/ΔT=3R/2 , Cp=ΔU/ΔT+R=5R/2",100,120,
+120 DATA Half life,N=N{FB}(1/2){FE}x    (x=1/T),110,130,1,40F8480000
+130 DATA Mass-energy relation ,E=mc2,120,130,
+10010 MODE 8:DIM:x=10:y=130:r=x
+10040 DEF CHR$(253)="2E2A3A0000"
+10050 DEF CHR$(252)="123E020000"
+10110 RESTORE(r)
+10120 CLS:READ m$,n$,b,c,d:IF d=1 THEN READ d$:DEF CHR$(254)=d$
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 PRINT m$;TAB(l);l$;n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13) AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150
+
+
+10 DATA x(cm),0.01x(m),X(m)=0.01*x(cm),10,20
+20 DATA x(cm),0.393701x(in),X(in)=.393701*x(cm),10,30
+30 DATA x(cm),0.0328084x(ft),X(ft)=.0328084*x(cm),20,40
+40 DATA x(cm),0.0109361x(yd),X(yd)=.0109361*x(cm),30,50
+50 DATA x(cm),0.00000621371x(mile),X(mile)=6.21371E-6*x(cm),40,60
+60 DATA x(m),100x(cm),X(cm)=100*x(m),50,70
+70 DATA x(m),39.3701x(in),X(in)=39.3701*x(m),60,80
+80 DATA x(m),3.28084x(ft),X(ft)=3.28084*x(m),70,90
+90 DATA x(m),1.09361x(yd),X(yd)=1.09361*x(m),80,100
+100 DATA x(m),0.000621371x(mile),X(mile)=.000621371*x(m),90,110
+110 DATA x(in),2.54x(cm),X(cm)=2.54*x(in),100,120
+120 DATA x(in),0.0254x(m),X(m)=.0254*x(in),110,130
+130 DATA x(in),0.0833333x(ft),X(ft)=.0833333*x(in),120,140
+140 DATA x(in),0.0277778x(yd),X(yd)=.0277778*x(in),130,150
+150 DATA x(in),0.0000157828x(mile),X(mile)=1.57828E-5*x(in),140,160
+160 DATA x(ft),30.48x(cm),X(cm)=30.48*x(ft),150,170
+170 DATA x(ft),0.3048x(m),X(m)=.3048*x(ft),160,180
+180 DATA x(ft),12x(in),X(in)=12*x(ft),170,190
+190 DATA x(ft),0.333333x(yd),X(yd)=.333333*x(ft),180,200
+200 DATA x(ft),0.000189394x(mile),X(mile)=1.89394E-4*x(ft),190,210
+210 DATA x(yd),91.44x(cm),X(cm)=91.44*x(yd),200,220
+220 DATA x(yd),0.9144x(m),X(m)=.9144*x(yd),210,230
+230 DATA x(yd),36x(in),X(in)=36*x(yd),220,240
+240 DATA x(yd),3x(ft),X(ft)=3*x(yd),230,250
+250 DATA x(yd),0.000568182x(mile),X(mile)=5.68182E-4*x(yd),240,260
+260 DATA x(mile),160934.4x(cm),X(cm)=160934.4*x(mile),250,270
+270 DATA x(mile),1609.344x(m),X(m)=1609.344*x(mile),260,280
+280 DATA x(mile),63360x(in),X(in)=63360*x(mile),270,290
+290 DATA x(mile),5280x(ft),X(ft)=5280*x(mile),280,300
+300 DATA x(mile),1760x(yd),X(yd)=1760*x(mile),290,300
+10010 MODE 8:DIM:x=10:y=300:r=x
+10050 p$="Metric conversion (length)"
+10110 RESTORE(r)
+10120 READ m$,n$,s$,b,c
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF z=31 AND r<>c THEN r=c:GOTO 10110
+10210 IF z=13 THEN CALC$ =s$:CALCJMP
+10280 GOTO 10150
+
+
+10 DATA x(m2),0.01x(a),X(a)=0.01*x(m2),10,20
+20 DATA x(m2),0.000247105x(acre),X(acre)=2.47105E-4*x(m2),10,30
+30 DATA x(m2),0.000000386102x(mile2),X(mile2)=3.86102E-7*x(m2),20,40
+40 DATA x(a),100x(m2),X(m2)=100*x(a),30,50
+50 DATA x(a),0.0247105x(acre),X(acre)=0.0247105*x(a),40,60
+60 DATA x(a),0.0000386102x(mile2),X(mile2)=3.86102E-5*x(a),50,70
+70 DATA x(acre),4046.86x(m2),X(m2)=4046.86*x(acre),60,80
+80 DATA x(acre),40.4686x(a),X(a)=40.4686*x(acre),70,90
+90 DATA x(acre),0.0015625x(mile2),X(mile2)=.0015625*x(acre),80,100
+100 DATA x(mile2),2589990x(m2),X(m2)=2589990*x(mile2),90,110
+110 DATA x(mile2),25899.9x(a),X(a)=25899.9*x(mile2),100,120
+120 DATA x(mile2),640x(acre),X(acre)=640*x(mile2),110,120
+10010 MODE 8:DIM:x=10:y=120:r=x
+10050 p$="Metric conversion (area)"
+10110 RESTORE(r)
+10120 READ m$,n$,s$,b,c
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF z=31 AND r<>c THEN r=c:GOTO 10110
+10210 IF z=13 THEN CALC$ =s$:CALCJMP
+10280 GOTO 10150
+
+
+10 DATA x(cm3),0.000001x(m3),X(m3)=1e-6*x(cm3),10,20
+20 DATA x(cm3),0.0610237x(in3),X(in3)=.0610237*x(cm3),10,30
+30 DATA x(cm3),0.0000353147x(ft3),X(ft3)=3.53147E-5*x(cm3),20,40
+40 DATA x(cm3),0.001x(l),X(l)=.001*x(cm3),30,50
+50 DATA x(cm3),0.000264172x(gal(US)),X(gal(US))=2.64172E-4*x(cm3),40,60
+60 DATA x(cm3),0.000219968x(gal(UK)),X(gal(UK))=2.19968E-4*x(cm3),50,70
+70 DATA x(m3),1000000x(cm3),X(cm3)=1E6*x(m3),60,80
+80 DATA x(m3),61023.7x(in3),X(in3)=61023.7*x(m3),70,90
+90 DATA x(m3),35.3147x(ft3),X(ft3)=35.3147*x(m3),80,100
+100 DATA x(m3),1000x(l),x(l)=1E3*x(m3),90,110
+110 DATA x(m3),264.172x(gal(US)),X(gal(US))=264.172*x(m3),100,120
+120 DATA x(m3),219.968x(gal(UK)),X(gal(UK))=219.968*x(m3),110,130
+130 DATA x(in3),16.3871x(cm3),X(cm3)=16.3871*x(in3),120,140
+140 DATA x(in3),0.0000163871x(m3),X(m3)=1.63871E-5*x(in3),130,150
+150 DATA x(in3),0.000578704x(ft3),X(ft3)=.000578704*x(in3),140,160
+160 DATA x(in3),0.0163871x(l),X(l)=.0163871*x(in3),150,170
+170 DATA x(in3),0.00432900x(gal(US)),X(gal(US))=.004329*x(in3),160,180
+180 DATA x(in3),0.00360464x(gal(UK)),X(gal(UK))=.00360464*x(in3),170,190
+190 DATA x(ft3),28316.8x(cm3),X(cm3)=28316.8*x(ft3),180,200
+200 DATA x(ft3),0.0283168x(m3),X(m3)=.0283168*x(ft3),190,210
+210 DATA x(ft3),1728x(in3),X(in3)=1728*x(ft3),200,220
+220 DATA x(ft3),28.3168x(l),X(l)=28.3168*x(ft3),210,230
+230 DATA x(ft3),7.48052x(gal(US)),X(gal(US))=7.48052*x(ft3),220,240
+240 DATA x(ft3),6.22882x(gal(UK)),X(gal(UK))=6.22882*x(ft3),230,250
+250 DATA x(l),1000x(cm3),X(cm3)=1E3*x(l),240,260
+260 DATA x(l),0.001x(m3),X(m3)=.001*x(l),250,270
+270 DATA x(l),61.0237x(in3),X(in3)=61.0237*x(l),260,280
+280 DATA x(l),0.0353147x(ft3),X(ft3)=.0353147*x(l),270,290
+290 DATA x(l),0.264172x(gal(US)),X(gal(US))=.264172*x(l),280,300
+300 DATA x(l),0.219968x(gal(UK)),X(gal(UK))=.219968*x(l),290,300
+310 DATA x(gal(US)),3785.41x(cm3),X(cm3)=3785.41*x(gal(US)),300,320
+320 DATA x(gal(US)),0.00378541x(m3),X(m3)=.00378541*x(gal(US)),310,330
+330 DATA x(gal(US)),231x(in3),X(in3)=231*x(gal(US)),320,340
+340 DATA x(gal(US)),0.133681x(ft3),X(ft3)=.133681*x(gal(US)),330,350
+350 DATA x(gal(US)),3.78541x(l),X(l)=3.78541*x(gal(US)),340,360
+360 DATA x(gal(US)),0.832672x(gal(UK)),X(gal(UK))=0.832672*x(gal(US)),350,370
+370 DATA x(gal(UK)),4546.09x(cm3),X(cm3)=4546.09*x(gal(UK)),360,380
+380 DATA x(gal(UK)),0.00454609x(m3),X(m3)=.00454609*x(gal(UK)),370,390
+390 DATA x(gal(UK)),277.42x(in3),X(in3)=277.42*x(gal(UK)),380,400
+400 DATA x(gal(UK)),0.160544x(ft3),X(ft3)=.160544*x(gal(UK)),390,410
+410 DATA x(gal(UK)),4.54609x(l),X(l)=4.54609*x(gal(UK)),400,420
+420 DATA x(gal(UK)),1.20095x(gal(US)),X(gal(US))=1.20095*x(gal(UK)),410,420
+10010 MODE 8:DIM:x=10:y=300:r=x
+10050 p$="Metric conversion (volume)"
+10110 RESTORE(r)
+10120 READ m$,n$,s$,b,c
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;:LOCATE 0,0:LOCATE 0,1
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF z=31 AND r<>c THEN r=c:GOTO 10110
+10210 IF z=13 THEN CALC$ =s$:CALCJMP
+10280 GOTO 10150
+
+
+10 DATA x(g),0.001x(Kg),X(Kg)=.001*x(g),10,20
+20 DATA x(g),0.0352740x(oz),X(oz)=.035274*x(g),10,30
+30 DATA x(g),0.00220462x(lb),X(lb)=.00220462*x(g),20,40
+40 DATA x(Kg),1000x(g),X(g)=1E3*x(Kg),30,50
+50 DATA x(Kg),35.2740x(oz),X(oz)=35.274*x(Kg),40,60
+60 DATA x(Kg),2.20462x(lb),X(lb)=2.20462*x(Kg),50,70
+70 DATA x(oz),28.3495x(g),X(g)=28.3495*x(oz),60,80
+80 DATA x(oz),0.0283495x(Kg),X(Kg)=.0283495*x(oz),70,90
+90 DATA x(oz),0.0625x(lb),X(lb)=.0625*x(oz),80,100
+100 DATA x(lb),453.59237x(g),X(g)=453.59237*x(lb),90,110
+110 DATA x(lb),0.45359237x(Kg),X(Kg)=.45359237*x(lb),100,120
+120 DATA x(lb),16x(oz),X(oz)=16*x(lb),110,120
+10010 MODE 8:DIM:x=10:y=120:r=x
+10050 p$="Metric conversion (weight)"
+10110 RESTORE(r)
+10120 READ m$,n$,s$,b,c
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF z=31 AND r<>c THEN r=c:GOTO 10110
+10210 IF z=13 THEN CALC$ =s$:CALCJMP
+10280 GOTO 10150
+
+
+20 CLS:PRINT "Upper probability   N(0,12)";
+30 LOCATE 0,1:PRINT c$;"x=";x;"?";:INPUT @10;x:LOCATE 0,0
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6210":GOSUB 500:IF sr THEN *
+75 IF p THEN p=ROUND(p,LOG(ABS p)-6)
+80 PRINT c$;"p=";p;:z$=INPUT $(1,@):GOTO 30
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =30 THEN RESUME 30
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Upper probability   X2(x2,{FE})";
+30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=x:s$="x2":GOSUB 400:x=z
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6220":GOSUB 500:IF sr THEN *
+75 IF p THEN p=ROUND(p,LOG(ABS p)-6)
+80 PRINT c$;"p=";p;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Upper probability   t(x,{FE})";
+30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=x:s$="x":GOSUB 400:x=z
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6230":GOSUB 500:IF sr THEN *
+75 IF p THEN p=ROUND(p,LOG(ABS p)-6)
+80 PRINT c$;"p=";p;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Upper probability   F(x,{FE}{FC},{FE}{FD})";
+30 z=n:s$="{FE}{FC}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=m:s$="{FE}{FD}":GOSUB 400:m=z:IF m=<0 OR FRAC m<>0 THEN 40
+50 z=x:s$="x":GOSUB 400:x=z
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6240":GOSUB 500:IF sr THEN *
+75 IF p THEN p=ROUND(p,LOG(ABS p)-6)
+80 PRINT c$;"p=";p;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Cumulative frequency  B(x,n,P)";
+30 z=n:s$="n":GOSUB 400:n=z:IF n<0 OR FRAC n<>0 THEN 30
+40 z=p:s$="P":GOSUB 400:p=z:IF p<0 OR p>1 THEN 40
+50 z=x:s$="x":GOSUB 400:x=z:IF x<0 OR x>n OR FRAC x<>0 THEN 50
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6310":GOSUB 500:IF sr THEN *
+75 IF s THEN s=ROUND(s,LOG(ABS s)-6)
+80 PRINT c$;"p=";s;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Cumulative frequency  P(x,{FE})";
+30 z=k:s$="{FE}":GOSUB 400:k=z:IF k<0 THEN 30
+40 z=x:s$="x":GOSUB 400:x=z:IF x<0 OR FRAC x<>0 THEN 40
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6320":GOSUB 500:IF sr THEN *
+75 IF s THEN s=ROUND(s,LOG(ABS s)-6)
+80 PRINT c$;"p=";s;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Cumulative frequency H(x,n,M,N)";
+30 z=m:s$="N":GOSUB 400:m=z:IF m<2 THEN 30
+40 z=k:s$="M":GOSUB 400:k=z:IF k>m THEN 40
+50 z=n:s$="n":GOSUB 400:n=z:IF n>m-k THEN 50
+60 z=x:s$="x":GOSUB 400:x=z:IF x>n OR x>k THEN 60
+65 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6330":GOSUB 500:IF sr THEN *
+75 IF s THEN s=ROUND(s,LOG(ABS s)-6)
+80 PRINT c$;"p=";s;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:IF z<0 OR FRAC z<>0 THEN 400 ELSE RETURN 
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Percentage points   N(0,12)";
+30 LOCATE 0,1:PRINT c$;"p=";p;"?";:INPUT @10;p:LOCATE 0,0:IF p=<0 OR p>=1 THEN 30
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6410":GOSUB 500:IF sr THEN *
+75 IF x THEN x=ROUND(x,LOG(ABS x)-6)
+80 PRINT c$;"x=";x;:z$=INPUT $(1,@):GOTO 30
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =30 THEN RESUME 30
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Percentage points  X2(x2,{FE})";
+30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>1 THEN 40
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6420":GOSUB 500:IF sr THEN *
+75 IF x THEN x=ROUND(x,LOG(ABS x)-6)
+80 PRINT c$;"x2=";x;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Percentage points   t(x,{FE})";
+30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>=1 THEN 40
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6430":GOSUB 500:IF sr THEN *
+75 IF x THEN x=ROUND(x,LOG(ABS x)-6)
+80 PRINT c$;"x=";x;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT "Percentage points  F(x,{FE}{FC},{FE}{FD})";
+30 z=n:s$="{FE}{FC}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=m:s$="{FE}{FD}":GOSUB 400:m=z:IF m=<0 OR FRAC m<>0 THEN 40
+50 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>1 THEN 50
+60 LOCATE 0,1:PRINT c$;".....";
+70 sr=0:GOSUB "LIB0:S6440":GOSUB 500:IF sr THEN *
+75 IF x THEN x=ROUND(x,LOG(ABS x)-6)
+80 PRINT c$;"x=";x;:z$=INPUT $(1,@):GOTO 30
+400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+500 ON ERROR GOTO 510:RETURN
+510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+520 IF ERL =400 THEN RESUME 400
+530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 x=RAN#(1):IF x=0 THEN 20
+25 y=RAN#(1):IF y=0 THEN 25
+30 x=SQR(-2*LN x):y=2*PI *y
+40 z=x*COS y:GOSUB 60
+50 z=x*SIN y:GOSUB 60:GOTO 20
+60 PRINT TAB(0);z;:z$=INPUT $(1,@):RETURN
+
+
+10 MODE 8:DIM:DEF CHR$(254)="424C300806":k=1
+20 CLS:PRINT "E({FE},t)";
+30 LOCATE 0,1:PRINT CHR$(5);"{FE}=";k;"?";:INPUT @10;k:LOCATE 0,0:LOCATE 0,1
+40 x=RAN#(1):IF x=0 THEN 40
+50 PRINT TAB(0);-LN x/k;:z$=INPUT $(1,@):GOTO 40
+100 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+110 RESUME 20
+
+
+10 MODE 8:DIM:ERASE a,a$:DIM a(5),a$(1):a$(1)="Input":a$(0)="Delete":c$=CHR$(5)
+20 CLS:PRINT "Statistics  (x)";TAB(0);">In,Del,Clear,List,T-score,P ?";
+30 a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
+40 ON a-66 GOTO 300,100,,,,,100,,,500,,,,800,,,,400
+50 GOTO 30
+100 CLS:PRINT a$(SGN(a-68));" data (x)";TAB(21);"(EXE):menu";:z=SGN(a-69)
+110 LOCATE 0,1:PRINT c$;"x?";
+120 LOCATE 2,1:INPUT @12;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE x=VALF(z$)
+150 r=sa+z:s=sb+x*z:u=sd+x*x*z
+160 sa=r:sb=s:sd=u:GOTO 110
+200 c=6
+210 sg=sb/sa
+220 sm=sd-sg*sb:IF sm<0 THEN sm=0
+250 si=SQR(sm/sa)
+260 sk=SQR(sm/(sa-1))
+280 RETURN
+300 PRINT c$;"clear data  (Y/N) ?";
+310 a$=INPUT $(1,@):IF a$<>"Y" AND a$<>"y" THEN 20
+320 sa=0:sb=0:sd=0:GOTO 20
+400 GOSUB 200:IF c<6 OR si=0 THEN 20
+430 LOCATE 0,1:PRINT c$;"x?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE s=VALF(z$)
+440 LOCATE 12,1:PRINT ":T=";ROUND((s-sg)/si*10+50,-2);:z$=INPUT $(1,@):GOTO 430
+500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
+510 GOSUB 600
+520 z=ASC(INPUT $(1,@)):IF z=28 OR z=29 THEN 20
+530 IF z<>13 AND z<>30 AND z<>31 THEN 520
+540 IF(z=30 AND i=1) OR(z=31 AND i=c) THEN 520
+550 IF z=30 THEN i=i-2
+560 i=i+1:IF i=<c THEN 510 ELSE 20
+580 DEF CHR$(254)="0808003E00"
+590 a(0)=sa:a(1)=sb:a(2)=sd:a(3)=sg:a(4)=si:a(5)=sk:RETURN
+600 RESTORE(600+i*10):READ a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
+610 DATA CNT,n
+620 DATA SUMX,Σx
+630 DATA SUMX2,Σx2
+640 DATA MEANX,Σx/n
+650 DATA SDXN,x{8E}n
+660 DATA SDX,x{8E}n{FE}
+800 LOCATE 0,1:PRINT c$;".....";:GOSUB 200:GOSUB 590:RESTORE 610
+810 FOR i=1 TO c:READ a$,b$:LPRINT a$;TAB(10);"=";a(i-1):NEXT:GOTO 20
+1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+1010 IF ERL =120 THEN RESUME 120
+1030 IF ERL =430 THEN RESUME 430
+1050 IF ERL =210 THEN c=3:RESUME 280
+1060 IF ERL =260 THEN c=5:RESUME 280
+1080 IF ERL =150 THEN LOCATE 0,1:PRINT c$;"data over";:z$=INPUT $(1,@):RESUME 20
+1090 LOCATE 0,1:PRINT c$;"not found";:a$=INPUT $(1,@):RESUME 20
+
+
+10 sq=1:GOTO "LIB0:M6510"
+
+
+10 sq=3:GOTO "LIB0:M6510"
+
+
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1,@)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 t=0:f=95:r=sa:IF r THEN s=sg ELSE s=0
+45 CLS:PRINT t$;
+50 z=r:s$="n":GOSUB 500:r=z
+60 z=s:s$="{FE}":GOSUB 500:s=z
+80 z=t:s$="{8E}":GOSUB 500:t=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "N({8D},{8E}2)   ";f;"%";TAB(0);".....";
+100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
+110 z=s-x*t/SQR r:GOSUB 400:a=z
+120 z=s+x*t/SQR r:GOSUB 400:b=z
+130 PRINT c$;a;"< {8D} <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1,@)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 f=95:r=sa:IF r THEN s=sg:t=sk^2 ELSE s=0:t=0
+45 CLS:PRINT t$;
+50 z=r:s$="n":GOSUB 500:r=z
+60 z=s:s$="{FE}":GOSUB 500:s=z
+80 z=t:s$="V":GOSUB 500:t=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "N({8D},{8E}2)   ";f;"%";TAB(0);".....";
+100 n=r-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
+110 z=s-x*SQR(t/r):GOSUB 400:a=z
+120 z=s+x*SQR(t/r):GOSUB 400:b=z
+130 PRINT c$;a;"< {8D} <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1,@)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 f=95:s=sa:IF s THEN r=sm ELSE r=0
+45 CLS:PRINT t$;
+50 z=s:s$="n":GOSUB 500:s=z
+60 z=r:s$="S":GOSUB 500:r=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "N({8D},{8E}2)   ";f;"%";TAB(0);".....";
+100 n=s-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
+105 g=x:p=1-p:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
+110 z=r/g:GOSUB 400:a=z
+120 z=r/x:GOSUB 400:b=z
+130 PRINT c$;a;"< {8E}2 <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1,@)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 f=95:s=sa:IF s THEN r=sm ELSE r=0
+45 CLS:PRINT t$;
+50 z=s:s$="n":GOSUB 500:s=z
+60 z=r:s$="S":GOSUB 500:r=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "N({8D},{8E}2)   ";f;"%";TAB(0);".....";
+100 n=s-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
+105 g=x:p=1-p:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
+110 z=SQR(r/g):GOSUB 400:a=z
+120 z=SQR(r/x):GOSUB 400:b=z
+130 PRINT c$;a;"< {8E} <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1,@)
+22 IF a$<>"Y" AND a$<>"y" THEN 30
+25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1,@)
+32 IF a$<>"Y" AND a$<>"y" THEN 36
+35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+36 s=sa:IF s>1 THEN r=sk^2 ELSE r=0
+37 f=95:u=sz:IF u>1 THEN t=sl^2 ELSE t=0
+45 CLS:PRINT t$;
+50 z=s:s$="n{FC}":GOSUB 500:s=z
+60 z=r:s$="V{FC}":GOSUB 500:r=z
+70 z=u:s$="n{FD}":GOSUB 500:u=z
+80 z=t:s$="V{FD}":GOSUB 500:t=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "N({8D}{FC},{8E}{FC}2),N({8D}{FD},{8E}{FD}2)   ";f;"%";TAB(0);".....";
+100 n=s-1:m=u-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
+105 g=x:n=m:m=s-1:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
+110 z=t/r/x:GOSUB 400:a=z
+120 z=t/r*g:GOSUB 400:b=z
+130 PRINT c$;a;"< {8E}{FD}2/{8E}{FC}2 <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1,@)
+22 IF a$<>"Y" AND a$<>"y" THEN 30
+25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1,@)
+32 IF a$<>"Y" AND a$<>"y" THEN 36
+35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+36 r=sa:IF r>1 THEN s=sg:t=sm ELSE s=0:t=0
+37 f=95:u=sz:IF u>1 THEN v=sh:w=sn ELSE v=0:w=0
+45 CLS:PRINT t$;
+50 z=r:s$="n{FC}":GOSUB 500:r=z
+55 z=s:s$="{FE}{FC}":GOSUB 500:s=z
+60 z=t:s$="S{FC}":GOSUB 500:t=z
+70 z=u:s$="n{FD}":GOSUB 500:u=z
+75 z=v:s$="{FE}{FD}":GOSUB 500:v=z
+80 z=w:s$="S{FD}":GOSUB 500:w=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "N({8D}{FC},{8E}2),N({8D}{FD},{8E}2)   ";f;"%";TAB(0);".....";
+100 n=r+u-2:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
+110 z=s-v-x*SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:a=z
+120 z=s-v+x*SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:b=z
+130 PRINT c$;a;"< {8D}{FC}-{8D}{FD} <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+45 CLS:PRINT "B(1,p) a<p<b";
+50 z=r:s$="n":GOSUB 500:r=z
+60 z=s:s$="Σx":GOSUB 500:s=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "B(1,p)   ";f;"%";TAB(0);".....";
+100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
+110 e=s/r:z=e-x*SQR(((1-e)*e)/r):GOSUB 400:a=z
+120 z=e+x*SQR(((1-e)*e)/r):GOSUB 400:b=z
+130 PRINT c$;a;"< p <";b;:a$=INPUT $(1,@):GOTO 45
+140 GOTO 50
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
+
+
+45 CLS:PRINT "B(1,p{FC}),B(1,p{FD}) a<p{FC}-p{FD}<b";
+50 z=r:s$="n{FC}":GOSUB 500:r=z
+60 z=s:s$="Σx{FC}":GOSUB 500:s=z
+70 z=t:s$="n{FD}":GOSUB 500:t=z
+80 z=u:s$="Σx{FD}":GOSUB 500:u=z
+90 CLS:PRINT "Confidence level (1-α)(%)";
+95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT "B(1,p{FC}),B(1,p{FD})   ";f;"%";TAB(0);".....";
+100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
+110 j=s/r:k=u/t:z=j-k-x*SQR(((1-j)*j)/r+((1-k)*k)/t):GOSUB 400:a=z
+120 z=j-k+x*SQR(((1-j)*j)/r+((1-k)*k)/t):GOSUB 400:b=z
+130 PRINT c$;a;"< p{FC}-p{FD} <";b;:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
+
+
+10 sq=62:GOSUB "LIB0:M6710"
+
+
+10 sq=226:GOSUB "LIB0:M6720"
+
+
+10 sq=60:GOSUB "LIB0:M6720"
+
+
+10 sq=62:GOSUB "LIB0:M6730"
+
+
+10 sq=226:GOSUB "LIB0:M6740"
+
+
+10 sq=60:GOSUB "LIB0:M6740"
+
+
+10 sq=62:GOSUB "LIB0:M6750"
+
+
+10 sq=226:GOSUB "LIB0:M6760"
+
+
+10 sq=60:GOSUB "LIB0:M6760"
+
+
+10 sq=62:GOSUB "LIB0:M6770"
+
+
+10 CLS:GOTO 10000
+1000 DATA "Memory calculations             (MC),(MR),(M-),(M+)",,1000,5010
+5010 DATA "Prime factors                   Base = a * b * c * {A5}{A5}{A5}",,1000,5020
+5020 DATA "G.C.M. & L.C.M.",,5010,5040
+5040 DATA "ax1+bx2+cx3+{A5}{A5}{A5}=y",,5020,5050
+5050 DATA "ax2+bx+c=0",,5040,5060
+5060 DATA "ax3+bx2+cx+d=0",,5050,5080
+5080 DATA "Numerical solution  f(x)=0      Newton's method",,5060,5090
+5090 DATA "Numerical solution  f(x)=0      Method of bisection",,5080,5100
+5100 DATA "Matrix operations",,5090,5200
+5200 DATA "∫f(x)dx  (a,b)                  Romberg's method",,5100,5220
+5220 DATA "dy/dx=f(x,y(x))                 Runge-Kutta method",,5200,5230
+5230 DATA "Lagrange's interpolation",,5220,5250
+5250 DATA "Gamma function  {FF}(x)",82FE8280C0,5230,5260
+5260 DATA "Bessel function  Jn(x)",,5250,5270
+5270 DATA "Bessel function  Yn(x)",,5260,5280
+5280 DATA "Modified Bessel function        In(x)",,5270,5290
+5290 DATA "Modified Bessel function        Kn(x)",,5280,5300
+5300 DATA "Complex number  a+bi",,5290,5350
+5350 DATA "Binary-Decimal-Hexadecimal",,5300,5510
+5510 DATA "y=ax+b ←- (x1,y1),(x2,y2)",,5350,5520
+5520 DATA "Angle(θ) ←- y=ax+b,y=cx+d",,5510,5530
+5530 DATA "Distance ←- y=ax+b,(x1,y1)",,5520,5540
+5540 DATA "(X,Y) ←- (x,y),angle(θ)",,5530,5550
+5550 DATA "Circle (x-a)2+(y-b)2=r2         ←- (x1,y1),(x2,y2),(x3,y3)",,5540,5560
+5560 DATA "Length(y=cx+d)                  ← (x-a)2+(y-b)2=r2,(x1,y1)",,5550,5570
+5570 DATA "y=cx+d,y=ex+f                   ← (x-a)2+(y-b)2=r2,(x1,y1)",,5560,5600
+5600 DATA "Area (triangle)",,5570,5605
+5605 DATA "Area (trapezoid)",,5600,5610
+5610 DATA "Area (parallelogram)",,5605,5615
+5615 DATA "Area (circle)",,5610,5620
+5620 DATA "Area (sector)",,5615,5625
+5625 DATA "Area (segment)",,5620,5630
+5630 DATA "Area (ellipse)",,5625,5635
+5635 DATA "Area (polygon)",,5630,5650
+5650 DATA "Surface (sphere)",,5635,5655
+5655 DATA "Surface (zone of sphere)",,5650,5660
+5660 DATA "Surface (spherical sector)",,5655,5665
+5665 DATA "Surface (circular cylinder)",,5660,5670
+5670 DATA "Surface (circular cone)",,5665,5675
+5675 DATA "Surface                         (frustum of circular cone)",,5670,5700
+5700 DATA "Volume (sphere)",,5675,5705
+5705 DATA "Volume (zone of sphere)",,5700,5710
+5710 DATA "Volume (spherical sector)",,5705,5715
+5715 DATA "Volume (circular cylinder)",,5710,5720
+5720 DATA "Volume (circular cone)",,5715,5725
+5725 DATA "Volume                          (frustum of circular cone)",,5720,5730
+5730 DATA "Volume (wedge)",,5725,5735
+5735 DATA "Volume (pyramid)",,5730,5740
+5740 DATA "Volume                          (frustum of pyramid)",,5735,5745
+5745 DATA "Volume (ellipsoid)",,5740,5750
+5750 DATA "Polygon  A,n -→ r,R,l",,5745,5760
+5760 DATA "Polyhedron (a,r,R,S,V)",,5750,5800
+5800 DATA "Factorization                   a2+2ab+b2=(a+b)2",,5760,5810
+5810 DATA "Trigonometric function          sin2θ+cos2θ=1",,5800,5820
+5820 DATA "Differential                    y=ax2+bx+c → y/=2ax+b",,5810,5830
+5830 DATA "Integration                     ∫ x dx = 1/2{A5}x2+C",,5820,5840
+5840 DATA "Laplace transformation          F(p)=1/p → f(t)=1",,5830,5900
+5900 DATA "Periodic table                  H Hydrogen 1(1-1a) 1.00794",,5840,5910
+5910 DATA "Scientific constant             g=9.80665 (m{A5}s-2)",,5900,5920
+5920 DATA "Electrolytic dissociation       HCOOH ←→ HCOO- + H+",,5910,5930
+5930 DATA "Motion                          Ek=1/2{A5}mv2",,5920,5932
+5932 DATA "Waves                           f=f{FB}{A5}(v-v{FC})/(v-v{FD})",,5930,5934
+5934 DATA "AC & DC circuits                R=R{FC}+R{FD} , 1/R=1/R{FC}+1/R{FD}",,5932,5936
+5936 DATA "Electric & Magnetic fields      Q=CV , C={8B}{FB}{A5}S/d",,5934,5938
+5938 DATA "Thermodynamics and others       W=JQ , J=4.19 (J/cal)",,5936,5950
+5950 DATA "Metric conversion (length)      1(cm) -→ 0.01(m)",,5938,5960
+5960 DATA "Metric conversion (area)        1(cm2) -→ 0.0001(m2)",,5950,5970
+5970 DATA "Metric conversion (volume)      1(cm3) -→ 0.000001(m3)",,5960,5980
+5980 DATA "Metric conversion (weight)      1(g) -→ 0.001(kg)",,5970,6210
+6210 DATA "Upper probability integrals     N(0,12)",,5980,6220
+6220 DATA "Upper probability integrals     X2(x2,{FE})",,6210,6230
+6230 DATA "Upper probability integrals     t(x,{FE})",,6220,6240
+6240 DATA "Upper probability integrals     F(x,{FE}{FC},{FE}{FD})",,6230,6310
+6310 DATA "Upper cumulative                frequencies     B(x,n,P)",,6240,6320
+6320 DATA "Upper cumulative                frequencies     P(x,{FF})",424C300806,6310,6330
+6330 DATA "Upper cumulative                frequencies     H(x,n,M,N)",,6320,6410
+6410 DATA "Percentage points               N(0,12)",,6330,6420
+6420 DATA "Percentage points               X2(x2,{FE})",,6410,6430
+6430 DATA "Percentage points               t(x,{FE})",,6420,6440
+6440 DATA "Percentage points               F(x,{FE}{FC},{FE}{FD})",,6430,6450
+6450 DATA "Normal random numbers",,6440,6460
+6460 DATA "Exponential random numbers",,6450,6500
+6500 DATA "Statistics (x)",,6460,6510
+6510 DATA "Regression analysis             (y=a+bx)",,6500,6520
+6520 DATA "Regression analysis             (y=a+blnx)",,6510,6530
+6530 DATA "Regression analysis             (y=ab^x)",,6520,6540
+6540 DATA "Regression analysis             (y=ax^b)",,6530,6610
+6610 DATA "Estimation  a<{8D}<b               N({8D},{8E}2) {8E}2:known",,6540,6620
+6620 DATA "Estimation  a<{8D}<b               N({8D},{8E}2)",,6610,6630
+6630 DATA "Estimation  a<{8E}2<b              N({8D},{8E}2)",,6620,6640
+6640 DATA "Estimation  a<{8E}<b               N({8D},{8E}2)",,6630,6650
+6650 DATA "Estimation  a<{8E}{FD}2/{8E}{FC}2<b         N({8D}{FC},{8E}{FC}2),N({8D}{FD},{8E}{FD}2)",,6640,6660
+6660 DATA "Estimation  a<{8D}{FC}-{8D}{FD}<b           N({8D}{FC},{8E}2),N({8D}{FD},{8E}2)",,6650,6670
+6670 DATA "Estimation  a<p<b               B(1,p)",,6660,6680
+6680 DATA "Estimation  a<p{FC}-p{FD}<b           B(1,p{FC}),B(1,p{FD})",,6670,6710
+6710 DATA "Test N({8D},{8E}2) {8E}2:known                H{FB}:{8D}={8D}{FB}    H{FC}:{8D}≠{8D}{FB}",,6680,6711
+6711 DATA "Test N({8D},{8E}2) {8E}2:known                H{FB}:{8D}={8D}{FB}    H{FC}:{8D}>{8D}{FB}",,6710,6712
+6712 DATA "Test N({8D},{8E}2) {8E}2:known                H{FB}:{8D}={8D}{FB}    H{FC}:{8D}<{8D}{FB}",,6711,6720
+6720 DATA "Test N({8D},{8E}2)                         H{FB}:{8D}={8D}{FB}    H{FC}:{8D}≠{8D}{FB}",,6712,6721
+6721 DATA "Test N({8D},{8E}2)                         H{FB}:{8D}={8D}{FB}    H{FC}:{8D}>{8D}{FB}",,6720,6722
+6722 DATA "Test N({8D},{8E}2)                         H{FB}:{8D}={8D}{FB}    H{FC}:{8D}<{8D}{FB}",,6721,6730
+6730 DATA "Test N({8D},{8E}2)                         H{FB}:{8E}2={8E}{FB}2  H{FC}:{8E}2≠{8E}{FB}2",,6722,6731
+6731 DATA "Test N({8D},{8E}2)                         H{FB}:{8E}2={8E}{FB}2  H{FC}:{8E}2>{8E}{FB}2",,6730,6732
+6732 DATA "Test N({8D},{8E}2)                         H{FB}:{8E}2={8E}{FB}2  H{FC}:{8E}2<{8E}{FB}2",,6731,6740
+6740 DATA "Test N({8D}{FC},{8E}{FC}2),N({8D}{FD},{8E}{FD}2)             H{FB}:{8E}{FC}2={8E}{FD}2 H{FC}:{8E}{FC}2≠{8E}{FD}2",,6732,6741
+6741 DATA "Test N({8D}{FC},{8E}{FC}2),N({8D}{FD},{8E}{FD}2)             H{FB}:{8E}{FC}2={8E}{FD}2 H{FC}:{8E}{FC}2>{8E}{FD}2",,6740,6742
+6742 DATA "Test N({8D}{FC},{8E}{FC}2),N({8D}{FD},{8E}{FD}2)             H{FB}:{8E}{FC}2={8E}{FD}2 H{FC}:{8E}{FC}2<{8E}{FD}2",,6741,6750
+6750 DATA "Test N({8D}{FC},{8E}2),N({8D}{FD},{8E}2)               H{FB}:{8D}{FC}={8D}{FD}   H{FC}:{8D}{FC}≠{8D}{FD}",,6742,6751
+6751 DATA "Test N({8D}{FC},{8E}2),N({8D}{FD},{8E}2)               H{FB}:{8D}{FC}={8D}{FD}   H{FC}:{8D}{FC}>{8D}{FD}",,6750,6752
+6752 DATA "Test N({8D}{FC},{8E}2),N({8D}{FD},{8E}2)               H{FB}:{8D}{FC}={8D}{FD}   H{FC}:{8D}{FC}<{8D}{FD}",,6751,6760
+6760 DATA "Test B(1,p)                          H{FB}:p=p{FB}    H{FC}:p≠p{FB}",,6752,6761
+6761 DATA "Test B(1,p)                          H{FB}:p=p{FB}    H{FC}:p>p{FB}",,6760,6762
+6762 DATA "Test B(1,p)                          H{FB}:p=p{FB}    H{FC}:p<p{FB}",,6761,6770
+6770 DATA "Test B(1,p{FC}),B(1,p{FD})                 H{FB}:p{FC}=p{FD}   H{FC}:p{FC}≠p{FD}",,6762,6771
+6771 DATA "Test B(1,p{FC}),B(1,p{FD})                 H{FB}:p{FC}=p{FD}   H{FC}:p{FC}>p{FD}",,6770,6772
+6772 DATA "Test B(1,p{FC}),B(1,p{FD})                 H{FB}:p{FC}=p{FD}   H{FC}:p{FC}<p{FD}",,6771,6772
+10000 ON ERROR GOTO 10400
+10010 MODE 8:DIM:x=1000:y=6772
+10020 DEFSEG=0:a=PEEK(&H743)*256+PEEK(&H742):r$=HEX$(PEEK(&H744))+"000":b=VAL("&H"+r$)
+10030 DEFSEG=b:r$="":FOR i=a TO a+3:r$=r$+CHR$(PEEK(i+7)):NEXT:r=VAL(r$)
+10060 DEF CHR$(254)="3E02040830"
+10070 DEF CHR$(253)="2E2A3A0000"
+10080 DEF CHR$(252)="123E020000"
+10110 RESTORE(r)
+10120 READ m$,n$,b,c
+10130 IF n$<>"" THEN DEF CHR$(255)=n$
+10140 CLS:PRINT MID$(STR$(r),2);":";m$;
+10150 z=ASC(INPUT $(1,@))
+10160 IF z=29 AND r<>x THEN a=&HF7EA:r=x:GOTO 10110
+10170 IF z=28 AND r<>y THEN a=&HFEA7:r=y:GOTO 10110
+10180 IF z=30 AND r<>b THEN a=a-15:r=b:GOTO 10110
+10190 IF(z=31 OR z=218) AND r<>c THEN a=a+15:r=c:GOTO 10110
+10200 IF z=13 OR z=252 THEN 10300
+10210 GOTO 10150
+10300 CLS:DEFSEG=0:a$=HEX$(a):b=VAL("&H"+LEFT$(a$,2)):c=VAL("&H"+RIGHT$(a$,2)):POKE &H742,c:POKE &H743,b:r$="LIB0:"+MID$(STR$(r),2):GOTO r$
+10400 IF ERR =1 THEN ON ERROR GOTO 0
+10410 r=x:RESUME 10110
+
+
+12 IF tz<0 OR tz>3 OR FRAC tz<>0 THEN tz=0
+14 FOR i=0 TO 5:READ a$(i):NEXT:d$="             :y?"
+15 DATA y=a+bx,y=a+blnx,y=ab^x,y=ax^b,Delete,Input
+20 l=21+ABS(SGN(sq-1))*2:CLS:PRINT "Regression analysis";TAB(l);"(";a$(sq);")";TAB(0);">In,Del,Clear,List,eoX,eoY,P ?";
+30 IF INKEY$ =""THEN a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
+40 IF a=186 THEN sq=(sq+1)MOD 4:GOTO 20
+50 ON a-66 GOTO 300,100,,,,,100:IF(sq AND tz)=0 THEN ON a-75 GOTO 500,,,,800,,,,,,,,400,450
+60 GOTO 30
+100 CLS:PRINT a$(SGN(a-68)+4);" data (x,y)";TAB(21);"(EXE):menu";:z=SGN(a-69)
+110 LOCATE 0,1:PRINT c$;"x?";d$;
+120 LOCATE 2,1:INPUT @12;z$:LOCATE 0,0:IF z$=d$ OR ASC(z$)=0 THEN 20ELSE x=VALF(z$):j=0
+125 IF x=<0 THEN IF(1 AND sq)=1 THEN 120ELSE tz=tz OR 1ELSE IF x>0 THEN j=LN x:g=ss+j*z:m=su+j*j*z
+130 r=sa+z:s=sb+x*z:u=sd+x*x*z
+140 LOCATE 18,1:INPUT @12;z$:LOCATE 0,0:IF z$=""THEN 20ELSE y=VALF(z$)
+145 IF y=<0 THEN IF sq>1 THEN 140ELSE tz=tz OR 2ELSE IF y>0 THEN k=LN y:h=st+k*z:n=sv+k*k*z:p=sx+x*k*z:q=sy+j*k*z
+160 t=sc+y*z:v=se+y*y*z:w=sf+x*y*z:o=sw+j*y*z:sa=r:sb=s:sc=t:sd=u:se=v:sf=w:ss=g:st=h:su=m:sv=n:sw=o:sx=p:sy=q:GOTO 110
+200 c=15:GOSUB 350:ON sq GOSUB 360,370,380
+210 sg=a(1)/sa:sh=a(2)/sa
+220 sm=a(3)-sg*a(1):IF sm<0 THEN sm=0
+230 sn=a(4)-sh*a(2):IF sn<0 THEN sn=0
+240 so=a(5)-a(1)*sh:sp=sh*a(3)-sg*a(5):si=SQR(sm/sa):sj=SQR(sn/sa)
+260 sk=SQR(sm/(sa-1)):sl=SQR(sn/(sa-1))
+270 p=sp/sm:q=so/sm:r=so/SQR(sm*sn):IF sq>1 THEN p=EXP p:IF sq=2 THEN q=EXP q
+280 RETURN
+300 PRINT c$;"clear data  (Y/N) ?";:a$=INPUT $(1,@)
+310 IF a$="Y"OR a$="y"THEN sa=0:sb=0:sc=0:sd=0:se=0:sf=0:ss=0:st=0:su=0:sv=0:sw=0:sx=0:sy=0:tz=0
+320 GOTO 20
+350 a(1)=sb:a(2)=sc:a(3)=sd:a(4)=se:a(5)=sf:RETURN
+360 a(1)=ss:a(3)=su:a(5)=sw:RETURN
+370 a(2)=st:a(4)=sv:a(5)=sx:RETURN
+380 a(1)=ss:a(2)=st:a(3)=su:a(4)=sv:a(5)=sy:RETURN
+400 CLS:GOSUB 200:IF c<15 OR so=0 THEN 20
+410 DEF CHR$(255)="12548C4A12":CLS:PRINT "Estimation of x (";a$(sq);")";
+420 LOCATE 0,1:PRINT c$;"y?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
+430 ON sq+1 GOSUB 950,960,970,980:LOCATE 12,1:PRINT ":{FF}=";STR$(a);:z$=INPUT $(1,@):GOTO 420
+450 CLS:GOSUB 200:IF c<15 OR sm=0 THEN 20
+460 DEF CHR$(255)="124A844810":CLS:PRINT "Estimation of y (";a$(sq);")";
+470 LOCATE 0,1:PRINT c$;"x?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
+480 ON sq+1 GOSUB 900,910,920,930:LOCATE 12,1:PRINT ":{FF}=";STR$(a);:z$=INPUT $(1,@):GOTO 470
+500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
+510 GOSUB 600
+520 z=ASC(INPUT $(1,@)):IF z=28 OR z=29 THEN 20
+530 IF z<>13 AND z<>30 AND z<>31 THEN 520
+540 IF(z=30 AND i=1)OR(z=31 AND i=c)THEN 520
+550 IF z=30 THEN i=i-2
+560 i=i+1:IF i=<c THEN 510ELSE 20
+580 DEF CHR$(254)="0808003E00":DEF CHR$(253)="FE003E203E"
+590 a(0)=sa:a(6)=sg:a(7)=sh:a(8)=si:a(9)=sj:a(10)=sk:a(11)=sl:a(12)=p:a(13)=q:a(14)=r:RETURN
+600 GOSUB 605:READ a$,a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
+605 IF i=1 OR i=15 THEN j=0:GOTO 609
+606 IF i=6 THEN j=sq:GOTO 609
+607 IF i>12 THEN j=SGN(sq):GOTO 609
+608 k=i MOD 2:IF(i<6 AND k=1)OR(i>6 AND k=0)THEN j=INT(sq/2)ELSE j=(sq MOD 2)
+609 RESTORE(600+i*10+j):RETURN
+610 DATA CNT,CNT,n
+620 DATA SUMX,SUMX,Σx
+621 DATA SUMLNX,SUM{FD}X,Σ{FD}x
+630 DATA SUMY,SUMY,Σy
+631 DATA SUMLNY,SUM{FD}Y,Σ{FD}y
+640 DATA SUMX2,SUMX2,Σx2
+641 DATA SUMLNX2,SUM{FD}X2,Σ{FD}x2
+650 DATA SUMY2,SUMY2,Σy2
+651 DATA SUMLNY2,SUM{FD}Y2,Σ{FD}y2
+660 DATA SUMXY,SUMXY,Σxy
+661 DATA SUMLNXY,SUM{FD}XY,Σ{FD}xy
+662 DATA SUMXLNY,SUMX{FD}Y,Σx{FD}y
+663 DATA SUMLNXLNY,SUM{FD}X{FD}Y,Σ{FD}x{FD}y
+670 DATA MEANX,MEANX,Σx/n
+671 DATA MEANLNX,MEAN{FD}X,Σ{FD}x/n
+680 DATA MEANY,MEANY,Σy/n
+681 DATA MEANLNY,MEAN{FD}Y,Σ{FD}y/n
+690 DATA SDXN,SDXN,x{8E}n
+691 DATA SDLNXN,SD{FD}XN,{FD}x{8E}n
+700 DATA SDYN,SDYN,y{8E}n
+701 DATA SDLNYN,SD{FD}YN,{FD}y{8E}n
+710 DATA SDX,SDX,x{8E}n{FE}
+711 DATA SDLNX,SD{FD}X,{FD}x{8E}n{FE}
+720 DATA SDY,SDY,y{8E}n{FE}
+721 DATA SDLNY,SD{FD}Y,{FD}y{8E}n{FE}
+730 DATA LRA,LRA,a
+731 DATA RA,RA,a
+740 DATA LRB,LRB,b
+741 DATA RB,RB,b
+750 DATA COR,COR,r
+800 LOCATE 0,1:PRINT c$;".....";:GOSUB 200:GOSUB 590
+810 FOR i=1 TO c:GOSUB 605:READ a$:LPRINT a$;TAB(10);"=";a(i-1):NEXT:GOTO 20
+900 a=p+q*s:RETURN
+910 a=p+q*LN s:RETURN
+920 a=p*q^s:RETURN
+930 a=p*s^q:RETURN
+950 a=(s-p)/q:RETURN
+960 a=EXP((s-p)/q):RETURN
+970 a=(LN s-LN p)/LN q:RETURN
+980 a=EXP((LN s-LN p)/q):RETURN
+1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+1010 IF ERL =120 THEN RESUME 120
+1020 IF ERL =140 THEN RESUME 140
+1030 IF ERL =420 THEN RESUME 420
+1040 IF ERL =470 THEN RESUME 470
+1050 IF ERL =210 THEN c=6:RESUME 280
+1060 IF ERL =260 THEN c=10:RESUME 280
+1070 IF ERL =270 THEN c=12:RESUME 280
+1080 IF(ERL=130 OR ERL =150)AND ERR =13 THEN LOCATE 0,1:PRINT c$;"data over";:z$=INPUT $(1,@):RESUME 20
+1090 LOCATE 0,1:PRINT c$;"not found";:a$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:{8D}={8D}{FB}  H{FC}:{8D}"+CHR$(sq)+"{8D}{FB}":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 r=0:s=0:f=5:t=sa:IF t THEN u=sg ELSE u=0
+45 CLS:PRINT t$;
+50 z=r:s$="{8D}{FB}":GOSUB 500:r=z
+60 z=s:s$="{8E}":GOSUB 500:s=z
+70 z=t:s$="n":GOSUB 500:t=z
+80 z=u:s$="{FE}":GOSUB 500:u=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 p=f/100:IF sq=226 THEN p=p/2
+105 sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
+110 b=1:z=(u-r)/(s/SQR t):GOSUB 400:a=z:z=x:GOSUB 400:x=z
+120 IF sq=226 THEN a=ABS a
+121 IF(sq=62 OR sq=226) AND a>x THEN b=0
+122 IF sq=60 THEN x=-x:IF a<x THEN b=0
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;": ";b$(b);:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:{8D}={8D}{FB}  H{FC}:{8D}"+CHR$(sq)+"{8D}{FB}":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 r=0:f=5:s=sa:IF s>1 THEN t=sg:u=sk^2 ELSE t=0:u=0
+45 CLS:PRINT t$;
+50 z=r:s$="{8D}{FB}":GOSUB 500:r=z
+60 z=s:s$="n":GOSUB 500:s=z
+70 z=t:s$="{FE}":GOSUB 500:t=z
+80 z=u:s$="V":GOSUB 500:u=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 n=s-1:p=f/100:IF sq=226 THEN p=p/2
+105 sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
+110 b=1:z=(t-r)/SQR(u/s):GOSUB 400:a=z:z=x:GOSUB 400:x=z
+120 IF sq=226 THEN a=ABS a
+121 IF(sq=62 OR sq=226) AND a>x THEN b=0
+122 IF sq=60 THEN x=-x:IF a<x THEN b=0
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;": ";b$(b);:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:{8E}2={8E}{FB}2  H{FC}:{8E}2"+CHR$(sq)+"{8E}{FB}2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
+25 IF a$<>"Y" AND a$<>"y" THEN 40
+30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
+40 r=0:f=5:s=sa:IF s>1 THEN t=sm ELSE t=0
+45 CLS:PRINT t$;
+50 z=r:s$="{8E}{FB}2":GOSUB 500:r=z
+60 z=s:s$="n":GOSUB 500:s=z
+70 z=t:s$="S":GOSUB 500:t=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 n=s-1:p=f/100:IF sq=226 THEN p=p/2 ELSE IF sq=60 THEN p=1-p
+102 g=0:sr=0:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
+104 IF sq=226 THEN g=x:p=1-p:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN * ELSE b=x:x=g:g=b
+110 b=1:z=t/r:GOSUB 400:a=z:z=x:GOSUB 400:x=z:z=g:GOSUB 400:g=z
+120 IF(sq=226 OR sq=62) AND a>x THEN b=0
+122 IF sq=60 AND a<x THEN b=0
+123 IF sq=226 AND a<g THEN c=0 ELSE c=1
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;:IF sq<63 THEN PRINT ": ";b$(b);:GOTO 150
+140 PRINT TAB(0);a;CHR$(60+c*164);g;": ";b$(b AND c);
+150 a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:{8E}{FC}2={8E}{FD}2  H{FC}:{8E}{FC}2"+CHR$(sq)+"{8E}{FD}2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
+20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1)
+22 IF a$<>"Y" AND a$<>"y" THEN 30
+25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1)
+32 IF a$<>"Y" AND a$<>"y" THEN 36
+35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+36 s=sa:IF s>1 THEN r=sk^2 ELSE r=0
+37 f=5:u=sz:IF u>1 THEN t=sl^2 ELSE t=0
+45 CLS:PRINT t$;
+50 z=s:s$="n{FC}":GOSUB 500:s=z
+60 z=r:s$="V{FC}":GOSUB 500:r=z
+70 z=u:s$="n{FD}":GOSUB 500:u=z
+80 z=t:s$="V{FD}":GOSUB 500:t=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 n=s-1:m=u-1:p=f/100:IF sq=226 AND r<t THEN n=u-1:m=s-1
+102 IF sq=226 THEN p=p/2 ELSE IF sq=60 THEN p=1-p
+105 sr=0:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
+107 IF sq=226 AND r<t THEN z=t/r ELSE z=r/t
+110 b=1:GOSUB 400:a=z:z=x:GOSUB 400:x=z
+120 IF(sq=226 OR sq=62) AND a>x THEN b=0
+122 IF sq=60 AND a<x THEN b=0
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;": ";b$(b);:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:{8D}{FC}={8D}{FD}  H{FC}:{8D}{FC}"+CHR$(sq)+"{8D}{FD}":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
+20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1)
+22 IF a$<>"Y" AND a$<>"y" THEN 30
+25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1)
+32 IF a$<>"Y" AND a$<>"y" THEN 36
+35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+36 r=sa:IF r>1 THEN s=sg:t=sm ELSE s=0:t=0
+37 f=5:u=sz:IF u>1 THEN v=sh:w=sn ELSE v=0:w=0
+45 CLS:PRINT t$;
+50 z=r:s$="n{FC}":GOSUB 500:r=z
+55 z=s:s$="{FE}{FC}":GOSUB 500:s=z
+60 z=t:s$="S{FC}":GOSUB 500:t=z
+70 z=u:s$="n{FD}":GOSUB 500:u=z
+75 z=v:s$="{FE}{FD}":GOSUB 500:v=z
+80 z=w:s$="S{FD}":GOSUB 500:w=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 n=r+u-2:p=f/100:IF sq=226 THEN p=p/2
+105 sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
+107 z=(s-v):IF sq=226 THEN z=ABS z
+110 b=1:z=z/SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:a=z:z=x:GOSUB 400:x=z
+120 IF(sq=226 OR sq=62) AND a>x THEN b=0
+122 IF sq=60 THEN x=-x:IF a<x THEN b=0
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;": ";b$(b);:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:p=p{FB}  H{FC}:p"+CHR$(sq)+"p{FB}":f=5:c$=CHR$(5):r=0:s=0:t=0:DEF CHR$(252)="123E020000"
+45 CLS:PRINT t$;
+50 z=r:s$="p{FB}":GOSUB 500:r=z:IF r>=1 OR r=<0 THEN 50
+60 z=s:s$="n":GOSUB 500:s=z
+70 z=t:s$="Σx":GOSUB 500:t=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 p=f/100:IF sq=226 THEN p=p/2
+105 sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
+107 z=t-s*r:IF sq=226 THEN z=ABS z
+110 b=1:z=z/SQR(s*r*(1-r)):GOSUB 400:a=z:z=x:GOSUB 400:x=z
+120 IF(sq=226 OR sq=62) AND a>x THEN b=0
+122 IF sq=60 THEN x=-x:IF a<x THEN b=0
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;": ";b$(b);:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
+
+
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H{FB}:p{FC}=p{FD}  H{FC}:p{FC}"+CHR$(sq)+"p{FD}":f=5:c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000":r=0:s=0:t=0:u=0
+45 CLS:PRINT t$;
+50 z=r:s$="n{FC}":GOSUB 500:r=z
+60 z=s:s$="Σx{FC}":GOSUB 500:s=z
+70 z=t:s$="n{FD}":GOSUB 500:t=z
+80 z=u:s$="Σx{FD}":GOSUB 500:u=z
+90 CLS:PRINT "Significance level α(%)";
+95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
+97 CLS:PRINT t$;TAB(0);".....";
+100 p=f/100:IF sq=226 THEN p=p/2
+105 sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
+107 z=s/r-u/t:IF sq=226 THEN z=ABS z
+110 b=1:v=(s+u)/(r+t):z=z/SQR(v*(1-v)*(1/r+1/t)):GOSUB 400:a=z:z=x:GOSUB 400:x=z
+120 IF(sq=226 OR sq=62) AND a>x THEN b=0
+122 IF sq=60 THEN x=-x:IF a<x THEN b=0
+130 z=SGN(sq-60):PRINT c$;a;CHR$(60+z*2+b*(164-z));x;": ";b$(b);:a$=INPUT $(1,@):GOTO 45
+400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
+410 RETURN
+500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
+900 ON ERROR GOTO 910:RETURN
+910 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+920 IF ERL =500 THEN RESUME 500
+930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
+
+
+10 MODE 8:DIM:ERASE a,a$:DIM a(5),a$(1):a$(1)="Input":a$(0)="Delete":c$=CHR$(5)
+20 CLS:PRINT "Input data (";s$;")";TAB(0);">Input,Delete,Clear,List,End ?";
+30 a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
+40 ON a-66 GOTO 300,100,200,,,,100,,,500
+50 GOTO 30
+100 CLS:PRINT a$(SGN(a-68));" data (";s$;")";TAB(21);"(EXE):menu";:z=SGN(a-69)
+110 LOCATE 0,1:PRINT c$;s$;"?";
+120 LOCATE LEN(s$)+1,1:INPUT @12;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE x=VALF(z$)
+150 r=sa+z:s=sb+x*z:u=sd+x*x*z
+160 sa=r:sb=s:sd=u:GOTO 110
+200 c=6
+210 sg=sb/sa
+220 sm=sd-sg*sb:IF sm<0 THEN sm=0
+250 si=SQR(sm/sa)
+260 sk=SQR(sm/(sa-1))
+280 RETURN
+300 PRINT c$;"clear data  (Y/N) ?";
+310 a$=INPUT $(1,@):IF a$<>"Y" AND a$<>"y" THEN 20
+320 sa=0:sb=0:sd=0:GOTO 20
+500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
+510 GOSUB 600
+520 z=ASC(INPUT $(1,@)):IF z=28 OR z=29 THEN 20
+530 IF z<>13 AND z<>30 AND z<>31 THEN 520
+540 IF(z=30 AND i=1) OR(z=31 AND i=c) THEN 520
+550 IF z=30 THEN i=i-2
+560 i=i+1:IF i=<c THEN 510 ELSE 20
+580 DEF CHR$(255)="0808003E00"
+590 a(0)=sa:a(1)=sb:a(2)=sd:a(3)=sg:a(4)=si:a(5)=sk:RETURN
+600 RESTORE(600+i*10):READ a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
+610 DATA CNT,n
+620 DATA SUMX,Σx
+630 DATA SUMX2,Σx2
+640 DATA MEANX,Σx/n
+650 DATA SDXN,x{8E}n
+660 DATA SDX,x{8E}n{FF}
+1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+1010 IF ERL =120 THEN RESUME 120
+1050 IF ERL =210 THEN c=3:RESUME 280
+1060 IF ERL =260 THEN c=5:RESUME 280
+1080 IF ERL =150 THEN LOCATE 0,1:PRINT c$;"data over";:z$=INPUT $(1,@):RESUME 20
+1090 LOCATE 0,1:PRINT c$;"not found";:a$=INPUT $(1,@):RESUME 20
+
+
+10 MODE 8:DIM:ERASE a,a$:DIM a(5),a$(1):a$(1)="Input":a$(0)="Delete":c$=CHR$(5):sf=0
+20 CLS:PRINT "Input data (";s$;")";TAB(0);">Input,Delete,Clear,List,End ?";
+30 a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
+40 ON a-66 GOTO 300,100,200,,,,100,,,500
+50 GOTO 30
+100 CLS:PRINT a$(SGN(a-68));" data (";s$;")";TAB(21);"(EXE):menu";:z=SGN(a-69)
+110 LOCATE 0,1:PRINT c$;s$;"?";
+120 LOCATE LEN(s$)+1,1:INPUT @12;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE y=VALF(z$)
+150 r=sz+z:s=sc+y*z:u=se+y*y*z
+160 sz=r:sc=s:se=u:GOTO 110
+200 c=6
+210 sh=sc/sz
+220 sn=se-sh*sc:IF sn<0 THEN sn=0
+250 sj=SQR(sn/sz)
+260 sl=SQR(sn/(sz-1))
+280 RETURN
+300 PRINT c$;"clear data  (Y/N) ?";
+310 a$=INPUT $(1,@):IF a$<>"Y" AND a$<>"y" THEN 20
+320 sz=0:sc=0:se=0:GOTO 20
+500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
+510 GOSUB 600
+520 z=ASC(INPUT $(1,@)):IF z=28 OR z=29 THEN 20
+530 IF z<>13 AND z<>30 AND z<>31 THEN 520
+540 IF(z=30 AND i=1) OR(z=31 AND i=c) THEN 520
+550 IF z=30 THEN i=i-2
+560 i=i+1:IF i=<c THEN 510 ELSE 20
+580 DEF CHR$(255)="0808003E00"
+590 a(0)=sz:a(1)=sc:a(2)=se:a(3)=sh:a(4)=sj:a(5)=sl:RETURN
+600 RESTORE(600+i*10):READ a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
+610 DATA CNT,n
+620 DATA SUMX,Σx
+630 DATA SUMX2,Σx2
+640 DATA MEANX,Σx/n
+650 DATA SDXN,x{8E}n
+660 DATA SDX,x{8E}n{FF}
+1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+1010 IF ERL =120 THEN RESUME 120
+1050 IF ERL =210 THEN c=3:RESUME 280
+1060 IF ERL =260 THEN c=5:RESUME 280
+1080 IF ERL =150 THEN LOCATE 0,1:PRINT c$;"data over";:z$=INPUT $(1,@):RESUME 20
+1090 LOCATE 0,1:PRINT c$;"not found";:a$=INPUT $(1,@):RESUME 20
+
+
+10 y=ABS x:p=0
+15 IF y>100 THEN 60
+20 IF y<1.9 THEN 50
+30 FOR i=18 TO 1 STEP -1:p=i/(y+p):NEXT
+40 p=EXP(-.5*y*y)/SQR(2*PI )/(y+p):GOTO 60
+50 p=(1+y*(.049867347+y*(.0211410061+y*(.0032776263+y*(.0000380036+y*(.0000488906+y*.000005383))))))^-16/2
+60 IF x<0 THEN p=1-p
+80 y=p:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+20 IF n>100 THEN z=x:x=((x/n)^(1/3)-(1-2/9/n))/SQR(2/9/n):GOSUB "LIB0:S6210":GOSUB 400:p=y:x=z:GOTO 80
+30 IF x>400 THEN p=0:GOTO 80
+40 a=EXP(-x/2):p=a:y=2
+50 IF n MOD 2<>0 THEN z=x:x=SQR x:GOSUB "LIB0:S6210":GOSUB 400:p=2*y:a=SQR(2/PI )*a/x:x=z:y=1
+60 FOR i=y TO n-2 STEP 2:a=a*x/i:p=p+a:NEXT
+80 y=p:RETURN
+400 ON ERROR GOTO 500:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 ANGLE 1:y=ATN(x/SQR n):z=COS y^2
+20 IF n MOD 2=0 THEN a=SIN y/2:b=.5 ELSE b=.5+y/PI:IF n=1 THEN a=0 ELSE a=SIN y*COS y/PI
+30 y=1:FOR i=n-2 TO 2 STEP -2:y=1+(i-1)/i*z*y:NEXT
+40 p=1-(b+a*y):IF p<0 THEN p=0
+80 y=p:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 ANGLE 1:IF x=<0 THEN p=1:GOTO 80
+20 IF m MOD 2=0 THEN z=m/(m+n*x):GOSUB 100:p=1-p:GOTO 80
+30 IF n MOD 2=0 THEN z=n*x/(m+n*x):i=m:m=n:n=i:GOSUB 100:i=m:m=n:n=i:GOTO 80
+40 y=ATN SQR(n*x/m)
+50 GOSUB 200:p=p+a:IF p<0 THEN p=0
+80 y=p:RETURN
+100 a=1:FOR i=m-2 TO 2 STEP -2:a=1+(n+i-2)/i*z*a:NEXT
+110 p=(1-z)^(n/2)*a:RETURN
+200 z=(SIN y)^2:IF n=1 THEN a=0 ELSE a=1
+210 FOR i=n-2 TO 3 STEP -2:a=1+(m+i-2)/i*z*a:NEXT
+220 b=PI:FOR i=2 TO m-1 STEP 2:b=b*(i-1)/i:NEXT
+230 p=2/b*SIN y*(COS y)^m*a
+250 z=(COS y)^2:IF m=1 THEN a=0 ELSE a=1
+260 FOR i=m-2 TO 3 STEP -2:a=1+(i-1)/i*z*a:NEXT
+270 a=1-2*y/PI -2/PI *SIN y*COS y*a:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 IF p=1 THEN IF n=x THEN s=1:f=1:GOTO 80 ELSE s=0:f=0:GOTO 80
+20 q=1-p:f=q^n:s=f:z=p/q:y=n+1
+30 FOR i=1 TO x:f=f*z*(y-i)/i:s=s+f:NEXT
+80 s=1-s+f:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 f=EXP(-k):s=f
+20 FOR i=1 TO x:f=f*k/i:s=s+f:NEXT
+80 s=1-s+f:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 GOSUB 100:s=f:q=k+1:y=n+1
+30 FOR i=1 TO x:f=f*(q-i)*(y-i)/i/(z+i):s=s+f:NEXT
+80 s=1-s+f:RETURN
+100 q=m-k:y=m-n:z=m-k-n:f=1
+110 IF q<17 AND k<17 THEN FOR i=0 TO n-1:f=f*(q-i)/(m-i):NEXT:RETURN
+120 f=(q+.5)*LN q+(y+.5)*LN y-(m+.5)*LN m-(z+.5)*LN z+(1/q+1/y-1/m-1/z)/12:f=EXP f:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 IF p=<0 OR p>=1 THEN *
+20 y=-LN(4*p*(1-p))
+30 x=.5824238515E-5+y*(-.104527497E-5+y*(.8360937017E-7+y*(-.3231081277E-8+y*(.3657763036E-10+y*.6936233982E-12))))
+40 x=SQR(y*(1.570796288+y*(.03706987906+y*(-.8364353589E-3+y*(-.2250947176E-3+y*(.6841218299E-5+y*x))))))
+50 IF p>.5 THEN x=-x
+80 y=x:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+15 IF p=1 THEN x=0:GOTO 80
+20 IF n=1 THEN q=p:p=q/2:GOSUB "LIB0:S6410":GOSUB 400:x=y*y:p=q:GOTO 80
+30 IF n=2 THEN x=-2*LN p:GOTO 80
+40 GOSUB "LIB0:S6410":GOSUB 400:x=y:y=x*x:x=n+SQR(2*n)*x+2/3*(y-1)+x*(y-7)/9/SQR(2*n)-2/405/n*(y*(3*y+7)-16):IF x<0 THEN x=0
+50 IF n>100 THEN 80
+60 b=x:GOSUB 100:IF n<31 THEN IF ABS(b-x)>1E-4 THEN 60
+80 y=x:RETURN
+100 q=p:GOSUB "LIB0:S6220":GOSUB 400:p=y
+110 z=EXP(((n-1)*LN(x/n)-LN(4*PI *x)+n-x-1/n/6)/2)
+120 x=x+(p-q)/z:p=q:x=ROUND(x,-6):RETURN
+400 ON ERROR GOTO 500:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+30 GOSUB "LIB0:S6410":GOSUB 400:x=y:y=x^2
+40 a=(y+1)/4:b=((5*y+16)*y+3)/96:c=(((3*y+19)*y+17)*y-15)/384:d=((((79*y+776)*y+1482)*y-1920)*y-945)/92160:e=(((((27*y+339)*y+930)*y-1782)*y-765)*y+17955)/368640
+50 x=x*(1+(a+(b+(c+(d+e/n)/n)/n)/n)/n)
+60 IF n>(LOG p)^2+3 THEN 80
+70 q=p:GOSUB "LIB0:S6230":GOSUB 400:p=y:GOSUB 100:y=x:x=x+(p-q)/a:p=q:IF x THEN IF ROUND(x-y,LOG(ABS x)-5)<>0 THEN 70
+80 y=x:RETURN
+100 b=n+1:a=EXP((b*LN(b/(n+x*x))+LN(n/b/2/PI )-1+(1/b-1/n)/6)/2):RETURN
+400 ON ERROR GOTO 500:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+15 IF p=1 THEN x=0:GOTO 80
+20 IF m=1 THEN m=p:p=.5-p/2:GOSUB "LIB0:S6430":GOSUB 400:p=m:m=1:x=1/y^2:GOTO 80
+30 IF n=1 THEN n=m:p=p/2:GOSUB "LIB0:S6430":GOSUB 400:n=1:p=p*2:x=y^2:GOTO 80
+40 IF m=2 THEN p=1-p:m=n:n=2:GOSUB 100:p=1-p:n=m:m=2:x=1/x:GOTO 80
+50 IF n>m THEN p=1-p:d=n:n=m:m=d:GOSUB 200:x=1/x:d=m:m=n:n=d:p=1-p:GOTO 80
+60 GOSUB 200
+80 y=x:RETURN
+100 GOSUB "LIB0:S6420":GOSUB 400:x=y:a=n-2
+110 x=x/n*(1+((x-a)/2+(((4*x-11*a)*x+a*(7*n-10))/24+(((2*x-10*a)*x+a*(17*n-26))*x-a*a*(9*n-6))/48/m)/m)/m):RETURN
+200 GOSUB 100
+210 d=x:c=p:GOSUB "LIB0:S6240":GOSUB 400:p=c
+220 z=n+m:z=EXP((z*LN(z/(n*x+m))+(n-2)*LN x+LN(n*m/z)-LN(4*PI )-(1/n+1/m-1/z)/6)/2):x=x+(y-p)/z
+230 IF ABS(d-x)>3E-4 THEN 210 ELSE RETURN 
+400 ON ERROR GOTO 500:RETURN
+500 IF ERR =1 THEN CLS :ON ERROR GOTO 0
+510 sr=1:RESUME 80
+
+
+10 DATA ,x+C,10,20
+20 DATA xn,xn+1/(n+1)+C           (n+1≠0),10,30
+30 DATA 1/x,log{FF}x{FF}+C,20,40
+40 DATA 1/(x{F9}a),log{FF}x{F9}a{FF}+C,30,50
+50 DATA ex,ex+C,40,60
+60 DATA enx,enx/n+C,50,70
+70 DATA ax,"ax/loga+C            (a>0,a≠1)",60,80
+80 DATA anx,"anx/(n{A5}loga)+C       (a>0,a≠1)",70,90
+90 DATA logx,x(logx-1)+C,80,100
+100 DATA xenx,enx/n2{A5}(nx-1)+C,90,110
+110 DATA sinx,-cosx+C,100,120
+120 DATA sinax,-1/a{A5}cosax+C,110,130
+130 DATA cosx,sinx+C,120,140
+140 DATA cosax,1/a{A5}sinax+C,130,150
+150 DATA tanx,-log{FF}cosx{FF}+C,140,160
+160 DATA cotx,log{FF}sinx{FF}+C,150,170
+170 DATA sin2x,x/2-sin2x/4+C,160,180
+180 DATA cos2x,x/2+sin2x/4+C,170,190
+190 DATA sec2ax,1/a{A5}tanax+C,180,200
+200 DATA cosec2ax,-1/a{A5}cotax+C,190,210
+210 DATA 1/sinx,log(tan(x/2))+C,200,220
+220 DATA 1/cosx,log(tan((π/4)+(x/2)))+C,210,230
+230 DATA enxsinbx,enx(n{A5}sinbx-b{A5}cosbx)/(n2+b2)+C,220,240
+240 DATA enxcosbx,enx(n{A5}cosbx+b{A5}sinbx)/(n2+b2)+C,230,250
+250 DATA sin{9E}x,xsin{9E}x+√(1-x2)+C,240,260
+260 DATA cos{9E}x,xcos{9E}x-√(1-x2)+C,250,270
+270 DATA sinhx,coshx+C,260,280
+280 DATA coshx,sinhx+C,270,290
+290 DATA tanhx,log(coshx)+C,280,300
+300 DATA 1/√(a2-x2),sin{9E}(x/a)+C            ({FF}x{FF}<a),290,310
+310 DATA 1/(a2+x2),1/a{A5}tan{9E}(x/a)+C,300,320
+320 DATA 1/√(x2{F9}a2),log(x+√(x2{F9}a2))+C,310,330
+330 DATA √(a2-x2),1/2{A5}(x√(a2-x2)+a2sin{9E}(x/a))+C,320,340
+340 DATA 1/(x2-a2),1/2a{A5}log((x-a)/(x+a))+C  (x>a),330,340
+10010 MODE 8:DIM:x=10:y=340:r=x
+10020 DEF CHR$(255)="0000FF0000"
+10110 RESTORE(r)
+10120 READ m$,n$,b,c:IF m$="" THEN m$=CHR$(8)
+10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10140 CLS:PRINT CHR$(129);" ";m$;" dx";TAB(l);l$;"=";n$;
+10150 z=ASC(INPUT $(1,@))
+10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
+10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
+10190 IF z=30 AND r<>b THEN r=b:GOTO 10110
+10200 IF(z=31 OR z=13)AND r<>c THEN r=c:GOTO 10110
+10280 GOTO 10150

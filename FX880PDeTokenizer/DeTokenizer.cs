@@ -482,6 +482,14 @@ namespace FX880PDeTokenizer
 
                                     break;
 
+                                case B_CALCJMP:
+
+                                    //undocumented token?
+                                    _sbOutput.Append($"CALCJMP");
+
+                                    break;
+
+
                                 default:
 
                                     //unknown token
@@ -1061,9 +1069,11 @@ namespace FX880PDeTokenizer
 
                                 default:
 
-                                    if ( IsLiteralChar(b1) )
+                                    string charConverted = Convert(b1);
+
+                                    if (charConverted != CHAR_UNKNOWN )
                                     {
-                                        _sbOutput.Append($"{(char)b1}");
+                                        _sbOutput.Append(charConverted);
                                     }
                                     else
                                     {
@@ -1129,13 +1139,13 @@ namespace FX880PDeTokenizer
             switch (currentByte)
             {
                 case C_SPACE:
+                case C_PAREN_OPEN:
 
                     return;
 
                 case C_EQUALS:
                 case C_MULTI_STATEMENT_SEPARATOR:
                 case C_LINE_END:
-                case C_PAREN_OPEN:
 
                     if( IsToken(previousByte) == true )
                     {
@@ -1200,6 +1210,288 @@ namespace FX880PDeTokenizer
 
                     return false;
             }
+        }
+
+        public const string CHAR_UNKNOWN = "UNKNOWN";
+
+        public string Convert(byte b)
+        {
+            string[] casioToUnicode = 
+            {
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               " ",
+               "!",
+               "\"",
+               "#",
+               "$",
+               "%",
+               "&",
+               "'",
+               "(",
+               ")",
+               "*",
+               "+",
+               ",",
+               "-",
+               ".",
+               "/",
+
+               "0",
+               "1",
+               "2",
+               "3",
+               "4",
+               "5",
+               "6",
+               "7",
+               "8",
+               "9",
+               ":",
+               ";",
+               "<",
+               "=",
+               ">",
+               "?",
+
+               "@",
+               "A",
+               "B",
+               "C",
+               "D",
+               "E",
+               "F",
+               "G",
+               "H",
+               "I",
+               "J",
+               "K",
+               "L",
+               "M",
+               "N",
+               "O",
+
+               "P",
+               "Q",
+               "R",
+               "S",
+               "T",
+               "U",
+               "V",
+               "W",
+               "X",
+               "Y",
+               "Z",
+               "(",
+               "¥",
+               ")",
+               "^",
+               "_",
+
+               "'",
+               "a",
+               "b",
+               "c",
+               "d",
+               "e",
+               "f",
+               "g",
+               "h",
+               "i",
+               "j",
+               "k",
+               "l",
+               "m",
+               "n",
+               "o",
+
+               "p",
+               "q",
+               "r",
+               "s",
+               "t",
+               "u",
+               "v",
+               "w",
+               "x",
+               "y",
+               "z",
+               "{",
+               "|",
+               "}",
+               "~",
+               " ",
+
+               CHAR_UNKNOWN,
+               "∫",
+               "√",
+               "/",
+               "Σ",
+               "Ω",
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               "α",
+               "β",
+               "γ",
+               CHAR_UNKNOWN,
+               "θ",
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               "0",
+               "1",
+               "2",
+               "3",
+               "4",
+               "5",
+               "6",
+               "7",
+               "8",
+               "9",
+               "+",
+               "-",
+               "n",
+               "x",
+               CHAR_UNKNOWN,
+               "÷",
+
+               " ",
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+
+               "≥",
+               "≤",
+               "≠",
+               "↑",
+               "←",
+               "↓",
+               "→",
+               "π",
+               "♠",
+               "♥",
+               "♦",
+               "♣",
+               "□",
+               "○",
+               "Δ",
+               CHAR_UNKNOWN,
+
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               "£",
+               "¢",
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+               CHAR_UNKNOWN,
+            };
+
+            return casioToUnicode[b];
         }
 
         public string GetAllSources()
@@ -1305,6 +1597,7 @@ namespace FX880PDeTokenizer
         private const byte B_OPEN = 0x97;
         private const byte B_OUT = 0x99;
         private const byte B_ON = 0x9A;
+        private const byte B_CALCJMP = 0x9F;  //undocumented
         private const byte B_PRINT = 0xA3;
         private const byte B_LPRINT = 0xA4;
         private const byte B_PUT = 0xA5;
