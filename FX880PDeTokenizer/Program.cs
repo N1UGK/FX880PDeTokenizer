@@ -60,7 +60,7 @@ namespace FX880PDeTokenizer
 
                 foreach ( ProgramArea pa in d.programAreas.Where(a=>a.source != string.Empty))
                 {
-                    File.WriteAllText(Path.Combine(filenameBaseDir, filenameBase + pa.ProgramNumber + filenameExt), pa.source);
+                    File.WriteAllText(Path.Combine(filenameBaseDir, filenameBase + pa.ProgramNumber + filenameExt), pa.source, Encoding.UTF8);
                 }
             }
             else

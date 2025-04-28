@@ -1,4 +1,4 @@
-{15}x{15}w{15}y{19}{A3}{19}7{18}n{15}'{15}{AC}{15}k{15}l{15}m{15}n{15}o{15}p{14}J{14}{A3}{14}K{14}I{14}∫{14}m{14}√{14}{8D}{17}G{14}W{14}o{14}j{16}-{14}|{15}3{14}{AC}{15}c{14}l{14}Y{15}z{15} {15}g{15}}{18}{A7}{18}{A8}{18}{AA}{18}{AB}
+﻿{15}x{15}w{15}y{19}{A3}{19}7{18}n{15}'{15}{AC}{15}k{15}l{15}m{15}n{15}o{15}p{14}J{14}{A3}{14}K{14}I{14}∫{14}m{14}√{14}{8D}{17}G{14}W{14}o{14}j{16}-{14}|{15}3{14}{AC}{15}c{14}l{14}Y{15}z{15} {15}g{15}}{18}{A7}{18}{A8}{18}{AA}{18}{AB}
 
 
 10 CLEAR:CLS:DEFSEG=0:K=PEEK(&H6B4)/4+PEEK(&H6B5)*64
@@ -388,7 +388,7 @@
 
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):s=0:h=1e-5:e=1e-7:m=20:ANGLE 1
-50 CLS:PRINT "Newton's method  f(x)=0";TAB(0);"1:f(x),x0       2:h,{8B},loop";
+50 CLS:PRINT "Newton's method  f(x)=0";TAB(0);"1:f(x),x0       2:h,ɛ̝,loop";
 60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90 ELSE IF k=50 THEN 150
 80 GOTO 60
 90 CLS:PRINT "Define function";
@@ -396,7 +396,7 @@
 110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"{A5}{A5}{A5}"
 120 m$="f(x) = "+g$:s$="x0":z=s:GOSUB 800:s=z:GOTO 250
 150 m$="f/(x)=(f(x+h)-f(x))/h  (h>0)":s$="h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
-170 m$="Err  {FF}Xn+1-Xn{FF}<{8B}  ({8B}>0)":s$="{8B}":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  {FF}Xn+1-Xn{FF}<ɛ̝  (ɛ̝>0)":s$="ɛ̝":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE 50
 250 CLS:PRINT m$;TAB(0);"x = .....";:t=s
 310 FOR i=1 TO m
@@ -416,7 +416,7 @@
 
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):s=0:t=0:e=1e-7:m=30:ANGLE 1
-50 CLS:PRINT "Method of bisection  f(x)=0     1:f(x),x0,x1    2:{8B},loop";
+50 CLS:PRINT "Method of bisection  f(x)=0     1:f(x),x0,x1    2:ɛ̝,loop";
 60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90 ELSE IF k=50 THEN 170
 80 GOTO 60
 90 CLS:PRINT "Define function";
@@ -424,7 +424,7 @@
 110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"{A5}{A5}{A5}"
 120 m$="f(x) = "+g$:s$="x0":z=s:GOSUB 800:s=z
 130 s$="x1":z=t:GOSUB 800:t=z:GOTO 250
-170 m$="Err  {FF}Xn+1-Xn{FF}<{8B}  ({8B}>0)":s$="{8B}":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  {FF}Xn+1-Xn{FF}<ɛ̝  (ɛ̝>0)":s$="ɛ̝":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE 50
 250 CLS:PRINT m$;TAB(0);"x = .....";:u=s:v=t
 270 x=u:g=VALF(f$):IF g=0 THEN 500
@@ -573,7 +573,7 @@
 
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):a=0:b=0:e=1e-7:m=8:ANGLE 1:ERASE a:DIM a(m)
-50 CLS:PRINT "Romberg's method  ∫f(x)dx (a,b) 1:f(x),(a,b)      2:{8B},loop";
+50 CLS:PRINT "Romberg's method  ∫f(x)dx (a,b) 1:f(x),(a,b)      2:ɛ̝,loop";
 60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90ELSE IF k=50 THEN 170
 80 GOTO 60
 90 CLS:PRINT "Define function";
@@ -581,7 +581,7 @@
 110 IF LEN(f$)<21 THEN g$=f$ ELSE g$=LEFT$(f$,17)+"{A5}{A5}{A5}"
 120 m$="∫ "+g$+" dx (a,b)":s$="a":z=a:GOSUB 800:a=z
 130 s$="b":z=b:GOSUB 800:b=z:GOTO 250
-170 m$="Err  {FF}An+1-An{FF}<{8B}  ({8B}>0)":s$="{8B}":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  {FF}An+1-An{FF}<ɛ̝  (ɛ̝>0)":s$="ɛ̝":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  2n     (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200ELSE ERASE a:DIM a(m):GOTO 50
 250 CLS:PRINT m$;TAB(0);"∫f(x)dx = .....";
 260 h=b-a:x=a:g=VALF(f$):x=b:f=VALF(f$):a(0)=(g+f)*h/2
