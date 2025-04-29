@@ -26,9 +26,9 @@ namespace FX880PDeTokenizer
     {
         private StringBuilder _sbOutput;
 
-        public List<string> sources;
+        public List<ProgramArea> sources; //holds source from anything other than P0-P9
+        public List<ProgramArea> programAreas; //holds sources from P0-P9
         public List<string> sourcesDiscarded;
-        public List<ProgramArea> programAreas;
 
         private byte[] _source;
 
@@ -62,7 +62,7 @@ namespace FX880PDeTokenizer
 
         private void ClearSources()
         {
-            sources = new List<string>();
+            sources = new List<ProgramArea>();
             sourcesDiscarded = new List<string>();
         }
 
@@ -101,7 +101,8 @@ namespace FX880PDeTokenizer
         {
             get
             {
-                return programAreas.Count == 10;
+                //program number of -1 means not one of the P0-P9 user program areas.
+                return programAreas.Count(p=>p.ProgramNumber != -1) == 10;
             }
         }
 
@@ -124,6 +125,8 @@ namespace FX880PDeTokenizer
             }
             else
             {
+                programAreas = new List<ProgramArea>();
+
                 DeTokenize(_position, _source.Length - 1);
             }
         }
@@ -143,7 +146,7 @@ namespace FX880PDeTokenizer
 
             _sbOutput = new StringBuilder();
 
-            int programStartPosition;
+            int programStartPosition = start;
 
             while (_position < _source.Length && _position <= end)
             {
@@ -1103,7 +1106,7 @@ namespace FX880PDeTokenizer
 
                             if (_sbOutput.Length > 0)
                             {
-                                sources.Add(_sbOutput.ToString());
+                                sources.Add(new ProgramArea() { source = _sbOutput.ToString(),  StartAddress = programStartPosition, EndAddress = _position });
 
                                 _sbOutput.Clear();
                             }
@@ -1140,10 +1143,10 @@ namespace FX880PDeTokenizer
             {
                 case C_SPACE:
                 case C_PAREN_OPEN:
+                case C_EQUALS:
 
                     return;
 
-                case C_EQUALS:
                 case C_MULTI_STATEMENT_SEPARATOR:
                 case C_LINE_END:
 
@@ -1500,7 +1503,23 @@ namespace FX880PDeTokenizer
 
         public string GetAllSources()
         {
-            return String.Join($"{NEWLINE}{NEWLINE}", sources.ToArray());
+            StringBuilder sbOutput = new StringBuilder();
+
+            bool isFirst = true;
+
+            foreach (ProgramArea pa in sources)
+            {
+                if (isFirst == false)
+                {
+                    sbOutput.Append($"{NEWLINE}{NEWLINE}");
+                }
+
+                isFirst = false;
+
+                sbOutput.Append($"Address {pa.StartAddress.ToString("X4")}:{NEWLINE}{pa.source}");
+            }
+
+            return sbOutput.ToString();
         }
 
         private bool ReadNext(byte[] source, int position, out byte b1, out byte b2)
@@ -1734,6 +1753,11 @@ namespace FX880PDeTokenizer
                 StartAddress = DeTokenizer.ReadTwo(source, offset + OFFSET_START_ADDRESS);
                 EndAddress = DeTokenizer.ReadTwo(source, offset + OFFSET_END_ADDRESS);
             }
+        }
+
+        public ProgramArea()
+        {
+
         }
     }
 }
