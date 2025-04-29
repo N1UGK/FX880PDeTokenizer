@@ -167,6 +167,8 @@ namespace FX880PDeTokenizer
                     if (_sbOutput.Length == 0)
                     {
                         programStartPosition = _position;
+
+                        previousLineNumber = 0;
                     }
 
                     lineBytesRemaining = b1 + 1;
@@ -1187,11 +1189,6 @@ namespace FX880PDeTokenizer
             }
         }
 
-        private bool IsLiteralChar(byte b)
-        {
-            return (b >= 0x20 && b <= 0x7E);
-        }
-
         private bool IsAlphaNumeric(byte b)
         {
             return (b >= 0x30 && b <= 0x39) || (b >= 0x41 && b <= 0x5A) || (b >= 0x61 && b <= 0x7A);
@@ -1571,11 +1568,6 @@ namespace FX880PDeTokenizer
             }
 
             return val;
-        }
-
-        public string GetOutput()
-        {
-            return _sbOutput.ToString();
         }
 
         //tokens appear to be grouped, first byte in the token is the group, second byte is the command or function

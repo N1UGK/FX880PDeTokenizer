@@ -52,7 +52,8 @@ Address 0590:
 10000 BEEP:IF INPUT $(1,@)=CHR$(0) THEN 10000ELSE RETURN
 
 
-Address 0DCD:
+Address 0CD6:
+10 DATA 1E,28,A8,28,1E,0,2,7C,80,0,8,4,FE,80,80,0,20,40,80,0,C6,AA,92,82,C6,72,8E,80,8E,72,AA,54,AA,54,AA,FE,FE,FE,FE,FE,1C,22,22,1C,22,7E,88,A4,A4,58,20,1E,20,40,40,14,2A,2A,2A,0,3C,52,52,3C,0,3E,8,8,30,8,1C,22,22,5C,80,18,26,3C,64,18,F8,88,F8,0,0
 20 DATA 48,F8,8,0,0,B8,A8,E8,0,0,A8,A8,F8,0,0,E0,20,F8,0,0,E8,A8,B8,0,0,F8,A8,B8,0,0,C0,80,F8,0,0,F8,A8,F8,0,0,E8,A8,F8,0,0,20,70,20,0,0,20,20,20,0,0,78,20,40,38,0,48,50,28,48,0,20,20,0,0,F8,10,10,54,10,10
 30 DATA A,4A,2A,1A,A,A,1A,2A,4A,A,28,68,38,2C,28,20,40,FE,40,20,10,38,54,10,10,8,4,FE,4,8,10,10,54,38,10,22,3C,20,3E,22,18,3A,7E,3A,18,38,7C,3E,7C,38,18,3C,7E,3C,18,18,7A,7E,7A,18,7C,44,44,44,7C,38,44,44,44,38,8,18,28,18,8,40,20,10,8,4,44,28,10,28,44
 40 DATA FE,90,F0,92,FE,24,DC,54,7E,54,FE,A8,A8,AA,FE,FE,92,92,92,FE,50,50,7E,90,10,84,F8,A0,A2,BC,12,7E,92,82,42,38,44,FE,44,28,22,22,FA,22,22,88,88,BE,88,88,3E,22,3E,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
@@ -60,7 +61,8 @@ Address 0DCD:
 60 LPRINT a$;"&";b$;CHR$(x);CHR$(x+31);:FOR i=x TO x+31:LPRINT CHR$(139);:FOR j=1 TO 5:READ c$:LPRINT CHR$(VAL("&H"+c$));b$;:NEXT:LPRINT b$;:NEXT:RETURN
 
 
-Address 1153:
+Address 1140:
+10 MODE 8:DEFSEG=0:GOTO 110
 20 GOSUB 20
 30 OPEN p$ FOR INPUT AS #1:IF ASC(INPUT $(1,1))<>2 THEN CLOSE :GOTO 30 ELSE RETURN 
 50 IF g$="" THEN RETURN ELSE GOSUB 70:FOR k=1 TO LEN(g$):k$=MID$(g$,k,1):MODE 32(k$):NEXT:g$="":FOR l=0 TO k-2:g$=g$+CHR$(PEEK(l+768)):NEXT:RETURN
@@ -168,7 +170,8 @@ Address 1153:
 10130 NEXT:MODE 34("$"+CHR$(0)):GOTO 10030
 
 
-Address 205A:
+Address 204C:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a,a$:DIM a(3),a$(1):DEFSEG=0
 100 CLS:PRINT " MC[↑]   MR[↓]   M-[←]   M+[→]";
 110 LOCATE 0,1:PRINT CHR$(5);a(2);:LOCATE 16,1:PRINT a(3);:LOCATE 0,0:LOCATE 0,1
@@ -202,7 +205,8 @@ Address 205A:
 530 LOCATE 0,1:PRINT CHR$(5);CALC$ ;:RESUME 210
 
 
-Address 2511:
+Address 2503:
+5 ON ERROR GOTO 1000
 10 MODE 8:DIM:x=2:c$=CHR$(5)
 20 CLS:PRINT "Prime factors    (2≤Base<10¹⁰)";:a$=" *"
 40 LOCATE 0,1:PRINT c$;"Base ?";:INPUT @11;x:LOCATE 0,0
@@ -236,7 +240,8 @@ Address 2511:
 1050 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 27D3:
+Address 27C5:
+5 ON ERROR GOTO 1000
 10 MODE 8:DIM:c$=CHR$(5):a=1:b=1
 20 CLS:PRINT "G.C.M. & L.C.M.  (1≤a,b<10¹⁰)";
 30 s$="a":z=a:GOSUB 700:a=z
@@ -251,7 +256,8 @@ Address 27D3:
 1050 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 299B:
+Address 2988:
+5 ON ERROR GOTO 2000:DEFSEG=0
 10 MODE 8:DIM:ERASE a:c$=CHR$(5):n=2:m$="ax1+bx2+cx3+dx4+ex5+fx6+gx7"
 30 CLS:PRINT "ax1+bx2+cx3+･･･=y     (2≤n≤7)";
 40 LOCATE 0,1:PRINT c$;"n=";n;"?";:INPUT @2;n:LOCATE 0,0:IF n<2 OR n>7 THEN 40
@@ -296,7 +302,8 @@ Address 299B:
 2080 GOSUB 1800:RESUME 30
 
 
-Address 300D:
+Address 2FFF:
+5 ON ERROR GOTO 1000
 10 MODE 8:DIM:c$=CHR$(5):a=1:b=0:c=0
 20 CLS:PRINT "ax²+bx+c=0";
 30 s$="a":z=a:GOSUB 700:a=z:IF z=0 THEN 30
@@ -335,7 +342,8 @@ Address 300D:
 1050 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 34C7:
+Address 34B9:
+5 ON ERROR GOTO 1000
 10 MODE 8:DIM:c$=CHR$(5):ANGLE 0:a=1:b=0:c=0:d=0
 20 CLS:PRINT "ax³+bx²+cx+d=0";
 30 s$="a":z=a:GOSUB 700:a=z:IF a=0 THEN 30
@@ -396,7 +404,8 @@ Address 34C7:
 1050 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 3C8D:
+Address 3C7F:
+5 ON ERROR GOTO 1000
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):s=0:h=1e-5:e=1e-7:m=20:ANGLE 1
 50 CLS:PRINT "Newton's method  f(x)=0";TAB(0);"1:f(x),x0       2:h,ε,loop";
@@ -425,7 +434,8 @@ Address 3C8D:
 1020 GOSUB 450:RESUME 50
 
 
-Address 40E1:
+Address 40D3:
+5 ON ERROR GOTO 1000
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):s=0:t=0:e=1e-7:m=30:ANGLE 1
 50 CLS:PRINT "Method of bisection  f(x)=0     1:f(x),x0,x1    2:ε,loop";
@@ -457,7 +467,8 @@ Address 40E1:
 1020 GOSUB 450:RESUME 50
 
 
-Address 457D:
+Address 456A:
+5 ON ERROR GOTO 2000:DEFSEG=0
 10 CLS:MODE 8:DIM:ERASE a,b,d:DIM a(1,1),b(1,1),d(1,1):m=1:n=1:o=1:p=1:q=1:r=1:c$=CHR$(5):e=1
 40 GOSUB 460:GOSUB 470:GOSUB 420
 50 LOCATE 0,0:PRINT c$;"Matrix  A";m$;":B";n$;
@@ -584,7 +595,8 @@ Address 457D:
 2080 GOSUB 1830:RESUME 40
 
 
-Address 59EC:
+Address 59DE:
+5 ON ERROR GOTO 1000
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):a=0:b=0:e=1e-7:m=8:ANGLE 1:ERASE a:DIM a(m)
 50 CLS:PRINT "Romberg's method  ∫f(x)dx [a,b] 1:f(x),[a,b]      2:ε,loop";
@@ -617,7 +629,8 @@ Address 59EC:
 1020 GOSUB 450:RESUME 50
 
 
-Address 5EE2:
+Address 5ED4:
+5 ON ERROR GOTO 1000
 10 DEF CHR$(254)="060A12227E":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):a=0:b=0:h=1:ANGLE 1
 90 CLS:PRINT "Define function  dy/dx";
@@ -652,7 +665,8 @@ Address 5EE2:
 1030 GOSUB 450:RESUME 90
 
 
-Address 63C4:
+Address 63B1:
+5 ON ERROR GOTO 1000:DEFSEG=0
 10 MODE 8:DIM:c$=CHR$(5):n=2:x=0:ERASE a,b:m$="Lagrange's interpolation"
 20 CLS:PRINT m$;TAB(0);"1:x       2:set data";
 30 k=VAL(INPUT $(1,@)):ON k GOTO 200,60
@@ -680,7 +694,8 @@ Address 63C4:
 1050 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 6718:
+Address 670A:
+5 ON ERROR GOTO 1000
 10 MODE 8:DIM:ERASE a:DIM a(8):c$=CHR$(5):DEF CHR$(255)="82FE8280C0"
 20 RESTORE 400:FOR i=0 TO 8:READ a(i):NEXT:x=1
 30 CLS:PRINT "Gamma function  (0<x≤70)";
@@ -699,7 +714,8 @@ Address 6718:
 1020 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address 69E9:
+Address 69DB:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:c$=CHR$(5)
 20 CLS:PRINT "Jn(x)         (0≤n≤9,0≤x≤30)";
 30 LOCATE 0,1:PRINT c$;"n?   :x?      :J=";
@@ -729,7 +745,8 @@ Address 69E9:
 530 LOCATE 17,1:PRINT "not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 6D3E:
+Address 6D30:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:c$=CHR$(5)
 20 CLS:PRINT "Yn(x)         (0≤n≤9,0<x≤30)";
 30 LOCATE 0,1:PRINT c$;"n?   :x?      :Y=";
@@ -762,7 +779,8 @@ Address 6D3E:
 530 LOCATE 17,1:PRINT "not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 7120:
+Address 7112:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:c$=CHR$(5)
 20 CLS:PRINT "In(x)         (0≤n≤9,0≤x≤10)";
 30 LOCATE 0,1:PRINT c$;"n?   :x?      :I=";
@@ -793,7 +811,8 @@ Address 7120:
 530 LOCATE 17,1:PRINT "not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 746D:
+Address 745F:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:c$=CHR$(5)
 20 CLS:PRINT "Kn(x)         (0≤n≤9,0<x≤10)";
 30 LOCATE 0,1:PRINT c$;"n?   :x?      :K=";
@@ -828,7 +847,8 @@ Address 746D:
 530 LOCATE 17,1:PRINT "not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 7944:
+Address 7936:
+5 ON ERROR GOTO 1000
 10 MODE 8:DIM:DEF CHR$(255)="0000FE0000":e=0:f=0:c=0:d=0:g=0:h=0:l$=CHR$(5):GOSUB 580
 20 a=e:b=f
 30 x=a:GOSUB 530:a=x:x=b:GOSUB 530:b=x
@@ -887,7 +907,8 @@ Address 7944:
 1030 LOCATE 0,0:PRINT l$;"not found";:a$=INPUT $(1,@):RESUME 690
 
 
-Address 81BB:
+Address 81AD:
+5 ON ERROR GOTO 2000
 10 CLS:MODE 8:DIM:a=1:x=0:y=0:c$=CHR$(5):p=2^31:q=2^32:r=0:x$=" 0":ERASE a$,b$:DIM a$(5),b$(15)
 40 RESTORE 70
 50 FOR i=0 TO 5:READ a$(i):NEXT
@@ -993,7 +1014,8 @@ Address 81BB:
 2030 GOSUB 270:RESUME 110
 
 
-Address 8E81:
+Address 8E73:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a:DIM a(5):a$="x1y1x2y2ab":c$=CHR$(5)
 20 CLS:PRINT "y=ax+b ←- (x1,y1),(x2,y2)";
 30 FOR i=0 TO 3
@@ -1014,7 +1036,8 @@ Address 8E81:
 520 RESUME 100
 
 
-Address 90F3:
+Address 90E5:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:a=0:c=0:c$=CHR$(5)
 20 CLS:PRINT "Angle(θ) ←- y=ax+b,y=cx+d";
 30 s$="a":z=a:GOSUB 100:a=z
@@ -1027,7 +1050,8 @@ Address 90F3:
 520 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address 927B:
+Address 926D:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a:DIM a(3):a$="a b x1y1":c$=CHR$(5)
 20 CLS:PRINT "Distance ←- y=ax+b,(x1,y1)";
 30 FOR i=0 TO 3
@@ -1039,7 +1063,8 @@ Address 927B:
 520 LOCATE 0,1:PRINT c$;"not found";:w$=INPUT $(1,@):RESUME 20
 
 
-Address 93E7:
+Address 93D9:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a:DIM a(1):c$=CHR$(5):x=0:y=0:a=0:m$="XY"
 20 CLS:PRINT "(X,Y) ←- (x,y),angle(θ)";
 30 s$="x":z=x:GOSUB 100:x=z
@@ -1058,7 +1083,8 @@ Address 93E7:
 520 LOCATE 0,1:PRINT c$;"not found";:w$=INPUT $(1,@):RESUME 20
 
 
-Address 95E5:
+Address 95D7:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a:DIM a(8):l$="abr":m$="x1y1x2y2x3y3":c$=CHR$(5)
 20 CLS:PRINT "Circle  (x1,y1),(x2,y2),(x3,y3)";
 30 FOR k=0 TO 5
@@ -1082,7 +1108,8 @@ Address 95E5:
 520 RESUME 160
 
 
-Address 9900:
+Address 98F2:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a:DIM a(4):a$="a b r x1y1":c$=CHR$(5)
 20 CLS:PRINT "(x-a)²+(y-b)²=r²,(x1,y1)";
 30 FOR i=0 TO 4
@@ -1096,7 +1123,8 @@ Address 9900:
 520 RESUME 100
 
 
-Address 9AB2:
+Address 9AA4:
+5 ON ERROR GOTO 500
 10 MODE 8:DIM:ERASE a,b,c$:DIM a(4),b(7),c$(7):a$="a b r x1y1":c$=CHR$(5)
 20 CLS:PRINT "(x-a)²+(y-b)²=r²,(x1,y1)";
 30 FOR i=0 TO 4
@@ -1139,7 +1167,8 @@ Address 9AB2:
 550 RESUME 300
 
 
-Address A166:
+Address A158:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:c=0:h=0:d=0:c$=CHR$(5)
 30 CLS:PRINT "Area (triangle)";TAB(0);"1:ah/2  2:ab･sinθ/2  3:f(a,b,c)";:LOCATE 0,0:LOCATE 0,1
 40 w=ASC(INPUT $(1,@))-48:IF w<1 OR w>3 THEN 40
@@ -1167,7 +1196,8 @@ Address A166:
 920 RESUME 450
 
 
-Address A4AC:
+Address A49E:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "(a+b)h/2     a:b:base  h:height";
 40 s$="a":z=a:GOSUB 100:a=z
@@ -1180,7 +1210,8 @@ Address A4AC:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address A61F:
+Address A611:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:c=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "Area (parallelogram)";TAB(0);"1:ah       2:ab･sinθ";
 40 w=ASC(INPUT $(1,@))-48:IF w<1 OR w>2 THEN 40
@@ -1201,7 +1232,8 @@ Address A61F:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address A882:
+Address A874:
+5 ON ERROR GOTO 100
 20 MODE 8:DIM:r=0:c$=CHR$(5)
 30 CLS:PRINT "πr²       r:radius";
 50 LOCATE 0,1:PRINT c$;"r=";r;"?";:INPUT @42;r:LOCATE 0,0:IF r<0 THEN 50
@@ -1211,7 +1243,8 @@ Address A882:
 120 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address A989:
+Address A97B:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:l=0:r=0:a=0:c$=CHR$(5):ANGLE 0
 30 CLS:PRINT "Area (sector)";TAB(0);"1:lr/2     2:πr²θ/360";
 40 w=ASC(INPUT $(1,@))-48:IF w<1 OR w>2 THEN 40
@@ -1231,7 +1264,8 @@ Address A989:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address ABDF:
+Address ABD1:
+5 ON ERROR GOTO 900
 10 ANGLE 1:MODE 8:DIM:l=0:r=0:c$=CHR$(5):n$="(lr-r²sin(l/r))/2"
 50 m$=n$+"     l:arc":s$="l":z=l:GOSUB 500:l=z
 80 m$=n$+"     r:radius":s$="r":z=r:GOSUB 500:IF z<l/2/PI THEN 80 ELSE r=z
@@ -1244,7 +1278,8 @@ Address ABDF:
 920 RESUME 300
 
 
-Address AD83:
+Address AD75:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:c$=CHR$(5)
 30 CLS:PRINT "πab           a:b:radius";
 40 s$="a":z=a:GOSUB 500:a=z
@@ -1256,7 +1291,8 @@ Address AD83:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address AECF:
+Address AEC1:
+5 ON ERROR GOTO 900
 10 MODE 8:DIM:ERASE a,a$:DIM a(2),a$(2):a$(0)="r:inside":a$(1)="R:outside":a$(2)="l:side"
 20 ANGLE 0:n=0:c$=CHR$(5)
 30 CLS:PRINT "Area (polygon)";TAB(0);"1:n,r→A   2:n,R→A   3:n,l→A";
@@ -1277,7 +1313,8 @@ Address AECF:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address B193:
+Address B185:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:c$=CHR$(5)
 30 CLS:PRINT "4πr²        r:radius";
 40 LOCATE 0,1:PRINT c$;"r=";r;"?";:INPUT @42;r:LOCATE 0,0:IF r<0 THEN 40
@@ -1287,7 +1324,8 @@ Address B193:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address B2A1:
+Address B293:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "2πrh+π(a²+b²)    h:height";
 50 s$="h":z=h:GOSUB 500:h=z
@@ -1302,7 +1340,8 @@ Address B2A1:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address B461:
+Address B453:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "2πrh+πar,a=√(h(2r-h))  r:radius";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1317,7 +1356,8 @@ Address B461:
 920 RESUME 300
 
 
-Address B618:
+Address B60A:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "2πrh+2πr²    r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1329,7 +1369,8 @@ Address B618:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address B774:
+Address B766:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "πr√(r²+h²)+πr²   r:radius";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1342,7 +1383,8 @@ Address B774:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address B8F8:
+Address B8EA:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:s=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "π(R+r)√(h²+(R-r)²)+π(R²+r²)";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1355,7 +1397,8 @@ Address B8F8:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address BA86:
+Address BA78:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:c$=CHR$(5)
 30 CLS:PRINT "4πr³/3             r:radius";
 40 LOCATE 0,1:PRINT c$;"r=";r;"?";:INPUT @42;r:LOCATE 0,0:IF r<0 THEN 40
@@ -1365,7 +1408,8 @@ Address BA86:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address BB9C:
+Address BB8E:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "πh(3a²+3b²+h²)/6     a:b:radius";
 40 s$="a":z=a:GOSUB 500:a=z
@@ -1379,7 +1423,8 @@ Address BB9C:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address BD4A:
+Address BD3C:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "2πr²h/3     r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1391,7 +1436,8 @@ Address BD4A:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address BEA4:
+Address BE96:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "πr²h       r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1403,7 +1449,8 @@ Address BEA4:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address BFF9:
+Address BFEB:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "πr²h/3       r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1415,7 +1462,8 @@ Address BFF9:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address C152:
+Address C144:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:r=0:s=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "πh(r²+rR+R²)/3      r:R:radius";
 40 s$="r":z=r:GOSUB 500:r=z
@@ -1429,7 +1477,8 @@ Address C152:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address C2FA:
+Address C2EC:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:c=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "bh(2a+c)/6  a:b:c:edge h:height";
 40 s$="a":z=a:GOSUB 500:a=z
@@ -1443,7 +1492,8 @@ Address C2FA:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address C490:
+Address C482:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "abh/3      a:b:edge  h:height";
 40 s$="a":z=a:GOSUB 500:a=z
@@ -1456,7 +1506,8 @@ Address C490:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address C601:
+Address C5F3:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:c=0:d=0:h=0:c$=CHR$(5)
 30 CLS:PRINT "h(ab+cd+√(abcd))/3 a:b:c:d:edge";
 40 s$="a":z=a:GOSUB 500:a=z
@@ -1472,7 +1523,8 @@ Address C601:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address C7EC:
+Address C7DE:
+5 ON ERROR GOTO 900
 20 MODE 8:DIM:a=0:b=0:c=0:c$=CHR$(5)
 30 CLS:PRINT "4πabc/3       a:b:c:radius";
 40 s$="a":z=a:GOSUB 500:a=z
@@ -1485,7 +1537,8 @@ Address C7EC:
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-Address C95F:
+Address C951:
+5 ON ERROR GOTO 900
 10 MODE 8:DIM:ERASE a,a$:DIM a(2),a$(2):a$(0)="r:inside":a$(1)="R:outside":a$(2)="l:side"
 20 s=0:n=3:ANGLE 0:c$=CHR$(5):m$="Polygon (r,R,l)   "
 40 s$="A:area":z=s:GOSUB 500:s=z
@@ -1507,7 +1560,8 @@ Address C95F:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 40
 
 
-Address CBEA:
+Address CBDC:
+5 ON ERROR GOTO 900
 10 MODE 8:DIM:ERASE a,a$:DIM a(4),a$(4):c$=CHR$(5)
 15 RESTORE 800:FOR i=0 TO 4:READ a$(i):NEXT
 20 CLS:PRINT "Select number of face";TAB(0);"1:4f  2:6f  3:8f  4:12f  5:20f";
@@ -1543,7 +1597,8 @@ Address CBEA:
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-Address D16F:
+Address D165:
+5 GOTO 10010
 10 DATA a²-b²,(a+b)(a-b),10,20
 20 DATA a³±b³,(a±b)(a²∓ab+b²),10,30
 30 DATA a⁴-b⁴,(a-b)(a+b)(a²+b²),20,40
@@ -1581,7 +1636,8 @@ Address D16F:
 10280 GOTO 10150
 
 
-Address D6C5:
+Address D6BB:
+5 GOTO 10010
 10 DATA sin²θ+cos²θ,1,10,20
 20 DATA 1+tan²θ,sec²θ,10,30
 30 DATA 1+cot²θ,cosec²θ,20,40
@@ -1633,7 +1689,8 @@ Address D6C5:
 10280 GOTO 10150
 
 
-Address DDC1:
+Address DDB7:
+5 GOTO 10010
 10 DATA C,0,10,20
 20 DATA xⁿ,nxⁿ⁻¹,10,30
 30 DATA x,1,20,40
@@ -1687,7 +1744,8 @@ Address DDC1:
 10280 GOTO 10150
 
 
-Address E404:
+Address E3FA:
+5 GOTO 10010
 10 DATA ,x+C,10,20
 20 DATA xⁿ,xⁿ⁺¹/(n+1)+C           (n+1≠0),10,30
 30 DATA 1/x,log▒x▒+C,20,40
@@ -1736,7 +1794,8 @@ Address E404:
 10280 GOTO 10150
 
 
-Address EA40:
+Address EA36:
+5 GOTO 10010
 10 DATA 1/p,1,10,20
 20 DATA 1/p²,t,10,30
 30 DATA 1/pⁿ,"tⁿ⁻¹/(n-1)!        (n=1,2,3,･･･)",20,40
