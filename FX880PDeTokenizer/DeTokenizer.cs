@@ -1071,7 +1071,7 @@ namespace FX880PDeTokenizer
 
                                     string charConverted = Convert(b1);
 
-                                    if (charConverted != CHAR_UNKNOWN )
+                                    if (charConverted != CHAR_UNKNOWN)
                                     {
                                         _sbOutput.Append(charConverted);
                                     }
@@ -1147,7 +1147,7 @@ namespace FX880PDeTokenizer
                 case C_MULTI_STATEMENT_SEPARATOR:
                 case C_LINE_END:
 
-                    if( IsToken(previousByte) == true )
+                    if (IsToken(previousByte) == true)
                     {
                         _sbOutput.Append(SPACER);
                     }
@@ -1159,7 +1159,7 @@ namespace FX880PDeTokenizer
                     _sbOutput.Append(SPACER);
 
                     break;
-            }        
+            }
         }
 
         private void AddSpaceBefore(byte previousByte, byte currentByte)
@@ -1171,7 +1171,7 @@ namespace FX880PDeTokenizer
                 case C_SEMICOLON:
 
                     return;
-               
+
                 default:
 
                     if (IsToken(previousByte) == false && IsAlphaNumeric(previousByte) == true && IsToken(currentByte) == true)
@@ -1196,7 +1196,7 @@ namespace FX880PDeTokenizer
 
         private bool IsToken(byte b)
         {
-            switch(b)
+            switch (b)
             {
                 case DB_BASIC_GROUP_2:
                 case DB_BASIC_GROUP_4:
@@ -1217,8 +1217,9 @@ namespace FX880PDeTokenizer
         public string Convert(byte b)
         {
             //https://en.wikipedia.org/wiki/Casio_calculator_character_sets
+            //these are all strings due to 1 char in casio charset which requires two unicode chars to represent (0x9E)
 
-            string[] casioToUnicode = 
+            string[] casioToUnicode =
             {
                CHAR_UNKNOWN,
                CHAR_UNKNOWN,
@@ -1316,13 +1317,13 @@ namespace FX880PDeTokenizer
                "X",
                "Y",
                "Z",
-               "〔",
+               "[",
                "¥",
-               "〕",
+               "]",
                "^",
                "_",
 
-               "'",
+               "`",
                "a",
                "b",
                "c",
@@ -1356,137 +1357,137 @@ namespace FX880PDeTokenizer
                "~",
                " ",
 
-               CHAR_UNKNOWN,
-               "∫",
-               "√",
-               "/",
-               "Σ",
-               "Ω",
-               "▒",
-               "█",
-               "α",
-               "β",
-               "γ",
-               "ε",
-               "θ",
-               "μ",
-               "δ",
-               "φ",
+               "\u212B",
+               "\u222B",
+               "\u221A",
+               "\u00B4",
+               "\u03A3",
+               "\u03A9",
+               "\u2592",
+               "\u25AE",
+               "\u03B1",
+               "\u03B2",
+               "\u03B3",
+               "\u03B5",
+               "\u03B8",
+               "\u03BC",
+               "\u03C3",
+               "\u03A6",
+         
+               "\u2070",
+               "\u00B9",
+               "\u00B2",
+               "\u00B3",
+               "\u2074",
+               "\u2075",
+               "\u2076",
+               "\u2077",
+               "\u2078",
+               "\u2079",
+               "\u207A",
+               "\u207B",
+               "\u207F",
+               "\u02E3",
+               "⁻¹", //this one lines up and is more consistent with the others
+               "\u00F7",            
 
-               "0",
-               "1",
-               "2",
-               "3",
-               "4",
-               "5",
-               "6",
-               "7",
-               "8",
-               "9",
-               "+",
-               "-",
-               "η",
-               "χ",
-               "⁻¹", //looks like a -1
-               "÷",
+               "\u00A0",
+               "\uFF61",
+               "\uFF62",
+               "\uFF63",
+               "\uFF64",
+               "\uFF65",
+               "\uFF66",
+               "\uFF67",
+               "\uFF68",
+               "\uFF69",
+               "\uFF6A",
+               "\uFF6B",
+               "\uFF6C",
+               "\uFF6D",
+               "\uFF6E",
+               "\uFF6F",              
 
-               " ",
-               "⚬",
-               "⌜",
-               "⌟",
-               "`",
-               "•",
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
+               "\uFF70",
+               "\uFF71",
+               "\uFF72",
+               "\uFF73",
+               "\uFF74",
+               "\uFF75",
+               "\uFF76",
+               "\uFF77",
+               "\uFF78",
+               "\uFF79",
+               "\uFF7A",
+               "\uFF7B",
+               "\uFF7C",
+               "\uFF7D",
+               "\uFF7E",
+               "\uFF7F",
 
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
+               "\uFF80",
+               "\uFF81",
+               "\uFF82",
+               "\uFF83",
+               "\uFF84",
+               "\uFF85",
+               "\uFF86",
+               "\uFF87",
+               "\uFF88",
+               "\uFF89",
+               "\uFF8A",
+               "\uFF8B",
+               "\uFF8C",
+               "\uFF8D",
+               "\uFF8E",
+               "\uFF8F",
 
-               "ﾀ",
-               "ﾁ",
-               "ﾂ",
-               "ﾃ",
-               "ﾄ",
-               "ﾅ",
-               "ﾆ",
-               "ﾇ",
-               "ﾈ",
-               "ﾉ",
-               "ﾊ",
-               "ﾋ",
-               "ﾌ",
-               "ﾍ",
-               "ﾎ",
-               "ﾏ",
+               "\uFF90",
+               "\uFF91",
+               "\uFF92",
+               "\uFF93",
+               "\uFF94",
+               "\uFF95",
+               "\uFF96",
+               "\uFF97",
+               "\uFF98",
+               "\uFF99",
+               "\uFF9A",
+               "\uFF9B",
+               "\uFF9C",
+               "\uFF9D",
+               "\uFF9E",
+               "\uFF9F",
 
-               "ﾐ",
-               "ﾑ",
-               "ﾒ",
-               "ﾓ",
-               "ﾔ",
-               "ﾕ",
-               "ﾖ",
-               "ﾗ",
-               "ﾘ",
-               "ﾙ",
-               "ﾚ",
-               "ﾛ",
-               "ﾜ",
-               "ﾝ",
-               "ﾞ",
-               "ﾟ",
-  
-               "≥",
-               "≤",
-               "≠",
-               "↑",
-               "←",
-               "↓",
-               "→",
-               "π",
-               "♠",
-               "♥",
-               "♦",
-               "♣",
-               "□",
-               "○",
-               "△",
-               "\\",
+               "\u2265",
+               "\u2264",
+               "\u2260",
+               "\u2191",
+               "\u2190",
+               "\u2193",
+               "\u2192",
+               "\u03C0",
+               "\u2260",
+               "\u2265",
+               "\u2666",
+               "\u2663",
+               "\u25A1",
+               "\u25CB",
+               "\u25B3",
+               "\u005C",
 
-               "×",
-               "円",
-               "年",
-               "月",
-               "日",
-               "千",
-               "万",
-               "£",
-               "¢",
-               "±",
-               "∓",
-               "▯",
+               "\u00D7",
+               "\u5186",
+               "\u5E74",
+               "\u6708",
+               "\u65E5",
+               "\u5343",
+               "\u4E07",
+               "\u00A3",
+               "\u00A2",
+               "\u00B1",
+               "\u2213",
+               "\u1D52",
                CHAR_UNKNOWN,
                CHAR_UNKNOWN,
                CHAR_UNKNOWN,
@@ -1511,12 +1512,12 @@ namespace FX880PDeTokenizer
             b1 = 0;
             b2 = 0;
 
-            while ( skip && position < source.Length && source[position] == skipByteValue )
+            while (skip && position < source.Length && source[position] == skipByteValue)
             {
                 position++;
             }
 
-            if( skip && position == source.Length )
+            if (skip && position == source.Length)
             {
                 //no bytes found after skip value
                 return false;
@@ -1543,7 +1544,7 @@ namespace FX880PDeTokenizer
             //higher byte (reversed).
 
             int val = 0;
-            
+
             if (position + 1 < source.Length)
             {
                 val = source[position + 1] * 256 + source[position];
@@ -1690,7 +1691,7 @@ namespace FX880PDeTokenizer
         private const byte C_PAREN_OPEN = 0x28;
         private const byte C_MULTI_STATEMENT_SEPARATOR = 0x01; //displayed as a colon to the user on the pocket computer
     }
-  
+
     class ProgramArea
     {
         /* Start Address (2 bytes)

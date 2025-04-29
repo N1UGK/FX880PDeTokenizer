@@ -1,4 +1,4 @@
-﻿{15}x{15}w{15}y{19}{A3}{19}7{18}n{15}'{15}{AC}{15}k{15}l{15}m{15}n{15}o{15}p{14}J{14}{A3}{14}K{14}I{14}∫{14}m{14}√{14}{8D}{17}G{14}W{14}o{14}j{16}-{14}|{15}3{14}{AC}{15}c{14}l{14}Y{15}z{15} {15}g{15}}{18}{A7}{18}{A8}{18}{AA}{18}{AB}
+﻿{15}x{15}w{15}y{19}｣{19}⁷{18}ⁿ{15}`{15}ｬ{15}k{15}l{15}m{15}n{15}o{15}p{14}J{14}｣{14}K{14}I{14}∫{14}m{14}√{14}μ{17}G{14}W{14}o{14}j{16}⁻{14}|{15}³{14}ｬ{15}c{14}l{14}Y{15}z{15} {15}g{15}}{18}ｧ{18}ｨ{18}ｪ{18}ｫ
 
 
 10 CLEAR:CLS:DEFSEG=0:K=PEEK(&H6B4)/4+PEEK(&H6B5)*64
@@ -165,7 +165,7 @@
 
 
 10 MODE 8:DIM:ERASE a,a$:DIM a(3),a$(1):DEFSEG=0
-100 CLS:PRINT " MC(↑)   MR(↓)   M-(←)   M+(→)";
+100 CLS:PRINT " MC[↑]   MR[↓]   M-[←]   M+[→]";
 110 LOCATE 0,1:PRINT CHR$(5);a(2);:LOCATE 16,1:PRINT a(3);:LOCATE 0,0:LOCATE 0,1
 120 a$(0)=INPUT $(1,@):a(0)=ASC(a$(0)):IF a(0)=46 OR(a(0)>47 AND a(0)<58) THEN 200
 130 IF a(0)=42 OR a(0)=43 OR a(0)=45 OR a(0)=47 OR a(0)=94 THEN a$(0)=STR$(a(2))+a$(0):GOTO 200
@@ -198,7 +198,7 @@
 
 
 10 MODE 8:DIM:x=2:c$=CHR$(5)
-20 CLS:PRINT "Prime factors    (2≤Base<1010)";:a$=" *"
+20 CLS:PRINT "Prime factors    (2≤Base<10¹⁰)";:a$=" *"
 40 LOCATE 0,1:PRINT c$;"Base ?";:INPUT @11;x:LOCATE 0,0
 45 IF x<2 OR x>=1e10 OR FRAC x<>0 THEN 40
 50 LOCATE 0,1:PRINT c$;x;"= .....";
@@ -231,7 +231,7 @@
 
 
 10 MODE 8:DIM:c$=CHR$(5):a=1:b=1
-20 CLS:PRINT "G.C.M. & L.C.M.  (1≤a,b<1010)";
+20 CLS:PRINT "G.C.M. & L.C.M.  (1≤a,b<10¹⁰)";
 30 s$="a":z=a:GOSUB 700:a=z
 40 s$="b":z=b:GOSUB 700:b=z:CLS
 100 IF b>a THEN f=b:g=a ELSE f=a:g=b
@@ -245,7 +245,7 @@
 
 
 10 MODE 8:DIM:ERASE a:c$=CHR$(5):n=2:m$="ax1+bx2+cx3+dx4+ex5+fx6+gx7"
-30 CLS:PRINT "ax1+bx2+cx3+{A5}{A5}{A5}=y     (2≤n≤7)";
+30 CLS:PRINT "ax1+bx2+cx3+･･･=y     (2≤n≤7)";
 40 LOCATE 0,1:PRINT c$;"n=";n;"?";:INPUT @2;n:LOCATE 0,0:IF n<2 OR n>7 THEN 40
 60 m=n-1:DIM a(m,n):p$=LEFT$(m$,4*m+3)+"=y":CLS:PRINT p$;
 100 FOR i=0 TO m:FOR j=0 TO n
@@ -289,14 +289,14 @@
 
 
 10 MODE 8:DIM:c$=CHR$(5):a=1:b=0:c=0
-20 CLS:PRINT "ax2+bx+c=0";
+20 CLS:PRINT "ax²+bx+c=0";
 30 s$="a":z=a:GOSUB 700:a=z:IF z=0 THEN 30
 40 s$="b":z=b:GOSUB 700:b=z
 50 s$="c":z=c:GOSUB 700:c=z
 60 LOCATE 0,1:PRINT c$;".....";
 100 d=b*b-4*a*c
 110 CLS:IF d THEN 130
-120 PRINT "a(x-α)2=0";:PRINT:GOTO 200
+120 PRINT "a(x-α)²=0";:PRINT:GOTO 200
 130 PRINT "a(x-α)(x-β)=0";:PRINT
 140 ON SGN d+2 GOTO 400,,300
 200 x=-b/(2*a):GOSUB 510:PRINT c$;"α =";x;
@@ -327,7 +327,7 @@
 
 
 10 MODE 8:DIM:c$=CHR$(5):ANGLE 0:a=1:b=0:c=0:d=0
-20 CLS:PRINT "ax3+bx2+cx+d=0";
+20 CLS:PRINT "ax³+bx²+cx+d=0";
 30 s$="a":z=a:GOSUB 700:a=z:IF a=0 THEN 30
 40 s$="b":z=b:GOSUB 700:b=z
 50 s$="c":z=c:GOSUB 700:c=z
@@ -341,11 +341,11 @@
 120 v=r+s
 130 ON SGN t+2 GOTO 400,,300
 140 x=-v-u:IF p THEN 200
-175 GOSUB 520:PRINT "a(x-α)3=0";:PRINT
+175 GOSUB 520:PRINT "a(x-α)³=0";:PRINT
 180 PRINT c$;"α =";x;
 190 GOSUB 550:IF w=13 THEN 20 ELSE 190
 200 y=v/2-u
-205 GOSUB 510:PRINT "a(x-α)(x-β)2=0";:PRINT
+205 GOSUB 510:PRINT "a(x-α)(x-β)²=0";:PRINT
 210 PRINT c$;"α =";x;
 230 GOSUB 550:IF w<>13 AND w<>31 THEN 230
 240 PRINT c$;"β =";y;
@@ -388,15 +388,15 @@
 
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):s=0:h=1e-5:e=1e-7:m=20:ANGLE 1
-50 CLS:PRINT "Newton's method  f(x)=0";TAB(0);"1:f(x),x0       2:h,ɛ̝,loop";
+50 CLS:PRINT "Newton's method  f(x)=0";TAB(0);"1:f(x),x0       2:h,ε,loop";
 60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90 ELSE IF k=50 THEN 150
 80 GOTO 60
 90 CLS:PRINT "Define function";
 100 LOCATE 0,1:PRINT c$;"f(x) ?";f$;:LOCATE 0,0:LOCATE 6,1:INPUT @100;f$:LOCATE 0,0:z=VALF(f$)
-110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"{A5}{A5}{A5}"
+110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"･･･"
 120 m$="f(x) = "+g$:s$="x0":z=s:GOSUB 800:s=z:GOTO 250
-150 m$="f/(x)=(f(x+h)-f(x))/h  (h>0)":s$="h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
-170 m$="Err  {FF}Xn+1-Xn{FF}<ɛ̝  (ɛ̝>0)":s$="ɛ̝":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+150 m$="f´(x)=(f(x+h)-f(x))/h  (h>0)":s$="h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
+170 m$="Err  {FF}Xn+1-Xn{FF}<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE 50
 250 CLS:PRINT m$;TAB(0);"x = .....";:t=s
 310 FOR i=1 TO m
@@ -416,15 +416,15 @@
 
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):s=0:t=0:e=1e-7:m=30:ANGLE 1
-50 CLS:PRINT "Method of bisection  f(x)=0     1:f(x),x0,x1    2:ɛ̝,loop";
+50 CLS:PRINT "Method of bisection  f(x)=0     1:f(x),x0,x1    2:ε,loop";
 60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90 ELSE IF k=50 THEN 170
 80 GOTO 60
 90 CLS:PRINT "Define function";
 100 LOCATE 0,1:PRINT c$;"f(x) ?";f$;:LOCATE 0,0:LOCATE 6,1:INPUT @100;f$:LOCATE 0,0:z=VALF(f$)
-110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"{A5}{A5}{A5}"
+110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"･･･"
 120 m$="f(x) = "+g$:s$="x0":z=s:GOSUB 800:s=z
 130 s$="x1":z=t:GOSUB 800:t=z:GOTO 250
-170 m$="Err  {FF}Xn+1-Xn{FF}<ɛ̝  (ɛ̝>0)":s$="ɛ̝":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  {FF}Xn+1-Xn{FF}<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE 50
 250 CLS:PRINT m$;TAB(0);"x = .....";:u=s:v=t
 270 x=u:g=VALF(f$):IF g=0 THEN 500
@@ -544,7 +544,7 @@
 1600 PRINT " A : input A(m,n)";:RETURN
 1610 PRINT " B : input B(m,n)";:RETURN
 1620 PRINT " D : determinant A";:RETURN
-1630 PRINT " I : inverse         A{9E} → A";:RETURN
+1630 PRINT " I : inverse         A⁻¹ → A";:RETURN
 1640 PRINT " T : transposition   A{FE} → A";:RETURN
 1650 PRINT " K : scalar-cal      k*A → A";:RETURN
 1660 PRINT " + : addition        A+B → A";:RETURN
@@ -573,16 +573,16 @@
 
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):a=0:b=0:e=1e-7:m=8:ANGLE 1:ERASE a:DIM a(m)
-50 CLS:PRINT "Romberg's method  ∫f(x)dx (a,b) 1:f(x),(a,b)      2:ɛ̝,loop";
+50 CLS:PRINT "Romberg's method  ∫f(x)dx [a,b] 1:f(x),[a,b]      2:ε,loop";
 60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90ELSE IF k=50 THEN 170
 80 GOTO 60
 90 CLS:PRINT "Define function";
 100 LOCATE 0,1:PRINT c$;"f(x) ?";f$;:LOCATE 0,0:LOCATE 6,1:INPUT @100;f$:LOCATE 0,0:z=VALF(f$)
-110 IF LEN(f$)<21 THEN g$=f$ ELSE g$=LEFT$(f$,17)+"{A5}{A5}{A5}"
-120 m$="∫ "+g$+" dx (a,b)":s$="a":z=a:GOSUB 800:a=z
+110 IF LEN(f$)<21 THEN g$=f$ ELSE g$=LEFT$(f$,17)+"･･･"
+120 m$="∫ "+g$+" dx [a,b]":s$="a":z=a:GOSUB 800:a=z
 130 s$="b":z=b:GOSUB 800:b=z:GOTO 250
-170 m$="Err  {FF}An+1-An{FF}<ɛ̝  (ɛ̝>0)":s$="ɛ̝":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
-200 m$="Max loop  2n     (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200ELSE ERASE a:DIM a(m):GOTO 50
+170 m$="Err  {FF}An+1-An{FF}<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+200 m$="Max loop  2ⁿ     (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200ELSE ERASE a:DIM a(m):GOTO 50
 250 CLS:PRINT m$;TAB(0);"∫f(x)dx = .....";
 260 h=b-a:x=a:g=VALF(f$):x=b:f=VALF(f$):a(0)=(g+f)*h/2
 300 FOR i=1 TO m:h=h/2
@@ -607,7 +607,7 @@
 30 f$="":c$=CHR$(5):a=0:b=0:h=1:ANGLE 1
 90 CLS:PRINT "Define function  dy/dx";
 100 LOCATE 0,1:PRINT c$;"?";f$;:LOCATE 0,0:LOCATE 1,1:INPUT @100;f$:LOCATE 0,0:z=VALF(f$)
-110 IF LEN(f$)<17 THEN g$=f$ ELSE g$=LEFT$(f$,20)+"{A5}{A5}{A5}"
+110 IF LEN(f$)<17 THEN g$=f$ ELSE g$=LEFT$(f$,20)+"･･･"
 120 m$="dy/dx = "+g$:s$="x0":z=a:GOSUB 800:a=z
 140 s$="y0":z=b:GOSUB 800:b=z
 150 m$="Step-size  {FE}h     ({FE}h>0)":s$="{FE}h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
@@ -852,7 +852,7 @@
 715 PRINT " G : Gauss  r={FF}A{FF}:θ=argument(A)";:RETURN
 720 PRINT " I : inverse         1/A → A";:RETURN
 730 PRINT " S : square root     √A → A";:RETURN
-740 PRINT " ^ : square          A2 → A";:RETURN
+740 PRINT " ^ : square          A² → A";:RETURN
 750 PRINT " + : addition        A+B → A";:RETURN
 760 PRINT " - : subtraction     A-B → A";:RETURN
 770 PRINT " * : multiplication  A*B → A";:RETURN
@@ -872,7 +872,7 @@
 70 DATA BIN,DEC,HEX,AND,OR,XOR
 80 DATA 0000,0001,0010,0011,0100,0101,0110,0111,1000,1001,1010,1011,1100,1101,1110,1111
 110 CLS:GOSUB 300
-120 z=LEN(x$):LOCATE 0,0:IF z<17 THEN PRINT c$;"(";a$(a);") ";x$;ELSE PRINT c$;x$;
+120 z=LEN(x$):LOCATE 0,0:IF z<17 THEN PRINT c$;"[";a$(a);"] ";x$;ELSE PRINT c$;x$;
 130 IF r>16 THEN GOSUB 300
 140 r=z:LOCATE 31,1
 150 f=ASC(INPUT $(1)):IF f>96 THEN f=f-32
@@ -894,10 +894,10 @@
 360 IF x<0 THEN t=x+q ELSE t=x
 370 s=INT(t/65536):t=t-s*65536:x$=HEX$(s)+HEX$(t):IF a=2 THEN RETURN 
 380 y$="":FOR i=1 TO 8:y$=y$+b$(VAL("&H"+MID$(x$,i,1))):NEXT:x$=y$:RETURN
-440 m$="Input data x (,B,D,H)     ("+a$(a)+") x ?":GOSUB 550:x=y:RETURN
-460 IF a>0 THEN m$="("+a$(a)+") " ELSE m$=""
+440 m$="Input data x (,B,D,H)     ["+a$(a)+"] x ?":GOSUB 550:x=y:RETURN
+460 IF a>0 THEN m$="["+a$(a)+"] " ELSE m$=""
 465 m$=m$+x$+" "+CHR$(f)+" ":GOSUB 550:RETURN
-480 IF a>0 THEN m$="("+a$(a)+") " ELSE m$=""
+480 IF a>0 THEN m$="["+a$(a)+"] " ELSE m$=""
 485 m$=m$+x$+" "+a$(SGN(f-79)+4)+" ":GOSUB 550:RETURN
 550 CLS:PRINT m$;:INPUT @34;z$:LOCATE 0,0:IF z$="" THEN y=x:RETURN
 560 l=LEN(z$):IF l>34 THEN z$=LEFT$(z$,34)
@@ -1041,7 +1041,7 @@
 80 IF a*h-c*f<>0 THEN a(7)=(a*j-e*f)/(a*h-c*f) ELSE 160
 90 IF a<>0 THEN a(6)=(e-a(7)*c)/a ELSE IF f<>0 THEN a(6)=(j-a(7)*h)/f ELSE 160
 100 a(8)=SQR((a(0)-a(6))^2+(a(1)-a(7))^2)
-110 CLS:PRINT "Circle  (x-a)2+(y-b)2=r2";:PRINT
+110 CLS:PRINT "Circle  (x-a)²+(y-b)²=r²";:PRINT
 120 FOR k=1 TO 3:PRINT c$;MID$(l$,k,1);" =";a(k+5);
 125 w=ASC(INPUT $(1,@)):IF w=13 THEN 140
 130 IF w=30 AND k>1 THEN k=k-2:GOTO 140
@@ -1055,7 +1055,7 @@
 
 
 10 MODE 8:DIM:ERASE a:DIM a(4):a$="a b r x1y1":c$=CHR$(5)
-20 CLS:PRINT "(x-a)2+(y-b)2=r2,(x1,y1)";
+20 CLS:PRINT "(x-a)²+(y-b)²=r²,(x1,y1)";
 30 FOR i=0 TO 4
 40 LOCATE 0,1:PRINT c$;MID$(a$,1+2*i,(SGN(i-2.5)+1)/2+1);"=";a(i);"?";:INPUT @42;a(i):LOCATE 0,0
 45 IF i=2 AND a(2)<0 THEN 40
@@ -1068,7 +1068,7 @@
 
 
 10 MODE 8:DIM:ERASE a,b,c$:DIM a(4),b(7),c$(7):a$="a b r x1y1":c$=CHR$(5)
-20 CLS:PRINT "(x-a)2+(y-b)2=r2,(x1,y1)";
+20 CLS:PRINT "(x-a)²+(y-b)²=r²,(x1,y1)";
 30 FOR i=0 TO 4
 40 LOCATE 0,1:PRINT c$;MID$(a$,i*2+1,(SGN(i-2.5)+1)/2+1);"=";a(i);"?";:INPUT @42;a(i):LOCATE 0,0
 50 IF i=2 AND a(2)=<0 THEN 40
@@ -1110,14 +1110,14 @@
 
 
 20 MODE 8:DIM:a=0:b=0:c=0:h=0:d=0:c$=CHR$(5)
-30 CLS:PRINT "Area (triangle)";TAB(0);"1:ah/2  2:ab{A5}sinθ/2  3:f(a,b,c)";:LOCATE 0,0:LOCATE 0,1
+30 CLS:PRINT "Area (triangle)";TAB(0);"1:ah/2  2:ab･sinθ/2  3:f(a,b,c)";:LOCATE 0,0:LOCATE 0,1
 40 w=ASC(INPUT $(1,@))-48:IF w<1 OR w>3 THEN 40
 50 ON w GOTO 100,200,300
 100 CLS:PRINT "ah/2        a:base  h:height";
 110 s$="a":z=a:GOSUB 500:a=z
 120 s$="h":z=h:GOSUB 500:h=z
 130 z=a*h/2:GOTO 400
-200 CLS:PRINT "ab{A5}sinθ/2       a:b:side";
+200 CLS:PRINT "ab･sinθ/2       a:b:side";
 210 s$="a":z=a:GOSUB 500:a=z
 220 s$="b":z=b:GOSUB 500:b=z
 230 s$="θ":z=d:GOSUB 500:d=z:IF SIN d<0 THEN 230
@@ -1149,14 +1149,14 @@
 
 
 20 MODE 8:DIM:a=0:b=0:c=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "Area (parallelogram)";TAB(0);"1:ah       2:ab{A5}sinθ";
+30 CLS:PRINT "Area (parallelogram)";TAB(0);"1:ah       2:ab･sinθ";
 40 w=ASC(INPUT $(1,@))-48:IF w<1 OR w>2 THEN 40
 50 ON w GOTO 100,200
 100 CLS:PRINT "ah       a:base  h:height";
 110 s$="a":z=a:GOSUB 500:a=z
 120 s$="h":z=h:GOSUB 500:h=z
 130 z=a*h:GOTO 400
-200 CLS:PRINT "ab{A5}sinθ        a:b:side";
+200 CLS:PRINT "ab･sinθ        a:b:side";
 210 s$="a":z=a:GOSUB 500:a=z
 220 s$="b":z=b:GOSUB 500:b=z
 230 s$="θ":z=c:GOSUB 500:c=z:IF SIN c<0 THEN 230
@@ -1169,7 +1169,7 @@
 
 
 20 MODE 8:DIM:r=0:c$=CHR$(5)
-30 CLS:PRINT "πr2       r:radius";
+30 CLS:PRINT "πr²       r:radius";
 50 LOCATE 0,1:PRINT c$;"r=";r;"?";:INPUT @42;r:LOCATE 0,0:IF r<0 THEN 50
 70 LOCATE 0,1:PRINT c$;"Area =";PI *r*r;:z$=INPUT $(1,@):GOTO 50
 100 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -1178,14 +1178,14 @@
 
 
 20 MODE 8:DIM:l=0:r=0:a=0:c$=CHR$(5):ANGLE 0
-30 CLS:PRINT "Area (sector)";TAB(0);"1:lr/2     2:πr2θ/360";
+30 CLS:PRINT "Area (sector)";TAB(0);"1:lr/2     2:πr²θ/360";
 40 w=ASC(INPUT $(1,@))-48:IF w<1 OR w>2 THEN 40
 50 ON w GOTO 100,200
 100 CLS:PRINT "lr/2  l:circular arc   r:radius";
 110 s$="l":z=l:GOSUB 500:l=z
 120 s$="r":z=r:GOSUB 500:r=z
 130 z=l*r/2:GOTO 400
-200 CLS:PRINT "πr2θ/360     r:radius  θ:DEG";
+200 CLS:PRINT "πr²θ/360     r:radius  θ:DEG";
 220 s$="r":z=r:GOSUB 500:r=z
 230 s$="θ":z=a:GOSUB 500:a=z:IF a>360 THEN 230
 240 z=PI *a*r^2/360
@@ -1196,7 +1196,7 @@
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 30
 
 
-10 ANGLE 1:MODE 8:DIM:l=0:r=0:c$=CHR$(5):n$="(lr-r2sin(l/r))/2"
+10 ANGLE 1:MODE 8:DIM:l=0:r=0:c$=CHR$(5):n$="(lr-r²sin(l/r))/2"
 50 m$=n$+"     l:arc":s$="l":z=l:GOSUB 500:l=z
 80 m$=n$+"     r:radius":s$="r":z=r:GOSUB 500:IF z<l/2/PI THEN 80 ELSE r=z
 100 LOCATE 0,1:PRINT c$;"Area =";(l*r-r^2*SIN(l/r))/2;:z$=INPUT $(1,@):GOTO 50
@@ -1240,7 +1240,7 @@
 
 
 20 MODE 8:DIM:r=0:c$=CHR$(5)
-30 CLS:PRINT "4πr2        r:radius";
+30 CLS:PRINT "4πr²        r:radius";
 40 LOCATE 0,1:PRINT c$;"r=";r;"?";:INPUT @42;r:LOCATE 0,0:IF r<0 THEN 40
 50 LOCATE 0,1:PRINT c$;"Surface =";4*PI *r^2;:z$=INPUT $(1,@):GOTO 40
 900 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -1249,9 +1249,9 @@
 
 
 20 MODE 8:DIM:a=0:b=0:r=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "2πrh+π(a2+b2)    h:height";
+30 CLS:PRINT "2πrh+π(a²+b²)    h:height";
 50 s$="h":z=h:GOSUB 500:h=z
-51 CLS:PRINT "2πrh+π(a2+b2)    a:b:r:radius";
+51 CLS:PRINT "2πrh+π(a²+b²)    a:b:r:radius";
 52 s$="a":z=a:GOSUB 500:a=z
 53 s$="b":z=b:GOSUB 500:b=z
 54 s$="r":z=r:GOSUB 500:r=z
@@ -1277,7 +1277,7 @@
 
 
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "2πrh+2πr2    r:radius  h:height";
+30 CLS:PRINT "2πrh+2πr²    r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
 50 s$="h":z=h:GOSUB 500:h=z
 70 LOCATE 0,1:PRINT c$;"Surface =";2*PI *r*(r+h);:z$=INPUT $(1,@):GOTO 40
@@ -1288,9 +1288,9 @@
 
 
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "πr√(r2+h2)+πr2   r:radius";
+30 CLS:PRINT "πr√(r²+h²)+πr²   r:radius";
 40 s$="r":z=r:GOSUB 500:r=z
-45 CLS:PRINT "πr√(r2+h2)+πr2   h:height";
+45 CLS:PRINT "πr√(r²+h²)+πr²   h:height";
 50 s$="h":z=h:GOSUB 500:h=z
 70 LOCATE 0,1:PRINT c$;"Surface =";PI *r*(SQR(r*r+h*h)+r);:z$=INPUT $(1,@):GOTO 30
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @42;z:LOCATE 0,0:IF z<0 THEN 500 ELSE RETURN 
@@ -1300,7 +1300,7 @@
 
 
 20 MODE 8:DIM:r=0:s=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "π(R+r)√(h2+(R-r)2)+π(R2+r2)";
+30 CLS:PRINT "π(R+r)√(h²+(R-r)²)+π(R²+r²)";
 40 s$="r":z=r:GOSUB 500:r=z
 50 s$="R":z=s:GOSUB 500:s=z
 60 s$="h":z=h:GOSUB 500:h=z
@@ -1312,7 +1312,7 @@
 
 
 20 MODE 8:DIM:r=0:c$=CHR$(5)
-30 CLS:PRINT "4πr3/3             r:radius";
+30 CLS:PRINT "4πr³/3             r:radius";
 40 LOCATE 0,1:PRINT c$;"r=";r;"?";:INPUT @42;r:LOCATE 0,0:IF r<0 THEN 40
 50 LOCATE 0,1:PRINT c$;"Volume =";4*PI *r^3/3;:z$=INPUT $(1,@):GOTO 40
 900 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -1321,10 +1321,10 @@
 
 
 20 MODE 8:DIM:a=0:b=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "πh(3a2+3b2+h2)/6     a:b:radius";
+30 CLS:PRINT "πh(3a²+3b²+h²)/6     a:b:radius";
 40 s$="a":z=a:GOSUB 500:a=z
 41 s$="b":z=b:GOSUB 500:b=z
-42 CLS:PRINT "πh(3a2+3b2+h2)/6     h:height";
+42 CLS:PRINT "πh(3a²+3b²+h²)/6     h:height";
 43 s$="h":z=h:GOSUB 500:h=z
 50 LOCATE 0,1:PRINT c$;"Volume =";PI *h*(3*a^2+3*b^2+h^2)/6;:z$=INPUT $(1,@):GOTO 30
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @42;z:LOCATE 0,0:IF z<0 THEN 500 ELSE RETURN 
@@ -1334,7 +1334,7 @@
 
 
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "2πr2h/3     r:radius  h:height";
+30 CLS:PRINT "2πr²h/3     r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
 41 s$="h":z=h:GOSUB 500:h=z
 50 LOCATE 0,1:PRINT c$;"Volume =";2*PI *r^2*h/3;:z$=INPUT $(1,@):GOTO 40
@@ -1345,7 +1345,7 @@
 
 
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "πr2h       r:radius  h:height";
+30 CLS:PRINT "πr²h       r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
 41 s$="h":z=h:GOSUB 500:h=z
 50 LOCATE 0,1:PRINT c$;"Volume =";PI *r^2*h;:z$=INPUT $(1,@):GOTO 40
@@ -1356,7 +1356,7 @@
 
 
 20 MODE 8:DIM:r=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "πr2h/3       r:radius  h:height";
+30 CLS:PRINT "πr²h/3       r:radius  h:height";
 40 s$="r":z=r:GOSUB 500:r=z
 41 s$="h":z=h:GOSUB 500:h=z
 50 LOCATE 0,1:PRINT c$;"Volume =";PI *r^2*h/3;:z$=INPUT $(1,@):GOTO 40
@@ -1367,10 +1367,10 @@
 
 
 20 MODE 8:DIM:r=0:s=0:h=0:c$=CHR$(5)
-30 CLS:PRINT "πh(r2+rR+R2)/3      r:R:radius";
+30 CLS:PRINT "πh(r²+rR+R²)/3      r:R:radius";
 40 s$="r":z=r:GOSUB 500:r=z
 41 s$="R":z=s:GOSUB 500:s=z
-42 CLS:PRINT "πh(r2+rR+R2)/3      h:height";
+42 CLS:PRINT "πh(r²+rR+R²)/3      h:height";
 43 s$="h":z=h:GOSUB 500:h=z
 50 LOCATE 0,1:PRINT c$;"Volume =";PI *h*(s^2+s*r+r^2)/3;:z$=INPUT $(1,@):GOTO 30
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @42;z:LOCATE 0,0:IF z<0 THEN 500 ELSE RETURN 
@@ -1487,34 +1487,34 @@
 920 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 DATA a2-b2,(a+b)(a-b),10,20
-20 DATA a3{F9}b3,(a{F9}b)(a2{FA}ab+b2),10,30
-30 DATA a4-b4,(a-b)(a+b)(a2+b2),20,40
-40 DATA a4+b4,(a2+√{FF}ab+b2)(a2-√{FF}ab+b2),30,50
-50 DATA a2{F9}2ab+b2,(a{F9}b)2,40,60
-60 DATA a3{F9}3a2b+3ab2{F9}b3,(a{F9}b)3,50,70
-70 DATA(a{F9}b)2{FA}4ab,(a{FA}b)2,60,80
-80 DATA a2+b2+c2+2bc+2ca+2ab,(a+b+c)2,70,90
-90 DATA a4+a2b2+b4,(a2+ab+b2)(a2-ab+b2),80,100
-100 DATA a3+b3+c3-3abc,(a+b+c)(a2+b2+c2-bc-ca-ab),90,110
-110 DATA(ac-bd)2+(ad+bc)2,(a2+b2)(c2+d2),100,120
-120 DATA(ac+bd)2+(ad-bc)2,(a2+b2)(c2+d2),110,130
-130 DATA(ac+bd)2-(ad+bc)2,(a2-b2)(c2-d2),120,140
-140 DATA(ac-bd)2-(ad-bc)2,(a2-b2)(c2-d2),130,150
-150 DATA a2(b-c)+b2(c-a)+c2(a-b),-(b-c)(c-a)(a-b),140,160
-160 DATA(b-c)3+(c-a)3+(a-b)3,3(b-c)(c-a)(a-b),150,170
-170 DATA a4+b4+c4-2b2c2-2c2a2-2a2b2,(a+b+c)(b-c-a)(c-a-b)(a-b-c),160,180
-180 DATA x2+(a+b)x+ab,(x+a)(x+b),170,190
-190 DATA x3+(a+b+c)x2+(bc+ca+ab)x+abc,(x+a)(x+b)(x+c),180,200
-200 DATA a2-b2-c2-2bc,(a+b+c)(a-b-c),190,210
+10 DATA a²-b²,(a+b)(a-b),10,20
+20 DATA a³±b³,(a±b)(a²∓ab+b²),10,30
+30 DATA a⁴-b⁴,(a-b)(a+b)(a²+b²),20,40
+40 DATA a⁴+b⁴,(a²+√{FF}ab+b²)(a²-√{FF}ab+b²),30,50
+50 DATA a²±2ab+b²,(a±b)²,40,60
+60 DATA a³±3a²b+3ab²±b³,(a±b)³,50,70
+70 DATA(a±b)²∓4ab,(a∓b)²,60,80
+80 DATA a²+b²+c²+2bc+2ca+2ab,(a+b+c)²,70,90
+90 DATA a⁴+a²b²+b⁴,(a²+ab+b²)(a²-ab+b²),80,100
+100 DATA a³+b³+c³-3abc,(a+b+c)(a²+b²+c²-bc-ca-ab),90,110
+110 DATA(ac-bd)²+(ad+bc)²,(a²+b²)(c²+d²),100,120
+120 DATA(ac+bd)²+(ad-bc)²,(a²+b²)(c²+d²),110,130
+130 DATA(ac+bd)²-(ad+bc)²,(a²-b²)(c²-d²),120,140
+140 DATA(ac-bd)²-(ad-bc)²,(a²-b²)(c²-d²),130,150
+150 DATA a²(b-c)+b²(c-a)+c²(a-b),-(b-c)(c-a)(a-b),140,160
+160 DATA(b-c)³+(c-a)³+(a-b)³,3(b-c)(c-a)(a-b),150,170
+170 DATA a⁴+b⁴+c⁴-2b²c²-2c²a²-2a²b²,(a+b+c)(b-c-a)(c-a-b)(a-b-c),160,180
+180 DATA x²+(a+b)x+ab,(x+a)(x+b),170,190
+190 DATA x³+(a+b+c)x²+(bc+ca+ab)x+abc,(x+a)(x+b)(x+c),180,200
+200 DATA a²-b²-c²-2bc,(a+b+c)(a-b-c),190,210
 210 DATA(a+b+c)(bc+ca+ab)-abc,(b+c)(c+a)(a+b),200,220
-220 DATA(a+b+c)3-(a3+b3+c3),3(b+c)(c+a)(a+b),210,230
-230 DATA a3(b-c)+b3(c-a)+c3(a-b),-(b-c)(c-a)(a-b)(a+b+c),220,230
+220 DATA(a+b+c)³-(a³+b³+c³),3(b+c)(c+a)(a+b),210,230
+230 DATA a³(b-c)+b³(c-a)+c³(a-b),-(b-c)(c-a)(a-b)(a+b+c),220,230
 10010 MODE 8:DIM:x=10:y=230:r=x
 10020 DEF CHR$(255)="A6AAAA9280"
 10110 RESTORE(r)
 10120 READ m$,n$,b,c
-10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT m$;;TAB(l);l$;"=";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -1524,48 +1524,48 @@
 10280 GOTO 10150
 
 
-10 DATA sin2θ+cos2θ,1,10,20
-20 DATA 1+tan2θ,sec2θ,10,30
-30 DATA 1+cot2θ,cosec2θ,20,40
-40 DATA sin(α{F9}β),sinα{A5}cosβ{F9}cosα{A5}sinβ,30,50
-50 DATA cos(α{F9}β),cosα{A5}cosβ{FA}sinα{A5}sinβ,40,60
-60 DATA tan(α{F9}β),(tanα{F9}tanβ)/(1{FA}tanα{A5}tanβ),50,70
-70 DATA cot(α{F9}β),(cotα{A5}cotβ{FA}1)/(cotβ{F9}cotα),60,80
-80 DATA sin2θ,2sinθ{A5}cosθ,70,90
-90 DATA cos2θ,cos2θ-sin2θ,80,100
-100 DATA cos2θ,1-2sin2θ,90,110
-110 DATA cos2θ,2cos2θ-1,100,120
-120 DATA tan2θ,2tanθ/(1-tan2θ),110,130
-130 DATA sin(θ/2),{F9}√((1-cosθ)/2),120,140
-140 DATA cos(θ/2),{F9}√((1+cosθ)/2),130,150
-150 DATA tan(θ/2),{F9}√((1-cosθ)/(1+cosθ)),140,160
+10 DATA sin²θ+cos²θ,1,10,20
+20 DATA 1+tan²θ,sec²θ,10,30
+30 DATA 1+cot²θ,cosec²θ,20,40
+40 DATA sin(α±β),sinα･cosβ±cosα･sinβ,30,50
+50 DATA cos(α±β),cosα･cosβ∓sinα･sinβ,40,60
+60 DATA tan(α±β),(tanα±tanβ)/(1∓tanα･tanβ),50,70
+70 DATA cot(α±β),(cotα･cotβ∓1)/(cotβ±cotα),60,80
+80 DATA sin2θ,2sinθ･cosθ,70,90
+90 DATA cos2θ,cos²θ-sin²θ,80,100
+100 DATA cos2θ,1-2sin²θ,90,110
+110 DATA cos2θ,2cos²θ-1,100,120
+120 DATA tan2θ,2tanθ/(1-tan²θ),110,130
+130 DATA sin(θ/2),±√((1-cosθ)/2),120,140
+140 DATA cos(θ/2),±√((1+cosθ)/2),130,150
+150 DATA tan(θ/2),±√((1-cosθ)/(1+cosθ)),140,160
 160 DATA tan(θ/2),(1-cosθ)/sinθ,150,170
 170 DATA tan(θ/2),sinθ/(1+cosθ),160,180
 180 DATA tan(θ/2),cosecθ-cotθ,170,190
-190 DATA cot(θ/2),{F9}√((1+cosθ)/(1-cosθ)),180,200
+190 DATA cot(θ/2),±√((1+cosθ)/(1-cosθ)),180,200
 200 DATA cot(θ/2),sinθ/(1-cosθ),190,210
 210 DATA cot(θ/2),(1+cosθ)/sinθ,200,220
 220 DATA cot(θ/2),cosecθ+cotθ,210,230
-230 DATA sin3θ,3sinθ-4sin3θ,220,240
-240 DATA cos3θ,4cos3θ-3cosθ,230,250
-250 DATA tan3θ,(3tanθ-tan3θ)/(1-3tan2θ),240,260
-260 DATA 2sinα{A5}cosβ,sin(α+β)+sin(α-β),250,270
-270 DATA 2cosα{A5}sinβ,sin(α+β)-sin(α-β),260,280
-280 DATA 2cosα{A5}cosβ,cos(α+β)+cos(α-β),270,290
-290 DATA 2sinα{A5}sinβ,-(cos(α+β)-cos(α-β)),280,300
-300 DATA sinα+sinβ,2sin((α+β)/2){A5}cos((α-β)/2),290,310
-310 DATA sinα-sinβ,2cos((α+β)/2){A5}sin((α-β)/2),300,320
-320 DATA cosα+cosβ,2cos((α+β)/2){A5}cos((α-β)/2),310,330
-330 DATA cosα-cosβ,-2sin((α+β)/2){A5}sin((α-β)/2),320,340
-340 DATA tan(45{DF}{F9}(θ/2)),secθ{F9}tanθ,330,350
-350 DATA tan(45{DF}{F9}(θ/2)),(1{F9}sinθ)/cosθ,340,360
-360 DATA tan(45{DF}{F9}(θ/2)),cot(45{DF}{FA}(θ/2)),350,370
-370 DATA tan(45{DF}+θ),(1+tanθ)/(1-tanθ),360,380
-380 DATA cot(45{DF}-θ),(1+cotθ)/(1-cotθ),370,380
+230 DATA sin3θ,3sinθ-4sin³θ,220,240
+240 DATA cos3θ,4cos³θ-3cosθ,230,250
+250 DATA tan3θ,(3tanθ-tan³θ)/(1-3tan²θ),240,260
+260 DATA 2sinα･cosβ,sin(α+β)+sin(α-β),250,270
+270 DATA 2cosα･sinβ,sin(α+β)-sin(α-β),260,280
+280 DATA 2cosα･cosβ,cos(α+β)+cos(α-β),270,290
+290 DATA 2sinα･sinβ,-(cos(α+β)-cos(α-β)),280,300
+300 DATA sinα+sinβ,2sin((α+β)/2)･cos((α-β)/2),290,310
+310 DATA sinα-sinβ,2cos((α+β)/2)･sin((α-β)/2),300,320
+320 DATA cosα+cosβ,2cos((α+β)/2)･cos((α-β)/2),310,330
+330 DATA cosα-cosβ,-2sin((α+β)/2)･sin((α-β)/2),320,340
+340 DATA tan(45ﾟ±(θ/2)),secθ±tanθ,330,350
+350 DATA tan(45ﾟ±(θ/2)),(1±sinθ)/cosθ,340,360
+360 DATA tan(45ﾟ±(θ/2)),cot(45ﾟ∓(θ/2)),350,370
+370 DATA tan(45ﾟ+θ),(1+tanθ)/(1-tanθ),360,380
+380 DATA cot(45ﾟ-θ),(1+cotθ)/(1-cotθ),370,380
 10010 MODE 8:DIM:x=10:y=380:r=x
 10110 RESTORE(r)
 10120 READ m$,n$,b,c
-10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT m$;TAB(l);l$;"=";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -1576,49 +1576,49 @@
 
 
 10 DATA C,0,10,20
-20 DATA xn,nxn{9E},10,30
+20 DATA xⁿ,nxⁿ⁻¹,10,30
 30 DATA x,1,20,40
-40 DATA 1/x,-1/x2,30,50
+40 DATA 1/x,-1/x²,30,50
 50 DATA √{FF},1/(2√{FF}),40,60
-60 DATA ax,axloga,50,70
-70 DATA ex,ex,60,80
-80 DATA enx,nenx,70,90
+60 DATA aˣ,aˣloga,50,70
+70 DATA eˣ,eˣ,60,80
+80 DATA eⁿˣ,neⁿˣ,70,90
 90 DATA logx,1/x,80,100
-100 DATA xx,xx(logx+1),90,110
+100 DATA xˣ,xˣ(logx+1),90,110
 110 DATA sinx,cosx,100,120
 120 DATA cosx,-sinx,110,130
-130 DATA tanx,sec2x,120,140
-140 DATA cotx,-cosec2x,130,150
-150 DATA secx,secx{A5}tanx,140,160
-160 DATA cosecx,-cosecx{A5}cotx,150,170
-170 DATA sinax,a{A5}cosax,160,180
-180 DATA cosax,-a{A5}sinax,170,190
-190 DATA tanax,a{A5}sec2ax,180,200
-200 DATA cotax,-a{A5}cosec2ax,190,210
-210 DATA sin{9E}x,1/√(1-x2)          ({FE}y{FE}<π/2),200,220
-220 DATA cos{9E}x,-1/√(1-x2)           (0<y<π),210,230
-230 DATA tan{9E}x,1/(1+x2)           ({FE}y{FE}<π/2),220,240
-240 DATA cot{9E}x,-1/(1+x2)          ({FE}y{FE}<π/2),230,250
-250 DATA sec{9E}x,"1/(x√(x2-1))    (0<y<π,x2>1)",240,260
-260 DATA cosec{9E}x,"1/(x√(x2-1))  ({FE}y{FE}<π/2,x2>1)",250,270
+130 DATA tanx,sec²x,120,140
+140 DATA cotx,-cosec²x,130,150
+150 DATA secx,secx･tanx,140,160
+160 DATA cosecx,-cosecx･cotx,150,170
+170 DATA sinax,a･cosax,160,180
+180 DATA cosax,-a･sinax,170,190
+190 DATA tanax,a･sec²ax,180,200
+200 DATA cotax,-a･cosec²ax,190,210
+210 DATA sin⁻¹x,1/√(1-x²)          ({FE}y{FE}<π/2),200,220
+220 DATA cos⁻¹x,-1/√(1-x²)           (0<y<π),210,230
+230 DATA tan⁻¹x,1/(1+x²)           ({FE}y{FE}<π/2),220,240
+240 DATA cot⁻¹x,-1/(1+x²)          ({FE}y{FE}<π/2),230,250
+250 DATA sec⁻¹x,"1/(x√(x²-1))    (0<y<π,x²>1)",240,260
+260 DATA cosec⁻¹x,"1/(x√(x²-1))  ({FE}y{FE}<π/2,x²>1)",250,270
 270 DATA sinhx,coshx,260,280
 280 DATA coshx,sinhx,270,290
-290 DATA tanhx,sech2x,280,300
-300 DATA cothx,-cosech2x,290,310
-310 DATA sechx,-sechx{A5}tanhx,300,320
-320 DATA cosechx,-cosechx{A5}cothx,310,330
-330 DATA sinh{9E}x,1/√(1+x2),320,340
-340 DATA cosh{9E}x,"1/√(x2-1)         (y>0,x2>1)",330,350
-350 DATA tanh{9E}x,1/(1-x2)              (x2<1),340,360
-360 DATA coth{9E}x,1/(1-x2)              (x2>1),350,370
-370 DATA sech{9E}x,-1/(x√(1-x2))        (0<x<1),360,380
-380 DATA cosech{9E}x,-1/(x√(x2+1)),370,380
+290 DATA tanhx,sech²x,280,300
+300 DATA cothx,-cosech²x,290,310
+310 DATA sechx,-sechx･tanhx,300,320
+320 DATA cosechx,-cosechx･cothx,310,330
+330 DATA sinh⁻¹x,1/√(1+x²),320,340
+340 DATA cosh⁻¹x,"1/√(x²-1)         (y>0,x²>1)",330,350
+350 DATA tanh⁻¹x,1/(1-x²)              (x²<1),340,360
+360 DATA coth⁻¹x,1/(1-x²)              (x²>1),350,370
+370 DATA sech⁻¹x,-1/(x√(1-x²))        (0<x<1),360,380
+380 DATA cosech⁻¹x,-1/(x√(x²+1)),370,380
 10010 MODE 8:DIM:x=10:y=380:r=x
 10020 DEF CHR$(255)="A2A49C92A2"
 10030 DEF CHR$(254)="0000FE0000"
 10110 RESTORE(r)
 10120 READ m$,n$,b,c
-10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT "y =";m$;TAB(l);l$;"y";CHR$(131);"=";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -1629,44 +1629,44 @@
 
 
 10 DATA ,x+C,10,20
-20 DATA xn,xn+1/(n+1)+C           (n+1≠0),10,30
+20 DATA xⁿ,xⁿ⁺¹/(n+1)+C           (n+1≠0),10,30
 30 DATA 1/x,log{FF}x{FF}+C,20,40
-40 DATA 1/(x{F9}a),log{FF}x{F9}a{FF}+C,30,50
-50 DATA ex,ex+C,40,60
-60 DATA enx,enx/n+C,50,70
-70 DATA ax,"ax/loga+C            (a>0,a≠1)",60,80
-80 DATA anx,"anx/(n{A5}loga)+C       (a>0,a≠1)",70,90
+40 DATA 1/(x±a),log{FF}x±a{FF}+C,30,50
+50 DATA eˣ,eˣ+C,40,60
+60 DATA eⁿˣ,eⁿˣ/n+C,50,70
+70 DATA aˣ,"aˣ/loga+C            (a>0,a≠1)",60,80
+80 DATA aⁿˣ,"aⁿˣ/(n･loga)+C       (a>0,a≠1)",70,90
 90 DATA logx,x(logx-1)+C,80,100
-100 DATA xenx,enx/n2{A5}(nx-1)+C,90,110
+100 DATA xeⁿˣ,eⁿˣ/n²･(nx-1)+C,90,110
 110 DATA sinx,-cosx+C,100,120
-120 DATA sinax,-1/a{A5}cosax+C,110,130
+120 DATA sinax,-1/a･cosax+C,110,130
 130 DATA cosx,sinx+C,120,140
-140 DATA cosax,1/a{A5}sinax+C,130,150
+140 DATA cosax,1/a･sinax+C,130,150
 150 DATA tanx,-log{FF}cosx{FF}+C,140,160
 160 DATA cotx,log{FF}sinx{FF}+C,150,170
-170 DATA sin2x,x/2-sin2x/4+C,160,180
-180 DATA cos2x,x/2+sin2x/4+C,170,190
-190 DATA sec2ax,1/a{A5}tanax+C,180,200
-200 DATA cosec2ax,-1/a{A5}cotax+C,190,210
+170 DATA sin²x,x/2-sin2x/4+C,160,180
+180 DATA cos²x,x/2+sin2x/4+C,170,190
+190 DATA sec²ax,1/a･tanax+C,180,200
+200 DATA cosec²ax,-1/a･cotax+C,190,210
 210 DATA 1/sinx,log(tan(x/2))+C,200,220
 220 DATA 1/cosx,log(tan((π/4)+(x/2)))+C,210,230
-230 DATA enxsinbx,enx(n{A5}sinbx-b{A5}cosbx)/(n2+b2)+C,220,240
-240 DATA enxcosbx,enx(n{A5}cosbx+b{A5}sinbx)/(n2+b2)+C,230,250
-250 DATA sin{9E}x,xsin{9E}x+√(1-x2)+C,240,260
-260 DATA cos{9E}x,xcos{9E}x-√(1-x2)+C,250,270
+230 DATA eⁿˣsinbx,eⁿˣ(n･sinbx-b･cosbx)/(n²+b²)+C,220,240
+240 DATA eⁿˣcosbx,eⁿˣ(n･cosbx+b･sinbx)/(n²+b²)+C,230,250
+250 DATA sin⁻¹x,xsin⁻¹x+√(1-x²)+C,240,260
+260 DATA cos⁻¹x,xcos⁻¹x-√(1-x²)+C,250,270
 270 DATA sinhx,coshx+C,260,280
 280 DATA coshx,sinhx+C,270,290
 290 DATA tanhx,log(coshx)+C,280,300
-300 DATA 1/√(a2-x2),sin{9E}(x/a)+C            ({FF}x{FF}<a),290,310
-310 DATA 1/(a2+x2),1/a{A5}tan{9E}(x/a)+C,300,320
-320 DATA 1/√(x2{F9}a2),log(x+√(x2{F9}a2))+C,310,330
-330 DATA √(a2-x2),1/2{A5}(x√(a2-x2)+a2sin{9E}(x/a))+C,320,340
-340 DATA 1/(x2-a2),1/2a{A5}log((x-a)/(x+a))+C  (x>a),330,340
+300 DATA 1/√(a²-x²),sin⁻¹(x/a)+C            ({FF}x{FF}<a),290,310
+310 DATA 1/(a²+x²),1/a･tan⁻¹(x/a)+C,300,320
+320 DATA 1/√(x²±a²),log(x+√(x²±a²))+C,310,330
+330 DATA √(a²-x²),1/2･(x√(a²-x²)+a²sin⁻¹(x/a))+C,320,340
+340 DATA 1/(x²-a²),1/2a･log((x-a)/(x+a))+C  (x>a),330,340
 10010 MODE 8:DIM:x=10:y=340:r=x
 10020 DEF CHR$(255)="0000FF0000"
 10110 RESTORE(r)
 10120 READ m$,n$,b,c:IF m$="" THEN m$=CHR$(8)
-10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT CHR$(129);" ";m$;" dx";TAB(l);l$;"=";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -1677,41 +1677,41 @@
 
 
 10 DATA 1/p,1,10,20
-20 DATA 1/p2,t,10,30
-30 DATA 1/pn,"tn{9E}/(n-1)!        (n=1,2,3,{A5}{A5}{A5})",20,40
-40 DATA 1/(p{F9}m),e{FD}{FF}{FE},30,50
-50 DATA 1/(p(p+m)),1/m{A5}(1-e-{FF}{FE}),40,60
-60 DATA 1/(p2(p+m)),1/m2{A5}(e-{FF}{FE}+mt-1),50,70
-70 DATA a/(p2+a2),sinat,60,80
-80 DATA p/(p2+a2),cosat,70,90
-90 DATA 1/(p2+a2),1/a{A5}sinat,80,100
-100 DATA a/(p2-a2),sinhat,90,110
-110 DATA p/(p2-a2),coshat,100,120
-120 DATA 1/(p2-a2),1/a{A5}sinhat,110,130
-130 DATA 1/(p(p2+a2)),1/a2{A5}(1-cosat),120,140
-140 DATA 1/(p2(p2+a2)),1/a3{A5}(at-sinat),130,150
-150 DATA 1/((p+m)(p+n)),1/(n-m){A5}(e-{FF}{FE}-e-n{FE}),140,160
-160 DATA p/((p+m)(p+n)),1/(m-n){A5}(me-{FF}{FE}-ne-n{FE}),150,170
-170 DATA 1/(p+m)2,te-{FF}{FE},160,180
-180 DATA 1/(p+m)n,"1/(n-1)!{A5}tn{9E}e-{FF}{FE}  (n=1,2,3,{A5}{A5}{A5})",170,190
-190 DATA p/(p+m)2,e-{FF}{FE}(1-mt),180,200
-200 DATA 1/(p(p+m)2),1/m2{A5}(1-(1+mt)e-{FF}{FE}),190,210
-210 DATA 1/(p2(p+m)2),t/m2-2/m3+2/m3{A5}e-{FF}{FE}+t/m2{A5}e-{FF}{FE},200,220
-220 DATA(p+n)/(p+m)2,((n-m)t+1)e-{FF}{FE},210,230
-230 DATA 1/(p2+a2)2,1/2a3{A5}(sinat-at{A5}cosat),220,240
-240 DATA p/(p2+a2)2,t/2a{A5}sinat,230,250
-250 DATA p2/(p2+a2)2,1/2a{A5}(sinat+at{A5}cosat),240,260
-260 DATA(p2-a2)/(p2+a2)2,t{A5}cosat,250,270
-270 DATA 1/((p+m)2+n2),1/n{A5}e-{FF}{FE}sinnt,260,280
-280 DATA(p+m)/((p+m)2+n2),e-{FF}{FE}cosnt,270,290
-290 DATA 1/(p4-a4),1/2a3{A5}(sinhat-sinat),280,300
-300 DATA p/(p4-a4),1/2a2{A5}(coshat-cosat),290,310
-310 DATA p2/(p4-a4),1/2a{A5}(sinhat+sinat),300,320
-320 DATA p3/(p4-a4),1/2{A5}(coshat+cosat),310,330
-330 DATA p/(p4+4a4),1/2a2{A5}sinat{A5}sinhat,320,340
-340 DATA 4a3/(p4+4a4),sinat{A5}coshat-cosat{A5}sinhat,330,350
-350 DATA 1/p{A5}((p-m)/(p+m)),-1+2e-{FF}{FE},340,360
-360 DATA 1/p2{A5}((p-m)/(p+m)),2/m-t-2/m{A5}e-{FF}{FE},350,360
+20 DATA 1/p²,t,10,30
+30 DATA 1/pⁿ,"tⁿ⁻¹/(n-1)!        (n=1,2,3,･･･)",20,40
+40 DATA 1/(p±m),e{FD}{FF}{FE},30,50
+50 DATA 1/(p(p+m)),1/m･(1-e⁻{FF}{FE}),40,60
+60 DATA 1/(p²(p+m)),1/m²･(e⁻{FF}{FE}+mt-1),50,70
+70 DATA a/(p²+a²),sinat,60,80
+80 DATA p/(p²+a²),cosat,70,90
+90 DATA 1/(p²+a²),1/a･sinat,80,100
+100 DATA a/(p²-a²),sinhat,90,110
+110 DATA p/(p²-a²),coshat,100,120
+120 DATA 1/(p²-a²),1/a･sinhat,110,130
+130 DATA 1/(p(p²+a²)),1/a²･(1-cosat),120,140
+140 DATA 1/(p²(p²+a²)),1/a³･(at-sinat),130,150
+150 DATA 1/((p+m)(p+n)),1/(n-m)･(e⁻{FF}{FE}-e⁻ⁿ{FE}),140,160
+160 DATA p/((p+m)(p+n)),1/(m-n)･(me⁻{FF}{FE}-ne⁻ⁿ{FE}),150,170
+170 DATA 1/(p+m)²,te⁻{FF}{FE},160,180
+180 DATA 1/(p+m)ⁿ,"1/(n-1)!･tⁿ⁻¹e⁻{FF}{FE}  (n=1,2,3,･･･)",170,190
+190 DATA p/(p+m)²,e⁻{FF}{FE}(1-mt),180,200
+200 DATA 1/(p(p+m)²),1/m²･(1-(1+mt)e⁻{FF}{FE}),190,210
+210 DATA 1/(p²(p+m)²),t/m²-2/m³+2/m³･e⁻{FF}{FE}+t/m²･e⁻{FF}{FE},200,220
+220 DATA(p+n)/(p+m)²,((n-m)t+1)e⁻{FF}{FE},210,230
+230 DATA 1/(p²+a²)²,1/2a³･(sinat-at･cosat),220,240
+240 DATA p/(p²+a²)²,t/2a･sinat,230,250
+250 DATA p²/(p²+a²)²,1/2a･(sinat+at･cosat),240,260
+260 DATA(p²-a²)/(p²+a²)²,t･cosat,250,270
+270 DATA 1/((p+m)²+n²),1/n･e⁻{FF}{FE}sinnt,260,280
+280 DATA(p+m)/((p+m)²+n²),e⁻{FF}{FE}cosnt,270,290
+290 DATA 1/(p⁴-a⁴),1/2a³･(sinhat-sinat),280,300
+300 DATA p/(p⁴-a⁴),1/2a²･(coshat-cosat),290,310
+310 DATA p²/(p⁴-a⁴),1/2a･(sinhat+sinat),300,320
+320 DATA p³/(p⁴-a⁴),1/2･(coshat+cosat),310,330
+330 DATA p/(p⁴+4a⁴),1/2a²･sinat･sinhat,320,340
+340 DATA 4a³/(p⁴+4a⁴),sinat･coshat-cosat･sinhat,330,350
+350 DATA 1/p･((p-m)/(p+m)),-1+2e⁻{FF}{FE},340,360
+360 DATA 1/p²･((p-m)/(p+m)),2/m-t-2/m･e⁻{FF}{FE},350,360
 10010 MODE 8:DIM:x=10:y=360:r=x
 10020 DEF CHR$(255)="7840384038"
 10030 DEF CHR$(254)="40F8480000"
@@ -1719,7 +1719,7 @@
 10050 DEF CHR$(252)="7850502000"
 10110 RESTORE(r)
 10120 READ m$,n$,b,c
-10130 l$="("+MID$(STR$(r/10),2)+")":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT "F(p)=";m$;TAB(l);l$;n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110

@@ -16,7 +16,7 @@
 530 IF k=30 AND a>3 THEN a=a-SGN(17-a)-1:GOTO 500
 535 IF k=31 AND a<17 THEN a=a+(SGN(14.5-a)+1)/2+1:GOTO 500
 540 GOTO 510
-620 CLS:PRINT "Input the symbol :";TAB(0);"Push 〔EXE〕 then return";
+620 CLS:PRINT "Input the symbol :";TAB(0);"Push [EXE] then return";
 630 LOCATE 19,0:PRINT "   ";:LOCATE 19,0:INPUT @3;d$:IF d$="" THEN 500 ELSE e=LEN(d$):IF e=3 THEN 630
 635 d=ASC(d$):IF d>96 THEN d=d-32
 636 c=ASC(MID$(d$,2)):IF c<91 THEN c=c+32
@@ -28,32 +28,32 @@
 690 GOTO 630
 
 
-10 DATA F ,9.648456,×104 〔C•mol⁻¹〕,×103 〔emu•mol⁻¹〕,E4,E3,10,20
-20 DATA G ,6.6720,×10-11 〔m3•s-2•kg⁻¹〕,×10-8 〔cm3•s-2•g⁻¹〕,E-11,E-8,10,30
-30 DATA Na,6.022045,×1023 〔mol⁻¹〕,×1023 〔mol⁻¹〕,E23,E23,20,40
-40 DATA R ,8.31441," 〔J•mol⁻¹•K⁻¹〕",×107 〔erg•mol⁻¹•K⁻¹〕,,E7,30,50
-50 DATA R{FF},1.097373177,×107 〔m⁻¹〕,×105 〔cm⁻¹〕,E7,E5,40,60
-60 DATA Vm,22.41383,×10-3 〔m3•mol⁻¹〕,×103 〔cm3•mol⁻¹〕,E-3,E3,50,70
-70 DATA a▯,5.2917706,×10-11 〔m〕,×10-9 〔cm〕,E-11,E-1,60,80
-80 DATA c ,299792458," 〔m•s⁻¹〕",×102 〔cm•s⁻¹〕,,E2,70,90
-90 DATA e ,1.6021892,×10-19 〔C〕,×10-20 〔emu〕,E-19,E-20,80,100
-100 DATA g ,9.80665," 〔m•s-2〕",×102 〔cm•s-2〕,,E2,90,110
-110 DATA h ,6.626176,×10-34 〔J•s〕,×10-27 〔erg•s〕,E-34,E-27,100,120
-120 DATA k ,1.380662,×10-23 〔J•K⁻¹〕,×10-16 〔erg•K⁻¹〕,E-23,E-16,110,130
-130 DATA me,9.109534,×10-31 〔kg〕,×10-28 〔g〕,E-31,E-28,120,140
-140 DATA mn,1.6749543,×10-27 〔kg〕,×10-24 〔g〕,E-27,E-24,130,150
-150 DATA mp,1.6726485,×10-27 〔kg〕,×10-24 〔g〕,E-27,E-24,140,160
-160 DATA u ,1.6605655,×10-27 〔kg〕,×10-24 〔g〕,E-27,E-24,150,170
-170 DATA ε▯,8.854187818,×10-12 〔F•m⁻¹〕,,E-12,,160,180
-180 DATA μ▯,12.5663706144,×10-7 〔H•m⁻¹〕,,E-7,,170,190
-190 DATA μb,9.274078,×10-24 〔J•T⁻¹〕,×10-21 〔erg•G⁻¹〕,E-24,E-21,180,200
-200 DATA μe,9.284832,×10-24 〔J•T⁻¹〕,×10-21 〔erg•G⁻¹〕,E-24,E-21,190,210
-210 DATA μp,1.4106171,×10-26 〔J•T⁻¹〕,×10-23 〔erg•G⁻¹〕,E-26,E-23,200,220
-220 DATA δ ,5.67032,×10-8 〔W•m-2•K-4〕,×10-5〔erg•s⁻¹cm-2K-4〕,E-8,E-5,210,220
+10 DATA F ,9.648456,×10⁴ [C･mol⁻¹],×10³ [emu･mol⁻¹],E4,E3,10,20
+20 DATA G ,6.6720,×10⁻¹¹ [m³･s⁻²･kg⁻¹],×10⁻⁸ [cm³･s⁻²･g⁻¹],E-11,E-8,10,30
+30 DATA Na,6.022045,×10²³ [mol⁻¹],×10²³ [mol⁻¹],E23,E23,20,40
+40 DATA R ,8.31441," [J･mol⁻¹･K⁻¹]",×10⁷ [erg･mol⁻¹･K⁻¹],,E7,30,50
+50 DATA R{FF},1.097373177,×10⁷ [m⁻¹],×10⁵ [cm⁻¹],E7,E5,40,60
+60 DATA Vm,22.41383,×10⁻³ [m³･mol⁻¹],×10³ [cm³･mol⁻¹],E-3,E3,50,70
+70 DATA aᵒ,5.2917706,×10⁻¹¹ [m],×10⁻⁹ [cm],E-11,E-1,60,80
+80 DATA c ,299792458," [m･s⁻¹]",×10² [cm･s⁻¹],,E2,70,90
+90 DATA e ,1.6021892,×10⁻¹⁹ [C],×10⁻²⁰ [emu],E-19,E-20,80,100
+100 DATA g ,9.80665," [m･s⁻²]",×10² [cm･s⁻²],,E2,90,110
+110 DATA h ,6.626176,×10⁻³⁴ [J･s],×10⁻²⁷ [erg･s],E-34,E-27,100,120
+120 DATA k ,1.380662,×10⁻²³ [J･K⁻¹],×10⁻¹⁶ [erg･K⁻¹],E-23,E-16,110,130
+130 DATA me,9.109534,×10⁻³¹ [kg],×10⁻²⁸ [g],E-31,E-28,120,140
+140 DATA mn,1.6749543,×10⁻²⁷ [kg],×10⁻²⁴ [g],E-27,E-24,130,150
+150 DATA mp,1.6726485,×10⁻²⁷ [kg],×10⁻²⁴ [g],E-27,E-24,140,160
+160 DATA u ,1.6605655,×10⁻²⁷ [kg],×10⁻²⁴ [g],E-27,E-24,150,170
+170 DATA εᵒ,8.854187818,×10⁻¹² [F･m⁻¹],,E-12,,160,180
+180 DATA μᵒ,12.5663706144,×10⁻⁷ [H･m⁻¹],,E-7,,170,190
+190 DATA μb,9.274078,×10⁻²⁴ [J･T⁻¹],×10⁻²¹ [erg･G⁻¹],E-24,E-21,180,200
+200 DATA μe,9.284832,×10⁻²⁴ [J･T⁻¹],×10⁻²¹ [erg･G⁻¹],E-24,E-21,190,210
+210 DATA μp,1.4106171,×10⁻²⁶ [J･T⁻¹],×10⁻²³ [erg･G⁻¹],E-26,E-23,200,220
+220 DATA σ ,5.67032,×10⁻⁸ [W･m⁻²･K⁻⁴],×10⁻⁵[erg･s⁻¹cm⁻²K⁻⁴],E-8,E-5,210,220
 10010 u=0:MODE 8:DIM:x=10:y=220:d$=CHR$(5):r=x:DEF CHR$(255)="060A040A0D"
 10050 CLS:LOCATE 0,1:PRINT ">constant : key A-Z ?";
 10110 RESTORE(r)
-10120 READ m$,n$,s$,t$,x$,y$,b,c:l$="〔"+MID$(STR$(r/10),2)+"〕":IF r<100 THEN l$=" "+l$
+10120 READ m$,n$,s$,t$,x$,y$,b,c:l$="["+MID$(STR$(r/10),2)+"]":IF r<100 THEN l$=" "+l$
 10130 IF u=1 THEN u$=t$ ELSE u$=s$
 10140 d=0:LOCATE 0,0:PRINT d$;m$;" =";n$;u$;:LOCATE 27,1:PRINT l$;
 10150 LOCATE 30,1:z=ASC(INPUT $(1,@))
@@ -65,7 +65,7 @@
 10220 IF z>64 AND z<91 THEN GOSUB 10310:d=1
 10230 IF(z=28 OR z=29) AND d=1 THEN 10140
 10280 GOTO 10150
-10310 LOCATE 0,0:PRINT "〔";CHR$(z);"〕";
+10310 LOCATE 0,0:PRINT "[";CHR$(z);"]";
 10320 IF u=1 THEN v$=n$+y$ ELSE v$=n$+x$
 10330 a=VAL(v$)
 10350 ON z-64 GOSUB 10401,10402,10403,10404,10405,10406,10407,10408,10409,10410,10411,10412,10413,10414,10415,10416,10417,10418,10419,10420,10421,10422,10423,10424,10425,10426
@@ -97,14 +97,14 @@
 10426 Z=a:RETURN
 
 
-10 DATA HCOOH,HCOO- + H+,10,20,1.77×10-4,a,
-20 DATA CH{FD}COOH,CH{FD}COO- + H+,10,30,1.75×10-5,a,
-30 DATA C{FF}H{FE}COOH,C{FF}H{FE}COO- + H+,20,40,6.31×10-5,a,2
-40 DATA H{FC}CO{FD},H+ + HCO{FD}-,30,50,4.45×10-7,a,
-50 DATA C{FF}H{FE}OH,C{FF}H{FE}O- + H+,40,60,1.00×10-10,a,2
-60 DATA NH{FD} + H{FC}O,NH{FF}+ + OH-,50,70,1.78×10-5,b,1
-70 DATA C{FE}H{FE}N + H{FC}O,C{FE}H{FE}NH+ + OH-,60,80,1.5×10-9,b,
-80 DATA C{FF}H{FE}NH{FC} + H{FC}O,C{FF}H{FE}NH{FD}+ + OH-,70,80,3.8×10-10,b,2
+10 DATA HCOOH,HCOO⁻ + H⁺,10,20,1.77×10⁻⁴,a,
+20 DATA CH{FD}COOH,CH{FD}COO⁻ + H⁺,10,30,1.75×10⁻⁵,a,
+30 DATA C{FF}H{FE}COOH,C{FF}H{FE}COO⁻ + H⁺,20,40,6.31×10⁻⁵,a,2
+40 DATA H{FC}CO{FD},H⁺ + HCO{FD}⁻,30,50,4.45×10⁻⁷,a,
+50 DATA C{FF}H{FE}OH,C{FF}H{FE}O⁻ + H⁺,40,60,1.00×10⁻¹⁰,a,2
+60 DATA NH{FD} + H{FC}O,NH{FF}⁺ + OH⁻,50,70,1.78×10⁻⁵,b,1
+70 DATA C{FE}H{FE}N + H{FC}O,C{FE}H{FE}NH⁺ + OH⁻,60,80,1.5×10⁻⁹,b,
+80 DATA C{FF}H{FE}NH{FC} + H{FC}O,C{FF}H{FE}NH{FD}⁺ + OH⁻,70,80,3.8×10⁻¹⁰,b,2
 10010 MODE 8:DIM:x=10:y=80:r=x
 10020 DEF CHR$(252)="2E2A3A0000"
 10030 DEF CHR$(253)="2A2A3E0000"
@@ -115,8 +115,8 @@
 10110 RESTORE(r)
 10120 READ m$,n$,b,c,d$,e$,d:CLS
 10125 IF d THEN DEF CHR$(255)=a$(d)
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕"
-10140 CLS:PRINT m$;" ←→ ";n$;TAB(0);"K";e$;" = ";d$;" 〔mol/l〕";TAB(28);l$;
+10130 l$="["+MID$(STR$(r/10),2)+"]"
+10140 CLS:PRINT m$;" ←→ ";n$;TAB(0);"K";e$;" = ";d$;" [mol/l]";TAB(28);l$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
 10180 IF z=28 AND r<>y THEN r=y:GOTO 10110
@@ -125,24 +125,24 @@
 10280 GOTO 10150
 
 
-10 DATA Uniformly accelerated motion,"v=v▯+at , a=△v/△t , s=v▯t+at2/2",10,20,
+10 DATA Uniformly accelerated motion,"v=vᵒ+at , a=△v/△t , s=vᵒt+at²/2",10,20,
 20 DATA Newton's equation of motion,F=ma,10,30,
 30 DATA Circular motion,T=2πr/v=2π/{FE}=1/f,20,40,
-40 DATA Circular motion,"{FE}=2π/T=2πf=v/r , F=mr{FE}2=mv2/r",30,50,
-50 DATA Simple harmonic oscillation,"x=r•sin{FE}t , v=r{FE}•cos{FE}t , a=-{FE}2x",40,60,
+40 DATA Circular motion,"{FE}=2π/T=2πf=v/r , F=mr{FE}²=mv²/r",30,50,
+50 DATA Simple harmonic oscillation,"x=r･sin{FE}t , v=r{FE}･cos{FE}t , a=-{FE}²x",40,60,
 60 DATA Hooke's law,F=-kx,50,70,
-70 DATA Spring,"a=F/m=-k/m•x , T=2π√(m/k)",60,80,
-80 DATA Simple pendulum,"a=F/m=-g/l•x , T=2π√(l/g)",70,90,
+70 DATA Spring,"a=F/m=-k/m･x , T=2π√(m/k)",60,80,
+80 DATA Simple pendulum,"a=F/m=-g/l･x , T=2π√(l/g)",70,90,
 90 DATA Potential energy,Ep=mgh,80,100,
-100 DATA Elastic energy   (spring),Ee=1/2•kx2,90,110,
-110 DATA Kinetic energy,Ek=1/2•mv2,100,120,
+100 DATA Elastic energy   (spring),Ee=1/2･kx²,90,110,
+110 DATA Kinetic energy,Ek=1/2･mv²,100,120,
 120 DATA Coefficient of friction,F=μN,110,130,
 130 DATA Work,W=Fs,120,140,
-140 DATA Kepler's law (3'rd),T2/r3=Constant,130,150,
-150 DATA Universal gravitation,"F=G•Mm/r2 , G=6.7*10{FF}1〔N•m2/kg2〕",140,160,
-160 DATA Potential energy   (planet),Up=-G•Mm/r ,150,170,
-170 DATA Kinetic energy   (planet),Ek=1/2•mr2{FE}2,160,180,
-180 DATA Moment of inertia,"I=mr2 , E=1/2•I{FE}2",170,190,
+140 DATA Kepler's law (3'rd),T²/r³=Constant,130,150,
+150 DATA Universal gravitation,"F=G･Mm/r² , G=6.7*10{FF}¹[N･m²/kg²]",140,160,
+160 DATA Potential energy   (planet),Up=-G･Mm/r ,150,170,
+170 DATA Kinetic energy   (planet),Ek=1/2･mr²{FE}²,160,180,
+180 DATA Moment of inertia,"I=mr² , E=1/2･I{FE}²",170,190,
 190 DATA Angular momentum,J=I{FE},180,200,
 200 DATA Conservation of momentum,mv{FC}+MV{FC}=mv{FD}+MV{FD},190,200,
 10010 MODE 8:DIM:x=10:y=200:r=x
@@ -152,7 +152,7 @@
 10050 DEF CHR$(252)="123E020000"
 10110 RESTORE(r)
 10120 CLS:READ m$,n$,b,c,d
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 PRINT m$;TAB(l);l$;n$;:LOCATE 0,0:LOCATE 1,1
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -162,29 +162,29 @@
 10280 GOTO 10150
 
 
-10 DATA Wave,"v={FF}/T=f{FF} , y=a•sin2π(t/T-x/{FF})",10,20,
+10 DATA Wave,"v={FF}/T=f{FF} , y=a･sin2π(t/T-x/{FF})",10,20,
 20 DATA Wave of string,v=√(F/{FE}),10,30,1,3E40484830
 30 DATA Interference,"l{FD}-l{FC}=(2n+1){FF}/2 , l{FD}-l{FC}=n{FF}",20,40,
 40 DATA Stationary wave,"l=n{FF}/2 , l=(2n-1){FF}/4   (n≠0)",30,50,
-50 DATA Refraction,n=sinθ/sinφ=v{FC}/v{FD}={FF}{FC}/{FF}{FD},40,60,
-60 DATA Natural frequency (wave),f=(1/2l)•√(T/{FE}),50,70,1,3E40484830
+50 DATA Refraction,n=sinθ/sinΦ=v{FC}/v{FD}={FF}{FC}/{FF}{FD},40,60,
+60 DATA Natural frequency (wave),f=(1/2l)･√(T/{FE}),50,70,1,3E40484830
 70 DATA Velocity of sound,v=331.5+0.61T,60,80,
-80 DATA Doppler effect,f=f▯•(v-v{FC})/(v-v{FD}),70,90,
+80 DATA Doppler effect,f=fᵒ･(v-v{FC})/(v-v{FD}),70,90,
 90 DATA Beat,f=f{FC}-f{FD}    (f{FC}>f{FD}),80,100,
-100 DATA Reflectivity,R▯=((n{FC}-n{FD})/(n{FC}+n{FD}))2,90,110,
+100 DATA Reflectivity,Rᵒ=((n{FC}-n{FD})/(n{FC}+n{FD}))²,90,110,
 110 DATA Critical angle,sinθ=n{FC}/n{FD},100,120,
 120 DATA de Broglie wave,{FF}=h/mv,110,130,
 130 DATA Quantum condition,2πr=nh/mv=n{FF},120,140,
-140 DATA Photoelectron,1/2•mv2=h{FE}-W,130,150,1,3E02040830
+140 DATA Photoelectron,1/2･mv²=h{FE}-W,130,150,1,3E02040830
 150 DATA Frequency condition,h{FE}=Em-En    (m>n),140,160,
-160 DATA Light wave,"{FF}=c/{FE} , c=2.998*108 〔m/s〕",150,160,1,3E02040830
+160 DATA Light wave,"{FF}=c/{FE} , c=2.998*10⁸ [m/s]",150,160,1,3E02040830
 10010 MODE 8:DIM:x=10:y=160:r=x
 10020 DEF CHR$(255)="424C300806"
 10030 DEF CHR$(253)="2E2A3A0000"
 10050 DEF CHR$(252)="123E020000"
 10110 RESTORE(r)
 10120 CLS:READ m$,n$,b,c,d:IF d=1 THEN READ d$:DEF CHR$(254)=d$
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 PRINT m$;TAB(l);l$;n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -194,29 +194,29 @@
 10280 GOTO 10150
 
 
-10 DATA Ohm's law,"V=IR   (I=Q/t , R={FE}•l/S)",10,20,1,3E40484830
+10 DATA Ohm's law,"V=IR   (I=Q/t , R={FE}･l/S)",10,20,1,3E40484830
 20 DATA Resistance,"R=R{FC}+R{FD} , 1/R=1/R{FC}+1/R{FD}",10,30,
 30 DATA DC circuit,V=E-IR,20,40,
-40 DATA DC power & Joule heat,"P=IV=I2R , W=IVt=Pt",30,50,
+40 DATA DC power & Joule heat,"P=IV=I²R , W=IVt=Pt",30,50,
 50 DATA Conductance,G=1/R=I/V,40,60,
 60 DATA Kirchhoff's law,"Σ±I=0 , Σ±V=0",50,70,
-70 DATA Wheatstone bridge,R▯R{FC}=R{FD}R{FE},60,80,1,2A2A3E0000
-80 DATA AC instantaneous value,"V=V▯•sin{FF}t , I=I▯•sin{FF}t",70,90,
-90 DATA AC effective value,"I=I▯/√2 , V=V▯/√2",80,100,
-100 DATA AC power,P=VI=V▯I▯/2,90,110,
-110 DATA Power factor,P=VI•cosφ,100,120,
+70 DATA Wheatstone bridge,RᵒR{FC}=R{FD}R{FE},60,80,1,2A2A3E0000
+80 DATA AC instantaneous value,"V=Vᵒ･sin{FF}t , I=Iᵒ･sin{FF}t",70,90,
+90 DATA AC effective value,"I=Iᵒ/√2 , V=Vᵒ/√2",80,100,
+100 DATA AC power,P=VI=VᵒIᵒ/2,90,110,
+110 DATA Power factor,P=VI･cosΦ,100,120,
 120 DATA Transformer,"I{FC}V{FC}=I{FD}V{FD} , N{FD}/N{FC}=V{FD}/V{FC}",110,130,
 130 DATA Reactance,"X={FF}L=2πfL , X=1/{FF}C=1/2πfC",120,140,
-140 DATA Impedance,"Z=√(R2+({FF}L-1/{FF}C)2) , V▯=ZI▯",130,150,
-150 DATA Natural frequency (circuit),f▯=1/2π√(LC),140,160,
-160 DATA Electric oscillation,1/2•Q2/C+1/2•LI2=Constant,150,160,
+140 DATA Impedance,"Z=√(R²+({FF}L-1/{FF}C)²) , Vᵒ=ZIᵒ",130,150,
+150 DATA Natural frequency (circuit),fᵒ=1/2π√(LC),140,160,
+160 DATA Electric oscillation,1/2･Q²/C+1/2･LI²=Constant,150,160,
 10010 MODE 8:DIM:x=10:y=160:r=x
 10020 DEF CHR$(255)="3E020C223E"
 10040 DEF CHR$(253)="2E2A3A0000"
 10050 DEF CHR$(252)="123E020000"
 10110 RESTORE(r)
 10120 CLS:READ m$,n$,b,c,d:IF d=1 THEN READ d$:DEF CHR$(254)=d$
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 PRINT m$;TAB(l);l$;n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -226,30 +226,30 @@
 10280 GOTO 10150
 
 
-10 DATA Coulomb's law (electric f.),"F=k▯•Q{FC}Q{FD}/r2 , k▯=9*109〔N•m2/C2〕",10,20,
+10 DATA Coulomb's law (electric f.),"F=kᵒ･Q{FC}Q{FD}/r² , kᵒ=9*10⁹[N･m²/C²]",10,20,
 20 DATA Electric field,"E=V/d , F=QE , W=QV",10,30,
-30 DATA Capacitance,"Q=CV , C=ε▯•S/d",20,40,
+30 DATA Capacitance,"Q=CV , C=εᵒ･S/d",20,40,
 40 DATA Capacitance,"C=C{FC}+C{FD} , 1/C=1/C{FC}+1/C{FD}",30,50,
-50 DATA Dielectric constant,"D=ε▯E , C=εC▯",40,60,
-60 DATA Electrostatic energy,U=1/2•QV=1/2•CV2,50,70,
-70 DATA Electrons in electric field,"a=QE/m , 1/2•mv2=eV",60,80,
-80 DATA Coulomb's law (magnetic f.),"F=k▯•m{FC}m{FD}/r2 , k▯=107/(4π)2",70,90,
+50 DATA Dielectric constant,"D=εᵒE , C=εCᵒ",40,60,
+60 DATA Electrostatic energy,U=1/2･QV=1/2･CV²,50,70,
+70 DATA Electrons in electric field,"a=QE/m , 1/2･mv²=eV",60,80,
+80 DATA Coulomb's law (magnetic f.),"F=kᵒ･m{FC}m{FD}/r² , kᵒ=10⁷/(4π)²",70,90,
 90 DATA Magnetic field,"H=I/2πr , H=I/2r , H=nI",80,100,
-100 DATA Magnetic field,F=μ▯IHl=IBl,90,110,
-110 DATA Magnetic flux density,B=m/4πr2=μ▯H,100,120,
+100 DATA Magnetic field,F=μᵒIHl=IBl,90,110,
+110 DATA Magnetic flux density,B=m/4πr²=μᵒH,100,120,
 120 DATA Lorentz force,"F=QvB , r=mv/QB",110,130,
-130 DATA Electrons in magnetic field,"1/2•mv2=Q2B2r2/2m , {FE}=v/r=QB/m",120,140,
-140 DATA Faraday's law of induction,V=-n•△φ/△t,130,150,
+130 DATA Electrons in magnetic field,"1/2･mv²=Q²B²r²/2m , {FE}=v/r=QB/m",120,140,
+140 DATA Faraday's law of induction,V=-n･△Φ/△t,130,150,
 150 DATA Electromagnetic induction,"V=El=vBl , I=vBl/R",140,160,
-160 DATA Mutual induction,V{FD}=-M•△I{FC}/△t,150,170,
-170 DATA Self-induction,V/=-L•△I/△t,160,170,
+160 DATA Mutual induction,V{FD}=-M･△I{FC}/△t,150,170,
+170 DATA Self-induction,V´=-L･△I/△t,160,170,
 10010 MODE 8:DIM:x=10:y=170:r=x
 10020 DEF CHR$(254)="3E020C223E"
 10040 DEF CHR$(253)="2E2A3A0000"
 10050 DEF CHR$(252)="123E020000"
 10110 RESTORE(r)
 10120 CLS:READ m$,n$,b,c,d
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 PRINT m$;TAB(l);l$;n$;:LOCATE 0,0:LOCATE 1,1
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -259,25 +259,25 @@
 10280 GOTO 10150
 
 
-10 DATA Absolute temperature,T〔K〕=t〔ﾟC〕+273.15,10,20,
+10 DATA Absolute temperature,T[K]=t[ﾟC]+273.15,10,20,
 20 DATA Heat capacity,Q=CT=mcT,10,30,
-30 DATA Mechanical equivalent of heat,"W=JQ , J=4.19 〔J/cal〕",20,40,
+30 DATA Mechanical equivalent of heat,"W=JQ , J=4.19 [J/cal]",20,40,
 40 DATA Boyle's law,PV=Constant  (T=constant),30,50,
-50 DATA Volume & Temperature,V=V▯(1+T/273),40,60,
-60 DATA Charle's law,V/V▯=T/T▯,50,70,
-70 DATA Equation of state,"PV=nRT , R=8.31 〔J/K〕",60,80,
-80 DATA Law of partial pressures,P=P{FC}+P{FD}+P{FE}+•••,70,90,1,2A2A3E0000
-90 DATA Pressure,P=1/3•nm{FE}2,80,100,1,B08C828CB0
-100 DATA Internal energy,U=1/2•m{FE}2N=3/2•nRT,90,110,1,B08C828CB0
+50 DATA Volume & Temperature,V=Vᵒ(1+T/273),40,60,
+60 DATA Charle's law,V/Vᵒ=T/Tᵒ,50,70,
+70 DATA Equation of state,"PV=nRT , R=8.31 [J/K]",60,80,
+80 DATA Law of partial pressures,P=P{FC}+P{FD}+P{FE}+･･･,70,90,1,2A2A3E0000
+90 DATA Pressure,P=1/3･nm{FE}²,80,100,1,B08C828CB0
+100 DATA Internal energy,U=1/2･m{FE}²N=3/2･nRT,90,110,1,B08C828CB0
 110 DATA Specific heat,"Cv=△U/△T=3R/2 , Cp=△U/△T+R=5R/2",100,120,
-120 DATA Half life,N=N▯(1/2){FE}χ    (x=1/T),110,130,1,40F8480000
-130 DATA Mass-energy relation ,E=mc2,120,130,
+120 DATA Half life,N=Nᵒ(1/2){FE}ˣ    (x=1/T),110,130,1,40F8480000
+130 DATA Mass-energy relation ,E=mc²,120,130,
 10010 MODE 8:DIM:x=10:y=130:r=x
 10040 DEF CHR$(253)="2E2A3A0000"
 10050 DEF CHR$(252)="123E020000"
 10110 RESTORE(r)
 10120 CLS:READ m$,n$,b,c,d:IF d=1 THEN READ d$:DEF CHR$(254)=d$
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 PRINT m$;TAB(l);l$;n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -287,41 +287,41 @@
 10280 GOTO 10150
 
 
-10 DATA x〔cm〕,0.01x〔m〕,X〔m〕=0.01*x〔cm〕,10,20
-20 DATA x〔cm〕,0.393701x〔in〕,X〔in〕=.393701*x〔cm〕,10,30
-30 DATA x〔cm〕,0.0328084x〔ft〕,X〔ft〕=.0328084*x〔cm〕,20,40
-40 DATA x〔cm〕,0.0109361x〔yd〕,X〔yd〕=.0109361*x〔cm〕,30,50
-50 DATA x〔cm〕,0.00000621371x〔mile〕,X〔mile〕=6.21371E-6*x〔cm〕,40,60
-60 DATA x〔m〕,100x〔cm〕,X〔cm〕=100*x〔m〕,50,70
-70 DATA x〔m〕,39.3701x〔in〕,X〔in〕=39.3701*x〔m〕,60,80
-80 DATA x〔m〕,3.28084x〔ft〕,X〔ft〕=3.28084*x〔m〕,70,90
-90 DATA x〔m〕,1.09361x〔yd〕,X〔yd〕=1.09361*x〔m〕,80,100
-100 DATA x〔m〕,0.000621371x〔mile〕,X〔mile〕=.000621371*x〔m〕,90,110
-110 DATA x〔in〕,2.54x〔cm〕,X〔cm〕=2.54*x〔in〕,100,120
-120 DATA x〔in〕,0.0254x〔m〕,X〔m〕=.0254*x〔in〕,110,130
-130 DATA x〔in〕,0.0833333x〔ft〕,X〔ft〕=.0833333*x〔in〕,120,140
-140 DATA x〔in〕,0.0277778x〔yd〕,X〔yd〕=.0277778*x〔in〕,130,150
-150 DATA x〔in〕,0.0000157828x〔mile〕,X〔mile〕=1.57828E-5*x〔in〕,140,160
-160 DATA x〔ft〕,30.48x〔cm〕,X〔cm〕=30.48*x〔ft〕,150,170
-170 DATA x〔ft〕,0.3048x〔m〕,X〔m〕=.3048*x〔ft〕,160,180
-180 DATA x〔ft〕,12x〔in〕,X〔in〕=12*x〔ft〕,170,190
-190 DATA x〔ft〕,0.333333x〔yd〕,X〔yd〕=.333333*x〔ft〕,180,200
-200 DATA x〔ft〕,0.000189394x〔mile〕,X〔mile〕=1.89394E-4*x〔ft〕,190,210
-210 DATA x〔yd〕,91.44x〔cm〕,X〔cm〕=91.44*x〔yd〕,200,220
-220 DATA x〔yd〕,0.9144x〔m〕,X〔m〕=.9144*x〔yd〕,210,230
-230 DATA x〔yd〕,36x〔in〕,X〔in〕=36*x〔yd〕,220,240
-240 DATA x〔yd〕,3x〔ft〕,X〔ft〕=3*x〔yd〕,230,250
-250 DATA x〔yd〕,0.000568182x〔mile〕,X〔mile〕=5.68182E-4*x〔yd〕,240,260
-260 DATA x〔mile〕,160934.4x〔cm〕,X〔cm〕=160934.4*x〔mile〕,250,270
-270 DATA x〔mile〕,1609.344x〔m〕,X〔m〕=1609.344*x〔mile〕,260,280
-280 DATA x〔mile〕,63360x〔in〕,X〔in〕=63360*x〔mile〕,270,290
-290 DATA x〔mile〕,5280x〔ft〕,X〔ft〕=5280*x〔mile〕,280,300
-300 DATA x〔mile〕,1760x〔yd〕,X〔yd〕=1760*x〔mile〕,290,300
+10 DATA x[cm],0.01x[m],X[m]=0.01*x[cm],10,20
+20 DATA x[cm],0.393701x[in],X[in]=.393701*x[cm],10,30
+30 DATA x[cm],0.0328084x[ft],X[ft]=.0328084*x[cm],20,40
+40 DATA x[cm],0.0109361x[yd],X[yd]=.0109361*x[cm],30,50
+50 DATA x[cm],0.00000621371x[mile],X[mile]=6.21371E-6*x[cm],40,60
+60 DATA x[m],100x[cm],X[cm]=100*x[m],50,70
+70 DATA x[m],39.3701x[in],X[in]=39.3701*x[m],60,80
+80 DATA x[m],3.28084x[ft],X[ft]=3.28084*x[m],70,90
+90 DATA x[m],1.09361x[yd],X[yd]=1.09361*x[m],80,100
+100 DATA x[m],0.000621371x[mile],X[mile]=.000621371*x[m],90,110
+110 DATA x[in],2.54x[cm],X[cm]=2.54*x[in],100,120
+120 DATA x[in],0.0254x[m],X[m]=.0254*x[in],110,130
+130 DATA x[in],0.0833333x[ft],X[ft]=.0833333*x[in],120,140
+140 DATA x[in],0.0277778x[yd],X[yd]=.0277778*x[in],130,150
+150 DATA x[in],0.0000157828x[mile],X[mile]=1.57828E-5*x[in],140,160
+160 DATA x[ft],30.48x[cm],X[cm]=30.48*x[ft],150,170
+170 DATA x[ft],0.3048x[m],X[m]=.3048*x[ft],160,180
+180 DATA x[ft],12x[in],X[in]=12*x[ft],170,190
+190 DATA x[ft],0.333333x[yd],X[yd]=.333333*x[ft],180,200
+200 DATA x[ft],0.000189394x[mile],X[mile]=1.89394E-4*x[ft],190,210
+210 DATA x[yd],91.44x[cm],X[cm]=91.44*x[yd],200,220
+220 DATA x[yd],0.9144x[m],X[m]=.9144*x[yd],210,230
+230 DATA x[yd],36x[in],X[in]=36*x[yd],220,240
+240 DATA x[yd],3x[ft],X[ft]=3*x[yd],230,250
+250 DATA x[yd],0.000568182x[mile],X[mile]=5.68182E-4*x[yd],240,260
+260 DATA x[mile],160934.4x[cm],X[cm]=160934.4*x[mile],250,270
+270 DATA x[mile],1609.344x[m],X[m]=1609.344*x[mile],260,280
+280 DATA x[mile],63360x[in],X[in]=63360*x[mile],270,290
+290 DATA x[mile],5280x[ft],X[ft]=5280*x[mile],280,300
+300 DATA x[mile],1760x[yd],X[yd]=1760*x[mile],290,300
 10010 MODE 8:DIM:x=10:y=300:r=x
 10050 p$="Metric conversion (length)"
 10110 RESTORE(r)
 10120 READ m$,n$,s$,b,c
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -332,23 +332,23 @@
 10280 GOTO 10150
 
 
-10 DATA x〔m2〕,0.01x〔a〕,X〔a〕=0.01*x〔m2〕,10,20
-20 DATA x〔m2〕,0.000247105x〔acre〕,X〔acre〕=2.47105E-4*x〔m2〕,10,30
-30 DATA x〔m2〕,0.000000386102x〔mile2〕,X〔mile2〕=3.86102E-7*x〔m2〕,20,40
-40 DATA x〔a〕,100x〔m2〕,X〔m2〕=100*x〔a〕,30,50
-50 DATA x〔a〕,0.0247105x〔acre〕,X〔acre〕=0.0247105*x〔a〕,40,60
-60 DATA x〔a〕,0.0000386102x〔mile2〕,X〔mile2〕=3.86102E-5*x〔a〕,50,70
-70 DATA x〔acre〕,4046.86x〔m2〕,X〔m2〕=4046.86*x〔acre〕,60,80
-80 DATA x〔acre〕,40.4686x〔a〕,X〔a〕=40.4686*x〔acre〕,70,90
-90 DATA x〔acre〕,0.0015625x〔mile2〕,X〔mile2〕=.0015625*x〔acre〕,80,100
-100 DATA x〔mile2〕,2589990x〔m2〕,X〔m2〕=2589990*x〔mile2〕,90,110
-110 DATA x〔mile2〕,25899.9x〔a〕,X〔a〕=25899.9*x〔mile2〕,100,120
-120 DATA x〔mile2〕,640x〔acre〕,X〔acre〕=640*x〔mile2〕,110,120
+10 DATA x[m²],0.01x[a],X[a]=0.01*x[m²],10,20
+20 DATA x[m²],0.000247105x[acre],X[acre]=2.47105E-4*x[m²],10,30
+30 DATA x[m²],0.000000386102x[mile²],X[mile²]=3.86102E-7*x[m²],20,40
+40 DATA x[a],100x[m²],X[m²]=100*x[a],30,50
+50 DATA x[a],0.0247105x[acre],X[acre]=0.0247105*x[a],40,60
+60 DATA x[a],0.0000386102x[mile²],X[mile²]=3.86102E-5*x[a],50,70
+70 DATA x[acre],4046.86x[m²],X[m²]=4046.86*x[acre],60,80
+80 DATA x[acre],40.4686x[a],X[a]=40.4686*x[acre],70,90
+90 DATA x[acre],0.0015625x[mile²],X[mile²]=.0015625*x[acre],80,100
+100 DATA x[mile²],2589990x[m²],X[m²]=2589990*x[mile²],90,110
+110 DATA x[mile²],25899.9x[a],X[a]=25899.9*x[mile²],100,120
+120 DATA x[mile²],640x[acre],X[acre]=640*x[mile²],110,120
 10010 MODE 8:DIM:x=10:y=120:r=x
 10050 p$="Metric conversion (area)"
 10110 RESTORE(r)
 10120 READ m$,n$,s$,b,c
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -359,53 +359,53 @@
 10280 GOTO 10150
 
 
-10 DATA x〔cm3〕,0.000001x〔m3〕,X〔m3〕=1e-6*x〔cm3〕,10,20
-20 DATA x〔cm3〕,0.0610237x〔in3〕,X〔in3〕=.0610237*x〔cm3〕,10,30
-30 DATA x〔cm3〕,0.0000353147x〔ft3〕,X〔ft3〕=3.53147E-5*x〔cm3〕,20,40
-40 DATA x〔cm3〕,0.001x〔l〕,X〔l〕=.001*x〔cm3〕,30,50
-50 DATA x〔cm3〕,0.000264172x〔gal(US)〕,X〔gal(US)〕=2.64172E-4*x〔cm3〕,40,60
-60 DATA x〔cm3〕,0.000219968x〔gal(UK)〕,X〔gal(UK)〕=2.19968E-4*x〔cm3〕,50,70
-70 DATA x〔m3〕,1000000x〔cm3〕,X〔cm3〕=1E6*x〔m3〕,60,80
-80 DATA x〔m3〕,61023.7x〔in3〕,X〔in3〕=61023.7*x〔m3〕,70,90
-90 DATA x〔m3〕,35.3147x〔ft3〕,X〔ft3〕=35.3147*x〔m3〕,80,100
-100 DATA x〔m3〕,1000x〔l〕,x〔l〕=1E3*x〔m3〕,90,110
-110 DATA x〔m3〕,264.172x〔gal(US)〕,X〔gal(US)〕=264.172*x〔m3〕,100,120
-120 DATA x〔m3〕,219.968x〔gal(UK)〕,X〔gal(UK)〕=219.968*x〔m3〕,110,130
-130 DATA x〔in3〕,16.3871x〔cm3〕,X〔cm3〕=16.3871*x〔in3〕,120,140
-140 DATA x〔in3〕,0.0000163871x〔m3〕,X〔m3〕=1.63871E-5*x〔in3〕,130,150
-150 DATA x〔in3〕,0.000578704x〔ft3〕,X〔ft3〕=.000578704*x〔in3〕,140,160
-160 DATA x〔in3〕,0.0163871x〔l〕,X〔l〕=.0163871*x〔in3〕,150,170
-170 DATA x〔in3〕,0.00432900x〔gal(US)〕,X〔gal(US)〕=.004329*x〔in3〕,160,180
-180 DATA x〔in3〕,0.00360464x〔gal(UK)〕,X〔gal(UK)〕=.00360464*x〔in3〕,170,190
-190 DATA x〔ft3〕,28316.8x〔cm3〕,X〔cm3〕=28316.8*x〔ft3〕,180,200
-200 DATA x〔ft3〕,0.0283168x〔m3〕,X〔m3〕=.0283168*x〔ft3〕,190,210
-210 DATA x〔ft3〕,1728x〔in3〕,X〔in3〕=1728*x〔ft3〕,200,220
-220 DATA x〔ft3〕,28.3168x〔l〕,X〔l〕=28.3168*x〔ft3〕,210,230
-230 DATA x〔ft3〕,7.48052x〔gal(US)〕,X〔gal(US)〕=7.48052*x〔ft3〕,220,240
-240 DATA x〔ft3〕,6.22882x〔gal(UK)〕,X〔gal(UK)〕=6.22882*x〔ft3〕,230,250
-250 DATA x〔l〕,1000x〔cm3〕,X〔cm3〕=1E3*x〔l〕,240,260
-260 DATA x〔l〕,0.001x〔m3〕,X〔m3〕=.001*x〔l〕,250,270
-270 DATA x〔l〕,61.0237x〔in3〕,X〔in3〕=61.0237*x〔l〕,260,280
-280 DATA x〔l〕,0.0353147x〔ft3〕,X〔ft3〕=.0353147*x〔l〕,270,290
-290 DATA x〔l〕,0.264172x〔gal(US)〕,X〔gal(US)〕=.264172*x〔l〕,280,300
-300 DATA x〔l〕,0.219968x〔gal(UK)〕,X〔gal(UK)〕=.219968*x〔l〕,290,300
-310 DATA x〔gal(US)〕,3785.41x〔cm3〕,X〔cm3〕=3785.41*x〔gal(US)〕,300,320
-320 DATA x〔gal(US)〕,0.00378541x〔m3〕,X〔m3〕=.00378541*x〔gal(US)〕,310,330
-330 DATA x〔gal(US)〕,231x〔in3〕,X〔in3〕=231*x〔gal(US)〕,320,340
-340 DATA x〔gal(US)〕,0.133681x〔ft3〕,X〔ft3〕=.133681*x〔gal(US)〕,330,350
-350 DATA x〔gal(US)〕,3.78541x〔l〕,X〔l〕=3.78541*x〔gal(US)〕,340,360
-360 DATA x〔gal(US)〕,0.832672x〔gal(UK)〕,X〔gal(UK)〕=0.832672*x〔gal(US)〕,350,370
-370 DATA x〔gal(UK)〕,4546.09x〔cm3〕,X〔cm3〕=4546.09*x〔gal(UK)〕,360,380
-380 DATA x〔gal(UK)〕,0.00454609x〔m3〕,X〔m3〕=.00454609*x〔gal(UK)〕,370,390
-390 DATA x〔gal(UK)〕,277.42x〔in3〕,X〔in3〕=277.42*x〔gal(UK)〕,380,400
-400 DATA x〔gal(UK)〕,0.160544x〔ft3〕,X〔ft3〕=.160544*x〔gal(UK)〕,390,410
-410 DATA x〔gal(UK)〕,4.54609x〔l〕,X〔l〕=4.54609*x〔gal(UK)〕,400,420
-420 DATA x〔gal(UK)〕,1.20095x〔gal(US)〕,X〔gal(US)〕=1.20095*x〔gal(UK)〕,410,420
+10 DATA x[cm³],0.000001x[m³],X[m³]=1e-6*x[cm³],10,20
+20 DATA x[cm³],0.0610237x[in³],X[in³]=.0610237*x[cm³],10,30
+30 DATA x[cm³],0.0000353147x[ft³],X[ft³]=3.53147E-5*x[cm³],20,40
+40 DATA x[cm³],0.001x[l],X[l]=.001*x[cm³],30,50
+50 DATA x[cm³],0.000264172x[gal(US)],X[gal(US)]=2.64172E-4*x[cm³],40,60
+60 DATA x[cm³],0.000219968x[gal(UK)],X[gal(UK)]=2.19968E-4*x[cm³],50,70
+70 DATA x[m³],1000000x[cm³],X[cm³]=1E6*x[m³],60,80
+80 DATA x[m³],61023.7x[in³],X[in³]=61023.7*x[m³],70,90
+90 DATA x[m³],35.3147x[ft³],X[ft³]=35.3147*x[m³],80,100
+100 DATA x[m³],1000x[l],x[l]=1E3*x[m³],90,110
+110 DATA x[m³],264.172x[gal(US)],X[gal(US)]=264.172*x[m³],100,120
+120 DATA x[m³],219.968x[gal(UK)],X[gal(UK)]=219.968*x[m³],110,130
+130 DATA x[in³],16.3871x[cm³],X[cm³]=16.3871*x[in³],120,140
+140 DATA x[in³],0.0000163871x[m³],X[m³]=1.63871E-5*x[in³],130,150
+150 DATA x[in³],0.000578704x[ft³],X[ft³]=.000578704*x[in³],140,160
+160 DATA x[in³],0.0163871x[l],X[l]=.0163871*x[in³],150,170
+170 DATA x[in³],0.00432900x[gal(US)],X[gal(US)]=.004329*x[in³],160,180
+180 DATA x[in³],0.00360464x[gal(UK)],X[gal(UK)]=.00360464*x[in³],170,190
+190 DATA x[ft³],28316.8x[cm³],X[cm³]=28316.8*x[ft³],180,200
+200 DATA x[ft³],0.0283168x[m³],X[m³]=.0283168*x[ft³],190,210
+210 DATA x[ft³],1728x[in³],X[in³]=1728*x[ft³],200,220
+220 DATA x[ft³],28.3168x[l],X[l]=28.3168*x[ft³],210,230
+230 DATA x[ft³],7.48052x[gal(US)],X[gal(US)]=7.48052*x[ft³],220,240
+240 DATA x[ft³],6.22882x[gal(UK)],X[gal(UK)]=6.22882*x[ft³],230,250
+250 DATA x[l],1000x[cm³],X[cm³]=1E3*x[l],240,260
+260 DATA x[l],0.001x[m³],X[m³]=.001*x[l],250,270
+270 DATA x[l],61.0237x[in³],X[in³]=61.0237*x[l],260,280
+280 DATA x[l],0.0353147x[ft³],X[ft³]=.0353147*x[l],270,290
+290 DATA x[l],0.264172x[gal(US)],X[gal(US)]=.264172*x[l],280,300
+300 DATA x[l],0.219968x[gal(UK)],X[gal(UK)]=.219968*x[l],290,300
+310 DATA x[gal(US)],3785.41x[cm³],X[cm³]=3785.41*x[gal(US)],300,320
+320 DATA x[gal(US)],0.00378541x[m³],X[m³]=.00378541*x[gal(US)],310,330
+330 DATA x[gal(US)],231x[in³],X[in³]=231*x[gal(US)],320,340
+340 DATA x[gal(US)],0.133681x[ft³],X[ft³]=.133681*x[gal(US)],330,350
+350 DATA x[gal(US)],3.78541x[l],X[l]=3.78541*x[gal(US)],340,360
+360 DATA x[gal(US)],0.832672x[gal(UK)],X[gal(UK)]=0.832672*x[gal(US)],350,370
+370 DATA x[gal(UK)],4546.09x[cm³],X[cm³]=4546.09*x[gal(UK)],360,380
+380 DATA x[gal(UK)],0.00454609x[m³],X[m³]=.00454609*x[gal(UK)],370,390
+390 DATA x[gal(UK)],277.42x[in³],X[in³]=277.42*x[gal(UK)],380,400
+400 DATA x[gal(UK)],0.160544x[ft³],X[ft³]=.160544*x[gal(UK)],390,410
+410 DATA x[gal(UK)],4.54609x[l],X[l]=4.54609*x[gal(UK)],400,420
+420 DATA x[gal(UK)],1.20095x[gal(US)],X[gal(US)]=1.20095*x[gal(UK)],410,420
 10010 MODE 8:DIM:x=10:y=300:r=x
 10050 p$="Metric conversion (volume)"
 10110 RESTORE(r)
 10120 READ m$,n$,s$,b,c
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;:LOCATE 0,0:LOCATE 0,1
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -416,23 +416,23 @@
 10280 GOTO 10150
 
 
-10 DATA x〔g〕,0.001x〔Kg〕,X〔Kg〕=.001*x〔g〕,10,20
-20 DATA x〔g〕,0.0352740x〔oz〕,X〔oz〕=.035274*x〔g〕,10,30
-30 DATA x〔g〕,0.00220462x〔lb〕,X〔lb〕=.00220462*x〔g〕,20,40
-40 DATA x〔Kg〕,1000x〔g〕,X〔g〕=1E3*x〔Kg〕,30,50
-50 DATA x〔Kg〕,35.2740x〔oz〕,X〔oz〕=35.274*x〔Kg〕,40,60
-60 DATA x〔Kg〕,2.20462x〔lb〕,X〔lb〕=2.20462*x〔Kg〕,50,70
-70 DATA x〔oz〕,28.3495x〔g〕,X〔g〕=28.3495*x〔oz〕,60,80
-80 DATA x〔oz〕,0.0283495x〔Kg〕,X〔Kg〕=.0283495*x〔oz〕,70,90
-90 DATA x〔oz〕,0.0625x〔lb〕,X〔lb〕=.0625*x〔oz〕,80,100
-100 DATA x〔lb〕,453.59237x〔g〕,X〔g〕=453.59237*x〔lb〕,90,110
-110 DATA x〔lb〕,0.45359237x〔Kg〕,X〔Kg〕=.45359237*x〔lb〕,100,120
-120 DATA x〔lb〕,16x〔oz〕,X〔oz〕=16*x〔lb〕,110,120
+10 DATA x[g],0.001x[Kg],X[Kg]=.001*x[g],10,20
+20 DATA x[g],0.0352740x[oz],X[oz]=.035274*x[g],10,30
+30 DATA x[g],0.00220462x[lb],X[lb]=.00220462*x[g],20,40
+40 DATA x[Kg],1000x[g],X[g]=1E3*x[Kg],30,50
+50 DATA x[Kg],35.2740x[oz],X[oz]=35.274*x[Kg],40,60
+60 DATA x[Kg],2.20462x[lb],X[lb]=2.20462*x[Kg],50,70
+70 DATA x[oz],28.3495x[g],X[g]=28.3495*x[oz],60,80
+80 DATA x[oz],0.0283495x[Kg],X[Kg]=.0283495*x[oz],70,90
+90 DATA x[oz],0.0625x[lb],X[lb]=.0625*x[oz],80,100
+100 DATA x[lb],453.59237x[g],X[g]=453.59237*x[lb],90,110
+110 DATA x[lb],0.45359237x[Kg],X[Kg]=.45359237*x[lb],100,120
+120 DATA x[lb],16x[oz],X[oz]=16*x[lb],110,120
 10010 MODE 8:DIM:x=10:y=120:r=x
 10050 p$="Metric conversion (weight)"
 10110 RESTORE(r)
 10120 READ m$,n$,s$,b,c
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT p$;TAB(l);l$;m$;" -→ ";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
@@ -443,7 +443,7 @@
 10280 GOTO 10150
 
 
-20 CLS:PRINT "Upper probability   N(0,12)";
+20 CLS:PRINT "Upper probability   N(0,1²)";
 30 LOCATE 0,1:PRINT c$;"x=";x;"?";:INPUT @10;x:LOCATE 0,0
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6210":GOSUB 500:IF sr THEN *
@@ -455,9 +455,9 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Upper probability   X2(x2,{FE})";
+20 CLS:PRINT "Upper probability   X²(x²,{FE})";
 30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
-40 z=x:s$="x2":GOSUB 400:x=z
+40 z=x:s$="x²":GOSUB 400:x=z
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6220":GOSUB 500:IF sr THEN *
 75 IF p THEN p=ROUND(p,LOG(ABS p)-6)
@@ -543,7 +543,7 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Percentage points   N(0,12)";
+20 CLS:PRINT "Percentage points   N(0,1²)";
 30 LOCATE 0,1:PRINT c$;"p=";p;"?";:INPUT @10;p:LOCATE 0,0:IF p=<0 OR p>=1 THEN 30
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6410":GOSUB 500:IF sr THEN *
@@ -555,13 +555,13 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Percentage points  X2(x2,{FE})";
+20 CLS:PRINT "Percentage points  X²(x²,{FE})";
 30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
 40 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>1 THEN 40
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6420":GOSUB 500:IF sr THEN *
 75 IF x THEN x=ROUND(x,LOG(ABS x)-6)
-80 PRINT c$;"x2=";x;:z$=INPUT $(1,@):GOTO 30
+80 PRINT c$;"x²=";x;:z$=INPUT $(1,@):GOTO 30
 400 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
 500 ON ERROR GOTO 510:RETURN
 510 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -616,11 +616,11 @@
 
 
 10 MODE 8:DIM:ERASE a,a$:DIM a(5),a$(1):a$(1)="Input":a$(0)="Delete":c$=CHR$(5)
-20 CLS:PRINT "Statistics  〔x〕";TAB(0);">In,Del,Clear,List,T-score,P ?";
+20 CLS:PRINT "Statistics  [x]";TAB(0);">In,Del,Clear,List,T-score,P ?";
 30 a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
 40 ON a-66 GOTO 300,100,,,,,100,,,500,,,,800,,,,400
 50 GOTO 30
-100 CLS:PRINT a$(SGN(a-68));" data (x)";TAB(21);"〔EXE〕:menu";:z=SGN(a-69)
+100 CLS:PRINT a$(SGN(a-68));" data (x)";TAB(21);"[EXE]:menu";:z=SGN(a-69)
 110 LOCATE 0,1:PRINT c$;"x?";
 120 LOCATE 2,1:INPUT @12;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE x=VALF(z$)
 150 r=sa+z:s=sb+x*z:u=sd+x*x*z
@@ -649,10 +649,10 @@
 600 RESTORE(600+i*10):READ a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
 610 DATA CNT,n
 620 DATA SUMX,Σx
-630 DATA SUMX2,Σx2
+630 DATA SUMX2,Σx²
 640 DATA MEANX,Σx/n
-650 DATA SDXN,xδn
-660 DATA SDX,xδn{FE}
+650 DATA SDXN,xσn
+660 DATA SDX,xσn{FE}
 800 LOCATE 0,1:PRINT c$;".....";:GOSUB 200:GOSUB 590:RESTORE 610
 810 FOR i=1 TO c:READ a$,b$:LPRINT a$;TAB(10);"=";a(i-1):NEXT:GOTO 20
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -677,10 +677,10 @@
 45 CLS:PRINT t$;
 50 z=r:s$="n":GOSUB 500:r=z
 60 z=s:s$="{FE}":GOSUB 500:s=z
-80 z=t:s$="δ":GOSUB 500:t=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+80 z=t:s$="σ":GOSUB 500:t=z
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ,δ2)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ,σ²)   ";f;"%";TAB(0);".....";
 100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
 110 z=s-x*t/SQR r:GOSUB 400:a=z
 120 z=s+x*t/SQR r:GOSUB 400:b=z
@@ -702,9 +702,9 @@
 50 z=r:s$="n":GOSUB 500:r=z
 60 z=s:s$="{FE}":GOSUB 500:s=z
 80 z=t:s$="V":GOSUB 500:t=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ,δ2)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ,σ²)   ";f;"%";TAB(0);".....";
 100 n=r-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
 110 z=s-x*SQR(t/r):GOSUB 400:a=z
 120 z=s+x*SQR(t/r):GOSUB 400:b=z
@@ -725,14 +725,14 @@
 45 CLS:PRINT t$;
 50 z=s:s$="n":GOSUB 500:s=z
 60 z=r:s$="S":GOSUB 500:r=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ,δ2)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ,σ²)   ";f;"%";TAB(0);".....";
 100 n=s-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
 105 g=x:p=1-p:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
 110 z=r/g:GOSUB 400:a=z
 120 z=r/x:GOSUB 400:b=z
-130 PRINT c$;a;"< δ2 <";b;:a$=INPUT $(1,@):GOTO 45
+130 PRINT c$;a;"< σ² <";b;:a$=INPUT $(1,@):GOTO 45
 400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
 410 RETURN
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
@@ -749,14 +749,14 @@
 45 CLS:PRINT t$;
 50 z=s:s$="n":GOSUB 500:s=z
 60 z=r:s$="S":GOSUB 500:r=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ,δ2)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ,σ²)   ";f;"%";TAB(0);".....";
 100 n=s-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
 105 g=x:p=1-p:GOSUB "LIB0:S6420":GOSUB 900:IF sr THEN *
 110 z=SQR(r/g):GOSUB 400:a=z
 120 z=SQR(r/x):GOSUB 400:b=z
-130 PRINT c$;a;"< δ <";b;:a$=INPUT $(1,@):GOTO 45
+130 PRINT c$;a;"< σ <";b;:a$=INPUT $(1,@):GOTO 45
 400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
 410 RETURN
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
@@ -779,14 +779,14 @@
 60 z=r:s$="V{FC}":GOSUB 500:r=z
 70 z=u:s$="n{FD}":GOSUB 500:u=z
 80 z=t:s$="V{FD}":GOSUB 500:t=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ{FC},δ{FC}2),N(μ{FD},δ{FD}2)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)   ";f;"%";TAB(0);".....";
 100 n=s-1:m=u-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
 105 g=x:n=m:m=s-1:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
 110 z=t/r/x:GOSUB 400:a=z
 120 z=t/r*g:GOSUB 400:b=z
-130 PRINT c$;a;"< δ{FD}2/δ{FC}2 <";b;:a$=INPUT $(1,@):GOTO 45
+130 PRINT c$;a;"< σ{FD}²/σ{FC}² <";b;:a$=INPUT $(1,@):GOTO 45
 400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
 410 RETURN
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
@@ -811,9 +811,9 @@
 70 z=u:s$="n{FD}":GOSUB 500:u=z
 75 z=v:s$="{FE}{FD}":GOSUB 500:v=z
 80 z=w:s$="S{FD}":GOSUB 500:w=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ{FC},δ2),N(μ{FD},δ2)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ{FC},σ²),N(μ{FD},σ²)   ";f;"%";TAB(0);".....";
 100 n=r+u-2:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
 110 z=s-v-x*SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:a=z
 120 z=s-v+x*SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:b=z
@@ -830,7 +830,7 @@
 45 CLS:PRINT "B(1,p) a<p<b";
 50 z=r:s$="n":GOSUB 500:r=z
 60 z=s:s$="Σx":GOSUB 500:s=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT "B(1,p)   ";f;"%";TAB(0);".....";
 100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
@@ -852,7 +852,7 @@
 60 z=s:s$="Σx{FC}":GOSUB 500:s=z
 70 z=t:s$="n{FD}":GOSUB 500:t=z
 80 z=u:s$="Σx{FD}":GOSUB 500:u=z
-90 CLS:PRINT "Confidence level (1-α)〔%〕";
+90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT "B(1,p{FC}),B(1,p{FD})   ";f;"%";TAB(0);".....";
 100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
@@ -899,16 +899,16 @@
 
 
 10 CLS:GOTO 10000
-1000 DATA "Memory calculations             〔MC〕,〔MR〕,〔M-〕,〔M+〕",,1000,5010
-5010 DATA "Prime factors                   Base = a * b * c * •••",,1000,5020
+1000 DATA "Memory calculations             [MC],[MR],[M-],[M+]",,1000,5010
+5010 DATA "Prime factors                   Base = a * b * c * ･･･",,1000,5020
 5020 DATA "G.C.M. & L.C.M.",,5010,5040
-5040 DATA "ax1+bx2+cx3+•••=y",,5020,5050
-5050 DATA "ax2+bx+c=0",,5040,5060
-5060 DATA "ax3+bx2+cx+d=0",,5050,5080
+5040 DATA "ax1+bx2+cx3+･･･=y",,5020,5050
+5050 DATA "ax²+bx+c=0",,5040,5060
+5060 DATA "ax³+bx²+cx+d=0",,5050,5080
 5080 DATA "Numerical solution  f(x)=0      Newton's method",,5060,5090
 5090 DATA "Numerical solution  f(x)=0      Method of bisection",,5080,5100
 5100 DATA "Matrix operations",,5090,5200
-5200 DATA "∫f(x)dx  〔a,b〕                  Romberg's method",,5100,5220
+5200 DATA "∫f(x)dx  [a,b]                  Romberg's method",,5100,5220
 5220 DATA "dy/dx=f(x,y(x))                 Runge-Kutta method",,5200,5230
 5230 DATA "Lagrange's interpolation",,5220,5250
 5250 DATA "Gamma function  {FF}(x)",82FE8280C0,5230,5260
@@ -922,9 +922,9 @@
 5520 DATA "Angle(θ) ←- y=ax+b,y=cx+d",,5510,5530
 5530 DATA "Distance ←- y=ax+b,(x1,y1)",,5520,5540
 5540 DATA "(X,Y) ←- (x,y),angle(θ)",,5530,5550
-5550 DATA "Circle (x-a)2+(y-b)2=r2         ←- (x1,y1),(x2,y2),(x3,y3)",,5540,5560
-5560 DATA "Length(y=cx+d)                  ← (x-a)2+(y-b)2=r2,(x1,y1)",,5550,5570
-5570 DATA "y=cx+d,y=ex+f                   ← (x-a)2+(y-b)2=r2,(x1,y1)",,5560,5600
+5550 DATA "Circle (x-a)²+(y-b)²=r²         ←- (x1,y1),(x2,y2),(x3,y3)",,5540,5560
+5560 DATA "Length(y=cx+d)                  ← (x-a)²+(y-b)²=r²,(x1,y1)",,5550,5570
+5570 DATA "y=cx+d,y=ex+f                   ← (x-a)²+(y-b)²=r²,(x1,y1)",,5560,5600
 5600 DATA "Area (triangle)",,5570,5605
 5605 DATA "Area (trapezoid)",,5600,5610
 5610 DATA "Area (parallelogram)",,5605,5615
@@ -951,70 +951,70 @@
 5745 DATA "Volume (ellipsoid)",,5740,5750
 5750 DATA "Polygon  A,n -→ r,R,l",,5745,5760
 5760 DATA "Polyhedron (a,r,R,S,V)",,5750,5800
-5800 DATA "Factorization                   a2+2ab+b2=(a+b)2",,5760,5810
-5810 DATA "Trigonometric function          sin2θ+cos2θ=1",,5800,5820
-5820 DATA "Differential                    y=ax2+bx+c → y/=2ax+b",,5810,5830
-5830 DATA "Integration                     ∫ x dx = 1/2•x2+C",,5820,5840
+5800 DATA "Factorization                   a²+2ab+b²=(a+b)²",,5760,5810
+5810 DATA "Trigonometric function          sin²θ+cos²θ=1",,5800,5820
+5820 DATA "Differential                    y=ax²+bx+c → y´=2ax+b",,5810,5830
+5830 DATA "Integration                     ∫ x dx = 1/2･x²+C",,5820,5840
 5840 DATA "Laplace transformation          F(p)=1/p → f(t)=1",,5830,5900
 5900 DATA "Periodic table                  H Hydrogen 1(1-1a) 1.00794",,5840,5910
-5910 DATA "Scientific constant             g=9.80665 〔m•s-2〕",,5900,5920
-5920 DATA "Electrolytic dissociation       HCOOH ←→ HCOO- + H+",,5910,5930
-5930 DATA "Motion                          Ek=1/2•mv2",,5920,5932
-5932 DATA "Waves                           f=f▯•(v-v{FC})/(v-v{FD})",,5930,5934
+5910 DATA "Scientific constant             g=9.80665 [m･s⁻²]",,5900,5920
+5920 DATA "Electrolytic dissociation       HCOOH ←→ HCOO⁻ + H⁺",,5910,5930
+5930 DATA "Motion                          Ek=1/2･mv²",,5920,5932
+5932 DATA "Waves                           f=fᵒ･(v-v{FC})/(v-v{FD})",,5930,5934
 5934 DATA "AC & DC circuits                R=R{FC}+R{FD} , 1/R=1/R{FC}+1/R{FD}",,5932,5936
-5936 DATA "Electric & Magnetic fields      Q=CV , C=ε▯•S/d",,5934,5938
-5938 DATA "Thermodynamics and others       W=JQ , J=4.19 〔J/cal〕",,5936,5950
-5950 DATA "Metric conversion (length)      1〔cm〕 -→ 0.01〔m〕",,5938,5960
-5960 DATA "Metric conversion (area)        1〔cm2〕 -→ 0.0001〔m2〕",,5950,5970
-5970 DATA "Metric conversion (volume)      1〔cm3〕 -→ 0.000001〔m3〕",,5960,5980
-5980 DATA "Metric conversion (weight)      1〔g〕 -→ 0.001〔kg〕",,5970,6210
-6210 DATA "Upper probability integrals     N(0,12)",,5980,6220
-6220 DATA "Upper probability integrals     X2(x2,{FE})",,6210,6230
+5936 DATA "Electric & Magnetic fields      Q=CV , C=εᵒ･S/d",,5934,5938
+5938 DATA "Thermodynamics and others       W=JQ , J=4.19 [J/cal]",,5936,5950
+5950 DATA "Metric conversion (length)      1[cm] -→ 0.01[m]",,5938,5960
+5960 DATA "Metric conversion (area)        1[cm²] -→ 0.0001[m²]",,5950,5970
+5970 DATA "Metric conversion (volume)      1[cm³] -→ 0.000001[m³]",,5960,5980
+5980 DATA "Metric conversion (weight)      1[g] -→ 0.001[kg]",,5970,6210
+6210 DATA "Upper probability integrals     N(0,1²)",,5980,6220
+6220 DATA "Upper probability integrals     X²(x²,{FE})",,6210,6230
 6230 DATA "Upper probability integrals     t(x,{FE})",,6220,6240
 6240 DATA "Upper probability integrals     F(x,{FE}{FC},{FE}{FD})",,6230,6310
 6310 DATA "Upper cumulative                frequencies     B(x,n,P)",,6240,6320
 6320 DATA "Upper cumulative                frequencies     P(x,{FF})",424C300806,6310,6330
 6330 DATA "Upper cumulative                frequencies     H(x,n,M,N)",,6320,6410
-6410 DATA "Percentage points               N(0,12)",,6330,6420
-6420 DATA "Percentage points               X2(x2,{FE})",,6410,6430
+6410 DATA "Percentage points               N(0,1²)",,6330,6420
+6420 DATA "Percentage points               X²(x²,{FE})",,6410,6430
 6430 DATA "Percentage points               t(x,{FE})",,6420,6440
 6440 DATA "Percentage points               F(x,{FE}{FC},{FE}{FD})",,6430,6450
 6450 DATA "Normal random numbers",,6440,6460
 6460 DATA "Exponential random numbers",,6450,6500
-6500 DATA "Statistics 〔x〕",,6460,6510
-6510 DATA "Regression analysis             〔y=a+bx〕",,6500,6520
-6520 DATA "Regression analysis             〔y=a+blnx〕",,6510,6530
-6530 DATA "Regression analysis             〔y=ab^x〕",,6520,6540
-6540 DATA "Regression analysis             〔y=ax^b〕",,6530,6610
-6610 DATA "Estimation  a<μ<b               N(μ,δ2) δ2:known",,6540,6620
-6620 DATA "Estimation  a<μ<b               N(μ,δ2)",,6610,6630
-6630 DATA "Estimation  a<δ2<b              N(μ,δ2)",,6620,6640
-6640 DATA "Estimation  a<δ<b               N(μ,δ2)",,6630,6650
-6650 DATA "Estimation  a<δ{FD}2/δ{FC}2<b         N(μ{FC},δ{FC}2),N(μ{FD},δ{FD}2)",,6640,6660
-6660 DATA "Estimation  a<μ{FC}-μ{FD}<b           N(μ{FC},δ2),N(μ{FD},δ2)",,6650,6670
+6500 DATA "Statistics [x]",,6460,6510
+6510 DATA "Regression analysis             [y=a+bx]",,6500,6520
+6520 DATA "Regression analysis             [y=a+blnx]",,6510,6530
+6530 DATA "Regression analysis             [y=ab^x]",,6520,6540
+6540 DATA "Regression analysis             [y=ax^b]",,6530,6610
+6610 DATA "Estimation  a<μ<b               N(μ,σ²) σ²:known",,6540,6620
+6620 DATA "Estimation  a<μ<b               N(μ,σ²)",,6610,6630
+6630 DATA "Estimation  a<σ²<b              N(μ,σ²)",,6620,6640
+6640 DATA "Estimation  a<σ<b               N(μ,σ²)",,6630,6650
+6650 DATA "Estimation  a<σ{FD}²/σ{FC}²<b         N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)",,6640,6660
+6660 DATA "Estimation  a<μ{FC}-μ{FD}<b           N(μ{FC},σ²),N(μ{FD},σ²)",,6650,6670
 6670 DATA "Estimation  a<p<b               B(1,p)",,6660,6680
 6680 DATA "Estimation  a<p{FC}-p{FD}<b           B(1,p{FC}),B(1,p{FD})",,6670,6710
-6710 DATA "Test N(μ,δ2) δ2:known                H▯:μ=μ▯    H{FC}:μ≠μ▯",,6680,6711
-6711 DATA "Test N(μ,δ2) δ2:known                H▯:μ=μ▯    H{FC}:μ>μ▯",,6710,6712
-6712 DATA "Test N(μ,δ2) δ2:known                H▯:μ=μ▯    H{FC}:μ<μ▯",,6711,6720
-6720 DATA "Test N(μ,δ2)                         H▯:μ=μ▯    H{FC}:μ≠μ▯",,6712,6721
-6721 DATA "Test N(μ,δ2)                         H▯:μ=μ▯    H{FC}:μ>μ▯",,6720,6722
-6722 DATA "Test N(μ,δ2)                         H▯:μ=μ▯    H{FC}:μ<μ▯",,6721,6730
-6730 DATA "Test N(μ,δ2)                         H▯:δ2=δ▯2  H{FC}:δ2≠δ▯2",,6722,6731
-6731 DATA "Test N(μ,δ2)                         H▯:δ2=δ▯2  H{FC}:δ2>δ▯2",,6730,6732
-6732 DATA "Test N(μ,δ2)                         H▯:δ2=δ▯2  H{FC}:δ2<δ▯2",,6731,6740
-6740 DATA "Test N(μ{FC},δ{FC}2),N(μ{FD},δ{FD}2)             H▯:δ{FC}2=δ{FD}2 H{FC}:δ{FC}2≠δ{FD}2",,6732,6741
-6741 DATA "Test N(μ{FC},δ{FC}2),N(μ{FD},δ{FD}2)             H▯:δ{FC}2=δ{FD}2 H{FC}:δ{FC}2>δ{FD}2",,6740,6742
-6742 DATA "Test N(μ{FC},δ{FC}2),N(μ{FD},δ{FD}2)             H▯:δ{FC}2=δ{FD}2 H{FC}:δ{FC}2<δ{FD}2",,6741,6750
-6750 DATA "Test N(μ{FC},δ2),N(μ{FD},δ2)               H▯:μ{FC}=μ{FD}   H{FC}:μ{FC}≠μ{FD}",,6742,6751
-6751 DATA "Test N(μ{FC},δ2),N(μ{FD},δ2)               H▯:μ{FC}=μ{FD}   H{FC}:μ{FC}>μ{FD}",,6750,6752
-6752 DATA "Test N(μ{FC},δ2),N(μ{FD},δ2)               H▯:μ{FC}=μ{FD}   H{FC}:μ{FC}<μ{FD}",,6751,6760
-6760 DATA "Test B(1,p)                          H▯:p=p▯    H{FC}:p≠p▯",,6752,6761
-6761 DATA "Test B(1,p)                          H▯:p=p▯    H{FC}:p>p▯",,6760,6762
-6762 DATA "Test B(1,p)                          H▯:p=p▯    H{FC}:p<p▯",,6761,6770
-6770 DATA "Test B(1,p{FC}),B(1,p{FD})                 H▯:p{FC}=p{FD}   H{FC}:p{FC}≠p{FD}",,6762,6771
-6771 DATA "Test B(1,p{FC}),B(1,p{FD})                 H▯:p{FC}=p{FD}   H{FC}:p{FC}>p{FD}",,6770,6772
-6772 DATA "Test B(1,p{FC}),B(1,p{FD})                 H▯:p{FC}=p{FD}   H{FC}:p{FC}<p{FD}",,6771,6772
+6710 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H{FC}:μ≠μᵒ",,6680,6711
+6711 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H{FC}:μ>μᵒ",,6710,6712
+6712 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H{FC}:μ<μᵒ",,6711,6720
+6720 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H{FC}:μ≠μᵒ",,6712,6721
+6721 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H{FC}:μ>μᵒ",,6720,6722
+6722 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H{FC}:μ<μᵒ",,6721,6730
+6730 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H{FC}:σ²≠σᵒ²",,6722,6731
+6731 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H{FC}:σ²>σᵒ²",,6730,6732
+6732 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H{FC}:σ²<σᵒ²",,6731,6740
+6740 DATA "Test N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)             Hᵒ:σ{FC}²=σ{FD}² H{FC}:σ{FC}²≠σ{FD}²",,6732,6741
+6741 DATA "Test N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)             Hᵒ:σ{FC}²=σ{FD}² H{FC}:σ{FC}²>σ{FD}²",,6740,6742
+6742 DATA "Test N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)             Hᵒ:σ{FC}²=σ{FD}² H{FC}:σ{FC}²<σ{FD}²",,6741,6750
+6750 DATA "Test N(μ{FC},σ²),N(μ{FD},σ²)               Hᵒ:μ{FC}=μ{FD}   H{FC}:μ{FC}≠μ{FD}",,6742,6751
+6751 DATA "Test N(μ{FC},σ²),N(μ{FD},σ²)               Hᵒ:μ{FC}=μ{FD}   H{FC}:μ{FC}>μ{FD}",,6750,6752
+6752 DATA "Test N(μ{FC},σ²),N(μ{FD},σ²)               Hᵒ:μ{FC}=μ{FD}   H{FC}:μ{FC}<μ{FD}",,6751,6760
+6760 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H{FC}:p≠pᵒ",,6752,6761
+6761 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H{FC}:p>pᵒ",,6760,6762
+6762 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H{FC}:p<pᵒ",,6761,6770
+6770 DATA "Test B(1,p{FC}),B(1,p{FD})                 Hᵒ:p{FC}=p{FD}   H{FC}:p{FC}≠p{FD}",,6762,6771
+6771 DATA "Test B(1,p{FC}),B(1,p{FD})                 Hᵒ:p{FC}=p{FD}   H{FC}:p{FC}>p{FD}",,6770,6772
+6772 DATA "Test B(1,p{FC}),B(1,p{FD})                 Hᵒ:p{FC}=p{FD}   H{FC}:p{FC}<p{FD}",,6771,6772
 10000 ON ERROR GOTO 10400
 10010 MODE 8:DIM:x=1000:y=6772
 10020 DEFSEG=0:a=PEEK(&H743)*256+PEEK(&H742):r$=HEX$(PEEK(&H744))+"000":b=VAL("&H"+r$)
@@ -1041,12 +1041,12 @@
 12 IF tz<0 OR tz>3 OR FRAC tz<>0 THEN tz=0
 14 FOR i=0 TO 5:READ a$(i):NEXT:d$="             :y?"
 15 DATA y=a+bx,y=a+blnx,y=ab^x,y=ax^b,Delete,Input
-20 l=21+ABS(SGN(sq-1))*2:CLS:PRINT "Regression analysis";TAB(l);"〔";a$(sq);"〕";TAB(0);">In,Del,Clear,List,eoX,eoY,P ?";
+20 l=21+ABS(SGN(sq-1))*2:CLS:PRINT "Regression analysis";TAB(l);"[";a$(sq);"]";TAB(0);">In,Del,Clear,List,eoX,eoY,P ?";
 30 IF INKEY$ =""THEN a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
 40 IF a=186 THEN sq=(sq+1)MOD 4:GOTO 20
 50 ON a-66 GOTO 300,100,,,,,100:IF(sq AND tz)=0 THEN ON a-75 GOTO 500,,,,800,,,,,,,,400,450
 60 GOTO 30
-100 CLS:PRINT a$(SGN(a-68)+4);" data (x,y)";TAB(21);"〔EXE〕:menu";:z=SGN(a-69)
+100 CLS:PRINT a$(SGN(a-68)+4);" data (x,y)";TAB(21);"[EXE]:menu";:z=SGN(a-69)
 110 LOCATE 0,1:PRINT c$;"x?";d$;
 120 LOCATE 2,1:INPUT @12;z$:LOCATE 0,0:IF z$=d$ OR ASC(z$)=0 THEN 20ELSE x=VALF(z$):j=0
 125 IF x=<0 THEN IF(1 AND sq)=1 THEN 120ELSE tz=tz OR 1ELSE IF x>0 THEN j=LN x:g=ss+j*z:m=su+j*j*z
@@ -1070,11 +1070,11 @@
 370 a(2)=st:a(4)=sv:a(5)=sx:RETURN
 380 a(1)=ss:a(2)=st:a(3)=su:a(4)=sv:a(5)=sy:RETURN
 400 CLS:GOSUB 200:IF c<15 OR so=0 THEN 20
-410 DEF CHR$(255)="12548C4A12":CLS:PRINT "Estimation of x 〔";a$(sq);"〕";
+410 DEF CHR$(255)="12548C4A12":CLS:PRINT "Estimation of x [";a$(sq);"]";
 420 LOCATE 0,1:PRINT c$;"y?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
 430 ON sq+1 GOSUB 950,960,970,980:LOCATE 12,1:PRINT ":{FF}=";STR$(a);:z$=INPUT $(1,@):GOTO 420
 450 CLS:GOSUB 200:IF c<15 OR sm=0 THEN 20
-460 DEF CHR$(255)="124A844810":CLS:PRINT "Estimation of y 〔";a$(sq);"〕";
+460 DEF CHR$(255)="124A844810":CLS:PRINT "Estimation of y [";a$(sq);"]";
 470 LOCATE 0,1:PRINT c$;"x?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
 480 ON sq+1 GOSUB 900,910,920,930:LOCATE 12,1:PRINT ":{FF}=";STR$(a);:z$=INPUT $(1,@):GOTO 470
 500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
@@ -1097,10 +1097,10 @@
 621 DATA SUMLNX,SUM{FD}X,Σ{FD}x
 630 DATA SUMY,SUMY,Σy
 631 DATA SUMLNY,SUM{FD}Y,Σ{FD}y
-640 DATA SUMX2,SUMX2,Σx2
-641 DATA SUMLNX2,SUM{FD}X2,Σ{FD}x2
-650 DATA SUMY2,SUMY2,Σy2
-651 DATA SUMLNY2,SUM{FD}Y2,Σ{FD}y2
+640 DATA SUMX2,SUMX2,Σx²
+641 DATA SUMLNX2,SUM{FD}X2,Σ{FD}x²
+650 DATA SUMY2,SUMY2,Σy²
+651 DATA SUMLNY2,SUM{FD}Y2,Σ{FD}y²
 660 DATA SUMXY,SUMXY,Σxy
 661 DATA SUMLNXY,SUM{FD}XY,Σ{FD}xy
 662 DATA SUMXLNY,SUMX{FD}Y,Σx{FD}y
@@ -1109,14 +1109,14 @@
 671 DATA MEANLNX,MEAN{FD}X,Σ{FD}x/n
 680 DATA MEANY,MEANY,Σy/n
 681 DATA MEANLNY,MEAN{FD}Y,Σ{FD}y/n
-690 DATA SDXN,SDXN,xδn
-691 DATA SDLNXN,SD{FD}XN,{FD}xδn
-700 DATA SDYN,SDYN,yδn
-701 DATA SDLNYN,SD{FD}YN,{FD}yδn
-710 DATA SDX,SDX,xδn{FE}
-711 DATA SDLNX,SD{FD}X,{FD}xδn{FE}
-720 DATA SDY,SDY,yδn{FE}
-721 DATA SDLNY,SD{FD}Y,{FD}yδn{FE}
+690 DATA SDXN,SDXN,xσn
+691 DATA SDLNXN,SD{FD}XN,{FD}xσn
+700 DATA SDYN,SDYN,yσn
+701 DATA SDLNYN,SD{FD}YN,{FD}yσn
+710 DATA SDX,SDX,xσn{FE}
+711 DATA SDLNX,SD{FD}X,{FD}xσn{FE}
+720 DATA SDY,SDY,yσn{FE}
+721 DATA SDLNY,SD{FD}Y,{FD}yσn{FE}
 730 DATA LRA,LRA,a
 731 DATA RA,RA,a
 740 DATA LRB,LRB,b
@@ -1144,17 +1144,17 @@
 1090 LOCATE 0,1:PRINT c$;"not found";:a$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:μ=μ▯  H{FC}:μ"+CHR$(sq)+"μ▯":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ=μᵒ  H{FC}:μ"+CHR$(sq)+"μᵒ":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
 20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
 25 IF a$<>"Y" AND a$<>"y" THEN 40
 30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
 40 r=0:s=0:f=5:t=sa:IF t THEN u=sg ELSE u=0
 45 CLS:PRINT t$;
-50 z=r:s$="μ▯":GOSUB 500:r=z
-60 z=s:s$="δ":GOSUB 500:s=z
+50 z=r:s$="μᵒ":GOSUB 500:r=z
+60 z=s:s$="σ":GOSUB 500:s=z
 70 z=t:s$="n":GOSUB 500:t=z
 80 z=u:s$="{FE}":GOSUB 500:u=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 p=f/100:IF sq=226 THEN p=p/2
@@ -1173,17 +1173,17 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:μ=μ▯  H{FC}:μ"+CHR$(sq)+"μ▯":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ=μᵒ  H{FC}:μ"+CHR$(sq)+"μᵒ":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
 20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
 25 IF a$<>"Y" AND a$<>"y" THEN 40
 30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
 40 r=0:f=5:s=sa:IF s>1 THEN t=sg:u=sk^2 ELSE t=0:u=0
 45 CLS:PRINT t$;
-50 z=r:s$="μ▯":GOSUB 500:r=z
+50 z=r:s$="μᵒ":GOSUB 500:r=z
 60 z=s:s$="n":GOSUB 500:s=z
 70 z=t:s$="{FE}":GOSUB 500:t=z
 80 z=u:s$="V":GOSUB 500:u=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 n=s-1:p=f/100:IF sq=226 THEN p=p/2
@@ -1202,16 +1202,16 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:δ2=δ▯2  H{FC}:δ2"+CHR$(sq)+"δ▯2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:σ²=σᵒ²  H{FC}:σ²"+CHR$(sq)+"σᵒ²":c$=CHR$(5):DEF CHR$(252)="123E020000"
 20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
 25 IF a$<>"Y" AND a$<>"y" THEN 40
 30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
 40 r=0:f=5:s=sa:IF s>1 THEN t=sm ELSE t=0
 45 CLS:PRINT t$;
-50 z=r:s$="δ▯2":GOSUB 500:r=z
+50 z=r:s$="σᵒ²":GOSUB 500:r=z
 60 z=s:s$="n":GOSUB 500:s=z
 70 z=t:s$="S":GOSUB 500:t=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 n=s-1:p=f/100:IF sq=226 THEN p=p/2 ELSE IF sq=60 THEN p=1-p
@@ -1233,7 +1233,7 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:δ{FC}2=δ{FD}2  H{FC}:δ{FC}2"+CHR$(sq)+"δ{FD}2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:σ{FC}²=σ{FD}²  H{FC}:σ{FC}²"+CHR$(sq)+"σ{FD}²":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
 20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1)
 22 IF a$<>"Y" AND a$<>"y" THEN 30
 25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
@@ -1247,7 +1247,7 @@
 60 z=r:s$="V{FC}":GOSUB 500:r=z
 70 z=u:s$="n{FD}":GOSUB 500:u=z
 80 z=t:s$="V{FD}":GOSUB 500:t=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 n=s-1:m=u-1:p=f/100:IF sq=226 AND r<t THEN n=u-1:m=s-1
@@ -1267,7 +1267,7 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:μ{FC}=μ{FD}  H{FC}:μ{FC}"+CHR$(sq)+"μ{FD}":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ{FC}=μ{FD}  H{FC}:μ{FC}"+CHR$(sq)+"μ{FD}":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
 20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1)
 22 IF a$<>"Y" AND a$<>"y" THEN 30
 25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
@@ -1283,7 +1283,7 @@
 70 z=u:s$="n{FD}":GOSUB 500:u=z
 75 z=v:s$="{FE}{FD}":GOSUB 500:v=z
 80 z=w:s$="S{FD}":GOSUB 500:w=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 n=r+u-2:p=f/100:IF sq=226 THEN p=p/2
@@ -1302,12 +1302,12 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:p=p▯  H{FC}:p"+CHR$(sq)+"p▯":f=5:c$=CHR$(5):r=0:s=0:t=0:DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:p=pᵒ  H{FC}:p"+CHR$(sq)+"pᵒ":f=5:c$=CHR$(5):r=0:s=0:t=0:DEF CHR$(252)="123E020000"
 45 CLS:PRINT t$;
-50 z=r:s$="p▯":GOSUB 500:r=z:IF r>=1 OR r=<0 THEN 50
+50 z=r:s$="pᵒ":GOSUB 500:r=z:IF r>=1 OR r=<0 THEN 50
 60 z=s:s$="n":GOSUB 500:s=z
 70 z=t:s$="Σx":GOSUB 500:t=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 p=f/100:IF sq=226 THEN p=p/2
@@ -1326,13 +1326,13 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     H▯:p{FC}=p{FD}  H{FC}:p{FC}"+CHR$(sq)+"p{FD}":f=5:c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000":r=0:s=0:t=0:u=0
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:p{FC}=p{FD}  H{FC}:p{FC}"+CHR$(sq)+"p{FD}":f=5:c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000":r=0:s=0:t=0:u=0
 45 CLS:PRINT t$;
 50 z=r:s$="n{FC}":GOSUB 500:r=z
 60 z=s:s$="Σx{FC}":GOSUB 500:s=z
 70 z=t:s$="n{FD}":GOSUB 500:t=z
 80 z=u:s$="Σx{FD}":GOSUB 500:u=z
-90 CLS:PRINT "Significance level α〔%〕";
+90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
 100 p=f/100:IF sq=226 THEN p=p/2
@@ -1356,7 +1356,7 @@
 30 a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
 40 ON a-66 GOTO 300,100,200,,,,100,,,500
 50 GOTO 30
-100 CLS:PRINT a$(SGN(a-68));" data (";s$;")";TAB(21);"〔EXE〕:menu";:z=SGN(a-69)
+100 CLS:PRINT a$(SGN(a-68));" data (";s$;")";TAB(21);"[EXE]:menu";:z=SGN(a-69)
 110 LOCATE 0,1:PRINT c$;s$;"?";
 120 LOCATE LEN(s$)+1,1:INPUT @12;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE x=VALF(z$)
 150 r=sa+z:s=sb+x*z:u=sd+x*x*z
@@ -1382,10 +1382,10 @@
 600 RESTORE(600+i*10):READ a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
 610 DATA CNT,n
 620 DATA SUMX,Σx
-630 DATA SUMX2,Σx2
+630 DATA SUMX2,Σx²
 640 DATA MEANX,Σx/n
-650 DATA SDXN,xδn
-660 DATA SDX,xδn{FF}
+650 DATA SDXN,xσn
+660 DATA SDX,xσn{FF}
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
 1010 IF ERL =120 THEN RESUME 120
 1050 IF ERL =210 THEN c=3:RESUME 280
@@ -1399,7 +1399,7 @@
 30 a=ASC(INPUT $(1)):IF a>96 THEN a=a-32
 40 ON a-66 GOTO 300,100,200,,,,100,,,500
 50 GOTO 30
-100 CLS:PRINT a$(SGN(a-68));" data (";s$;")";TAB(21);"〔EXE〕:menu";:z=SGN(a-69)
+100 CLS:PRINT a$(SGN(a-68));" data (";s$;")";TAB(21);"[EXE]:menu";:z=SGN(a-69)
 110 LOCATE 0,1:PRINT c$;s$;"?";
 120 LOCATE LEN(s$)+1,1:INPUT @12;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE y=VALF(z$)
 150 r=sz+z:s=sc+y*z:u=se+y*y*z
@@ -1425,10 +1425,10 @@
 600 RESTORE(600+i*10):READ a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
 610 DATA CNT,n
 620 DATA SUMX,Σx
-630 DATA SUMX2,Σx2
+630 DATA SUMX2,Σx²
 640 DATA MEANX,Σx/n
-650 DATA SDXN,xδn
-660 DATA SDX,xδn{FF}
+650 DATA SDXN,xσn
+660 DATA SDX,xσn{FF}
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
 1010 IF ERL =120 THEN RESUME 120
 1050 IF ERL =210 THEN c=3:RESUME 280
@@ -1569,44 +1569,44 @@
 
 
 10 DATA ,x+C,10,20
-20 DATA xη,xη+1/(n+1)+C           (n+1≠0),10,30
+20 DATA xⁿ,xⁿ⁺¹/(n+1)+C           (n+1≠0),10,30
 30 DATA 1/x,log{FF}x{FF}+C,20,40
 40 DATA 1/(x±a),log{FF}x±a{FF}+C,30,50
-50 DATA eχ,eχ+C,40,60
-60 DATA eηχ,eηχ/n+C,50,70
-70 DATA aχ,"aχ/loga+C            (a>0,a≠1)",60,80
-80 DATA aηχ,"aηχ/(n•loga)+C       (a>0,a≠1)",70,90
+50 DATA eˣ,eˣ+C,40,60
+60 DATA eⁿˣ,eⁿˣ/n+C,50,70
+70 DATA aˣ,"aˣ/loga+C            (a>0,a≠1)",60,80
+80 DATA aⁿˣ,"aⁿˣ/(n･loga)+C       (a>0,a≠1)",70,90
 90 DATA logx,x(logx-1)+C,80,100
-100 DATA xeηχ,eηχ/n2•(nx-1)+C,90,110
+100 DATA xeⁿˣ,eⁿˣ/n²･(nx-1)+C,90,110
 110 DATA sinx,-cosx+C,100,120
-120 DATA sinax,-1/a•cosax+C,110,130
+120 DATA sinax,-1/a･cosax+C,110,130
 130 DATA cosx,sinx+C,120,140
-140 DATA cosax,1/a•sinax+C,130,150
+140 DATA cosax,1/a･sinax+C,130,150
 150 DATA tanx,-log{FF}cosx{FF}+C,140,160
 160 DATA cotx,log{FF}sinx{FF}+C,150,170
-170 DATA sin2x,x/2-sin2x/4+C,160,180
-180 DATA cos2x,x/2+sin2x/4+C,170,190
-190 DATA sec2ax,1/a•tanax+C,180,200
-200 DATA cosec2ax,-1/a•cotax+C,190,210
+170 DATA sin²x,x/2-sin2x/4+C,160,180
+180 DATA cos²x,x/2+sin2x/4+C,170,190
+190 DATA sec²ax,1/a･tanax+C,180,200
+200 DATA cosec²ax,-1/a･cotax+C,190,210
 210 DATA 1/sinx,log(tan(x/2))+C,200,220
 220 DATA 1/cosx,log(tan((π/4)+(x/2)))+C,210,230
-230 DATA eηχsinbx,eηχ(n•sinbx-b•cosbx)/(n2+b2)+C,220,240
-240 DATA eηχcosbx,eηχ(n•cosbx+b•sinbx)/(n2+b2)+C,230,250
-250 DATA sin⁻¹x,xsin⁻¹x+√(1-x2)+C,240,260
-260 DATA cos⁻¹x,xcos⁻¹x-√(1-x2)+C,250,270
+230 DATA eⁿˣsinbx,eⁿˣ(n･sinbx-b･cosbx)/(n²+b²)+C,220,240
+240 DATA eⁿˣcosbx,eⁿˣ(n･cosbx+b･sinbx)/(n²+b²)+C,230,250
+250 DATA sin⁻¹x,xsin⁻¹x+√(1-x²)+C,240,260
+260 DATA cos⁻¹x,xcos⁻¹x-√(1-x²)+C,250,270
 270 DATA sinhx,coshx+C,260,280
 280 DATA coshx,sinhx+C,270,290
 290 DATA tanhx,log(coshx)+C,280,300
-300 DATA 1/√(a2-x2),sin⁻¹(x/a)+C            ({FF}x{FF}<a),290,310
-310 DATA 1/(a2+x2),1/a•tan⁻¹(x/a)+C,300,320
-320 DATA 1/√(x2±a2),log(x+√(x2±a2))+C,310,330
-330 DATA √(a2-x2),1/2•(x√(a2-x2)+a2sin⁻¹(x/a))+C,320,340
-340 DATA 1/(x2-a2),1/2a•log((x-a)/(x+a))+C  (x>a),330,340
+300 DATA 1/√(a²-x²),sin⁻¹(x/a)+C            ({FF}x{FF}<a),290,310
+310 DATA 1/(a²+x²),1/a･tan⁻¹(x/a)+C,300,320
+320 DATA 1/√(x²±a²),log(x+√(x²±a²))+C,310,330
+330 DATA √(a²-x²),1/2･(x√(a²-x²)+a²sin⁻¹(x/a))+C,320,340
+340 DATA 1/(x²-a²),1/2a･log((x-a)/(x+a))+C  (x>a),330,340
 10010 MODE 8:DIM:x=10:y=340:r=x
 10020 DEF CHR$(255)="0000FF0000"
 10110 RESTORE(r)
 10120 READ m$,n$,b,c:IF m$="" THEN m$=CHR$(8)
-10130 l$="〔"+MID$(STR$(r/10),2)+"〕":l=32-LEN(l$)
+10130 l$="["+MID$(STR$(r/10),2)+"]":l=32-LEN(l$)
 10140 CLS:PRINT CHR$(129);" ";m$;" dx";TAB(l);l$;"=";n$;
 10150 z=ASC(INPUT $(1,@))
 10170 IF z=29 AND r<>x THEN r=x:GOTO 10110
