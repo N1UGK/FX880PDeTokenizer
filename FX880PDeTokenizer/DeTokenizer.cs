@@ -1488,10 +1488,11 @@ namespace FX880PDeTokenizer
                "\u00B1",
                "\u2213",
                "\u1D52",
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
-               CHAR_UNKNOWN,
+
+               "\u2592",//user definable char
+               "\u2592",//user definable char
+               "\u2592",//user definable char
+               "\u2592" //user definable char
             };
 
             return casioToUnicode[b];

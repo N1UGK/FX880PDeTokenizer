@@ -32,7 +32,7 @@
 20 DATA G ,6.6720,×10⁻¹¹ [m³･s⁻²･kg⁻¹],×10⁻⁸ [cm³･s⁻²･g⁻¹],E-11,E-8,10,30
 30 DATA Na,6.022045,×10²³ [mol⁻¹],×10²³ [mol⁻¹],E23,E23,20,40
 40 DATA R ,8.31441," [J･mol⁻¹･K⁻¹]",×10⁷ [erg･mol⁻¹･K⁻¹],,E7,30,50
-50 DATA R{FF},1.097373177,×10⁷ [m⁻¹],×10⁵ [cm⁻¹],E7,E5,40,60
+50 DATA R▒,1.097373177,×10⁷ [m⁻¹],×10⁵ [cm⁻¹],E7,E5,40,60
 60 DATA Vm,22.41383,×10⁻³ [m³･mol⁻¹],×10³ [cm³･mol⁻¹],E-3,E3,50,70
 70 DATA aᵒ,5.2917706,×10⁻¹¹ [m],×10⁻⁹ [cm],E-11,E-1,60,80
 80 DATA c ,299792458," [m･s⁻¹]",×10² [cm･s⁻¹],,E2,70,90
@@ -98,13 +98,13 @@
 
 
 10 DATA HCOOH,HCOO⁻ + H⁺,10,20,1.77×10⁻⁴,a,
-20 DATA CH{FD}COOH,CH{FD}COO⁻ + H⁺,10,30,1.75×10⁻⁵,a,
-30 DATA C{FF}H{FE}COOH,C{FF}H{FE}COO⁻ + H⁺,20,40,6.31×10⁻⁵,a,2
-40 DATA H{FC}CO{FD},H⁺ + HCO{FD}⁻,30,50,4.45×10⁻⁷,a,
-50 DATA C{FF}H{FE}OH,C{FF}H{FE}O⁻ + H⁺,40,60,1.00×10⁻¹⁰,a,2
-60 DATA NH{FD} + H{FC}O,NH{FF}⁺ + OH⁻,50,70,1.78×10⁻⁵,b,1
-70 DATA C{FE}H{FE}N + H{FC}O,C{FE}H{FE}NH⁺ + OH⁻,60,80,1.5×10⁻⁹,b,
-80 DATA C{FF}H{FE}NH{FC} + H{FC}O,C{FF}H{FE}NH{FD}⁺ + OH⁻,70,80,3.8×10⁻¹⁰,b,2
+20 DATA CH▒COOH,CH▒COO⁻ + H⁺,10,30,1.75×10⁻⁵,a,
+30 DATA C▒H▒COOH,C▒H▒COO⁻ + H⁺,20,40,6.31×10⁻⁵,a,2
+40 DATA H▒CO▒,H⁺ + HCO▒⁻,30,50,4.45×10⁻⁷,a,
+50 DATA C▒H▒OH,C▒H▒O⁻ + H⁺,40,60,1.00×10⁻¹⁰,a,2
+60 DATA NH▒ + H▒O,NH▒⁺ + OH⁻,50,70,1.78×10⁻⁵,b,1
+70 DATA C▒H▒N + H▒O,C▒H▒NH⁺ + OH⁻,60,80,1.5×10⁻⁹,b,
+80 DATA C▒H▒NH▒ + H▒O,C▒H▒NH▒⁺ + OH⁻,70,80,3.8×10⁻¹⁰,b,2
 10010 MODE 8:DIM:x=10:y=80:r=x
 10020 DEF CHR$(252)="2E2A3A0000"
 10030 DEF CHR$(253)="2A2A3E0000"
@@ -127,9 +127,9 @@
 
 10 DATA Uniformly accelerated motion,"v=vᵒ+at , a=△v/△t , s=vᵒt+at²/2",10,20,
 20 DATA Newton's equation of motion,F=ma,10,30,
-30 DATA Circular motion,T=2πr/v=2π/{FE}=1/f,20,40,
-40 DATA Circular motion,"{FE}=2π/T=2πf=v/r , F=mr{FE}²=mv²/r",30,50,
-50 DATA Simple harmonic oscillation,"x=r･sin{FE}t , v=r{FE}･cos{FE}t , a=-{FE}²x",40,60,
+30 DATA Circular motion,T=2πr/v=2π/▒=1/f,20,40,
+40 DATA Circular motion,"▒=2π/T=2πf=v/r , F=mr▒²=mv²/r",30,50,
+50 DATA Simple harmonic oscillation,"x=r･sin▒t , v=r▒･cos▒t , a=-▒²x",40,60,
 60 DATA Hooke's law,F=-kx,50,70,
 70 DATA Spring,"a=F/m=-k/m･x , T=2π√(m/k)",60,80,
 80 DATA Simple pendulum,"a=F/m=-g/l･x , T=2π√(l/g)",70,90,
@@ -139,12 +139,12 @@
 120 DATA Coefficient of friction,F=μN,110,130,
 130 DATA Work,W=Fs,120,140,
 140 DATA Kepler's law (3'rd),T²/r³=Constant,130,150,
-150 DATA Universal gravitation,"F=G･Mm/r² , G=6.7*10{FF}¹[N･m²/kg²]",140,160,
+150 DATA Universal gravitation,"F=G･Mm/r² , G=6.7*10▒¹[N･m²/kg²]",140,160,
 160 DATA Potential energy   (planet),Up=-G･Mm/r ,150,170,
-170 DATA Kinetic energy   (planet),Ek=1/2･mr²{FE}²,160,180,
-180 DATA Moment of inertia,"I=mr² , E=1/2･I{FE}²",170,190,
-190 DATA Angular momentum,J=I{FE},180,200,
-200 DATA Conservation of momentum,mv{FC}+MV{FC}=mv{FD}+MV{FD},190,200,
+170 DATA Kinetic energy   (planet),Ek=1/2･mr²▒²,160,180,
+180 DATA Moment of inertia,"I=mr² , E=1/2･I▒²",170,190,
+190 DATA Angular momentum,J=I▒,180,200,
+200 DATA Conservation of momentum,mv▒+MV▒=mv▒+MV▒,190,200,
 10010 MODE 8:DIM:x=10:y=200:r=x
 10020 DEF CHR$(255)="202048F808"
 10030 DEF CHR$(254)="3E020C223E"
@@ -162,22 +162,22 @@
 10280 GOTO 10150
 
 
-10 DATA Wave,"v={FF}/T=f{FF} , y=a･sin2π(t/T-x/{FF})",10,20,
-20 DATA Wave of string,v=√(F/{FE}),10,30,1,3E40484830
-30 DATA Interference,"l{FD}-l{FC}=(2n+1){FF}/2 , l{FD}-l{FC}=n{FF}",20,40,
-40 DATA Stationary wave,"l=n{FF}/2 , l=(2n-1){FF}/4   (n≠0)",30,50,
-50 DATA Refraction,n=sinθ/sinΦ=v{FC}/v{FD}={FF}{FC}/{FF}{FD},40,60,
-60 DATA Natural frequency (wave),f=(1/2l)･√(T/{FE}),50,70,1,3E40484830
+10 DATA Wave,"v=▒/T=f▒ , y=a･sin2π(t/T-x/▒)",10,20,
+20 DATA Wave of string,v=√(F/▒),10,30,1,3E40484830
+30 DATA Interference,"l▒-l▒=(2n+1)▒/2 , l▒-l▒=n▒",20,40,
+40 DATA Stationary wave,"l=n▒/2 , l=(2n-1)▒/4   (n≠0)",30,50,
+50 DATA Refraction,n=sinθ/sinΦ=v▒/v▒=▒▒/▒▒,40,60,
+60 DATA Natural frequency (wave),f=(1/2l)･√(T/▒),50,70,1,3E40484830
 70 DATA Velocity of sound,v=331.5+0.61T,60,80,
-80 DATA Doppler effect,f=fᵒ･(v-v{FC})/(v-v{FD}),70,90,
-90 DATA Beat,f=f{FC}-f{FD}    (f{FC}>f{FD}),80,100,
-100 DATA Reflectivity,Rᵒ=((n{FC}-n{FD})/(n{FC}+n{FD}))²,90,110,
-110 DATA Critical angle,sinθ=n{FC}/n{FD},100,120,
-120 DATA de Broglie wave,{FF}=h/mv,110,130,
-130 DATA Quantum condition,2πr=nh/mv=n{FF},120,140,
-140 DATA Photoelectron,1/2･mv²=h{FE}-W,130,150,1,3E02040830
-150 DATA Frequency condition,h{FE}=Em-En    (m>n),140,160,
-160 DATA Light wave,"{FF}=c/{FE} , c=2.998*10⁸ [m/s]",150,160,1,3E02040830
+80 DATA Doppler effect,f=fᵒ･(v-v▒)/(v-v▒),70,90,
+90 DATA Beat,f=f▒-f▒    (f▒>f▒),80,100,
+100 DATA Reflectivity,Rᵒ=((n▒-n▒)/(n▒+n▒))²,90,110,
+110 DATA Critical angle,sinθ=n▒/n▒,100,120,
+120 DATA de Broglie wave,▒=h/mv,110,130,
+130 DATA Quantum condition,2πr=nh/mv=n▒,120,140,
+140 DATA Photoelectron,1/2･mv²=h▒-W,130,150,1,3E02040830
+150 DATA Frequency condition,h▒=Em-En    (m>n),140,160,
+160 DATA Light wave,"▒=c/▒ , c=2.998*10⁸ [m/s]",150,160,1,3E02040830
 10010 MODE 8:DIM:x=10:y=160:r=x
 10020 DEF CHR$(255)="424C300806"
 10030 DEF CHR$(253)="2E2A3A0000"
@@ -194,20 +194,20 @@
 10280 GOTO 10150
 
 
-10 DATA Ohm's law,"V=IR   (I=Q/t , R={FE}･l/S)",10,20,1,3E40484830
-20 DATA Resistance,"R=R{FC}+R{FD} , 1/R=1/R{FC}+1/R{FD}",10,30,
+10 DATA Ohm's law,"V=IR   (I=Q/t , R=▒･l/S)",10,20,1,3E40484830
+20 DATA Resistance,"R=R▒+R▒ , 1/R=1/R▒+1/R▒",10,30,
 30 DATA DC circuit,V=E-IR,20,40,
 40 DATA DC power & Joule heat,"P=IV=I²R , W=IVt=Pt",30,50,
 50 DATA Conductance,G=1/R=I/V,40,60,
 60 DATA Kirchhoff's law,"Σ±I=0 , Σ±V=0",50,70,
-70 DATA Wheatstone bridge,RᵒR{FC}=R{FD}R{FE},60,80,1,2A2A3E0000
-80 DATA AC instantaneous value,"V=Vᵒ･sin{FF}t , I=Iᵒ･sin{FF}t",70,90,
+70 DATA Wheatstone bridge,RᵒR▒=R▒R▒,60,80,1,2A2A3E0000
+80 DATA AC instantaneous value,"V=Vᵒ･sin▒t , I=Iᵒ･sin▒t",70,90,
 90 DATA AC effective value,"I=Iᵒ/√2 , V=Vᵒ/√2",80,100,
 100 DATA AC power,P=VI=VᵒIᵒ/2,90,110,
 110 DATA Power factor,P=VI･cosΦ,100,120,
-120 DATA Transformer,"I{FC}V{FC}=I{FD}V{FD} , N{FD}/N{FC}=V{FD}/V{FC}",110,130,
-130 DATA Reactance,"X={FF}L=2πfL , X=1/{FF}C=1/2πfC",120,140,
-140 DATA Impedance,"Z=√(R²+({FF}L-1/{FF}C)²) , Vᵒ=ZIᵒ",130,150,
+120 DATA Transformer,"I▒V▒=I▒V▒ , N▒/N▒=V▒/V▒",110,130,
+130 DATA Reactance,"X=▒L=2πfL , X=1/▒C=1/2πfC",120,140,
+140 DATA Impedance,"Z=√(R²+(▒L-1/▒C)²) , Vᵒ=ZIᵒ",130,150,
 150 DATA Natural frequency (circuit),fᵒ=1/2π√(LC),140,160,
 160 DATA Electric oscillation,1/2･Q²/C+1/2･LI²=Constant,150,160,
 10010 MODE 8:DIM:x=10:y=160:r=x
@@ -226,22 +226,22 @@
 10280 GOTO 10150
 
 
-10 DATA Coulomb's law (electric f.),"F=kᵒ･Q{FC}Q{FD}/r² , kᵒ=9*10⁹[N･m²/C²]",10,20,
+10 DATA Coulomb's law (electric f.),"F=kᵒ･Q▒Q▒/r² , kᵒ=9*10⁹[N･m²/C²]",10,20,
 20 DATA Electric field,"E=V/d , F=QE , W=QV",10,30,
 30 DATA Capacitance,"Q=CV , C=εᵒ･S/d",20,40,
-40 DATA Capacitance,"C=C{FC}+C{FD} , 1/C=1/C{FC}+1/C{FD}",30,50,
+40 DATA Capacitance,"C=C▒+C▒ , 1/C=1/C▒+1/C▒",30,50,
 50 DATA Dielectric constant,"D=εᵒE , C=εCᵒ",40,60,
 60 DATA Electrostatic energy,U=1/2･QV=1/2･CV²,50,70,
 70 DATA Electrons in electric field,"a=QE/m , 1/2･mv²=eV",60,80,
-80 DATA Coulomb's law (magnetic f.),"F=kᵒ･m{FC}m{FD}/r² , kᵒ=10⁷/(4π)²",70,90,
+80 DATA Coulomb's law (magnetic f.),"F=kᵒ･m▒m▒/r² , kᵒ=10⁷/(4π)²",70,90,
 90 DATA Magnetic field,"H=I/2πr , H=I/2r , H=nI",80,100,
 100 DATA Magnetic field,F=μᵒIHl=IBl,90,110,
 110 DATA Magnetic flux density,B=m/4πr²=μᵒH,100,120,
 120 DATA Lorentz force,"F=QvB , r=mv/QB",110,130,
-130 DATA Electrons in magnetic field,"1/2･mv²=Q²B²r²/2m , {FE}=v/r=QB/m",120,140,
+130 DATA Electrons in magnetic field,"1/2･mv²=Q²B²r²/2m , ▒=v/r=QB/m",120,140,
 140 DATA Faraday's law of induction,V=-n･△Φ/△t,130,150,
 150 DATA Electromagnetic induction,"V=El=vBl , I=vBl/R",140,160,
-160 DATA Mutual induction,V{FD}=-M･△I{FC}/△t,150,170,
+160 DATA Mutual induction,V▒=-M･△I▒/△t,150,170,
 170 DATA Self-induction,V´=-L･△I/△t,160,170,
 10010 MODE 8:DIM:x=10:y=170:r=x
 10020 DEF CHR$(254)="3E020C223E"
@@ -266,11 +266,11 @@
 50 DATA Volume & Temperature,V=Vᵒ(1+T/273),40,60,
 60 DATA Charle's law,V/Vᵒ=T/Tᵒ,50,70,
 70 DATA Equation of state,"PV=nRT , R=8.31 [J/K]",60,80,
-80 DATA Law of partial pressures,P=P{FC}+P{FD}+P{FE}+･･･,70,90,1,2A2A3E0000
-90 DATA Pressure,P=1/3･nm{FE}²,80,100,1,B08C828CB0
-100 DATA Internal energy,U=1/2･m{FE}²N=3/2･nRT,90,110,1,B08C828CB0
+80 DATA Law of partial pressures,P=P▒+P▒+P▒+･･･,70,90,1,2A2A3E0000
+90 DATA Pressure,P=1/3･nm▒²,80,100,1,B08C828CB0
+100 DATA Internal energy,U=1/2･m▒²N=3/2･nRT,90,110,1,B08C828CB0
 110 DATA Specific heat,"Cv=△U/△T=3R/2 , Cp=△U/△T+R=5R/2",100,120,
-120 DATA Half life,N=Nᵒ(1/2){FE}ˣ    (x=1/T),110,130,1,40F8480000
+120 DATA Half life,N=Nᵒ(1/2)▒ˣ    (x=1/T),110,130,1,40F8480000
 130 DATA Mass-energy relation ,E=mc²,120,130,
 10010 MODE 8:DIM:x=10:y=130:r=x
 10040 DEF CHR$(253)="2E2A3A0000"
@@ -455,8 +455,8 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Upper probability   X²(x²,{FE})";
-30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+20 CLS:PRINT "Upper probability   X²(x²,▒)";
+30 z=n:s$="▒":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
 40 z=x:s$="x²":GOSUB 400:x=z
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6220":GOSUB 500:IF sr THEN *
@@ -469,8 +469,8 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Upper probability   t(x,{FE})";
-30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+20 CLS:PRINT "Upper probability   t(x,▒)";
+30 z=n:s$="▒":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
 40 z=x:s$="x":GOSUB 400:x=z
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6230":GOSUB 500:IF sr THEN *
@@ -483,9 +483,9 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Upper probability   F(x,{FE}{FC},{FE}{FD})";
-30 z=n:s$="{FE}{FC}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
-40 z=m:s$="{FE}{FD}":GOSUB 400:m=z:IF m=<0 OR FRAC m<>0 THEN 40
+20 CLS:PRINT "Upper probability   F(x,▒▒,▒▒)";
+30 z=n:s$="▒▒":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=m:s$="▒▒":GOSUB 400:m=z:IF m=<0 OR FRAC m<>0 THEN 40
 50 z=x:s$="x":GOSUB 400:x=z
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6240":GOSUB 500:IF sr THEN *
@@ -513,8 +513,8 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Cumulative frequency  P(x,{FE})";
-30 z=k:s$="{FE}":GOSUB 400:k=z:IF k<0 THEN 30
+20 CLS:PRINT "Cumulative frequency  P(x,▒)";
+30 z=k:s$="▒":GOSUB 400:k=z:IF k<0 THEN 30
 40 z=x:s$="x":GOSUB 400:x=z:IF x<0 OR FRAC x<>0 THEN 40
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6320":GOSUB 500:IF sr THEN *
@@ -555,8 +555,8 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Percentage points  X²(x²,{FE})";
-30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+20 CLS:PRINT "Percentage points  X²(x²,▒)";
+30 z=n:s$="▒":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
 40 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>1 THEN 40
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6420":GOSUB 500:IF sr THEN *
@@ -569,8 +569,8 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Percentage points   t(x,{FE})";
-30 z=n:s$="{FE}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+20 CLS:PRINT "Percentage points   t(x,▒)";
+30 z=n:s$="▒":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
 40 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>=1 THEN 40
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6430":GOSUB 500:IF sr THEN *
@@ -583,9 +583,9 @@
 530 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT "Percentage points  F(x,{FE}{FC},{FE}{FD})";
-30 z=n:s$="{FE}{FC}":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
-40 z=m:s$="{FE}{FD}":GOSUB 400:m=z:IF m=<0 OR FRAC m<>0 THEN 40
+20 CLS:PRINT "Percentage points  F(x,▒▒,▒▒)";
+30 z=n:s$="▒▒":GOSUB 400:n=z:IF n=<0 OR FRAC n<>0 THEN 30
+40 z=m:s$="▒▒":GOSUB 400:m=z:IF m=<0 OR FRAC m<>0 THEN 40
 50 z=p:s$="p":GOSUB 400:p=z:IF p=<0 OR p>1 THEN 50
 60 LOCATE 0,1:PRINT c$;".....";
 70 sr=0:GOSUB "LIB0:S6440":GOSUB 500:IF sr THEN *
@@ -607,8 +607,8 @@
 
 
 10 MODE 8:DIM:DEF CHR$(254)="424C300806":k=1
-20 CLS:PRINT "E({FE},t)";
-30 LOCATE 0,1:PRINT CHR$(5);"{FE}=";k;"?";:INPUT @10;k:LOCATE 0,0:LOCATE 0,1
+20 CLS:PRINT "E(▒,t)";
+30 LOCATE 0,1:PRINT CHR$(5);"▒=";k;"?";:INPUT @10;k:LOCATE 0,0:LOCATE 0,1
 40 x=RAN#(1):IF x=0 THEN 40
 50 PRINT TAB(0);-LN x/k;:z$=INPUT $(1,@):GOTO 40
 100 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -652,7 +652,7 @@
 630 DATA SUMX2,Σx²
 640 DATA MEANX,Σx/n
 650 DATA SDXN,xσn
-660 DATA SDX,xσn{FE}
+660 DATA SDX,xσn▒
 800 LOCATE 0,1:PRINT c$;".....";:GOSUB 200:GOSUB 590:RESTORE 610
 810 FOR i=1 TO c:READ a$,b$:LPRINT a$;TAB(10);"=";a(i-1):NEXT:GOTO 20
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -676,7 +676,7 @@
 40 t=0:f=95:r=sa:IF r THEN s=sg ELSE s=0
 45 CLS:PRINT t$;
 50 z=r:s$="n":GOSUB 500:r=z
-60 z=s:s$="{FE}":GOSUB 500:s=z
+60 z=s:s$="▒":GOSUB 500:s=z
 80 z=t:s$="σ":GOSUB 500:t=z
 90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
@@ -700,7 +700,7 @@
 40 f=95:r=sa:IF r THEN s=sg:t=sk^2 ELSE s=0:t=0
 45 CLS:PRINT t$;
 50 z=r:s$="n":GOSUB 500:r=z
-60 z=s:s$="{FE}":GOSUB 500:s=z
+60 z=s:s$="▒":GOSUB 500:s=z
 80 z=t:s$="V":GOSUB 500:t=z
 90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
@@ -766,27 +766,27 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1,@)
+20 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1,@)
 22 IF a$<>"Y" AND a$<>"y" THEN 30
-25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
-30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1,@)
+25 s$="x▒":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1,@)
 32 IF a$<>"Y" AND a$<>"y" THEN 36
-35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+35 s$="x▒":GOSUB "LIB0:S6030":GOSUB 900
 36 s=sa:IF s>1 THEN r=sk^2 ELSE r=0
 37 f=95:u=sz:IF u>1 THEN t=sl^2 ELSE t=0
 45 CLS:PRINT t$;
-50 z=s:s$="n{FC}":GOSUB 500:s=z
-60 z=r:s$="V{FC}":GOSUB 500:r=z
-70 z=u:s$="n{FD}":GOSUB 500:u=z
-80 z=t:s$="V{FD}":GOSUB 500:t=z
+50 z=s:s$="n▒":GOSUB 500:s=z
+60 z=r:s$="V▒":GOSUB 500:r=z
+70 z=u:s$="n▒":GOSUB 500:u=z
+80 z=t:s$="V▒":GOSUB 500:t=z
 90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ▒,σ▒²),N(μ▒,σ▒²)   ";f;"%";TAB(0);".....";
 100 n=s-1:m=u-1:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
 105 g=x:n=m:m=s-1:GOSUB "LIB0:S6440":GOSUB 900:IF sr THEN *
 110 z=t/r/x:GOSUB 400:a=z
 120 z=t/r*g:GOSUB 400:b=z
-130 PRINT c$;a;"< σ{FD}²/σ{FC}² <";b;:a$=INPUT $(1,@):GOTO 45
+130 PRINT c$;a;"< σ▒²/σ▒² <";b;:a$=INPUT $(1,@):GOTO 45
 400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
 410 RETURN
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
@@ -796,28 +796,28 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1,@)
+20 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1,@)
 22 IF a$<>"Y" AND a$<>"y" THEN 30
-25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
-30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1,@)
+25 s$="x▒":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1,@)
 32 IF a$<>"Y" AND a$<>"y" THEN 36
-35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+35 s$="x▒":GOSUB "LIB0:S6030":GOSUB 900
 36 r=sa:IF r>1 THEN s=sg:t=sm ELSE s=0:t=0
 37 f=95:u=sz:IF u>1 THEN v=sh:w=sn ELSE v=0:w=0
 45 CLS:PRINT t$;
-50 z=r:s$="n{FC}":GOSUB 500:r=z
-55 z=s:s$="{FE}{FC}":GOSUB 500:s=z
-60 z=t:s$="S{FC}":GOSUB 500:t=z
-70 z=u:s$="n{FD}":GOSUB 500:u=z
-75 z=v:s$="{FE}{FD}":GOSUB 500:v=z
-80 z=w:s$="S{FD}":GOSUB 500:w=z
+50 z=r:s$="n▒":GOSUB 500:r=z
+55 z=s:s$="▒▒":GOSUB 500:s=z
+60 z=t:s$="S▒":GOSUB 500:t=z
+70 z=u:s$="n▒":GOSUB 500:u=z
+75 z=v:s$="▒▒":GOSUB 500:v=z
+80 z=w:s$="S▒":GOSUB 500:w=z
 90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "N(μ{FC},σ²),N(μ{FD},σ²)   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "N(μ▒,σ²),N(μ▒,σ²)   ";f;"%";TAB(0);".....";
 100 n=r+u-2:p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6430":GOSUB 900:IF sr THEN *
 110 z=s-v-x*SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:a=z
 120 z=s-v+x*SQR((1/r+1/u)*((t+w)/n)):GOSUB 400:b=z
-130 PRINT c$;a;"< μ{FC}-μ{FD} <";b;:a$=INPUT $(1,@):GOTO 45
+130 PRINT c$;a;"< μ▒-μ▒ <";b;:a$=INPUT $(1,@):GOTO 45
 400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
 410 RETURN
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
@@ -847,18 +847,18 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
 
 
-45 CLS:PRINT "B(1,p{FC}),B(1,p{FD}) a<p{FC}-p{FD}<b";
-50 z=r:s$="n{FC}":GOSUB 500:r=z
-60 z=s:s$="Σx{FC}":GOSUB 500:s=z
-70 z=t:s$="n{FD}":GOSUB 500:t=z
-80 z=u:s$="Σx{FD}":GOSUB 500:u=z
+45 CLS:PRINT "B(1,p▒),B(1,p▒) a<p▒-p▒<b";
+50 z=r:s$="n▒":GOSUB 500:r=z
+60 z=s:s$="Σx▒":GOSUB 500:s=z
+70 z=t:s$="n▒":GOSUB 500:t=z
+80 z=u:s$="Σx▒":GOSUB 500:u=z
 90 CLS:PRINT "Confidence level (1-α)[%]";
 95 z=f:s$="1-α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
-97 CLS:PRINT "B(1,p{FC}),B(1,p{FD})   ";f;"%";TAB(0);".....";
+97 CLS:PRINT "B(1,p▒),B(1,p▒)   ";f;"%";TAB(0);".....";
 100 p=(1-f/100)/2:sr=0:GOSUB "LIB0:S6410":GOSUB 900:IF sr THEN *
 110 j=s/r:k=u/t:z=j-k-x*SQR(((1-j)*j)/r+((1-k)*k)/t):GOSUB 400:a=z
 120 z=j-k+x*SQR(((1-j)*j)/r+((1-k)*k)/t):GOSUB 400:b=z
-130 PRINT c$;a;"< p{FC}-p{FD} <";b;:a$=INPUT $(1,@):GOTO 45
+130 PRINT c$;a;"< p▒-p▒ <";b;:a$=INPUT $(1,@):GOTO 45
 400 IF z THEN z=ROUND(z,LOG(ABS z)-5)
 410 RETURN
 500 LOCATE 0,1:PRINT c$;s$;"=";z;"?";:INPUT @10;z:LOCATE 0,0:RETURN
@@ -911,7 +911,7 @@
 5200 DATA "∫f(x)dx  [a,b]                  Romberg's method",,5100,5220
 5220 DATA "dy/dx=f(x,y(x))                 Runge-Kutta method",,5200,5230
 5230 DATA "Lagrange's interpolation",,5220,5250
-5250 DATA "Gamma function  {FF}(x)",82FE8280C0,5230,5260
+5250 DATA "Gamma function  ▒(x)",82FE8280C0,5230,5260
 5260 DATA "Bessel function  Jn(x)",,5250,5270
 5270 DATA "Bessel function  Yn(x)",,5260,5280
 5280 DATA "Modified Bessel function        In(x)",,5270,5290
@@ -960,8 +960,8 @@
 5910 DATA "Scientific constant             g=9.80665 [m･s⁻²]",,5900,5920
 5920 DATA "Electrolytic dissociation       HCOOH ←→ HCOO⁻ + H⁺",,5910,5930
 5930 DATA "Motion                          Ek=1/2･mv²",,5920,5932
-5932 DATA "Waves                           f=fᵒ･(v-v{FC})/(v-v{FD})",,5930,5934
-5934 DATA "AC & DC circuits                R=R{FC}+R{FD} , 1/R=1/R{FC}+1/R{FD}",,5932,5936
+5932 DATA "Waves                           f=fᵒ･(v-v▒)/(v-v▒)",,5930,5934
+5934 DATA "AC & DC circuits                R=R▒+R▒ , 1/R=1/R▒+1/R▒",,5932,5936
 5936 DATA "Electric & Magnetic fields      Q=CV , C=εᵒ･S/d",,5934,5938
 5938 DATA "Thermodynamics and others       W=JQ , J=4.19 [J/cal]",,5936,5950
 5950 DATA "Metric conversion (length)      1[cm] -→ 0.01[m]",,5938,5960
@@ -969,16 +969,16 @@
 5970 DATA "Metric conversion (volume)      1[cm³] -→ 0.000001[m³]",,5960,5980
 5980 DATA "Metric conversion (weight)      1[g] -→ 0.001[kg]",,5970,6210
 6210 DATA "Upper probability integrals     N(0,1²)",,5980,6220
-6220 DATA "Upper probability integrals     X²(x²,{FE})",,6210,6230
-6230 DATA "Upper probability integrals     t(x,{FE})",,6220,6240
-6240 DATA "Upper probability integrals     F(x,{FE}{FC},{FE}{FD})",,6230,6310
+6220 DATA "Upper probability integrals     X²(x²,▒)",,6210,6230
+6230 DATA "Upper probability integrals     t(x,▒)",,6220,6240
+6240 DATA "Upper probability integrals     F(x,▒▒,▒▒)",,6230,6310
 6310 DATA "Upper cumulative                frequencies     B(x,n,P)",,6240,6320
-6320 DATA "Upper cumulative                frequencies     P(x,{FF})",424C300806,6310,6330
+6320 DATA "Upper cumulative                frequencies     P(x,▒)",424C300806,6310,6330
 6330 DATA "Upper cumulative                frequencies     H(x,n,M,N)",,6320,6410
 6410 DATA "Percentage points               N(0,1²)",,6330,6420
-6420 DATA "Percentage points               X²(x²,{FE})",,6410,6430
-6430 DATA "Percentage points               t(x,{FE})",,6420,6440
-6440 DATA "Percentage points               F(x,{FE}{FC},{FE}{FD})",,6430,6450
+6420 DATA "Percentage points               X²(x²,▒)",,6410,6430
+6430 DATA "Percentage points               t(x,▒)",,6420,6440
+6440 DATA "Percentage points               F(x,▒▒,▒▒)",,6430,6450
 6450 DATA "Normal random numbers",,6440,6460
 6460 DATA "Exponential random numbers",,6450,6500
 6500 DATA "Statistics [x]",,6460,6510
@@ -990,31 +990,31 @@
 6620 DATA "Estimation  a<μ<b               N(μ,σ²)",,6610,6630
 6630 DATA "Estimation  a<σ²<b              N(μ,σ²)",,6620,6640
 6640 DATA "Estimation  a<σ<b               N(μ,σ²)",,6630,6650
-6650 DATA "Estimation  a<σ{FD}²/σ{FC}²<b         N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)",,6640,6660
-6660 DATA "Estimation  a<μ{FC}-μ{FD}<b           N(μ{FC},σ²),N(μ{FD},σ²)",,6650,6670
+6650 DATA "Estimation  a<σ▒²/σ▒²<b         N(μ▒,σ▒²),N(μ▒,σ▒²)",,6640,6660
+6660 DATA "Estimation  a<μ▒-μ▒<b           N(μ▒,σ²),N(μ▒,σ²)",,6650,6670
 6670 DATA "Estimation  a<p<b               B(1,p)",,6660,6680
-6680 DATA "Estimation  a<p{FC}-p{FD}<b           B(1,p{FC}),B(1,p{FD})",,6670,6710
-6710 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H{FC}:μ≠μᵒ",,6680,6711
-6711 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H{FC}:μ>μᵒ",,6710,6712
-6712 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H{FC}:μ<μᵒ",,6711,6720
-6720 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H{FC}:μ≠μᵒ",,6712,6721
-6721 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H{FC}:μ>μᵒ",,6720,6722
-6722 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H{FC}:μ<μᵒ",,6721,6730
-6730 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H{FC}:σ²≠σᵒ²",,6722,6731
-6731 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H{FC}:σ²>σᵒ²",,6730,6732
-6732 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H{FC}:σ²<σᵒ²",,6731,6740
-6740 DATA "Test N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)             Hᵒ:σ{FC}²=σ{FD}² H{FC}:σ{FC}²≠σ{FD}²",,6732,6741
-6741 DATA "Test N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)             Hᵒ:σ{FC}²=σ{FD}² H{FC}:σ{FC}²>σ{FD}²",,6740,6742
-6742 DATA "Test N(μ{FC},σ{FC}²),N(μ{FD},σ{FD}²)             Hᵒ:σ{FC}²=σ{FD}² H{FC}:σ{FC}²<σ{FD}²",,6741,6750
-6750 DATA "Test N(μ{FC},σ²),N(μ{FD},σ²)               Hᵒ:μ{FC}=μ{FD}   H{FC}:μ{FC}≠μ{FD}",,6742,6751
-6751 DATA "Test N(μ{FC},σ²),N(μ{FD},σ²)               Hᵒ:μ{FC}=μ{FD}   H{FC}:μ{FC}>μ{FD}",,6750,6752
-6752 DATA "Test N(μ{FC},σ²),N(μ{FD},σ²)               Hᵒ:μ{FC}=μ{FD}   H{FC}:μ{FC}<μ{FD}",,6751,6760
-6760 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H{FC}:p≠pᵒ",,6752,6761
-6761 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H{FC}:p>pᵒ",,6760,6762
-6762 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H{FC}:p<pᵒ",,6761,6770
-6770 DATA "Test B(1,p{FC}),B(1,p{FD})                 Hᵒ:p{FC}=p{FD}   H{FC}:p{FC}≠p{FD}",,6762,6771
-6771 DATA "Test B(1,p{FC}),B(1,p{FD})                 Hᵒ:p{FC}=p{FD}   H{FC}:p{FC}>p{FD}",,6770,6772
-6772 DATA "Test B(1,p{FC}),B(1,p{FD})                 Hᵒ:p{FC}=p{FD}   H{FC}:p{FC}<p{FD}",,6771,6772
+6680 DATA "Estimation  a<p▒-p▒<b           B(1,p▒),B(1,p▒)",,6670,6710
+6710 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H▒:μ≠μᵒ",,6680,6711
+6711 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H▒:μ>μᵒ",,6710,6712
+6712 DATA "Test N(μ,σ²) σ²:known                Hᵒ:μ=μᵒ    H▒:μ<μᵒ",,6711,6720
+6720 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H▒:μ≠μᵒ",,6712,6721
+6721 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H▒:μ>μᵒ",,6720,6722
+6722 DATA "Test N(μ,σ²)                         Hᵒ:μ=μᵒ    H▒:μ<μᵒ",,6721,6730
+6730 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H▒:σ²≠σᵒ²",,6722,6731
+6731 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H▒:σ²>σᵒ²",,6730,6732
+6732 DATA "Test N(μ,σ²)                         Hᵒ:σ²=σᵒ²  H▒:σ²<σᵒ²",,6731,6740
+6740 DATA "Test N(μ▒,σ▒²),N(μ▒,σ▒²)             Hᵒ:σ▒²=σ▒² H▒:σ▒²≠σ▒²",,6732,6741
+6741 DATA "Test N(μ▒,σ▒²),N(μ▒,σ▒²)             Hᵒ:σ▒²=σ▒² H▒:σ▒²>σ▒²",,6740,6742
+6742 DATA "Test N(μ▒,σ▒²),N(μ▒,σ▒²)             Hᵒ:σ▒²=σ▒² H▒:σ▒²<σ▒²",,6741,6750
+6750 DATA "Test N(μ▒,σ²),N(μ▒,σ²)               Hᵒ:μ▒=μ▒   H▒:μ▒≠μ▒",,6742,6751
+6751 DATA "Test N(μ▒,σ²),N(μ▒,σ²)               Hᵒ:μ▒=μ▒   H▒:μ▒>μ▒",,6750,6752
+6752 DATA "Test N(μ▒,σ²),N(μ▒,σ²)               Hᵒ:μ▒=μ▒   H▒:μ▒<μ▒",,6751,6760
+6760 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H▒:p≠pᵒ",,6752,6761
+6761 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H▒:p>pᵒ",,6760,6762
+6762 DATA "Test B(1,p)                          Hᵒ:p=pᵒ    H▒:p<pᵒ",,6761,6770
+6770 DATA "Test B(1,p▒),B(1,p▒)                 Hᵒ:p▒=p▒   H▒:p▒≠p▒",,6762,6771
+6771 DATA "Test B(1,p▒),B(1,p▒)                 Hᵒ:p▒=p▒   H▒:p▒>p▒",,6770,6772
+6772 DATA "Test B(1,p▒),B(1,p▒)                 Hᵒ:p▒=p▒   H▒:p▒<p▒",,6771,6772
 10000 ON ERROR GOTO 10400
 10010 MODE 8:DIM:x=1000:y=6772
 10020 DEFSEG=0:a=PEEK(&H743)*256+PEEK(&H742):r$=HEX$(PEEK(&H744))+"000":b=VAL("&H"+r$)
@@ -1072,11 +1072,11 @@
 400 CLS:GOSUB 200:IF c<15 OR so=0 THEN 20
 410 DEF CHR$(255)="12548C4A12":CLS:PRINT "Estimation of x [";a$(sq);"]";
 420 LOCATE 0,1:PRINT c$;"y?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
-430 ON sq+1 GOSUB 950,960,970,980:LOCATE 12,1:PRINT ":{FF}=";STR$(a);:z$=INPUT $(1,@):GOTO 420
+430 ON sq+1 GOSUB 950,960,970,980:LOCATE 12,1:PRINT ":▒=";STR$(a);:z$=INPUT $(1,@):GOTO 420
 450 CLS:GOSUB 200:IF c<15 OR sm=0 THEN 20
 460 DEF CHR$(255)="124A844810":CLS:PRINT "Estimation of y [";a$(sq);"]";
 470 LOCATE 0,1:PRINT c$;"x?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
-480 ON sq+1 GOSUB 900,910,920,930:LOCATE 12,1:PRINT ":{FF}=";STR$(a);:z$=INPUT $(1,@):GOTO 470
+480 ON sq+1 GOSUB 900,910,920,930:LOCATE 12,1:PRINT ":▒=";STR$(a);:z$=INPUT $(1,@):GOTO 470
 500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
 510 GOSUB 600
 520 z=ASC(INPUT $(1,@)):IF z=28 OR z=29 THEN 20
@@ -1094,29 +1094,29 @@
 609 RESTORE(600+i*10+j):RETURN
 610 DATA CNT,CNT,n
 620 DATA SUMX,SUMX,Σx
-621 DATA SUMLNX,SUM{FD}X,Σ{FD}x
+621 DATA SUMLNX,SUM▒X,Σ▒x
 630 DATA SUMY,SUMY,Σy
-631 DATA SUMLNY,SUM{FD}Y,Σ{FD}y
+631 DATA SUMLNY,SUM▒Y,Σ▒y
 640 DATA SUMX2,SUMX2,Σx²
-641 DATA SUMLNX2,SUM{FD}X2,Σ{FD}x²
+641 DATA SUMLNX2,SUM▒X2,Σ▒x²
 650 DATA SUMY2,SUMY2,Σy²
-651 DATA SUMLNY2,SUM{FD}Y2,Σ{FD}y²
+651 DATA SUMLNY2,SUM▒Y2,Σ▒y²
 660 DATA SUMXY,SUMXY,Σxy
-661 DATA SUMLNXY,SUM{FD}XY,Σ{FD}xy
-662 DATA SUMXLNY,SUMX{FD}Y,Σx{FD}y
-663 DATA SUMLNXLNY,SUM{FD}X{FD}Y,Σ{FD}x{FD}y
+661 DATA SUMLNXY,SUM▒XY,Σ▒xy
+662 DATA SUMXLNY,SUMX▒Y,Σx▒y
+663 DATA SUMLNXLNY,SUM▒X▒Y,Σ▒x▒y
 670 DATA MEANX,MEANX,Σx/n
-671 DATA MEANLNX,MEAN{FD}X,Σ{FD}x/n
+671 DATA MEANLNX,MEAN▒X,Σ▒x/n
 680 DATA MEANY,MEANY,Σy/n
-681 DATA MEANLNY,MEAN{FD}Y,Σ{FD}y/n
+681 DATA MEANLNY,MEAN▒Y,Σ▒y/n
 690 DATA SDXN,SDXN,xσn
-691 DATA SDLNXN,SD{FD}XN,{FD}xσn
+691 DATA SDLNXN,SD▒XN,▒xσn
 700 DATA SDYN,SDYN,yσn
-701 DATA SDLNYN,SD{FD}YN,{FD}yσn
-710 DATA SDX,SDX,xσn{FE}
-711 DATA SDLNX,SD{FD}X,{FD}xσn{FE}
-720 DATA SDY,SDY,yσn{FE}
-721 DATA SDLNY,SD{FD}Y,{FD}yσn{FE}
+701 DATA SDLNYN,SD▒YN,▒yσn
+710 DATA SDX,SDX,xσn▒
+711 DATA SDLNX,SD▒X,▒xσn▒
+720 DATA SDY,SDY,yσn▒
+721 DATA SDLNY,SD▒Y,▒yσn▒
 730 DATA LRA,LRA,a
 731 DATA RA,RA,a
 740 DATA LRB,LRB,b
@@ -1144,7 +1144,7 @@
 1090 LOCATE 0,1:PRINT c$;"not found";:a$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ=μᵒ  H{FC}:μ"+CHR$(sq)+"μᵒ":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ=μᵒ  H▒:μ"+CHR$(sq)+"μᵒ":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
 20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
 25 IF a$<>"Y" AND a$<>"y" THEN 40
 30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
@@ -1153,7 +1153,7 @@
 50 z=r:s$="μᵒ":GOSUB 500:r=z
 60 z=s:s$="σ":GOSUB 500:s=z
 70 z=t:s$="n":GOSUB 500:t=z
-80 z=u:s$="{FE}":GOSUB 500:u=z
+80 z=u:s$="▒":GOSUB 500:u=z
 90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
@@ -1173,7 +1173,7 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ=μᵒ  H{FC}:μ"+CHR$(sq)+"μᵒ":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ=μᵒ  H▒:μ"+CHR$(sq)+"μᵒ":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000"
 20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
 25 IF a$<>"Y" AND a$<>"y" THEN 40
 30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
@@ -1181,7 +1181,7 @@
 45 CLS:PRINT t$;
 50 z=r:s$="μᵒ":GOSUB 500:r=z
 60 z=s:s$="n":GOSUB 500:s=z
-70 z=t:s$="{FE}":GOSUB 500:t=z
+70 z=t:s$="▒":GOSUB 500:t=z
 80 z=u:s$="V":GOSUB 500:u=z
 90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
@@ -1202,7 +1202,7 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:σ²=σᵒ²  H{FC}:σ²"+CHR$(sq)+"σᵒ²":c$=CHR$(5):DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:σ²=σᵒ²  H▒:σ²"+CHR$(sq)+"σᵒ²":c$=CHR$(5):DEF CHR$(252)="123E020000"
 20 CLS:PRINT t$;TAB(0);"input new data (Y/N) ?";:a$=INPUT $(1)
 25 IF a$<>"Y" AND a$<>"y" THEN 40
 30 s$="x":GOSUB "LIB0:S6020":GOSUB 900
@@ -1233,20 +1233,20 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:σ{FC}²=σ{FD}²  H{FC}:σ{FC}²"+CHR$(sq)+"σ{FD}²":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
-20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1)
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:σ▒²=σ▒²  H▒:σ▒²"+CHR$(sq)+"σ▒²":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
+20 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1)
 22 IF a$<>"Y" AND a$<>"y" THEN 30
-25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
-30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1)
+25 s$="x▒":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1)
 32 IF a$<>"Y" AND a$<>"y" THEN 36
-35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+35 s$="x▒":GOSUB "LIB0:S6030":GOSUB 900
 36 s=sa:IF s>1 THEN r=sk^2 ELSE r=0
 37 f=5:u=sz:IF u>1 THEN t=sl^2 ELSE t=0
 45 CLS:PRINT t$;
-50 z=s:s$="n{FC}":GOSUB 500:s=z
-60 z=r:s$="V{FC}":GOSUB 500:r=z
-70 z=u:s$="n{FD}":GOSUB 500:u=z
-80 z=t:s$="V{FD}":GOSUB 500:t=z
+50 z=s:s$="n▒":GOSUB 500:s=z
+60 z=r:s$="V▒":GOSUB 500:r=z
+70 z=u:s$="n▒":GOSUB 500:u=z
+80 z=t:s$="V▒":GOSUB 500:t=z
 90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
@@ -1267,22 +1267,22 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ{FC}=μ{FD}  H{FC}:μ{FC}"+CHR$(sq)+"μ{FD}":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
-20 CLS:PRINT t$;TAB(0);"input new data x{FC} (Y/N) ?";:a$=INPUT $(1)
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:μ▒=μ▒  H▒:μ▒"+CHR$(sq)+"μ▒":DEF CHR$(254)="A2A49C92A2":c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000"
+20 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1)
 22 IF a$<>"Y" AND a$<>"y" THEN 30
-25 s$="x{FC}":GOSUB "LIB0:S6020":GOSUB 900
-30 CLS:PRINT t$;TAB(0);"input new data x{FD} (Y/N) ?";:a$=INPUT $(1)
+25 s$="x▒":GOSUB "LIB0:S6020":GOSUB 900
+30 CLS:PRINT t$;TAB(0);"input new data x▒ (Y/N) ?";:a$=INPUT $(1)
 32 IF a$<>"Y" AND a$<>"y" THEN 36
-35 s$="x{FD}":GOSUB "LIB0:S6030":GOSUB 900
+35 s$="x▒":GOSUB "LIB0:S6030":GOSUB 900
 36 r=sa:IF r>1 THEN s=sg:t=sm ELSE s=0:t=0
 37 f=5:u=sz:IF u>1 THEN v=sh:w=sn ELSE v=0:w=0
 45 CLS:PRINT t$;
-50 z=r:s$="n{FC}":GOSUB 500:r=z
-55 z=s:s$="{FE}{FC}":GOSUB 500:s=z
-60 z=t:s$="S{FC}":GOSUB 500:t=z
-70 z=u:s$="n{FD}":GOSUB 500:u=z
-75 z=v:s$="{FE}{FD}":GOSUB 500:v=z
-80 z=w:s$="S{FD}":GOSUB 500:w=z
+50 z=r:s$="n▒":GOSUB 500:r=z
+55 z=s:s$="▒▒":GOSUB 500:s=z
+60 z=t:s$="S▒":GOSUB 500:t=z
+70 z=u:s$="n▒":GOSUB 500:u=z
+75 z=v:s$="▒▒":GOSUB 500:v=z
+80 z=w:s$="S▒":GOSUB 500:w=z
 90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
@@ -1302,7 +1302,7 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 20
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:p=pᵒ  H{FC}:p"+CHR$(sq)+"pᵒ":f=5:c$=CHR$(5):r=0:s=0:t=0:DEF CHR$(252)="123E020000"
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:p=pᵒ  H▒:p"+CHR$(sq)+"pᵒ":f=5:c$=CHR$(5):r=0:s=0:t=0:DEF CHR$(252)="123E020000"
 45 CLS:PRINT t$;
 50 z=r:s$="pᵒ":GOSUB 500:r=z:IF r>=1 OR r=<0 THEN 50
 60 z=s:s$="n":GOSUB 500:s=z
@@ -1326,12 +1326,12 @@
 930 LOCATE 0,1:PRINT c$;"not found";:z$=INPUT $(1,@):RESUME 45
 
 
-10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:p{FC}=p{FD}  H{FC}:p{FC}"+CHR$(sq)+"p{FD}":f=5:c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000":r=0:s=0:t=0:u=0
+10 MODE 8:DIM:GOSUB 900:ERASE b$:DIM b$(1):b$(0)="Reject":b$(1)="Accept":t$="Test     Hᵒ:p▒=p▒  H▒:p▒"+CHR$(sq)+"p▒":f=5:c$=CHR$(5):DEF CHR$(252)="123E020000":DEF CHR$(253)="2E2A3A0000":r=0:s=0:t=0:u=0
 45 CLS:PRINT t$;
-50 z=r:s$="n{FC}":GOSUB 500:r=z
-60 z=s:s$="Σx{FC}":GOSUB 500:s=z
-70 z=t:s$="n{FD}":GOSUB 500:t=z
-80 z=u:s$="Σx{FD}":GOSUB 500:u=z
+50 z=r:s$="n▒":GOSUB 500:r=z
+60 z=s:s$="Σx▒":GOSUB 500:s=z
+70 z=t:s$="n▒":GOSUB 500:t=z
+80 z=u:s$="Σx▒":GOSUB 500:u=z
 90 CLS:PRINT "Significance level α[%]";
 95 z=f:s$="α":GOSUB 500:f=z:IF f<0 OR f>100 THEN 95
 97 CLS:PRINT t$;TAB(0);".....";
@@ -1385,7 +1385,7 @@
 630 DATA SUMX2,Σx²
 640 DATA MEANX,Σx/n
 650 DATA SDXN,xσn
-660 DATA SDX,xσn{FF}
+660 DATA SDX,xσn▒
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
 1010 IF ERL =120 THEN RESUME 120
 1050 IF ERL =210 THEN c=3:RESUME 280
@@ -1428,7 +1428,7 @@
 630 DATA SUMX2,Σx²
 640 DATA MEANX,Σx/n
 650 DATA SDXN,xσn
-660 DATA SDX,xσn{FF}
+660 DATA SDX,xσn▒
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
 1010 IF ERL =120 THEN RESUME 120
 1050 IF ERL =210 THEN c=3:RESUME 280
@@ -1570,8 +1570,8 @@
 
 10 DATA ,x+C,10,20
 20 DATA xⁿ,xⁿ⁺¹/(n+1)+C           (n+1≠0),10,30
-30 DATA 1/x,log{FF}x{FF}+C,20,40
-40 DATA 1/(x±a),log{FF}x±a{FF}+C,30,50
+30 DATA 1/x,log▒x▒+C,20,40
+40 DATA 1/(x±a),log▒x±a▒+C,30,50
 50 DATA eˣ,eˣ+C,40,60
 60 DATA eⁿˣ,eⁿˣ/n+C,50,70
 70 DATA aˣ,"aˣ/loga+C            (a>0,a≠1)",60,80
@@ -1582,8 +1582,8 @@
 120 DATA sinax,-1/a･cosax+C,110,130
 130 DATA cosx,sinx+C,120,140
 140 DATA cosax,1/a･sinax+C,130,150
-150 DATA tanx,-log{FF}cosx{FF}+C,140,160
-160 DATA cotx,log{FF}sinx{FF}+C,150,170
+150 DATA tanx,-log▒cosx▒+C,140,160
+160 DATA cotx,log▒sinx▒+C,150,170
 170 DATA sin²x,x/2-sin2x/4+C,160,180
 180 DATA cos²x,x/2+sin2x/4+C,170,190
 190 DATA sec²ax,1/a･tanax+C,180,200
@@ -1597,7 +1597,7 @@
 270 DATA sinhx,coshx+C,260,280
 280 DATA coshx,sinhx+C,270,290
 290 DATA tanhx,log(coshx)+C,280,300
-300 DATA 1/√(a²-x²),sin⁻¹(x/a)+C            ({FF}x{FF}<a),290,310
+300 DATA 1/√(a²-x²),sin⁻¹(x/a)+C            (▒x▒<a),290,310
 310 DATA 1/(a²+x²),1/a･tan⁻¹(x/a)+C,300,320
 320 DATA 1/√(x²±a²),log(x+√(x²±a²))+C,310,330
 330 DATA √(a²-x²),1/2･(x√(a²-x²)+a²sin⁻¹(x/a))+C,320,340

@@ -396,7 +396,7 @@
 110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"･･･"
 120 m$="f(x) = "+g$:s$="x0":z=s:GOSUB 800:s=z:GOTO 250
 150 m$="f´(x)=(f(x+h)-f(x))/h  (h>0)":s$="h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
-170 m$="Err  {FF}Xn+1-Xn{FF}<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  ▒Xn+1-Xn▒<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE 50
 250 CLS:PRINT m$;TAB(0);"x = .....";:t=s
 310 FOR i=1 TO m
@@ -424,7 +424,7 @@
 110 IF LEN(f$)<25 THEN g$=f$ ELSE g$=LEFT$(f$,21)+"･･･"
 120 m$="f(x) = "+g$:s$="x0":z=s:GOSUB 800:s=z
 130 s$="x1":z=t:GOSUB 800:t=z:GOTO 250
-170 m$="Err  {FF}Xn+1-Xn{FF}<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  ▒Xn+1-Xn▒<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE 50
 250 CLS:PRINT m$;TAB(0);"x = .....";:u=s:v=t
 270 x=u:g=VALF(f$):IF g=0 THEN 500
@@ -545,7 +545,7 @@
 1610 PRINT " B : input B(m,n)";:RETURN
 1620 PRINT " D : determinant A";:RETURN
 1630 PRINT " I : inverse         A⁻¹ → A";:RETURN
-1640 PRINT " T : transposition   A{FE} → A";:RETURN
+1640 PRINT " T : transposition   A▒ → A";:RETURN
 1650 PRINT " K : scalar-cal      k*A → A";:RETURN
 1660 PRINT " + : addition        A+B → A";:RETURN
 1670 PRINT " - : subtraction     A-B → A";:RETURN
@@ -581,7 +581,7 @@
 110 IF LEN(f$)<21 THEN g$=f$ ELSE g$=LEFT$(f$,17)+"･･･"
 120 m$="∫ "+g$+" dx [a,b]":s$="a":z=a:GOSUB 800:a=z
 130 s$="b":z=b:GOSUB 800:b=z:GOTO 250
-170 m$="Err  {FF}An+1-An{FF}<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
+170 m$="Err  ▒An+1-An▒<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
 200 m$="Max loop  2ⁿ     (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200ELSE ERASE a:DIM a(m):GOTO 50
 250 CLS:PRINT m$;TAB(0);"∫f(x)dx = .....";
 260 h=b-a:x=a:g=VALF(f$):x=b:f=VALF(f$):a(0)=(g+f)*h/2
@@ -610,7 +610,7 @@
 110 IF LEN(f$)<17 THEN g$=f$ ELSE g$=LEFT$(f$,20)+"･･･"
 120 m$="dy/dx = "+g$:s$="x0":z=a:GOSUB 800:a=z
 140 s$="y0":z=b:GOSUB 800:b=z
-150 m$="Step-size  {FE}h     ({FE}h>0)":s$="{FE}h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
+150 m$="Step-size  ▒h     (▒h>0)":s$="▒h":z=h:GOSUB 800:h=z:IF h=<0 THEN 150
 250 m$="dy/dx = "+g$:n=50
 270 ERASE a,b:DIM a(n),b(n):k=32:i=0:j=0:f=a:g=b:GOTO 355
 300 IF k>31 THEN CLS :PRINT m$;TAB(0);"....."; ELSE PRINT c$;".....";
@@ -669,12 +669,12 @@
 30 CLS:PRINT "Gamma function  (0<x≤70)";
 50 LOCATE 0,1:PRINT c$;"x =";x;"?";:INPUT @6;x:LOCATE 0,0:IF x=<0 OR x>70 THEN 50
 70 x$=MID$(STR$(x),2)
-80 LOCATE 0,1:PRINT c$;"{FF}(";x$;") = .....";
+80 LOCATE 0,1:PRINT c$;"▒(";x$;") = .....";
 100 IF x<1 THEN y=x:GOSUB 300:f=f/y:GOTO 200
 110 IF x=<5 THEN y=x-INT x:GOSUB 300:FOR i=1 TO x-1:f=f*(y+i):NEXT:GOTO 200
 150 f=EXP((x-.5)*LN x-x+.5*LN(2*PI )+1/12/x-1/360/x^3+1/1260/x^5-1/1680/x^7)
 200 IF f THEN f=ROUND(f,LOG(ABS f)-7)
-210 PRINT c$;"{FF}(";x$;") =";f;:z$=INPUT $(1,@):GOTO 50
+210 PRINT c$;"▒(";x$;") =";f;:z$=INPUT $(1,@):GOTO 50
 300 f=a(0):FOR i=1 TO 8:f=f*y+a(i):NEXT:RETURN
 400 DATA .035868343,-.193527818,.482199394,-.756704078,.918206857,-.897056937,.988205891,-.577191652,1
 1000 IF ERR =1 THEN CLS :ON ERROR GOTO 0
@@ -849,7 +849,7 @@
 680 i=i+1:IF i<13 THEN 610
 690 GOSUB 580:GOTO 50
 710 PRINT " A : input A";:RETURN
-715 PRINT " G : Gauss  r={FF}A{FF}:θ=argument(A)";:RETURN
+715 PRINT " G : Gauss  r=▒A▒:θ=argument(A)";:RETURN
 720 PRINT " I : inverse         1/A → A";:RETURN
 730 PRINT " S : square root     √A → A";:RETURN
 740 PRINT " ^ : square          A² → A";:RETURN
@@ -1490,7 +1490,7 @@
 10 DATA a²-b²,(a+b)(a-b),10,20
 20 DATA a³±b³,(a±b)(a²∓ab+b²),10,30
 30 DATA a⁴-b⁴,(a-b)(a+b)(a²+b²),20,40
-40 DATA a⁴+b⁴,(a²+√{FF}ab+b²)(a²-√{FF}ab+b²),30,50
+40 DATA a⁴+b⁴,(a²+√▒ab+b²)(a²-√▒ab+b²),30,50
 50 DATA a²±2ab+b²,(a±b)²,40,60
 60 DATA a³±3a²b+3ab²±b³,(a±b)³,50,70
 70 DATA(a±b)²∓4ab,(a∓b)²,60,80
@@ -1579,7 +1579,7 @@
 20 DATA xⁿ,nxⁿ⁻¹,10,30
 30 DATA x,1,20,40
 40 DATA 1/x,-1/x²,30,50
-50 DATA √{FF},1/(2√{FF}),40,60
+50 DATA √▒,1/(2√▒),40,60
 60 DATA aˣ,aˣloga,50,70
 70 DATA eˣ,eˣ,60,80
 80 DATA eⁿˣ,neⁿˣ,70,90
@@ -1595,12 +1595,12 @@
 180 DATA cosax,-a･sinax,170,190
 190 DATA tanax,a･sec²ax,180,200
 200 DATA cotax,-a･cosec²ax,190,210
-210 DATA sin⁻¹x,1/√(1-x²)          ({FE}y{FE}<π/2),200,220
+210 DATA sin⁻¹x,1/√(1-x²)          (▒y▒<π/2),200,220
 220 DATA cos⁻¹x,-1/√(1-x²)           (0<y<π),210,230
-230 DATA tan⁻¹x,1/(1+x²)           ({FE}y{FE}<π/2),220,240
-240 DATA cot⁻¹x,-1/(1+x²)          ({FE}y{FE}<π/2),230,250
+230 DATA tan⁻¹x,1/(1+x²)           (▒y▒<π/2),220,240
+240 DATA cot⁻¹x,-1/(1+x²)          (▒y▒<π/2),230,250
 250 DATA sec⁻¹x,"1/(x√(x²-1))    (0<y<π,x²>1)",240,260
-260 DATA cosec⁻¹x,"1/(x√(x²-1))  ({FE}y{FE}<π/2,x²>1)",250,270
+260 DATA cosec⁻¹x,"1/(x√(x²-1))  (▒y▒<π/2,x²>1)",250,270
 270 DATA sinhx,coshx,260,280
 280 DATA coshx,sinhx,270,290
 290 DATA tanhx,sech²x,280,300
@@ -1630,8 +1630,8 @@
 
 10 DATA ,x+C,10,20
 20 DATA xⁿ,xⁿ⁺¹/(n+1)+C           (n+1≠0),10,30
-30 DATA 1/x,log{FF}x{FF}+C,20,40
-40 DATA 1/(x±a),log{FF}x±a{FF}+C,30,50
+30 DATA 1/x,log▒x▒+C,20,40
+40 DATA 1/(x±a),log▒x±a▒+C,30,50
 50 DATA eˣ,eˣ+C,40,60
 60 DATA eⁿˣ,eⁿˣ/n+C,50,70
 70 DATA aˣ,"aˣ/loga+C            (a>0,a≠1)",60,80
@@ -1642,8 +1642,8 @@
 120 DATA sinax,-1/a･cosax+C,110,130
 130 DATA cosx,sinx+C,120,140
 140 DATA cosax,1/a･sinax+C,130,150
-150 DATA tanx,-log{FF}cosx{FF}+C,140,160
-160 DATA cotx,log{FF}sinx{FF}+C,150,170
+150 DATA tanx,-log▒cosx▒+C,140,160
+160 DATA cotx,log▒sinx▒+C,150,170
 170 DATA sin²x,x/2-sin2x/4+C,160,180
 180 DATA cos²x,x/2+sin2x/4+C,170,190
 190 DATA sec²ax,1/a･tanax+C,180,200
@@ -1657,7 +1657,7 @@
 270 DATA sinhx,coshx+C,260,280
 280 DATA coshx,sinhx+C,270,290
 290 DATA tanhx,log(coshx)+C,280,300
-300 DATA 1/√(a²-x²),sin⁻¹(x/a)+C            ({FF}x{FF}<a),290,310
+300 DATA 1/√(a²-x²),sin⁻¹(x/a)+C            (▒x▒<a),290,310
 310 DATA 1/(a²+x²),1/a･tan⁻¹(x/a)+C,300,320
 320 DATA 1/√(x²±a²),log(x+√(x²±a²))+C,310,330
 330 DATA √(a²-x²),1/2･(x√(a²-x²)+a²sin⁻¹(x/a))+C,320,340
@@ -1679,9 +1679,9 @@
 10 DATA 1/p,1,10,20
 20 DATA 1/p²,t,10,30
 30 DATA 1/pⁿ,"tⁿ⁻¹/(n-1)!        (n=1,2,3,･･･)",20,40
-40 DATA 1/(p±m),e{FD}{FF}{FE},30,50
-50 DATA 1/(p(p+m)),1/m･(1-e⁻{FF}{FE}),40,60
-60 DATA 1/(p²(p+m)),1/m²･(e⁻{FF}{FE}+mt-1),50,70
+40 DATA 1/(p±m),e▒▒▒,30,50
+50 DATA 1/(p(p+m)),1/m･(1-e⁻▒▒),40,60
+60 DATA 1/(p²(p+m)),1/m²･(e⁻▒▒+mt-1),50,70
 70 DATA a/(p²+a²),sinat,60,80
 80 DATA p/(p²+a²),cosat,70,90
 90 DATA 1/(p²+a²),1/a･sinat,80,100
@@ -1690,28 +1690,28 @@
 120 DATA 1/(p²-a²),1/a･sinhat,110,130
 130 DATA 1/(p(p²+a²)),1/a²･(1-cosat),120,140
 140 DATA 1/(p²(p²+a²)),1/a³･(at-sinat),130,150
-150 DATA 1/((p+m)(p+n)),1/(n-m)･(e⁻{FF}{FE}-e⁻ⁿ{FE}),140,160
-160 DATA p/((p+m)(p+n)),1/(m-n)･(me⁻{FF}{FE}-ne⁻ⁿ{FE}),150,170
-170 DATA 1/(p+m)²,te⁻{FF}{FE},160,180
-180 DATA 1/(p+m)ⁿ,"1/(n-1)!･tⁿ⁻¹e⁻{FF}{FE}  (n=1,2,3,･･･)",170,190
-190 DATA p/(p+m)²,e⁻{FF}{FE}(1-mt),180,200
-200 DATA 1/(p(p+m)²),1/m²･(1-(1+mt)e⁻{FF}{FE}),190,210
-210 DATA 1/(p²(p+m)²),t/m²-2/m³+2/m³･e⁻{FF}{FE}+t/m²･e⁻{FF}{FE},200,220
-220 DATA(p+n)/(p+m)²,((n-m)t+1)e⁻{FF}{FE},210,230
+150 DATA 1/((p+m)(p+n)),1/(n-m)･(e⁻▒▒-e⁻ⁿ▒),140,160
+160 DATA p/((p+m)(p+n)),1/(m-n)･(me⁻▒▒-ne⁻ⁿ▒),150,170
+170 DATA 1/(p+m)²,te⁻▒▒,160,180
+180 DATA 1/(p+m)ⁿ,"1/(n-1)!･tⁿ⁻¹e⁻▒▒  (n=1,2,3,･･･)",170,190
+190 DATA p/(p+m)²,e⁻▒▒(1-mt),180,200
+200 DATA 1/(p(p+m)²),1/m²･(1-(1+mt)e⁻▒▒),190,210
+210 DATA 1/(p²(p+m)²),t/m²-2/m³+2/m³･e⁻▒▒+t/m²･e⁻▒▒,200,220
+220 DATA(p+n)/(p+m)²,((n-m)t+1)e⁻▒▒,210,230
 230 DATA 1/(p²+a²)²,1/2a³･(sinat-at･cosat),220,240
 240 DATA p/(p²+a²)²,t/2a･sinat,230,250
 250 DATA p²/(p²+a²)²,1/2a･(sinat+at･cosat),240,260
 260 DATA(p²-a²)/(p²+a²)²,t･cosat,250,270
-270 DATA 1/((p+m)²+n²),1/n･e⁻{FF}{FE}sinnt,260,280
-280 DATA(p+m)/((p+m)²+n²),e⁻{FF}{FE}cosnt,270,290
+270 DATA 1/((p+m)²+n²),1/n･e⁻▒▒sinnt,260,280
+280 DATA(p+m)/((p+m)²+n²),e⁻▒▒cosnt,270,290
 290 DATA 1/(p⁴-a⁴),1/2a³･(sinhat-sinat),280,300
 300 DATA p/(p⁴-a⁴),1/2a²･(coshat-cosat),290,310
 310 DATA p²/(p⁴-a⁴),1/2a･(sinhat+sinat),300,320
 320 DATA p³/(p⁴-a⁴),1/2･(coshat+cosat),310,330
 330 DATA p/(p⁴+4a⁴),1/2a²･sinat･sinhat,320,340
 340 DATA 4a³/(p⁴+4a⁴),sinat･coshat-cosat･sinhat,330,350
-350 DATA 1/p･((p-m)/(p+m)),-1+2e⁻{FF}{FE},340,360
-360 DATA 1/p²･((p-m)/(p+m)),2/m-t-2/m･e⁻{FF}{FE},350,360
+350 DATA 1/p･((p-m)/(p+m)),-1+2e⁻▒▒,340,360
+360 DATA 1/p²･((p-m)/(p+m)),2/m-t-2/m･e⁻▒▒,350,360
 10010 MODE 8:DIM:x=10:y=360:r=x
 10020 DEF CHR$(255)="7840384038"
 10030 DEF CHR$(254)="40F8480000"
