@@ -22,6 +22,8 @@ This will untokenize the included sample image and output the result in the reso
 
 Note that this program by default will try to find the program areas P0-P9 and output each to a file, if a program is present for each one.  In the example above, a file per program area will be output: basic0.txt through basic9.txt (assuming all 10 program areas had source within them).  The program is assuming that the image is the user RAM area.  The sample provided in the project (segment0.bin) is from my unit with a single program loaded into P0.
 
+The Casio character map has been mapped to unicode wherever possible, with few exceptions.  Note that the last four characters in the table are user defineable, and those will be output as a unicode block character (▒).
+
 This program may also work on other versions of this model, such as the FX-850P.
 
 I can be contacted at jbertier@arrl.net
