@@ -66,8 +66,8 @@
     <None Include="resources\segment0.bin" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="resources\segment4.txt" />
-    <Content Include="resources\segment5.txt" />
+    <Content Include="resources\library.libmap.txt" />
+    <Content Include="resources\library.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

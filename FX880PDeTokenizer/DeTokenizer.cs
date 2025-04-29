@@ -29,6 +29,7 @@ namespace FX880PDeTokenizer
         public List<ProgramArea> sources; //holds source from anything other than P0-P9
         public List<ProgramArea> programAreas; //holds sources from P0-P9
         public List<string> sourcesDiscarded;
+        public List<LibFunctionMapEntry> functionMappingEntries; //holds library function mappings
 
         private byte[] _source;
 
@@ -146,10 +147,20 @@ namespace FX880PDeTokenizer
 
             _sbOutput = new StringBuilder();
 
+            functionMappingEntries = new List<LibFunctionMapEntry>();
+
             int programStartPosition = start;
 
             while (_position < _source.Length && _position <= end)
             {
+                //not in a BASIC line, see if this is the start of a library function map entry...
+                LibFunctionMapEntry fme = new LibFunctionMapEntry(_source, _position);
+
+                if (fme.libraryNumber != string.Empty)
+                {
+                    functionMappingEntries.Add(fme);
+                }
+
                 ReadNext(_source, _position, out b1, out b2);
 
                 if (_position + 3 >= _source.Length || _position + b1 >= _source.Length)
@@ -1738,7 +1749,7 @@ namespace FX880PDeTokenizer
 
         public ProgramArea(byte[] source, int offset)
         {
-            if (source[offset + OFFSET_P] == 0x50 && source[offset + OFFSET_PNUM] >= 0x30 && source[offset + OFFSET_PNUM] <= 0x39)
+            if ( offset + SIZE < source.Length && source[offset + OFFSET_P] == 0x50 && source[offset + OFFSET_PNUM] >= 0x30 && source[offset + OFFSET_PNUM] <= 0x39)
             {
                 ProgramNumber = (int)source[offset + OFFSET_PNUM] - 48;
 
@@ -1750,6 +1761,55 @@ namespace FX880PDeTokenizer
         public ProgramArea()
         {
 
+        }
+    }
+
+    class LibFunctionMapEntry
+    {
+        /* Start Address (2 bytes)
+         * 0x04 or 0x05
+         * End Address (2 bytes)
+         * 0x04 or 0x05
+         * 0x0C (unknown3)
+         * Library number (8 bytes)
+         */
+
+        public const int SIZE = 15;
+
+        private const int OFFSET_START_ADDRESS = 0;
+        private const int OFFSET_START_ADDRESS_SEGMENT = 2;
+        private const int OFFSET_END_ADDRESS = 3;
+        private const int OFFSET_END_ADDRESS_SEGMENT = 5;
+        private const int OFFSET_UNKNOWN3 = 6;
+        private const int OFFSET_LIB_NUMBER = 7;
+
+        public string libraryNumber = string.Empty;
+        public int StartAddress = 0;
+        public int EndAddress = 0;
+        public int StartAddressSegment = 0;
+        public int EndAddressSegment = 0;
+
+        public LibFunctionMapEntry(byte[] source, int offset)
+        {
+            if (offset + SIZE <= source.Length 
+                && source[offset + SIZE - 3] == 0x20 
+                && source[offset + SIZE - 2] == 0x20
+                && source[offset + SIZE - 1] == 0x20
+                && source[offset + OFFSET_UNKNOWN3] == 0x0C
+                )
+            {
+                byte[] temp = { 0, 0, 0, 0, 0, 0, 0, 0 };
+
+                Buffer.BlockCopy(source, offset + OFFSET_LIB_NUMBER, temp, 0, 8);
+
+                libraryNumber = System.Text.Encoding.ASCII.GetString(temp).Trim();
+
+                StartAddress = DeTokenizer.ReadTwo(source, offset + OFFSET_START_ADDRESS);
+                EndAddress = DeTokenizer.ReadTwo(source, offset + OFFSET_END_ADDRESS);
+
+                StartAddressSegment = source[offset + OFFSET_START_ADDRESS_SEGMENT];
+                EndAddressSegment = source[offset + OFFSET_END_ADDRESS_SEGMENT];
+            }
         }
     }
 }
