@@ -6,7 +6,7 @@ Address 0590:
 10 CLEAR:CLS:DEFSEG=0:K=PEEK(&H6B4)/4+PEEK(&H6B5)*64
 20 IF K<32 THEN K1=8:K2=K-K1
 30 IF K=32 OR K=64 THEN K1=32:K2=K-K1
-40 IF K=40 THEN POKE &H8000,10:POKE 0,0:IF PEEK &HA000=10 THEN K1=32:K2=8ELSE K1=8:K2=32
+40 IF K=40 THEN POKE &H8000,10:POKE 0,0:IF PEEK &HA000=10 THEN K1=32:K2=8 ELSE K1=8:K2=32
 50 PRINT "Main";K1;TAB(8);"Kbyte Option";K2;"Kbyte";:PRINT:A=64:D=1:A1=0
 70 GOSUB 1000:A=A+A:D=(D+D)MOD 256:IF A<K*1024 THEN 70
 80 FOR I=1 TO 9:A=K*1024-A1-1:IF I=5 OR I=9 THEN D=&H80 ELSE D=&H20
@@ -49,7 +49,7 @@ Address 0590:
 1010 IF PEEK A=D THEN RETURN 
 1020 IF A>=K1 THEN PRINT "NG RAM 2"; ELSE PRINT "NG RAM 1";
 1030  BEEP:GOTO 1030
-10000 BEEP:IF INPUT $(1,@)=CHR$(0) THEN 10000ELSE RETURN
+10000 BEEP:IF INPUT $(1,@)=CHR$(0) THEN 10000 ELSE RETURN
 
 
 Address 0CD6:
@@ -600,7 +600,7 @@ Address 59DE:
 10 DEF CHR$(255)="0000FE0000":MODE 8:DIM:PRINT CHR$(15);
 30 f$="":c$=CHR$(5):a=0:b=0:e=1e-7:m=8:ANGLE 1:ERASE a:DIM a(m)
 50 CLS:PRINT "Romberg's method  ∫f(x)dx [a,b] 1:f(x),[a,b]      2:ε,loop";
-60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90ELSE IF k=50 THEN 170
+60 k=ASC(INPUT $(1,@)):IF k=13 OR k=49 THEN 90 ELSE IF k=50 THEN 170
 80 GOTO 60
 90 CLS:PRINT "Define function";
 100 LOCATE 0,1:PRINT c$;"f(x) ?";f$;:LOCATE 0,0:LOCATE 6,1:INPUT @100;f$:LOCATE 0,0:z=VALF(f$)
@@ -608,7 +608,7 @@ Address 59DE:
 120 m$="∫ "+g$+" dx [a,b]":s$="a":z=a:GOSUB 800:a=z
 130 s$="b":z=b:GOSUB 800:b=z:GOTO 250
 170 m$="Err  ▒An+1-An▒<ε  (ε>0)":s$="ε":z=e:GOSUB 800:e=z:IF e<1e-90 THEN 170
-200 m$="Max loop  2ⁿ     (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200ELSE ERASE a:DIM a(m):GOTO 50
+200 m$="Max loop  2ⁿ     (n>0)":s$="n":z=m:GOSUB 800:m=z:IF m=<0 OR FRAC m<>0 THEN 200 ELSE ERASE a:DIM a(m):GOTO 50
 250 CLS:PRINT m$;TAB(0);"∫f(x)dx = .....";
 260 h=b-a:x=a:g=VALF(f$):x=b:f=VALF(f$):a(0)=(g+f)*h/2
 300 FOR i=1 TO m:h=h/2
@@ -855,7 +855,7 @@ Address 7936:
 50 IF b<0 THEN a$=" -" ELSE a$=" +"
 60 LOCATE 0,0:c$=STR$(a):IF a THEN d$=STR$(ABS b) ELSE d$=STR$(b)
 70 IF ABS b=1 THEN d$=MID$(d$,1,1)
-80 PRINT l$;:IF b=0 THEN PRINT c$;ELSE IF a=0 THEN PRINT d$;"i"; ELSE PRINT c$;a$;d$;"i";
+80 PRINT l$;:IF b=0 THEN PRINT c$; ELSE IF a=0 THEN PRINT d$;"i"; ELSE PRINT c$;a$;d$;"i";
 90 LOCATE 26,1:z=ASC(INPUT $(1)):IF z>96 THEN z=z-32
 100 ON z-41 GOTO 260,260,,260,600,260,,,,,,,,,,,,,,,,,,220,,380,,,,420,,480,,,400,360,,,,,,500,,,,,,,,,,,450
 110 GOTO 90
@@ -916,7 +916,7 @@ Address 81AD:
 70 DATA BIN,DEC,HEX,AND,OR,XOR
 80 DATA 0000,0001,0010,0011,0100,0101,0110,0111,1000,1001,1010,1011,1100,1101,1110,1111
 110 CLS:GOSUB 300
-120 z=LEN(x$):LOCATE 0,0:IF z<17 THEN PRINT c$;"[";a$(a);"] ";x$;ELSE PRINT c$;x$;
+120 z=LEN(x$):LOCATE 0,0:IF z<17 THEN PRINT c$;"[";a$(a);"] ";x$; ELSE PRINT c$;x$;
 130 IF r>16 THEN GOSUB 300
 140 r=z:LOCATE 31,1
 150 f=ASC(INPUT $(1)):IF f>96 THEN f=f-32
@@ -3147,11 +3147,11 @@ Address 199E3:
 60 GOTO 30
 100 CLS:PRINT a$(SGN(a-68)+4);" data (x,y)";TAB(21);"[EXE]:menu";:z=SGN(a-69)
 110 LOCATE 0,1:PRINT c$;"x?";d$;
-120 LOCATE 2,1:INPUT @12;z$:LOCATE 0,0:IF z$=d$ OR ASC(z$)=0 THEN 20ELSE x=VALF(z$):j=0
-125 IF x=<0 THEN IF(1 AND sq)=1 THEN 120ELSE tz=tz OR 1ELSE IF x>0 THEN j=LN x:g=ss+j*z:m=su+j*j*z
+120 LOCATE 2,1:INPUT @12;z$:LOCATE 0,0:IF z$=d$ OR ASC(z$)=0 THEN 20 ELSE x=VALF(z$):j=0
+125 IF x=<0 THEN IF(1 AND sq)=1 THEN 120 ELSE tz=tz OR 1 ELSE IF x>0 THEN j=LN x:g=ss+j*z:m=su+j*j*z
 130 r=sa+z:s=sb+x*z:u=sd+x*x*z
-140 LOCATE 18,1:INPUT @12;z$:LOCATE 0,0:IF z$=""THEN 20ELSE y=VALF(z$)
-145 IF y=<0 THEN IF sq>1 THEN 140ELSE tz=tz OR 2ELSE IF y>0 THEN k=LN y:h=st+k*z:n=sv+k*k*z:p=sx+x*k*z:q=sy+j*k*z
+140 LOCATE 18,1:INPUT @12;z$:LOCATE 0,0:IF z$=""THEN 20 ELSE y=VALF(z$)
+145 IF y=<0 THEN IF sq>1 THEN 140 ELSE tz=tz OR 2 ELSE IF y>0 THEN k=LN y:h=st+k*z:n=sv+k*k*z:p=sx+x*k*z:q=sy+j*k*z
 160 t=sc+y*z:v=se+y*y*z:w=sf+x*y*z:o=sw+j*y*z:sa=r:sb=s:sc=t:sd=u:se=v:sf=w:ss=g:st=h:su=m:sv=n:sw=o:sx=p:sy=q:GOTO 110
 200 c=15:GOSUB 350:ON sq GOSUB 360,370,380
 210 sg=a(1)/sa:sh=a(2)/sa
@@ -3170,11 +3170,11 @@ Address 199E3:
 380 a(1)=ss:a(2)=st:a(3)=su:a(4)=sv:a(5)=sy:RETURN
 400 CLS:GOSUB 200:IF c<15 OR so=0 THEN 20
 410 DEF CHR$(255)="12548C4A12":CLS:PRINT "Estimation of x [";a$(sq);"]";
-420 LOCATE 0,1:PRINT c$;"y?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
+420 LOCATE 0,1:PRINT c$;"y?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE s=VALF(z$)
 430 ON sq+1 GOSUB 950,960,970,980:LOCATE 12,1:PRINT ":▒=";STR$(a);:z$=INPUT $(1,@):GOTO 420
 450 CLS:GOSUB 200:IF c<15 OR sm=0 THEN 20
 460 DEF CHR$(255)="124A844810":CLS:PRINT "Estimation of y [";a$(sq);"]";
-470 LOCATE 0,1:PRINT c$;"x?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20ELSE s=VALF(z$)
+470 LOCATE 0,1:PRINT c$;"x?";:INPUT @10;z$:LOCATE 0,0:IF z$="" THEN 20 ELSE s=VALF(z$)
 480 ON sq+1 GOSUB 900,910,920,930:LOCATE 12,1:PRINT ":▒=";STR$(a);:z$=INPUT $(1,@):GOTO 470
 500 CLS:GOSUB 200:GOSUB 580:i=1:GOSUB 600:i=2
 510 GOSUB 600
@@ -3182,14 +3182,14 @@ Address 199E3:
 530 IF z<>13 AND z<>30 AND z<>31 THEN 520
 540 IF(z=30 AND i=1)OR(z=31 AND i=c)THEN 520
 550 IF z=30 THEN i=i-2
-560 i=i+1:IF i=<c THEN 510ELSE 20
+560 i=i+1:IF i=<c THEN 510 ELSE 20
 580 DEF CHR$(254)="0808003E00":DEF CHR$(253)="FE003E203E"
 590 a(0)=sa:a(6)=sg:a(7)=sh:a(8)=si:a(9)=sj:a(10)=sk:a(11)=sl:a(12)=p:a(13)=q:a(14)=r:RETURN
 600 GOSUB 605:READ a$,a$,b$:PRINT TAB(0);a$;TAB(7);":";b$;TAB(13);"=";a(i-1);:RETURN
 605 IF i=1 OR i=15 THEN j=0:GOTO 609
 606 IF i=6 THEN j=sq:GOTO 609
 607 IF i>12 THEN j=SGN(sq):GOTO 609
-608 k=i MOD 2:IF(i<6 AND k=1)OR(i>6 AND k=0)THEN j=INT(sq/2)ELSE j=(sq MOD 2)
+608 k=i MOD 2:IF(i<6 AND k=1)OR(i>6 AND k=0)THEN j=INT(sq/2) ELSE j=(sq MOD 2)
 609 RESTORE(600+i*10+j):RETURN
 610 DATA CNT,CNT,n
 620 DATA SUMX,SUMX,Σx

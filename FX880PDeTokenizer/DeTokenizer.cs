@@ -1075,6 +1075,12 @@ namespace FX880PDeTokenizer
                                     if (b3 == DB_BASIC_GROUP_7 && b4 == B_ELSE)
                                     {
                                         _log.logger.Debug($"{_position.ToString("X")} line {lineNumber}: multi-statement marker found before 'ELSE', ignored.");
+
+                                        //add space only if no space was before the multi-statement separator
+                                        if( _source[_position-1] != C_SPACE)
+                                        {
+                                            _sbOutput.Append($" ");
+                                        }
                                     }
                                     else
                                     {
